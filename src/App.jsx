@@ -1,0 +1,97 @@
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import AdminLogin from "./adminPages/AdminLogin";
+import ProtectedRoute from "./adminComponents/ProtectedRoute";
+import Sidebar from "./adminComponents/Sidebar";
+import Products from "./adminPages/Products";
+import Enquiries from "./adminPages/Enquries";
+import Users from "./adminPages/Users";
+import Categories from "./adminPages/Categories";
+import AdminOptions from "./adminPages/AdminOptions";
+import TermsAndConditions from "./adminPages/TermsAndConditions";
+import ChangeCredentials from "./adminComponents/ChangeCredentials";
+import CreateProduct from "./adminComponents/CreateProduct";
+import ProductTypes from "./adminPages/ProductType";
+import Header from "./clientComponents/Header";
+import Footer from "./clientComponents/Footer";
+import Home from "./clientPages/Home";
+import { Outlet } from "react-router-dom";
+import ProductCategories from "./clientPages/Products/ProductCategories";
+import ProductSubCategories from "./clientPages/Products/ProductSubCategories";
+import ProductList from "./clientPages/Products/ProductList";
+import ProductDetail from "./clientPages/Products/ProductDetail";
+import "./App.css"
+import SearchedProduct from "./clientPages/Products/SearchedProduct";
+import AboutUs from "./clientPages/AboutUs";
+import ContactUs from "./clientPages/ContactUs";
+
+const DashboardLayout = () => {
+  return (
+    <div className="flex">
+      <Sidebar />
+      <div className="flex-1  ml-64">
+        <Routes>
+          <Route path="products" element={<Products />} />
+          <Route path="enquiries" element={<Enquiries />} />
+          <Route path="users" element={<Users />} />
+          <Route path="categories" element={<Categories />} />
+          <Route path="product/type" element={<ProductTypes />} />
+          <Route path="admin-options" element={<AdminOptions />} />
+          <Route path="/termsandconditions" element={<TermsAndConditions />} />
+          <Route path="/change-credentials" element={<ChangeCredentials />} />
+          <Route path="/add/product" element={<CreateProduct />} />
+          {/* Add more routes for other dashboard pages here */}
+        </Routes>
+      </div>
+    </div>
+  );
+};
+
+const DefaultLayout = () => {
+  return (
+    <div>
+      <Header />
+      <main>
+        <Outlet /> {/* Renders nested routes inside DefaultLayout */}
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/admin" element={<AdminLogin />} />
+        <Route
+          path="/admin/dashboard/*"
+          element={
+            <ProtectedRoute>
+              <DashboardLayout />
+            </ProtectedRoute>
+          }
+        />
+
+
+         {/* Client Routes inside DefaultLayout */}
+         <Route path="/" element={<DefaultLayout />}>
+          <Route index element={<Home />} />
+          <Route path="/product-categories" element={<ProductCategories />} />
+          <Route path="/product-categories/:categoryId" element={<ProductSubCategories />} />
+          <Route path="/product-categories/:categoryId/:subCategoryId" element={<ProductList />} />
+          <Route path="/product-categories/:categoryId/:subCategoryId/:productId" element={<ProductDetail />} />
+          <Route path="/search" element={<SearchedProduct />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          {/* Add more client routes here */}
+        </Route>
+      </Routes>
+      <ToastContainer />
+    </BrowserRouter>
+  );
+}
+
+export default App;
