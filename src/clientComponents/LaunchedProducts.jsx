@@ -1,6 +1,22 @@
+import { BASE_URL } from '@/constants';
 import React from 'react'
+import useFetchData from './utils/useFetchData';
+import { useNavigate } from 'react-router-dom';
 
 const LaunchedProducts = () => {
+
+    const navigate = useNavigate();
+
+    const apiUrl = `${BASE_URL}/admin/get/products`;
+
+    const { data, loading, error } = useFetchData(apiUrl);
+    
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error}</p>;
+
+    console.log("data pr", data)
+
     return (
         <div className='xl:px-[60px] px-[16px] xl:py-[70px] py-[30px]'>
             <div>
@@ -10,7 +26,7 @@ const LaunchedProducts = () => {
                 </div>
 
                 <div className="flex flex-wrap justify-center gap-[29px]">
-                    {[...Array(4)].map((_, index) => (
+                    {(data.products && data.products.length > 0) && data.products.slice(0, 4).map((item, index) => (
                         <div
                             key={index}
                             className="w-[calc(50%-14.5px)] md:w-[calc(25%-21.75px)] h-auto border border-[#D2D2D2] px-[14px] py-[18px] md:mb-[70px] mb-[0px]"
@@ -20,10 +36,10 @@ const LaunchedProducts = () => {
                             </div>
 
                             <div className='md:h-[273px] h-[159.55px] mb-[12px]'>
-                                <img src='/product-1.png' alt='product' className='w-full h-full object-cover' />
+                                <img src={item.thumbnailImage} alt='product' className='w-full h-full object-cover' />
                             </div>
 
-                            <p className='text-textBlack md:text-sm text-xs mb-[22px]'>Vernier Caliper 150mm, 6 inches, Magnetic Steel made with Pinch Fine Measure Function</p>
+                            <p className='text-textBlack md:text-sm text-xs mb-[22px]'>{item.name}</p>
 
                             <button className="w-full md:h-[45px] h-[32px] flex items-center justify-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
                                 Enquire Now
@@ -31,13 +47,14 @@ const LaunchedProducts = () => {
                         </div>
                     ))}
 
-                    <div className='flex justify-center'>
+                    
+                </div>
+                <div className='flex justify-center'>
 
-                        <button className="w-[216px] h-[48px] md:flex hidden justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+                        <button onClick={() => navigate('/products')} className="w-[216px] h-[48px] md:flex hidden justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
                             View All
                         </button>
                     </div>
-                </div>
             </div>
         </div>
     )

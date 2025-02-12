@@ -1,7 +1,18 @@
 import EquipmentCard from '@/clientComponents/EquipmentCard'
+import useFetchData from '@/clientComponents/utils/useFetchData';
+import { BASE_URL } from '@/constants';
 import React from 'react'
 
 const ProductCategories = () => {
+
+  const apiUrl = `${BASE_URL}/admin/get/categories`;
+
+    const { data, loading, error } = useFetchData(apiUrl);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error}</p>;
+
+    console.log("data", data)
 
   const equipments = [
     {
@@ -160,7 +171,7 @@ const ProductCategories = () => {
         </div>
 
         <div className='flex flex-wrap justify-start gap-[29px] mt-[40px] mb-[70.07px]'>
-          {(equipments && equipments.length > 0) && equipments.map((item) => (<EquipmentCard key={item.id} equipment={item} />))}
+          {(data?.categories && data?.categories.length) && data?.categories.map((item) => (<EquipmentCard key={item._id} equipment={item} />))}
         </div>
       </div>
     </div>

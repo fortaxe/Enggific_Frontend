@@ -1,3 +1,5 @@
+import useFetchData from '@/clientComponents/utils/useFetchData';
+import { BASE_URL } from '@/constants';
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
@@ -31,6 +33,16 @@ const ProductList = () => {
         navigate(`/product-categories/${equipment.id}/${category.id}/${product.id}`)  
         
     }
+
+    const apiUrl = `${BASE_URL}/admin/get/products`;
+
+    const { data, loading, error } = useFetchData(apiUrl);
+    
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error}</p>;
+
+    console.log("data pr", data)
 
     return (
         <section>
@@ -95,7 +107,7 @@ const ProductList = () => {
                             </select>
                         </div>
                         <div className="flex flex-wrap gap-[29px]">
-                            {[...Array(4)].map((_, index) => (
+                            {(data.products && data.products.length > 0) && data.products.map((item, index) => (
                                 <div
                                     key={index}
                                     onClick={handleNavigate}
@@ -106,10 +118,10 @@ const ProductList = () => {
                                     </div>
 
                                     <div className='md:h-[273px] h-[159.55px] mb-[12px]'>
-                                        <img src='/product-1.png' alt='product' className='w-full h-full object-cover' />
+                                        <img src={item.thumbnailImage} alt='product' className='w-full h-full object-cover' />
                                     </div>
 
-                                    <p className='text-textBlack md:text-sm text-xs mb-[22px]'>Vernier Caliper 150mm, 6 inches, Magnetic Steel made with Pinch Fine Measure Function</p>
+                                    <p className='text-textBlack md:text-sm text-xs mb-[22px]'>{item.name}</p>
 
                                     <button className="w-full md:h-[45px] h-[32px] flex items-center justify-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
                                         Enquire Now

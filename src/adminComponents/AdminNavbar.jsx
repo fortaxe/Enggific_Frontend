@@ -67,7 +67,7 @@ const AdminNavbar = ({ title, onSearch }) => {
         : [];
 
     return (
-        <nav className="bg-[#386D62] text-white shadow-lg sticky top-0 z-10">
+        <nav className="bg-[#22384D] text-white shadow-lg sticky top-0 z-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
@@ -95,7 +95,7 @@ const AdminNavbar = ({ title, onSearch }) => {
                     <div className="flex items-center space-x-4">
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="outline" className="bg-white text-blue-600 hover:bg-blue-100">Category</Button>
+                                <Button variant="outline" className="bg-white text-[#E5810C]">Category</Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent>
                                 <DropdownMenuLabel>Select Category</DropdownMenuLabel>
@@ -109,7 +109,7 @@ const AdminNavbar = ({ title, onSearch }) => {
                         </DropdownMenu>
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="outline" className="bg-white text-purple-600 hover:bg-purple-100">Status</Button>
+                                <Button variant="outline" className="bg-white text-black hover:bg-purple-100">Status</Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent>
                                 <DropdownMenuLabel>Select Status</DropdownMenuLabel>
@@ -132,7 +132,7 @@ const AdminNavbar = ({ title, onSearch }) => {
                 </div>
                 <div className="flex items-center space-x-2 py-2">
                     {selectedCategory && (
-                        <Badge variant="secondary" className="bg-blue-200 text-blue-800 flex items-center">
+                        <Badge variant="secondary" className="bg-blue-200 text-black flex items-center">
                             Category: {selectedCategory}
                             <Button variant="ghost" size="sm" onClick={() => clearFilter('category')} className="ml-1 p-0">
                                 <X className="h-4 w-4" />
@@ -140,7 +140,7 @@ const AdminNavbar = ({ title, onSearch }) => {
                         </Badge>
                     )}
                     {selectedStatus && (
-                        <Badge variant="secondary" className="bg-purple-200 text-purple-800 flex items-center">
+                        <Badge variant="secondary" className="bg-purple-200 text-black flex items-center">
                             Status: {selectedStatus}
                             <Button variant="ghost" size="sm" onClick={() => clearFilter('status')} className="ml-1 p-0">
                                 <X className="h-4 w-4" />

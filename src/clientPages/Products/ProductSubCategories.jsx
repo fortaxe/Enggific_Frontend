@@ -1,7 +1,24 @@
 import React from 'react'
 import EquipmentCard from '../../clientComponents/EquipmentCard'
+import { useParams } from 'react-router-dom';
+import { BASE_URL } from '@/constants';
+import useFetchData from '@/clientComponents/utils/useFetchData';
+import useFetchSubCategoryData from '@/clientComponents/utils/useFetchSubCategoryData';
 
 const ProductSubCategories = () => {
+
+  const apiUrl = `${BASE_URL}/get/productTypesByCategory`;
+
+  const { categoryId } = useParams();
+
+  console.log("apiUrl", apiUrl)
+
+  const { data, loading, error } = useFetchSubCategoryData(categoryId);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  console.log("sub cate", data)
 
     const equipments = [
         {
@@ -160,7 +177,7 @@ const ProductSubCategories = () => {
         </div>
 
         <div className='flex flex-wrap justify-start gap-[29px] mt-[40px] mb-[70.07px]'>
-          {(equipments && equipments.length > 0) && equipments.map((item) => (<EquipmentCard key={item.id} equipment={item} page='sub-category' />))}
+          {(data.productTypes && data.productTypes.length > 0) ? data.productTypes.map((item) => (<EquipmentCard key={item._id} equipment={item} page='sub-category' />)) :<div className='flex justify-center items-center w-full h-[300px]'>No Sub Category Found</div>}
         </div>
       </div>
     </div>

@@ -37,16 +37,15 @@ const EditProduct = ({ product, onSave }) => {
         dispatch(fetchProductTypes());
     }, []);
 
-    console.log('productTypes: ', productTypes);
-
     const formik = useFormik({
         initialValues: {
             id: product?._id || "",
             name: product?.name || "",
             composition: product?.composition || "",
             sku: product?.sku || "",
-            category: product?.category || [],
-            productTypeName: product?.productType?.name || "",
+            productTypeId: product?.productType?._id || "",
+            // category: product?.category || [],
+            // productTypeName: product?.productType?.name || "",
           
             thumbnailImage: null,
         },
@@ -54,8 +53,8 @@ const EditProduct = ({ product, onSave }) => {
             name: Yup.string().required("Product name is required"),
             composition: Yup.string().required("Composition is required"),
             sku: Yup.string().required("SKU is required"),
-            category: Yup.array().min(1, "At least one category is required"),
-            productTypeName: Yup.string().required("Product type is required"),
+            // category: Yup.array().min(1, "At least one category is required"),
+            // productTypeName: Yup.string().required("Product type is required"),
             thumbnailImage: Yup.mixed().nullable(),
         }),
         onSubmit: async (values) => {
@@ -65,9 +64,11 @@ const EditProduct = ({ product, onSave }) => {
             // Format the data according to backend expectations
             const formattedValues = {
                 ...values,
-                category: values.category.map(cat => cat.name), // Send category names
+                // category: values.category.map(cat => cat.name), // Send category names
               
             };
+
+            data.append("productTypeId", values.productTypeId);
 
             // Append all values to FormData
             Object.entries(formattedValues).forEach(([key, value]) => {
@@ -145,9 +146,21 @@ const EditProduct = ({ product, onSave }) => {
         formik.setFieldValue("category", updatedCategories);
     };
 
-    const handleProductTypeSelect = (type) => {
-        formik.setFieldValue("productTypeName", type.name);
-    };
+    // const handleProductTypeSelect = (type) => {
+    //     formik.setFieldValue("productTypeName", type.name);
+    // };
+
+    const handleProductTypeSelect = (productType, id) => {
+        formik.setFieldValue("productType", {
+          _id: id,
+          name: productType,
+        });
+      };
+
+      // Find the product whose ID matches the selected productTypeId
+  const selectedProduct = productTypes.find(
+    product => product._id === formik.values.productTypeId
+  );
 
     return (
         <div className="max-w-5xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
@@ -225,7 +238,7 @@ const EditProduct = ({ product, onSave }) => {
                     </div>
 
                     {/* Categories */}
-                    <div>
+                    {/* <div>
                         <label className="block text-sm font-medium text-gray-700 pb-2">
                             Specialities
                         </label>
@@ -272,24 +285,25 @@ const EditProduct = ({ product, onSave }) => {
                         {formik.touched.category && formik.errors.category && (
                             <div className="text-red-500">{formik.errors.category}</div>
                         )}
-                    </div>
+                    </div> */}
 
                     {/* Product Type */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700 pb-2">
-                            Product Type
+                            Sub category
                         </label>
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <Button variant="outline" className="w-full">
-                                    {formik.values.productTypeName || "Select Product Type"}
+                                    {selectedProduct ? selectedProduct.category.name : "Select Sub category"}
                                 </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent>
                                 {productTypes.map((type) => (
                                     <DropdownMenuItem
                                         key={type._id}
-                                        onClick={() => handleProductTypeSelect(type)}
+                                        // onClick={() => handleProductTypeSelect(type)}
+                                        onClick={() => handleProductTypeSelect(type?.name, type?._id)}
                                     >
                                         {type.name}
                                     </DropdownMenuItem>

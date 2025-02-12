@@ -1,7 +1,22 @@
 import React from 'react'
 import EquipmentCard from './EquipmentCard'
+import { BASE_URL } from '@/constants';
+import useFetchData from './utils/useFetchData';
+import { useNavigate } from 'react-router-dom';
 
 const EquipmentsCards = () => {
+
+    const navigate = useNavigate();
+
+    const apiUrl = `${BASE_URL}/admin/get/categories`;
+
+    const { data, loading, error } = useFetchData(apiUrl);
+    
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error}</p>;
+
+    console.log("data", data)
 
     const equipments = [
         {
@@ -88,11 +103,14 @@ const EquipmentsCards = () => {
                 </div>
 
                 <div className='flex flex-wrap justify-start gap-[29px] mt-[40px] xl:mb-[70.07px] mb-[32.89px]'>
-                    {(equipments && equipments.length > 0) && equipments.map((item) => (<EquipmentCard key={item.id} equipment={item} />))}
+                    {(data?.categories && data?.categories.length) && data.categories.slice(0, 6).map((item) => (
+                        <EquipmentCard key={item._id} equipment={item} />
+                    ))}
                 </div>
+
                 <div className='flex justify-center'>
 
-                    <button className="xl:w-[216px] xl:h-[48px] w-[189px] h-[42px] bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+                    <button onClick={() => navigate('/product-categories')} className="xl:w-[216px] xl:h-[48px] w-[189px] h-[42px] bg-orange-500 text-white text-base hover:bg-orange-600 transition">
                         View All
                     </button>
                 </div>

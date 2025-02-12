@@ -42,8 +42,15 @@ const CreateProduct = () => {
   }, [dispatch]);
 
   // Handle Category Selection
-  const handleproductTypeSelect = (productType) => {
-    formik.setFieldValue("productType", productType);
+  // const handleproductTypeSelect = (productType) => {
+  //   formik.setFieldValue("productType", productType);
+  // };
+
+  const handleProductTypeSelect = (productType, id) => {
+    formik.setFieldValue("productType", {
+      _id: id,
+      name: productType,
+    });
   };
 
   // Handle Product Images
@@ -125,10 +132,10 @@ const CreateProduct = () => {
       name: Yup.string().required("Product name is required"),
       composition: Yup.string().required("Composition is required"),
       sku: Yup.string().required("SKU is required"),
-      categories: Yup.array()
-        .min(1, 'Select at least one category')
-        .required('Categories are required'),
-      productType: Yup.string().required("Please select a Product Type"),
+      // categories: Yup.array()
+      //   .min(1, 'Select at least one category')
+      //   .required('Categories are required'),
+      // productType: Yup.string().required("Please select a Product Type"),
       // tags: Yup.string().optional(),
     }),
     onSubmit: async (values) => {
@@ -137,19 +144,22 @@ const CreateProduct = () => {
         return;
       }
 
-      setIsCreating(true);
+      
+
       const data = new FormData();
 
+      setIsCreating(true);
+      // const data = new FormData();
       // Add basic fields
       data.append("name", values.name);
       data.append("composition", values.composition);
       data.append("sku", values.sku);
-      data.append("productType", values.productType);
+      data.append("productTypeId", values.productType?._id);
       
       // Handle categories - send as single category field with comma-separated values
-      if (values.categories && values.categories.length > 0) {
-        data.append("category", values.categories.join(','));
-      }
+      // if (values.categories && values.categories.length > 0) {
+      //   data.append("category", values.categories.join(','));
+      // }
 
       // Handle tags
       // if (values.tags) {
@@ -163,6 +173,7 @@ const CreateProduct = () => {
       });
 
       try {
+        // console.log("Data to be sent:", data)
         await dispatch(createProduct(data)).unwrap();
         toast.success("Product created successfully");
         formik.resetForm();
@@ -308,39 +319,40 @@ const CreateProduct = () => {
             </div>
 
             {/* Category Selection */}
-            <MultiCategoryDropdown formik={formik} categories={categories} />
+            {/* <MultiCategoryDropdown formik={formik} categories={categories} /> */}
             <div className="col-span-2 md:col-span-1 mt-4">
               <label className="block text-sm font-medium text-gray-700 pb-2">
-                Product Type
+                Sub category
               </label>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild className="w-full">
                   <Button variant="outline">
-                    {formik?.values?.productType || "Select Product Type"}
+                  {formik?.values?.productType?.name || "Select Sub Category"}
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   {productTypes?.map((productType) => (
                     <DropdownMenuItem
                       key={productType._id}
-                      onClick={() => handleproductTypeSelect(productType?.name)}
+                      onClick={() => handleProductTypeSelect(productType?.name, productType?._id)}
                     >
+                      {/* {console.log("productType", productType)} */}
                       {productType?.name}
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
-              {formik.touched.productType && formik.errors.productType && (
+              {/* {formik.touched.productType && formik.errors.productType && (
                 <div className="text-red-500">{formik.errors.productType}</div>
-              )}
+              )} */}
             </div>
           </div>
 
           <div className="flex flex-col items-center">
         
-            {/* Composition */}
+            {/* Product Details */}
             <div className="max-w-4xl w-full mt-6">
-              <label className="block text-sm font-medium text-gray-700 pb-2">Composition</label>
+              <label className="block text-sm font-medium text-gray-700 pb-2">Product Details</label>
               <JoditEditor
                 ref={compositionEditorRef}
                 value={formik.values.composition}
@@ -392,7 +404,7 @@ const CreateProduct = () => {
             <Button
               type="submit"
               disabled={isCreating || loading}
-              className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+              className="px-4 py-2 bg-[#E5810C] text-white hover:bg-[#E5810C] transition-colors duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
             >
               {isCreating ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : 'Create Product'}
             </Button>

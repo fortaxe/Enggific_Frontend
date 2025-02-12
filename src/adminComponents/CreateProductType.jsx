@@ -8,6 +8,9 @@ import CustomSpinner from "@/adminComponents/CustomSpinner";
 import { toast } from "react-toastify";
 import {  supportedFormats } from "@/constant/constant";
 import { compressImage } from "./CompressImage";
+import { BASE_URL, Token } from "@/constants";
+import { useEffect } from "react";
+import axios from "axios";
 
 const CreateProductType = ({ isOpen, onClose }) => {
     const dispatch = useDispatch();
@@ -16,11 +19,32 @@ const CreateProductType = ({ isOpen, onClose }) => {
     const [name, setName] = useState("");
     const [productTypeLogo, setProductTypeLogo] = useState(null);
     const [errors, setErrors] = useState({});
+    const [categories, setCategories] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState("");
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
         setProductTypeLogo(file);
     };
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+          try {
+            const response = await axios.get(`${BASE_URL}/admin/get/categories`, {
+              headers: {
+                Authorization: `Bearer ${Token}`
+              }
+            });
+            setCategories(response.data.categories || []);
+          } catch (error) {
+            console.error('Error fetching categories:', error);
+          }
+        };
+    
+        fetchCategories();
+      }, [Token]);
+
+      console.log("categories", categories)
 
     const validateForm = () => {
         const newErrors = {};
@@ -35,6 +59,10 @@ const CreateProductType = ({ isOpen, onClose }) => {
             newErrors.productTypeLogo = "Product Type logo is required";
         } else if (!supportedFormats.includes(productTypeLogo.type)) {
             newErrors.productTypeLogo = `Category logo is not a supported format. Please upload jpg, png, jpeg, or webp.`;
+        }
+
+        if (!selectedCategory) {
+            newErrors.selectedCategory = "Category selection is required";
         }
 
         return newErrors;
@@ -52,6 +80,7 @@ const CreateProductType = ({ isOpen, onClose }) => {
         setIsCreating(true);
         const formData = new FormData();
         formData.append("name", name);
+        formData.append("categoryId", selectedCategory);
         if (productTypeLogo) {
             try {
                 // Compress the image before adding it to the form data
@@ -79,6 +108,7 @@ const CreateProductType = ({ isOpen, onClose }) => {
     const handleCloseAndReset = () => {
         setName("");
         setProductTypeLogo(null);
+        setSelectedCategory("");
         setErrors({});
         onClose();
     };
@@ -87,7 +117,7 @@ const CreateProductType = ({ isOpen, onClose }) => {
         <Dialog open={isOpen} onOpenChange={handleCloseAndReset}>
             <DialogContent className="text-color-[#386D62]">
                 <DialogHeader>
-                    <DialogTitle>Add New Product Type</DialogTitle>
+                    <DialogTitle>Add New Sub Category</DialogTitle>
                 </DialogHeader>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -97,11 +127,28 @@ const CreateProductType = ({ isOpen, onClose }) => {
                             name="name"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            placeholder="Enter product type name"
+                            placeholder="Enter sub category name"
                         />
                         {errors.name && (
                             <div className="text-red-500">{errors.name}</div>
                         )}
+                    </div>
+
+                    <div>
+                        <label className="block mb-1">Category</label>
+                        <select
+                            className="w-full p-2 border rounded"
+                            value={selectedCategory}
+                            onChange={(e) => setSelectedCategory(e.target.value)}
+                        >
+                            <option value="">Select Category</option>
+                            {categories && categories.map((category) => (
+                                <option key={category._id} value={category._id}>
+                                    {category.name}
+                                </option>
+                            ))}
+                        </select>
+                        {errors.selectedCategory && <div className="text-red-500">{errors.selectedCategory}</div>}
                     </div>
 
                     <div>

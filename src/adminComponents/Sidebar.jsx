@@ -32,7 +32,7 @@ const Sidebar = () => {
       <div className="fixed top-4 left-4 z-50 lg:hidden">
         <button
           type="button"
-          className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg hover:bg-[#E5810C] hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           onClick={toggleSidebar}
         >
           <span className="sr-only">Toggle Sidebar</span>
@@ -49,8 +49,8 @@ const Sidebar = () => {
         aria-label="Sidebar"
       >
         <div className="flex flex-col h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
-          <div className="flex items-center mb-5">
-            <img src="/logo.png" alt="Accernity" className="h-[100px] w-full object-contain mr-3" />
+          <div className="flex items-center justify-center mb-5">
+            <img src="/enggific_logo.png" alt="Accernity" className="h-[64px] w-[77.77px] object-contain mr-3" />
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
 
             </span>
@@ -59,7 +59,7 @@ const Sidebar = () => {
             <li>
               <Link
                 to="/admin/dashboard/enquiries"
-                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${isActiveRoute("/admin/dashboard/enquiries") ? "bg-gray-100 dark:bg-gray-700" : ""
+                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#E5810C] hover:text-white dark:hover:bg-gray-700 group ${isActiveRoute("/admin/dashboard/enquiries") ? "bg-[#E5810C] dark:bg-gray-700" : ""
                   }`}
               >
                 <svg className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
@@ -74,7 +74,7 @@ const Sidebar = () => {
             <li>
               <Link
                 to="/admin/dashboard/add/product"
-                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${isActiveRoute("/admin/dashboard/add/product") ? "bg-gray-100 dark:bg-gray-700" : ""
+                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#E5810C] hover:text-white dark:hover:bg-gray-700 group ${isActiveRoute("/admin/dashboard/add/product") ? "bg-[#E5810C] text-white dark:bg-gray-700" : ""
                   }`}
               >
                 <Plus className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
@@ -86,7 +86,7 @@ const Sidebar = () => {
             <li>
               <Link
                 to="/admin/dashboard/products"
-                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${isActiveRoute("/admin/dashboard/products") ? "bg-gray-100 dark:bg-gray-700" : ""
+                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#E5810C] hover:text-white dark:hover:bg-gray-700 group ${isActiveRoute("/admin/dashboard/products") ? "bg-[#E5810C] dark:bg-gray-700" : ""
                   }`}
               >
                 <svg className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
@@ -98,7 +98,7 @@ const Sidebar = () => {
             <li>
               <Link
                 to="/admin/dashboard/users"
-                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${isActiveRoute("/admin/dashboard/users") ? "bg-gray-100 dark:bg-gray-700" : ""
+                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#E5810C] hover:text-white dark:hover:bg-gray-700 group ${isActiveRoute("/admin/dashboard/users") ? "bg-[#E5810C] dark:bg-gray-700" : ""
                   }`}
               >
                 <svg className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -112,7 +112,7 @@ const Sidebar = () => {
             {/* <li>
               <Link
                 to="/admin/dashboard/edit/product"
-                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${isActiveRoute("/admin/dashboard/edit/product") ? "bg-gray-100 dark:bg-gray-700" : ""
+                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#E5810C] hover:text-white dark:hover:bg-gray-700 group ${isActiveRoute("/admin/dashboard/edit/product") ? "bg-[#E5810C] dark:bg-gray-700" : ""
                   }`}
               >
                 <svg className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
@@ -126,7 +126,7 @@ const Sidebar = () => {
             <li> 
               <Link
                 to="/admin/dashboard/categories"
-                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${isActiveRoute("/admin/dashboard/categories") ? "bg-gray-100 dark:bg-gray-700" : ""
+                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#E5810C] hover:text-white dark:hover:bg-gray-700 group ${isActiveRoute("/admin/dashboard/categories") ? "bg-[#E5810C] dark:bg-gray-700" : ""
                   }`}
 
               >
@@ -139,19 +139,19 @@ const Sidebar = () => {
 
 
 
-                <span className="flex-1 ms-3 whitespace-nowrap">Specialites</span>
+                <span className="flex-1 ms-3 whitespace-nowrap">Category</span>
               </Link>
             </li>
 
-            {/* Product Type */}
+            {/* Sub Category */}
             <li>
               <Link
                 to="/admin/dashboard/product/type"
-                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${isActiveRoute("/admin/dashboard/product/type") ? "bg-gray-100 dark:bg-gray-700" : ""
+                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#E5810C] hover:text-white dark:hover:bg-gray-700 group ${isActiveRoute("/admin/dashboard/product/type") ? "bg-[#E5810C] dark:bg-gray-700" : ""
                   }`}
               >
                 <Package className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
-                <span className="flex-1 ms-3 whitespace-nowrap">Product Type</span>
+                <span className="flex-1 ms-3 whitespace-nowrap">Sub Category</span>
               </Link>
             </li>
 
@@ -159,7 +159,7 @@ const Sidebar = () => {
             <li>
               <Link
                 to="/admin/dashboard/admin-options"
-                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${isActiveRoute("/admin/dashboard/admin-options") ? "bg-gray-100 dark:bg-gray-700" : ""
+                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#E5810C] hover:text-white dark:hover:bg-gray-700 group ${isActiveRoute("/admin/dashboard/admin-options") ? "bg-[#E5810C] dark:bg-gray-700" : ""
                   }`}
               >
                <Cog className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
@@ -170,7 +170,7 @@ const Sidebar = () => {
             <li>
               <Link
                 to="/admin/dashboard/termsandconditions"
-                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${isActiveRoute("/admin/dashboard/termsandconditions") ? "bg-gray-100 dark:bg-gray-700" : ""
+                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#E5810C] hover:text-white dark:hover:bg-gray-700 group ${isActiveRoute("/admin/dashboard/termsandconditions") ? "bg-[#E5810C] dark:bg-gray-700" : ""
                   }`}
               >
                 <svg className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -186,8 +186,8 @@ const Sidebar = () => {
           <div className="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
             <Link
               to="/admin/dashboard/change-credentials"
-              className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group 
-              ${isActiveRoute("/admin/dashboard/change-credentials") ? "bg-gray-100 dark:bg-gray-700" : ""
+              className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#E5810C] hover:text-white dark:hover:bg-gray-700 group 
+              ${isActiveRoute("/admin/dashboard/change-credentials") ? "bg-[#E5810C] dark:bg-gray-700" : ""
                 }`}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
@@ -199,7 +199,7 @@ const Sidebar = () => {
             </Link>
             <Link
               to="/admin"
-              className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#E5810C] hover:text-white dark:hover:bg-gray-700 group"
             >
               <svg className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />

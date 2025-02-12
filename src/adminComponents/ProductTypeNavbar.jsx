@@ -17,15 +17,15 @@ const ProductTypeNavbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
-                        <span className="text-2xl font-bold">Product Types</span>
+                        <span className="text-2xl font-bold">Sub Category</span>
                     </div>
                     <div className="flex items-center space-x-4">
                 <Button
-                    className="bg-green-500 hover:bg-green-600 text-white ml-auto" 
+                    className="bg-[#E5810C] hover:bg-green-600 text-white ml-auto" 
                     onClick={handleOpenModal}
                 >
                     <Plus className="mr-2 h-5 w-5" />
-                    Add Product Type
+                    Add Sub Category
                 </Button>
                 </div>
                 </div>
