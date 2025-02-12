@@ -3,7 +3,7 @@ import { Carousel } from 'react-responsive-carousel'
 
 const KnowUs = () => {
     return (
-        <div className='bg-[#F8F8F8] px-[153px] pt-[94px] pb-[104px]'>
+        <div className='bg-[#F8F8F8] xl:px-[153px] px-[16px] pt-[94px] pb-[104px]'>
             <div className="flex flex-wrap md:justify-center justify-start gap-[29px]">
                 <div
                     className={`md:h-[304px] md:w-[428px] h-auto w-auto`}
@@ -30,7 +30,7 @@ const KnowUs = () => {
                 </div>
 
 
-                <div className="h-[304px] w-[739px]">
+                <div className="h-[304px] xl:w-[739px] w-full">
                     <div className='w-full h-[253px] py-[29px]'>
                         <Carousel
                             showArrows={true}
@@ -47,7 +47,7 @@ const KnowUs = () => {
                                         onClick={onClickHandler}
                                         title={label}
                                         style={{ backgroundColor: '#F8F8F8' }}
-                                        className="absolute left-0 top-1/2 transform -translate-y-1/2 p-2 z-10 h-full"
+                                        className="absolute hidden xl:block left-0 top-1/2 transform -translate-y-1/2 p-2 z-10 h-full"
                                     >
                                         <svg width={38} height={38} viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M17.1036 18.9624L24.6145 11.4515L22.9834 9.82031L13.8413 18.9624L22.9834 28.1045L24.6145 26.4733L17.1036 18.9624Z" fill="#8C8C8C" />
@@ -62,7 +62,7 @@ const KnowUs = () => {
                                         onClick={onClickHandler}
                                         title={label}
                                         style={{ backgroundColor: '#F8F8F8' }}
-                                        className="absolute right-0 top-1/2 transform -translate-y-1/2 p-2 z-10 h-full"
+                                        className="absolute hidden xl:block right-0 top-1/2 transform -translate-y-1/2 p-2 z-10 h-full"
                                     >
                                         <svg width={38} height={38} viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M20.8964 18.9624L13.3855 11.4515L15.0167 9.82031L24.1588 18.9624L15.0167 28.1045L13.3855 26.4733L20.8964 18.9624Z" fill="#8C8C8C" />
@@ -71,7 +71,7 @@ const KnowUs = () => {
                                 )
                             )}
                         >
-                            <div className='bg-white px-[69px] py-[39px]'>
+                            <div className='bg-white xl:px-[69px] px-[20px] py-[39px]'>
                                 <p className='text-lg text-textBlack text-left'>The lab equipment we purchased exceeded our expectations in terms of quality and precision. The team provided excellent support, guiding us through the entire process. Highly recommend them for reliable scientific solutions</p>
 
                                 <div className='flex justify-between items-center mt-[15px]'>
@@ -90,7 +90,7 @@ const KnowUs = () => {
                                 </div>
                             </div>
 
-                            <div className='bg-white px-[69px] py-[39px]'>
+                            <div className='bg-white xl:px-[69px] px-[20px] py-[39px]'>
                                 <p className='text-lg text-textBlack text-left'>The lab equipment we purchased exceeded our expectations in terms of quality and precision. The team provided excellent support, guiding us through the entire process. Highly recommend them for reliable scientific solutions</p>
 
                                 <div className='flex justify-between items-center mt-[15px]'>

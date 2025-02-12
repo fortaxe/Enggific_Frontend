@@ -152,9 +152,9 @@ const ProductSubCategories = () => {
       ]
 
   return (
-    <div className='mt-[70px]'>
-      <div className='px-[60px]'>
-        <div className='text-center mb-[55px]'>
+    <div className='xl:mt-[70px] mt-[30px]'>
+      <div className='xl:px-[60px] px-[16px]'>
+        <div className='text-center xl:mb-[55px] mb-[29px]'>
           <h3 className='md:text-2xl text-base text-textBlack'>Explore</h3>
           <h2 className='md:text-[38px] text-[26px] text-textOrange font-bold'>Our product sub categoris</h2>
         </div>

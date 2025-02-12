@@ -1,5 +1,4 @@
 import MagniFyingImage from '@/clientComponents/MagniFyingImage';
-import SideBySideMagnifyingImage from '@/clientComponents/MagniFyingImage';
 import { useState } from 'react';
 
 
@@ -20,7 +19,6 @@ const ProductDetail = () => {
                 <div className="flex md:gap-4 gap-2">
                     {/* Main Image with Magnify Effect */}
                     <MagniFyingImage image={selectedImage} />
-                    {/* <SideBySideMagnifyingImage image={'https://adamrisberg.github.io/react-image-magnifiers/'} /> */}
 
                     {/* Thumbnail Images */}
                     <div className="w-[94.88px] flex flex-col gap-3">
@@ -36,7 +34,7 @@ const ProductDetail = () => {
                         ))}
                     </div>
                 </div>
-                <div className="md:hidden">
+                {/* <div className="md:hidden">
                     <img className="w-full" alt="product" src="https://i.ibb.co/QMdWfzX/component-image-one.png" />
                     <div className="flex items-center justify-between mt-3 space-x-4 md:space-x-0">
                         <img alt="img-tag-one" className="md:w-48 md:h-48 w-full" src="https://i.ibb.co/cYDrVGh/Rectangle-245.png" />
@@ -44,9 +42,9 @@ const ProductDetail = () => {
                         <img alt="img-tag-one" className="md:w-48 md:h-48 w-full" src="https://i.ibb.co/cYDrVGh/Rectangle-245.png" />
                         <img alt="img-tag-one" className="md:w-48 md:h-48 w-full" src="https://i.ibb.co/f17NXrW/Rectangle-244.png" />
                     </div>
-                </div>
-                <div className="xl:w-4/6 md:w-1/2 lg:ml-8 md:ml-6 md:mt-0 mt-6">
-                    <div className="max-w-[742px] mb-[20px]">
+                </div> */}
+                <div className="xl:w-4/6 w-full lg:ml-8 md:ml-6 md:mt-0 mt-6">
+                    <div className="xl:max-w-[742px] mb-[20px]">
                         <p className="text-2xl text-textBlack">Vernier Caliper 150mm, 6 inches, Magnetic Steel made with Pinch Fine Measure Function</p>
                     </div>
 

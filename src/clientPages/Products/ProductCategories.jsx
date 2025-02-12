@@ -152,11 +152,11 @@ const ProductCategories = () => {
   ]
 
   return (
-    <div className='mt-[70px]'>
-      <div className='px-[60px]'>
-        <div className='text-center mb-[55px]'>
+    <div className='xl:mt-[70px] mt-[30px]'>
+      <div className='xl:px-[60px] px-[16px]'>
+        <div className='text-center xl:mb-[55px] mb-[29px]'>
           <h3 className='md:text-2xl text-base text-textBlack'>Explore</h3>
-          <h2 className='md:text-[38px] text-[26px] text-textOrange font-bold'>Product categories</h2>
+          <h2 className='md:text-[38px] text-[26px] text-textOrange font-bold'>Product Categories</h2>
         </div>
 
         <div className='flex flex-wrap justify-start gap-[29px] mt-[40px] mb-[70.07px]'>

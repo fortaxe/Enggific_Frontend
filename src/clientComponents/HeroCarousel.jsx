@@ -39,12 +39,12 @@ const HeroCarousel = () => {
             <div  key={index} 
             className="relative w-full h-[533.33px] bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${item.image})` }}>
-            <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-row justify-end items-center p-8 md:p-16">
+            <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-row xl:justify-end justify-center items-center p-8 md:p-16">
               <div className="flex flex-col items-start max-w-[617px]">
-              <h2 className="text-white md:text-[49.33px] text-lg text-left md:text-4xl font-bold mb-[38.08px]">
+              <h2 className="text-white md:text-[49.33px] text-lg text-left md:text-4xl font-bold xl:mb-[38.08px] mb-[11px]">
                 {item.title}
               </h2>
-              <button className="mt-4 w-[218.67px] py-[15px] px-[61px] bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+              <button className="xl:w-[218.67px] xl:h-[48px] w-[98px] h-[32px] flex justify-center items-center bg-orange-500 text-white xl:text-base text-xs hover:bg-orange-600 transition">
                 Explore now
               </button>
               </div>

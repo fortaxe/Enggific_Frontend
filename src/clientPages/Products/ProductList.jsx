@@ -34,9 +34,9 @@ const ProductList = () => {
 
     return (
         <section>
-            <div className="mx-auto max-w-full px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+            <div className="mx-auto max-w-full px-4 py-[29px] sm:px-6 sm:py-12 lg:px-8">
                 <header>
-                    <h2 className="text-[38px] text-textBlack font-bold sm:text-3xl">Measuring Devices</h2>
+                    <h2 className="xl:text-[38px] text-[26px] text-textBlack font-bold sm:text-3xl">Measuring Devices</h2>
                 </header>
 
                 <div className="mt-8 block lg:hidden">
@@ -99,7 +99,7 @@ const ProductList = () => {
                                 <div
                                     key={index}
                                     onClick={handleNavigate}
-                                    className="w-full sm:w-[calc(50%-14.5px)] md:w-[calc(50%-14.5px)] lg:w-[calc(33.333%-19.33px)] md:h-auto h-[282px]  border border-[#D2D2D2] px-[14px] py-[18px] cursor-pointer"
+                                    className="w-[calc(50%-14.5px)] lg:w-[calc(33.333%-19.33px)] md:h-auto  border border-[#D2D2D2] px-[14px] py-[18px] cursor-pointer"
                                 >
                                     <div className='md:w-[55px] md:h-[27px] w-[32.14px] h-[15.78px] bg-[#FF1C1C] flex items-center justify-center'>
                                         <p className='text-xs font-bold text-white'>Sale</p>

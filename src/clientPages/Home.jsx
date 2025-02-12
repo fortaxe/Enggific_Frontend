@@ -18,7 +18,7 @@ const Home = () => {
           <div className='hidden md:block'>
             <p className='md:text-xl text-base text-white'>Contact us for a comprehensive range of engineering and scientific laboratory equipments</p>
           </div>
-          <button className="w-[216px] py-[15px] px-[61px] bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+          <button className="xl:w-[216px] xl:h-[48px] w-[144px] h-[32px] flex justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
             Contact Us
           </button>
         </div>
@@ -31,10 +31,10 @@ const Home = () => {
       <CompanyBanners />
       <div className='relative h-[90px] bg-cover bg-top ' style={{ backgroundImage: `url(/contact_bg.jpg)` }}>
         <div className="absolute inset-0  flex flex-row justify-center items-center gap-[32px] bg-[rgba(34,56,77,0.74)]">
-          <div>
+          <div className='hidden md:block'>
             <p className='text-xl text-white'>Contact us for a comprehensive range of engineering and scientific laboratory equipments</p>
           </div>
-          <button className="w-[216px] py-[15px] px-[61px] bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+          <button className="xl:w-[216px] xl:h-[48px] w-[144px] h-[32px] flex justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
             Contact Us
           </button>
         </div>

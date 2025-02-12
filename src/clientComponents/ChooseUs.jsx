@@ -54,14 +54,14 @@ const ChooseUs = () => {
     ]
 
     return (
-        <div className='bg-[#22384D] md:px-[60px] px-[16px] md:pb-[100px] pb-[63.99px] pt-[70px]'>
+        <div className='bg-[#22384D] md:px-[60px] px-[16px] md:pb-[100px] pb-[63.99px] xl:pt-[70px] pt-[52px]'>
             <div className=''>
                 <div className='text-center mb-[34px]'>
                     <h3 className='md:text-2xl text-base text-white'>The benefits of</h3>
                     <h2 className='md:text-[38px] text-[26px] text-white font-bold'>Choosing us</h2>
                 </div>
 
-                <div className='flex flex-wrap  md:gap-[29px] gap-[8.33px] md:p-4 p-0'>
+                <div className='flex flex-wrap  md:gap-[29px] gap-[26px] md:p-4 p-0'>
                     {data.map((item, index) => (
                         <div
                             key={index}
@@ -71,7 +71,7 @@ const ChooseUs = () => {
                                 <div>
                                     {item.icon}
                                 </div>
-                                <p className='md:text-[22px] text-[15.31px] text-white font-bold max-w-[210px] leading-[25.33px]'>{item.title}</p>
+                                <p className='md:text-[22px] text-[15.31px] leading-[17.61px] text-white font-bold max-w-[210px] xl:leading-[25.33px]'>{item.title}</p>
                             </div>
                             <div className='md:block hidden'>
                                 <p className='text-base text-white'>{item.decription}</p>

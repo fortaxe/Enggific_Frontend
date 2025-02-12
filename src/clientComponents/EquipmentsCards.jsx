@@ -80,19 +80,19 @@ const EquipmentsCards = () => {
     ]
 
     return (
-        <div className='pt-[90px] pb-[70px] px-[60px] bg-white'>
+        <div className='xl:pt-[90px] pt-[30px] pb-[70px] xl:px-[60px] px-[16px] bg-white'>
             <div className=''>
                 <div className='text-center'>
                     <h3 className='md:text-2xl text-base text-textBlack'>Explore wide range of</h3>
-                    <h2 className='md:text-[38px] text-[26px] text-textOrange font-bold'>Engineering & scientific laboratory equipments.</h2>
+                    <h2 className='md:text-[38px] md:leading-[43.7px] text-[26px] leading-[29.9px] text-textOrange font-bold'>Engineering & scientific laboratory equipments.</h2>
                 </div>
 
-                <div className='flex flex-wrap justify-start gap-[29px] mt-[40px] mb-[70.07px]'>
+                <div className='flex flex-wrap justify-start gap-[29px] mt-[40px] xl:mb-[70.07px] mb-[32.89px]'>
                     {(equipments && equipments.length > 0) && equipments.map((item) => (<EquipmentCard key={item.id} equipment={item} />))}
                 </div>
                 <div className='flex justify-center'>
 
-                    <button className="w-[216px] py-[15px] px-[61px] bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+                    <button className="xl:w-[216px] xl:h-[48px] w-[189px] h-[42px] bg-orange-500 text-white text-base hover:bg-orange-600 transition">
                         View All
                     </button>
                 </div>
