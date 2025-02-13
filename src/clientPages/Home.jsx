@@ -5,13 +5,27 @@ import EquipmentsCards from '@/clientComponents/EquipmentsCards'
 import HeroCarousel from '@/clientComponents/HeroCarousel'
 import KnowUs from '@/clientComponents/KnowUs'
 import LaunchedProducts from '@/clientComponents/LaunchedProducts'
+import Loader from '@/clientComponents/Loader'
 import OurCards from '@/clientComponents/OurCards'
+import useFetchData from '@/clientComponents/utils/useFetchData'
+import { BASE_URL } from '@/constants'
 import React from 'react'
 
 const Home = () => {
+
+  const apiUrl = `${BASE_URL}/admin/get/banners`;
+
+    const { data, loading, error } = useFetchData(apiUrl);
+    
+
+    if (loading) return <Loader />;
+    if (error) return <p>Error: {error}</p>;
+
+    // console.log("banners data", data)
+
   return (
     <div className=''>
-      <HeroCarousel />
+      <HeroCarousel carouselData={ data.banners ? data.banners : []}/>
       <About />
       <div className='relative h-[90px] bg-cover bg-top ' style={{ backgroundImage: `url(/contact_bg.jpg)` }}>
         <div className="absolute inset-0  flex flex-row justify-center items-center gap-[32px] bg-[rgba(34,56,77,0.74)]">
