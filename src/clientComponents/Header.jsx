@@ -1,11 +1,24 @@
 import React from 'react'
 import SearchBox from './SeachBox'
 import { Link } from 'react-router-dom'
+import { BASE_URL } from '@/constants';
+import useFetchData from './utils/useFetchData';
 
 const Header = () => {
+
+    const apiUrl = `${BASE_URL}/user/get/socialMediaLinks`;
+
+    const { data, loading, error } = useFetchData(apiUrl);
+    
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error}</p>;
+
+    // console.log("socials data", data)
+
     return (
         <header className='header bg-white'>
-            <div className='w-full flex justify-between items-center p-4 px-[80px] h-[34px] md:h-auto'>
+           {(data.links && data.links.length > 0) && <div className='w-full flex justify-between items-center p-4 px-[80px] h-[34px] md:h-auto'>
                 <div className='md:flex items-center hidden'>
                     <svg width={22} height={22} viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M17.3313 9.00055C17.3313 13.9991 10.6666 18.9976 10.6666 18.9976C10.6666 18.9976 4.00195 13.9991 4.00195 9.00055C4.00195 7.23296 4.70412 5.53777 5.954 4.2879C7.20387 3.03803 8.89906 2.33586 10.6666 2.33586C12.4342 2.33586 14.1294 3.03803 15.3793 4.2879C16.6292 5.53777 17.3313 7.23296 17.3313 9.00055Z" stroke="#414141" strokeWidth="1.33926" strokeLinecap="round" strokeLinejoin="round" />
@@ -18,12 +31,12 @@ const Header = () => {
                         <path d="M4.33341 4H17.6667C17.6667 4 19.3334 4 19.3334 5.66667V15.6667C19.3334 15.6667 19.3334 17.3333 17.6667 17.3333H4.33341C4.33341 17.3333 2.66675 17.3333 2.66675 15.6667V5.66667C2.66675 5.66667 2.66675 4 4.33341 4Z" stroke="#414141" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
                         <path d="M19.3334 6.5L11.8584 11.25C11.6011 11.4112 11.3037 11.4967 11.0001 11.4967C10.6965 11.4967 10.399 11.4112 10.1417 11.25L2.66675 6.5" stroke="#414141" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
-                    <p className='text-base text-textBlack'>help@engiific.com</p>
+                    <p className='text-base text-textBlack'>{data.links[0].adminEmail}</p>
                 </div>
                 <div className='md:flex items-center hidden'>
-                    <p className='text-base text-textBlack'>Customer support +91 2546 987 456</p>
+                    <p className='text-base text-textBlack'>Customer support +91 {data.links[0]?.adminMobileNumber}</p>
                 </div>
-            </div>
+            </div>}
 
             {/* Nav */}
             <div className="bg-[#22384D]">
