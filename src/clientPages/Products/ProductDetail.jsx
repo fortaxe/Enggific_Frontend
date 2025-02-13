@@ -1,16 +1,65 @@
+import LoginPopup from '@/clientComponents/LoginPopup';
 import MagniFyingImage from '@/clientComponents/MagniFyingImage';
-import { useState } from 'react';
-
+import useFetchData from '@/clientComponents/utils/useFetchData';
+import { BASE_URL } from '@/constants';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 const ProductDetail = () => {
-    const images = [
-        "/vernier-caliper-1.png",
-        "/vernier-caliper-2.png",
-        "/vernier-caliper-3.png",
-        "/vernier-caliper-4.png",
-    ];
+  const { productId } = useParams();
+  const apiUrl = `${BASE_URL}/user/get/product/${productId}`;
+  const { data, loading, error } = useFetchData(apiUrl);
 
-    const [selectedImage, setSelectedImage] = useState(images[0]);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const dispatch = useDispatch();
+  const { user, token } = useSelector((state) => state.clientAuth);
+  const [showLogin, setShowLogin] = useState(false);
+
+  useEffect(() => {
+    if (data?.product?.productImages?.length) {
+      setSelectedImage(data.product.productImages[0].url);
+    }
+  }, [data]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
+
+  console.log("product details", data.product)
+
+
+  
+
+  const handleEnquireNow = async () => {
+    if (user && token) {
+      // User authenticated, make the post request
+      try {
+        const response = await axios.post(
+          `${BASE_URL}/user/create/enquiry`,
+          { productId },
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
+        console.log("Enquiry successful", response.data);
+      } catch (error) {
+        console.error("Enquiry failed", error);
+      }
+    } else {
+      // User is not authenticated, show login popup
+      setShowLogin(true);
+    }
+  };
+
+  const handleLoginSuccess = async () => {
+    await dispatch(clientLogin());
+    setShowLogin(false); // Close popup on success
+  };
+
+    
+    
 
 
     return (
@@ -22,14 +71,14 @@ const ProductDetail = () => {
 
                     {/* Thumbnail Images */}
                     <div className="w-[94.88px] flex flex-col gap-3">
-                        {images.map((img, index) => (
+                        {data.product && data.product.productImages.map((img) => (
                             <img
-                                key={index}
-                                className={`w-[94.88px] h-[94.88px] cursor-pointer border-2 rounded ${selectedImage === img ? "border-[#E5810C]" : "border-gray-300"
+                                key={img._id}
+                                className={`w-[94.88px] h-[94.88px] cursor-pointer border-2 rounded ${selectedImage === img.url ? "border-[#E5810C]" : "border-gray-300"
                                     }`}
-                                alt={`product-${index + 1}`}
-                                src={img}
-                                onClick={() => setSelectedImage(img)}
+                                alt={`product`}
+                                src={img.url}
+                                onClick={() => setSelectedImage(img.url)}
                             />
                         ))}
                     </div>
@@ -45,34 +94,35 @@ const ProductDetail = () => {
                 </div> */}
                 <div className="xl:w-4/6 w-full lg:ml-8 md:ml-6 md:mt-0 mt-6">
                     <div className="xl:max-w-[742px] mb-[20px]">
-                        <p className="text-2xl text-textBlack">Vernier Caliper 150mm, 6 inches, Magnetic Steel made with Pinch Fine Measure Function</p>
+                        <p className="text-2xl text-textBlack">{data.product && data.product.name}</p>
                     </div>
 
                     <div className='mb-[20px]'>
-                        <p className='text-base text-[#747474]'>MFR#: LL300N-P</p>
+                        <p className='text-base text-[#747474]'>SKU: {data.product && data.product.sku}</p>
                     </div>
 
                     <div className='bg-[#F5FFF1] flex justify-center items-center gap-[3px] w-[134px] h-[45px] text-[#51C86B] border border-[#51C86B] mb-[20px]'>
                         <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M21.4934 5.97752L12.6735 1.1486C12.2543 0.9171 11.7456 0.9171 11.3264 1.1486L2.50651 5.97752C2.05699 6.22347 1.77729 6.69489 1.77686 7.20729V16.7929C1.77729 17.3053 2.05699 17.7768 2.50651 18.0227L11.3264 22.8516C11.7457 23.0828 12.2542 23.0828 12.6735 22.8516L21.4934 18.0227C21.9429 17.7768 22.2226 17.3053 22.223 16.7929V7.20729C22.2226 6.69489 21.9429 6.22346 21.4934 5.97752ZM11.8997 2.20298C11.9597 2.17018 12.0322 2.17018 12.0922 2.20298L20.4701 6.78834L17.0684 8.64955L8.59727 4.01307L11.8997 2.20298ZM11.3986 21.5216L3.0798 16.9683C3.01722 16.9322 2.97893 16.8652 2.97957 16.7929V7.85676L11.3986 12.4672V21.5216ZM3.52982 6.78834L7.34544 4.69862L15.8156 9.3351L12 11.4228L3.52982 6.78834ZM21.0203 16.7929C21.021 16.8652 20.9827 16.9322 20.9201 16.9683L12.6013 21.5216V12.4652L16.2095 10.4897V14.4056C16.2095 14.8685 16.7106 15.1578 17.1115 14.9263C17.2976 14.8189 17.4122 14.6204 17.4122 14.4056V9.83222L21.0203 7.85676V16.7929Z" fill="#51C86B" />
                         </svg>
-                        In Stock
+                        {data.product.status === 'available' ? "In Stock" : "Out of Stock"}
                     </div>
 
                     <div className='border border-[#D2D2D2] pl-[17px] pt-[30px] pb-[29px] mb-[20px]'>
                         <div>
-                            <p className='text-base text-textBlack font-bold'>Product Details</p>
+                            <p className='text-base text-textBlack'>{data.product && data.product.composition}</p>
+                            {/* <p className='text-base text-textBlack font-bold'>Product Details</p>
                             <ul className='list-disc pl-[17px]'>
                                 <li className='text-base'>ESAW Vernier Caliper with Fine Wheel Measurement</li>
                                 <li className='text-base'>Inside, Outside and Depth Jaws for Measurement of Any Objects.</li>
                                 <li className='text-base'>Graduation on one side is 0.1 cm and on other side, is 1/128 inch.</li>
                                 <li className='text-base'>Cast Iron Made with Tension Screw knob and Laser Engraving.</li>
                                 <li className='text-base'>Economic, well designed and suitable for day to day uses.</li>
-                            </ul>
+                            </ul> */}
                         </div>
                     </div>
 
-                    <button className="w-[275px] h-[45px] flex justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+                    <button onClick={handleEnquireNow} className="w-[275px] h-[45px] flex justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
                         Enquire Now
                     </button>
 
@@ -108,6 +158,8 @@ const ProductDetail = () => {
                         </div>
                     ))}
                 </div>
+
+                {showLogin && <LoginPopup onClose={() => setShowLogin(false)} onLoginSuccess={handleLoginSuccess} />}
         </div>
 
     );
