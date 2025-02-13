@@ -1,4 +1,5 @@
 import EquipmentCard from '@/clientComponents/EquipmentCard'
+import Loader from '@/clientComponents/Loader';
 import useFetchData from '@/clientComponents/utils/useFetchData';
 import { BASE_URL } from '@/constants';
 import React from 'react'
@@ -9,7 +10,7 @@ const ProductCategories = () => {
 
     const { data, loading, error } = useFetchData(apiUrl);
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Loader />;
     if (error) return <p>Error: {error}</p>;
 
     console.log("data", data)
