@@ -29,8 +29,8 @@ const ProductList = () => {
         id: '1'
     }
 
-    const handleNavigate = () => {
-        navigate(`/product-categories/${equipment.id}/${category.id}/${product.id}`)  
+    const handleNavigate = (productId) => {
+        navigate(`/product/${productId}`)  
         
     }
 
@@ -41,8 +41,6 @@ const ProductList = () => {
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>;
-
-    console.log("data pr", data)
 
     return (
         <section>
@@ -110,7 +108,7 @@ const ProductList = () => {
                             {(data.products && data.products.length > 0) && data.products.map((item, index) => (
                                 <div
                                     key={index}
-                                    onClick={handleNavigate}
+                                    onClick={()=>handleNavigate(item._id)}
                                     className="w-[calc(50%-14.5px)] lg:w-[calc(33.333%-19.33px)] md:h-auto  border border-[#D2D2D2] px-[14px] py-[18px] cursor-pointer"
                                 >
                                     <div className='md:w-[55px] md:h-[27px] w-[32.14px] h-[15.78px] bg-[#FF1C1C] flex items-center justify-center'>
