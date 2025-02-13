@@ -9,10 +9,12 @@ import socialMediaLinkSlice from "../redux/socialMediaSlice";
 import logoSlice from "../redux/logoSlice";
 import termsSlice from "../redux/termsSlice";
 import productTypeSLice from "../redux/productTypeSlice";
+import clientAuthReducer from "../redux/clientSlice/clientAuthSlice";
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
+    clientAuth: clientAuthReducer, // Client authentication
     productList: productListSlice,
     categoryList: categorySlice,
     enquiryList: enquiryListSlice,
