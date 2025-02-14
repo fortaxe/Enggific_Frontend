@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const EquipmentCard = ({ equipment, page }) => {
+const EquipmentCard = ({ equipment, page, subId }) => {
 
     const navigate = useNavigate()
 
@@ -11,7 +11,7 @@ const EquipmentCard = ({ equipment, page }) => {
 
     const handleNavigate = () => {
         if(page === 'sub-category'){
-            navigate(`/product-categories/${equipment._id}/${category.id}`)    
+            navigate(`/product-categories/${equipment._id}/${subId}`)    
         } else {
         navigate(`/product-categories/${equipment._id}`)
         }
