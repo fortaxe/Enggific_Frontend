@@ -55,7 +55,7 @@ const ProductBulkUploadDialog = ({ isBulkOpen, onBulkClose }) => {
             accept=".xlsx, .xls"
             className="border p-2 w-full"
           />
-          <Button onClick={handleBulkUpload}  disabled={isUploading || !file}>
+          <Button onClick={handleBulkUpload} className="bg-[#E5810C] text-white hover:bg-[#E5810C]"  disabled={isUploading || !file}>
           {isUploading ? <CustomSpinner /> : "Upload Excel"}
           </Button>
         </div>

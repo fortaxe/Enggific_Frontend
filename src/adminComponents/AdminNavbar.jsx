@@ -95,7 +95,7 @@ const AdminNavbar = ({ title, onSearch }) => {
                     <div className="flex items-center space-x-4">
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="outline" className="bg-white text-[#E5810C]">Category</Button>
+                                <Button variant="outline" className="bg-white hover:bg-gray-200 text-black">Category</Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent>
                                 <DropdownMenuLabel>Select Category</DropdownMenuLabel>
@@ -109,7 +109,7 @@ const AdminNavbar = ({ title, onSearch }) => {
                         </DropdownMenu>
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="outline" className="bg-white text-black hover:bg-purple-100">Status</Button>
+                                <Button variant="outline" className="bg-white text-black hover:bg-gray-200">Status</Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent>
                                 <DropdownMenuLabel>Select Status</DropdownMenuLabel>
@@ -122,7 +122,7 @@ const AdminNavbar = ({ title, onSearch }) => {
                             </DropdownMenuContent>
                         </DropdownMenu>
                         <Button
-                            className="bg-green-500 hover:bg-green-600 text-white"
+                            className="bg-white hover:bg-gray-200 text-black"
                             onClick={handleOpenBulkUploadModal}
                         >
                             <Plus className="mr-2 h-5 w-5" />

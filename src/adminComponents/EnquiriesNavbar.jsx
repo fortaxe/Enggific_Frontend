@@ -111,7 +111,7 @@ const EnquiriesNavbar = () => {
     const uniqueStatuses = useMemo(() => [...new Set(enquiries?.map(enquiry => enquiry?.status))], [enquiries]);
 
     return (
-        <nav className="bg-[#386D62] text-white shadow-lg sticky top-0 z-10">
+        <nav className="bg-[#22384D] text-white shadow-lg sticky top-0 z-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
@@ -122,7 +122,7 @@ const EnquiriesNavbar = () => {
                         {/* Date Range Filter */}
                         <Popover open={isOpen} onOpenChange={setIsOpen}>
                             <PopoverTrigger asChild>
-                                <Button className="bg-[#E5810C] text-white">
+                                <Button className="bg-white hover:bg-gray-200 text-black">
                                     Date Range
                                 </Button>
                             </PopoverTrigger>
@@ -142,7 +142,7 @@ const EnquiriesNavbar = () => {
                                         onChange={(e) => handleDateChange(e.target.value, false)}
                                         className="border rounded px-2 py-1"
                                     />
-                                    <Button onClick={applyDateFilter} className="mt-2 bg-[#E5810C] text-white">
+                                    <Button onClick={applyDateFilter} className="mt-2 bg-white hover:bg-gray-200 text-black">
                                         Apply
                                     </Button>
                                 </div>
@@ -151,7 +151,7 @@ const EnquiriesNavbar = () => {
                         
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button className="bg-[#E5810C] text-white hover:bg-purple-100">Status</Button>
+                                <Button className="bg-white hover:bg-gray-200 text-black">Status</Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent>
                                 <DropdownMenuLabel>Select status</DropdownMenuLabel>
@@ -165,7 +165,7 @@ const EnquiriesNavbar = () => {
                         </DropdownMenu>
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button className="bg-[#E5810C] text-white">City</Button>
+                                <Button className="bg-white hover:bg-gray-200 text-black">City</Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent>
                                 <DropdownMenuLabel>Select City</DropdownMenuLabel>
@@ -180,7 +180,7 @@ const EnquiriesNavbar = () => {
                         
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button className="bg-[#E5810C] text-white">User</Button>
+                                <Button className="bg-white hover:bg-gray-200 text-black">User</Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent>
                                 <DropdownMenuLabel>Select user</DropdownMenuLabel>
@@ -197,7 +197,7 @@ const EnquiriesNavbar = () => {
                 </div>
                 <div className="flex items-center space-x-2 py-2">
                     {dateRange.startDate && (
-                        <Badge variant="secondary" className="bg-[#E5810C] text-white flex items-center">
+                        <Badge variant="secondary" className="bg-white hover:bg-gray-200 text-black flex items-center">
                             Date Range: {moment(dateRange.startDate).format('DD/MM/YYYY')} - {moment(dateRange.endDate).format('DD/MM/YYYY')}
                             <Button variant="ghost" size="sm" className="ml-1 p-0" onClick={() => clearFilter('date')}>
                                 <X className="h-4 w-4" />
@@ -205,7 +205,7 @@ const EnquiriesNavbar = () => {
                         </Badge>
                     )}
                     {selectedStatus && (
-                        <Badge variant="secondary" className="bg-[#E5810C] text-white flex items-center">
+                        <Badge variant="secondary" className="bg-white hover:bg-gray-200 text-black flex items-center">
                             Status: {selectedStatus}
                             <Button variant="ghost" size="sm" onClick={() => clearFilter('status')} className="ml-1 p-0">
                                 <X className="h-4 w-4" />
@@ -213,7 +213,7 @@ const EnquiriesNavbar = () => {
                         </Badge>
                     )}
                     {selectedCity && (
-                        <Badge variant="secondary" className="bg-[#E5810C] text-white flex items-center">
+                        <Badge variant="secondary" className="bg-white hover:bg-gray-200 text-black flex items-center">
                             City: {selectedCity}
                             <Button variant="ghost" size="sm" onClick={() => clearFilter('city')} className="ml-1 p-0">
                                 <X className="h-4 w-4" />
@@ -221,7 +221,7 @@ const EnquiriesNavbar = () => {
                         </Badge>
                     )}
                     {selectedUser && (
-                        <Badge variant="secondary" className="bg-[#E5810C] text-white flex items-center">
+                        <Badge variant="secondary" className="bg-white hover:bg-gray-200 text-black flex items-center">
                             User: {selectedUser}
                             <Button variant="ghost" size="sm" onClick={() => clearFilter('user')} className="ml-1 p-0">
                                 <X className="h-4 w-4" />

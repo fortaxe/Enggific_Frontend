@@ -69,18 +69,19 @@ const ProductDetail = () => {
 
 
     return (
-        <div className='px-[60px]'>
+        <div className='xl:px-[60px] px-[16px]'>
             <div className="md:flex items-start py-12 2xl:px-20 md:px-6 px-4">
-                <div className="flex md:gap-4 gap-2">
+                <div className="flex xl:flex-row flex-col md:gap-4 gap-2">
                     {/* Main Image with Magnify Effect */}
-                    <MagniFyingImage image={selectedImage} />
+                    {/* <MagniFyingImage image={selectedImage} /> */}
+                    <img src={selectedImage} alt="product" className=" xl:w-[414.31px] w-[380px] h-[380px] xl:h-[414.31px] object-cover" />
 
                     {/* Thumbnail Images */}
-                    <div className="w-[94.88px] flex flex-col gap-3">
+                    <div className="xl:w-[94.88px] w-[58.04px] flex xl:flex-col flex-row xl:gap-3 gap-[9.28px]">
                         {data.product && data.product.productImages.map((img) => (
                             <img
                                 key={img._id}
-                                className={`w-[94.88px] h-[94.88px] cursor-pointer border-2 rounded ${selectedImage === img.url ? "border-[#E5810C]" : "border-gray-300"
+                                className={`xl:w-[94.88px] xl:h-[94.88px] w-[58.04px] h-[58.04px] cursor-pointer border-2 rounded ${selectedImage === img.url ? "border-[#E5810C]" : "border-gray-300"
                                     }`}
                                 alt={`product`}
                                 src={img.url}
@@ -98,7 +99,7 @@ const ProductDetail = () => {
                         <img alt="img-tag-one" className="md:w-48 md:h-48 w-full" src="https://i.ibb.co/f17NXrW/Rectangle-244.png" />
                     </div>
                 </div> */}
-                <div className="xl:w-4/6 w-full lg:ml-8 md:ml-6 md:mt-0 mt-6">
+                <div className="xl:w-4/6 w-full lg:ml-8 md:ml-6 ml-0 md:mt-0 mt-6">
                     <div className="xl:max-w-[742px] mb-[20px]">
                         <p className="text-2xl text-textBlack">{data.product && data.product.name}</p>
                     </div>

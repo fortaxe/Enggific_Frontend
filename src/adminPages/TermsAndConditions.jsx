@@ -80,7 +80,7 @@ const TermsAndConditions = () => {
                     </div>
                     <div className="text-right">
                     <button onClick={handleSave} 
-                                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                                className="bg-[#E5810C] text-white px-4 py-2 rounded hover:bg-[#E5810C] focus:outline-none">
                         {termsLoading ? <Loader2 className="animate-spin h-5 w-5" /> : "Save"}
                     </button>
                     </div>

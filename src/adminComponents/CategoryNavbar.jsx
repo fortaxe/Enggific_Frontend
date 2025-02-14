@@ -21,7 +21,7 @@ const CategoryNavbar = () => {
                     </div>
                     <div className="flex items-center space-x-4">
                 <Button
-                    className="bg-[#E5810C] text-white ml-auto" 
+                    className="bg-white hover:bg-gray-200 text-black ml-auto" 
                     onClick={handleOpenModal}
                 >
                     <Plus className="mr-2 h-5 w-5" />

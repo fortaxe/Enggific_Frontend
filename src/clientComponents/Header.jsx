@@ -3,15 +3,18 @@ import SearchBox from './SeachBox'
 import { Link } from 'react-router-dom'
 import { BASE_URL } from '@/constants';
 import useFetchData from './utils/useFetchData';
+import { useState } from 'react';
 
 const Header = () => {
+
+    const [isSidebarOpen, setSidebarOpen] = useState(false);
 
     const apiUrl = `${BASE_URL}/user/get/socialMediaLinks`;
 
     const { data, loading, error } = useFetchData(apiUrl);
     
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <p>...</p>;
     if (error) return <p>Error: {error}</p>;
 
     // console.log("socials data", data)
@@ -74,6 +77,7 @@ const Header = () => {
 
                             <button
                                 className="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
+                                onClick={() => setSidebarOpen(true)}
                             >
                                 <span className="sr-only">Toggle menu</span>
                                 <svg
@@ -91,6 +95,40 @@ const Header = () => {
                     </div>
                 </div>
             </div>
+            {/* Sidebar (Mobile Menu) */}
+      {isSidebarOpen && (
+        <>
+          {/* Overlay */}
+          <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setSidebarOpen(false)}></div>
+
+          {/* Side Panel */}
+          <div className="fixed top-0 left-0 w-64 h-full bg-[#22384D] text-white z-50 shadow-lg transform transition-transform ease-in-out duration-300 translate-x-0">
+            <div className="flex justify-between items-center p-4 border-b border-gray-700">
+              <span className="text-lg font-semibold">Menu</span>
+              <button onClick={() => setSidebarOpen(false)} className="text-gray-300 hover:text-white">
+                ✕
+              </button>
+            </div>
+
+            <nav className="p-4">
+              <ul className="flex flex-col gap-4">
+                <li>
+                  <Link className="block transition hover:text-textOrange" to="/" onClick={() => setSidebarOpen(false)}>Home</Link>
+                </li>
+                <li>
+                  <Link className="block transition hover:text-textOrange" to="/about-us" onClick={() => setSidebarOpen(false)}>About Us</Link>
+                </li>
+                <li>
+                  <Link className="block transition hover:text-textOrange" to="/product-categories" onClick={() => setSidebarOpen(false)}>Categories</Link>
+                </li>
+                <li>
+                  <Link className="block transition hover:text-textOrange" to="/contact-us" onClick={() => setSidebarOpen(false)}>Contact Us</Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </>
+      )}
         </header>
     )
 }

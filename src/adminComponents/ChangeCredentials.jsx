@@ -141,7 +141,7 @@ const ChangeCredentials = () => {
 
               <button
                 type="submit"
-                className="w-[366px] p-2 bg-blue-600 rounded-lg text-white shadow-lg"
+                className="w-[366px] p-2 bg-[#E5810C] rounded-lg text-white shadow-lg"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Changing..." : "Change Credentials"}

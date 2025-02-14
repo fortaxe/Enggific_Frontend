@@ -95,9 +95,7 @@ const Enquiries = () => {
                                 <TableHead>Mobile Number</TableHead>
                                 <TableHead>Products</TableHead>
                                 <TableHead>Status</TableHead>
-                                <TableHead>Clinic Name</TableHead>
                                 <TableHead>City</TableHead>
-                                <TableHead>Speciality</TableHead>
                                 <TableHead>Delete</TableHead>
                             </TableRow>
                         </TableHeader>
@@ -124,9 +122,7 @@ const Enquiries = () => {
                                     <TableCell>
                                         <EnquiryStatusDropdown enquiryId={enquiry?._id} currentStatus={enquiry?.status} />
                                     </TableCell>
-                                    <TableCell>{enquiry?.user?.clinicName}</TableCell>
                                     <TableCell>{enquiry?.user?.city}</TableCell>
-                                    <TableCell>{enquiry?.user?.speciality}</TableCell>
                                     <TableCell>
                                         <Trash2 className="h-5 w-5 cursor-pointer" onClick={() => handleDeleteEnquiry(enquiry)} />
                                     </TableCell>

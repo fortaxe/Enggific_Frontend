@@ -10,8 +10,11 @@ import OurCards from '@/clientComponents/OurCards'
 import useFetchData from '@/clientComponents/utils/useFetchData'
 import { BASE_URL } from '@/constants'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
+
+  const navigate = useNavigate();
 
   const apiUrl = `${BASE_URL}/admin/get/banners`;
 
@@ -32,7 +35,7 @@ const Home = () => {
           <div className='hidden md:block'>
             <p className='md:text-xl text-base text-white'>Contact us for a comprehensive range of engineering and scientific laboratory equipments</p>
           </div>
-          <button className="xl:w-[216px] xl:h-[48px] w-[144px] h-[32px] flex justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+          <button onClick={()=> navigate('/contact-us')} className="xl:w-[216px] xl:h-[48px] w-[144px] h-[32px] flex justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
             Contact Us
           </button>
         </div>
@@ -48,7 +51,7 @@ const Home = () => {
           <div className='hidden md:block'>
             <p className='text-xl text-white'>Contact us for a comprehensive range of engineering and scientific laboratory equipments</p>
           </div>
-          <button className="xl:w-[216px] xl:h-[48px] w-[144px] h-[32px] flex justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+          <button onClick={()=> navigate('/contact-us')} className="xl:w-[216px] xl:h-[48px] w-[144px] h-[32px] flex justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
             Contact Us
           </button>
         </div>

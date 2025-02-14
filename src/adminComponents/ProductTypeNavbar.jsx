@@ -13,7 +13,7 @@ const ProductTypeNavbar = () => {
 
     return (
         
-        <nav className="bg-[#386D62] text-white shadow-lg">
+        <nav className="bg-[#22384D] text-white shadow-lg">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
@@ -21,7 +21,7 @@ const ProductTypeNavbar = () => {
                     </div>
                     <div className="flex items-center space-x-4">
                 <Button
-                    className="bg-[#E5810C] hover:bg-green-600 text-white ml-auto" 
+                    className="bg-white hover:bg-gray-200 text-black ml-auto" 
                     onClick={handleOpenModal}
                 >
                     <Plus className="mr-2 h-5 w-5" />

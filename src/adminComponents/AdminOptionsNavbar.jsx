@@ -57,7 +57,7 @@ const AdminOptionsNavbar = () => {
                     <div className="flex items-center space-x-4">
                         {/* AddBanner modal */}
                         <Button
-                            className="bg-green-500 hover:bg-green-600 text-white"
+                            className="bg-white hover:bg-gray-200 text-black"
                             onClick={handleOpenBannerModal}
                         >
                             <Plus className="mr-2 h-5 w-5" />
@@ -66,7 +66,7 @@ const AdminOptionsNavbar = () => {
 
                         {/* AddLogo modal */}
                         <Button
-                            className="bg-green-500 hover:bg-green-600 text-white"
+                            className="bg-white hover:bg-gray-200 text-black"
                             onClick={handleLogoModal}
                         >
                             <Plus className="mr-2 h-5 w-5" />
@@ -75,7 +75,7 @@ const AdminOptionsNavbar = () => {
 
                         {/* AddSocialMediaLink modal */}
                         <Button
-                            className="bg-green-500 hover:bg-green-600 text-white"
+                            className="bg-white hover:bg-gray-200 text-black"
                             onClick={handleOpenSocialModal}
                         >
                             <Plus className="mr-2 h-5 w-5" />

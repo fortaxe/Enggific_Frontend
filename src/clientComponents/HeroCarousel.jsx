@@ -29,7 +29,7 @@ const HeroCarousel = ({ carouselData }) => {
     // ]
 
   return (
-    <div className="w-full h-[533.33px]">
+    <div className="w-full xl:h-[533.33px] h-[206px]">
       <Carousel
         showArrows={true}
         autoPlay={true}
@@ -40,7 +40,7 @@ const HeroCarousel = ({ carouselData }) => {
       >
         {carouselData.length > 0 && carouselData.map((item) => (
             <div  key={item._id} 
-            className="relative w-full h-[533.33px] bg-cover bg-center bg-no-repeat"
+            className="relative w-full xl:h-[533.33px] h-[206px] bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${item.bannerImage})` }}>
             {/* <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-row xl:justify-end justify-center items-center p-8 md:p-16">
               <div className="flex flex-col items-start max-w-[617px]">

@@ -68,6 +68,7 @@ const ProductTypes = () => {
                         <TableHeader>
                             <TableRow>
                                 <TableHead>Name</TableHead>
+                                <TableHead>Category</TableHead>
                                 <TableHead>Logo</TableHead>
                                 <TableHead>Edit</TableHead>
                                 <TableHead>Delete</TableHead>
@@ -78,6 +79,9 @@ const ProductTypes = () => {
                                 <TableRow key={productType._id}>
                                     <TableCell>
                                         {productType?.name}
+                                    </TableCell>
+                                    <TableCell>
+                                        {productType?.category?.name}
                                     </TableCell>
                                     <TableCell>
                                         <Dialog>
