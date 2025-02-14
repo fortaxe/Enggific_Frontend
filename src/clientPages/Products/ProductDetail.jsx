@@ -12,60 +12,60 @@ import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const ProductDetail = () => {
-  const { productId } = useParams();
-  const apiUrl = `${BASE_URL}/user/get/product/${productId}`;
-  const { data, loading, error } = useFetchData(apiUrl);
+    const { productId } = useParams();
+    const apiUrl = `${BASE_URL}/user/get/product/${productId}`;
+    const { data, loading, error } = useFetchData(apiUrl);
 
-  const [selectedImage, setSelectedImage] = useState(null);
+    const [selectedImage, setSelectedImage] = useState(null);
 
-  const dispatch = useDispatch();
-  const { user, token } = useSelector((state) => state.clientAuth);
-  const [showLogin, setShowLogin] = useState(false);
+    const dispatch = useDispatch();
+    const { user, token } = useSelector((state) => state.clientAuth);
+    const [showLogin, setShowLogin] = useState(false);
 
-  useEffect(() => {
-    if (data?.product?.productImages?.length) {
-      setSelectedImage(data.product.productImages[0].url);
-    }
-  }, [data]);
+    useEffect(() => {
+        if (data?.product?.productImages?.length) {
+            setSelectedImage(data.product.productImages[0].url);
+        }
+    }, [data]);
 
-  if (loading) return <Loader />;
-  if (error) return <p>Error: {error}</p>;
-
-
-//   console.log("product details", data)
+    if (loading) return <Loader />;
+    if (error) return <p>Error: {error}</p>;
 
 
-  
+    // console.log("product details", data)
 
-  const handleEnquireNow = async (id) => {
-    if (user && token) {
-      // User authenticated, make the post request
-      try {
-        const response = await axios.post(
-          `${BASE_URL}/user/create/enquiry`,
-          { productIds: [id] },
-          { headers: { Authorization: `Bearer ${token}` } }
-        );
 
-        toast.success("Enquiry succesfull team will contact soon", { autoClose: 3000 });
-        console.log("Enquiry successful", response.data);
-      } catch (error) {
-        toast.error("Enquiry failed");
-        console.error("Enquiry failed", error);
-      }
-    } else {
-      // User is not authenticated, show login popup
-      setShowLogin(true);
-    }
-  };
 
-  const handleLoginSuccess = async () => {
-    await dispatch(clientLogin());
-    setShowLogin(false); // Close popup on success
-  };
 
-    
-    
+    const handleEnquireNow = async (id) => {
+        if (user && token) {
+            // User authenticated, make the post request
+            try {
+                const response = await axios.post(
+                    `${BASE_URL}/user/create/enquiry`,
+                    { productIds: [id] },
+                    { headers: { Authorization: `Bearer ${token}` } }
+                );
+
+                toast.success("Enquiry succesfull team will contact soon", { autoClose: 3000 });
+                console.log("Enquiry successful", response.data);
+            } catch (error) {
+                toast.error("Enquiry failed");
+                console.error("Enquiry failed", error);
+            }
+        } else {
+            // User is not authenticated, show login popup
+            setShowLogin(true);
+        }
+    };
+
+    const handleLoginSuccess = async () => {
+        await dispatch(clientLogin());
+        setShowLogin(false); // Close popup on success
+    };
+
+
+
 
 
     return (
@@ -117,19 +117,18 @@ const ProductDetail = () => {
 
                     <div className='border border-[#D2D2D2] pl-[17px] pt-[30px] pb-[29px] mb-[20px]'>
                         <div>
-                            <p className='text-base text-textBlack'>{data.product && data.product.composition}</p>
-                            {/* <p className='text-base text-textBlack font-bold'>Product Details</p>
-                            <ul className='list-disc pl-[17px]'>
-                                <li className='text-base'>ESAW Vernier Caliper with Fine Wheel Measurement</li>
-                                <li className='text-base'>Inside, Outside and Depth Jaws for Measurement of Any Objects.</li>
-                                <li className='text-base'>Graduation on one side is 0.1 cm and on other side, is 1/128 inch.</li>
-                                <li className='text-base'>Cast Iron Made with Tension Screw knob and Laser Engraving.</li>
-                                <li className='text-base'>Economic, well designed and suitable for day to day uses.</li>
-                            </ul> */}
+                            {data.product && data.product.composition ? (
+                                <div
+                                    className="text-base text-textBlack"
+                                    dangerouslySetInnerHTML={{ __html: data.product.composition }}
+                                />
+                            ) : (
+                                <p className="text-base text-textBlack">No composition available</p>
+                            )}
                         </div>
                     </div>
 
-                    <button onClick={()=>handleEnquireNow(data.product._id)} className="w-[275px] h-[45px] flex justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+                    <button onClick={() => handleEnquireNow(data.product._id)} className="w-[275px] h-[45px] flex justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
                         Enquire Now
                     </button>
 
@@ -138,35 +137,35 @@ const ProductDetail = () => {
             <div className='bg-[#D2D2D2] h-[1px] w-full mb-[70px]' />
 
             <div className=''>
-            <div className='text-center mb-[55px]'>
+                <div className='text-center mb-[55px]'>
                     <h2 className='md:text-[38px] text-[26px] text-textOrange font-bold'>Related products</h2>
                 </div>
             </div>
 
             <div className="flex flex-wrap justify-center gap-[29px]">
-                    {(data.relatedProducts  && data.relatedProducts.length >0 )&& data.relatedProducts.map((item) => (
-                        <div
-                            key={item._id}
-                            className="w-[calc(50%-14.5px)] md:w-[calc(25%-21.75px)] md:h-auto h-[282px]  border border-[#D2D2D2] px-[14px] py-[18px] mb-[70px]"
-                        >
-                            <div className='md:w-[55px] md:h-[27px] w-[32.14px] h-[15.78px] bg-[#FF1C1C] flex items-center justify-center'>
-                                <p className='text-xs font-bold text-white'>Sale</p>
-                            </div>
-
-                            <div className='md:h-[273px] h-[159.55px] mb-[12px]'>
-                                <img src={item.thumbnailImage} alt='product' className='w-full h-full object-cover' />
-                            </div>
-
-                            <p className='text-textBlack md:text-sm text-xs mb-[22px]'>{item.name}</p>
-
-                            <button onClick={()=>handleEnquireNow(item._id)} className="w-full md:h-[45px] h-[32px] flex items-center justify-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
-                                Enquire Now
-                            </button>
+                {(data.relatedProducts && data.relatedProducts.length > 0) && data.relatedProducts.map((item) => (
+                    <div
+                        key={item._id}
+                        className="w-[calc(50%-14.5px)] md:w-[calc(25%-21.75px)] md:h-auto h-[282px]  border border-[#D2D2D2] px-[14px] py-[18px] mb-[70px]"
+                    >
+                        <div className='md:w-[55px] md:h-[27px] w-[32.14px] h-[15.78px] bg-[#FF1C1C] flex items-center justify-center'>
+                            <p className='text-xs font-bold text-white'>Sale</p>
                         </div>
-                    ))}
-                </div>
 
-                {showLogin && <LoginPopup onClose={() => setShowLogin(false)} onLoginSuccess={handleLoginSuccess} />}
+                        <div className='md:h-[273px] h-[159.55px] mb-[12px]'>
+                            <img src={item.thumbnailImage} alt='product' className='w-full h-full object-cover' />
+                        </div>
+
+                        <p className='text-textBlack md:text-sm text-xs mb-[22px]'>{item.name}</p>
+
+                        <button onClick={() => handleEnquireNow(item._id)} className="w-full md:h-[45px] h-[32px] flex items-center justify-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+                            Enquire Now
+                        </button>
+                    </div>
+                ))}
+            </div>
+
+            {showLogin && <LoginPopup onClose={() => setShowLogin(false)} onLoginSuccess={handleLoginSuccess} />}
         </div>
 
     );
