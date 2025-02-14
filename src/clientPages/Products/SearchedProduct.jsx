@@ -9,6 +9,7 @@ import axios from 'axios';
 import React from 'react'
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const SearchedProduct = () => {
@@ -18,6 +19,8 @@ const SearchedProduct = () => {
   const dispatch = useDispatch();
   const { user, token } = useSelector((state) => state.clientAuth);
   const [showLogin, setShowLogin] = useState(false);
+
+  const navigate = useNavigate()
 
 //   console.log('searchTerm', searchTerm)
 
@@ -69,6 +72,11 @@ if (error) return <p>Error: {error.message}</p>;
     setShowLogin(false); // Close popup on success
   };
 
+  const handleNavigate = (productId) => {
+    navigate(`/product/${productId}`)  
+    
+}
+
 
 //   const filteredProducts = allProducts.filter((product) =>
 //     product.toLowerCase().includes(searchTerm)
@@ -90,7 +98,7 @@ if (error) return <p>Error: {error.message}</p>;
                                 <p className='text-xs font-bold text-white'>Sale</p>
                             </div>
 
-                            <div className='md:h-[273px] h-[159.55px] mb-[12px]'>
+                            <div className='md:h-[273px] h-[159.55px] mb-[12px] cursor-pointer' onClick={()=>handleNavigate(product._id)}>
                                 <img src={product.thumbnailImage} alt='product' className='w-full h-full object-cover' />
                             </div>
 
