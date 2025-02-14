@@ -3,6 +3,7 @@ import axios from "axios";
 import { BASE_URL, Token } from "@/constants";
 
 
+
 // Fetch all Product Types
 export const fetchProductTypes = createAsyncThunk(
     "productTypeList/fetchProductTypes",
@@ -30,12 +31,13 @@ export const fetchProductTypes = createAsyncThunk(
     "productType/createProductType",
     async (productTypeData, { rejectWithValue }) => {
       try {
+        const token = localStorage.getItem("token");
         const response = await axios.post(
           `${BASE_URL}/admin/create/productType`,
           productTypeData,
           {
             headers: {
-              Authorization: `Bearer ${Token}`,
+              Authorization: `Bearer ${token}`,
               "Content-Type": "multipart/form-data",
             },
           }
@@ -54,12 +56,13 @@ export const fetchProductTypes = createAsyncThunk(
     "productType/updateProductType",
     async (productTypeData, { rejectWithValue }) => {
       try {
+        const token = localStorage.getItem("token");
         const response = await axios.patch(
           `${BASE_URL}/admin/update/productType`,
           productTypeData,
           {
             headers: {
-              Authorization: `Bearer ${Token}`,
+              Authorization: `Bearer ${token}`,
               "Content-Type": "multipart/form-data",
             },
           }
