@@ -1,46 +1,108 @@
+import Loader from '@/clientComponents/Loader';
+import LoginPopup from '@/clientComponents/LoginPopup';
+import NotFound from '@/clientComponents/NotFound';
 import useFetchData from '@/clientComponents/utils/useFetchData';
+import useFetchProductBySubCategoryData from '@/clientComponents/utils/useFetchProductBySubCategoryData';
 import { BASE_URL } from '@/constants';
+import { clientLogin } from '@/redux/clientSlice/clientAuthSlice';
+import axios from 'axios';
 import React from 'react'
+import { useEffect } from 'react';
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const ProductList = () => {
 
-    const [activeFilter, setActiveFilter] = useState(0);
+    const [activeFilter, setActiveFilter] = useState("");
 
-    const filters = [
-        'Soil Test Equipment',
-        'Concrete Test Equipment',
-        'Bitumen Test Equipment',
-        'Scientific Items',
-        'Microscopes & Lab Apparatus',
-        'Engineering & Workshop',
-    ];
+  const dispatch = useDispatch();
+  const { user, token } = useSelector((state) => state.clientAuth);
+  const [showLogin, setShowLogin] = useState(false);
 
+  const [filters, setFilters] = useState([])
+
+  useEffect(() => {
+    const fetchFilters = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/admin/get/productTypes`);
+        // console.log("filters Data", response)
+        setFilters(response.data.productTypes);
+        setActiveFilter(response.data.productTypes[1]._id);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchFilters();
+  },[])
+
+    
     const navigate = useNavigate()
 
-    const product = {
-        id: '1'
-    }
-    const equipment = {
-        id: '2'
-    }
-    const category = {
-        id: '1'
-    }
 
     const handleNavigate = (productId) => {
         navigate(`/product/${productId}`)  
         
     }
 
-    const apiUrl = `${BASE_URL}/admin/get/products`;
+
+  const { subCategoryId } = useParams();
+
+  // const { data, loading, error } = useFetchProductBySubCategoryData(subCategoryId);
+  const apiUrl = `${BASE_URL}/admin/get/products`;
 
     const { data, loading, error } = useFetchData(apiUrl);
-    
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error}</p>;
+  
+
+  // console.log("subCategoryId", subCategoryId)
+
+//   console.log("apiUrl", apiUrl)
+
+//   const { data, loading, error } = useFetchSubCategoryData(categoryId);
+
+  if (loading) return <Loader />;
+  if (error) return <p>Error: {error.message}</p>;
+
+  // console.log("product by sub", data)
+
+    // console.log("data list", data)
+
+    const handleEnquireNow = async (id) => {
+        if (user && token) {
+          // User authenticated, make the post request
+          try {
+            const response = await axios.post(
+              `${BASE_URL}/user/create/enquiry`,
+              { productIds: [id] },
+              { headers: { Authorization: `Bearer ${token}` } }
+            );
+    
+            toast.success("Enquiry succesfull team will contact soon", { autoClose: 3000 });
+            // console.log("Enquiry successful", response.data);
+          } catch (error) {
+            toast.error("Enquiry failed");
+            console.error("Enquiry failed", error);
+          }
+        } else {
+          // User is not authenticated, show login popup
+          setShowLogin(true);
+        }
+      };
+    
+      const handleLoginSuccess = async () => {
+        await dispatch(clientLogin());
+        setShowLogin(false); // Close popup on success
+      };
+
+
+      const filteredProducts = (data.products && data.products.length > 0) ? data.products.filter(product =>
+        activeFilter && activeFilter.length > 0
+          ? activeFilter.includes(product.productType?._id || "")
+          : true
+      ):[];
 
     return (
         <section>
@@ -73,18 +135,18 @@ const ProductList = () => {
                         <div>
                             <p className="block text-lg font-bold text-textBlack px-[11px] mb-[17px]">Sub Category</p>
                             <div className="space-y-2">
-                                {filters.map((filter, index) => (
+                                {(filters && filters.length > 0) && filters.slice(0,3).map((filter) => (
                                     <div
-                                        key={index}
+                                        key={filter._id}
                                         className={`w-[265px] h-[49px] px-[11px] flex items-center cursor-pointer rounded-md 
-                                                    ${activeFilter === index
+                                                    ${activeFilter === filter._id
                                                 ? 'bg-[#FCF1E4] text-[#E5810C]'
                                                 : 'text-textBlack'
                                             } 
                                                     hover:bg-[#FCF1E4] hover:text-[#E5810C] transition duration-300`}
-                                        onClick={() => setActiveFilter(index)}
+                                        onClick={() => setActiveFilter(filter._id)}
                                     >
-                                        <p className="text-base">{filter}</p>
+                                        <p className="text-base">{filter.name}</p>
                                     </div>
                                 ))}
                             </div>
@@ -105,27 +167,26 @@ const ProductList = () => {
                             </select>
                         </div>
                         <div className="flex flex-wrap gap-[29px]">
-                            {(data.products && data.products.length > 0) && data.products.map((item, index) => (
+                            {(filteredProducts && filteredProducts.length > 0) ? filteredProducts.map((item, index) => (
                                 <div
                                     key={index}
-                                    onClick={()=>handleNavigate(item._id)}
                                     className="w-[calc(50%-14.5px)] lg:w-[calc(33.333%-19.33px)] md:h-auto  border border-[#D2D2D2] px-[14px] py-[18px] cursor-pointer"
                                 >
                                     <div className='md:w-[55px] md:h-[27px] w-[32.14px] h-[15.78px] bg-[#FF1C1C] flex items-center justify-center'>
                                         <p className='text-xs font-bold text-white'>Sale</p>
                                     </div>
 
-                                    <div className='md:h-[273px] h-[159.55px] mb-[12px]'>
+                                    <div className='md:h-[273px] h-[159.55px] mb-[12px]' onClick={()=>handleNavigate(item._id)}>
                                         <img src={item.thumbnailImage} alt='product' className='w-full h-full object-cover' />
                                     </div>
 
                                     <p className='text-textBlack md:text-sm text-xs mb-[22px]'>{item.name}</p>
 
-                                    <button className="w-full md:h-[45px] h-[32px] flex items-center justify-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+                                    <button onClick={()=>handleEnquireNow(item._id)} className="w-full md:h-[45px] h-[32px] flex items-center justify-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
                                         Enquire Now
                                     </button>
                                 </div>
-                            ))}
+                            )): <NotFound />}
                         </div>
 
                     </div>
@@ -133,6 +194,7 @@ const ProductList = () => {
 
                 </div>
             </div>
+            {showLogin && <LoginPopup onClose={() => setShowLogin(false)} onLoginSuccess={handleLoginSuccess} />}
         </section>
     )
 }
