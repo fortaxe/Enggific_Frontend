@@ -2,8 +2,19 @@ import { BASE_URL } from '@/constants';
 import React from 'react'
 import useFetchData from './utils/useFetchData';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import LoginPopup from './LoginPopup';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { clientLogin } from '@/redux/clientSlice/clientAuthSlice';
+import axios from 'axios';
+
 
 const LaunchedProducts = () => {
+
+  const dispatch = useDispatch();
+  const { user, token } = useSelector((state) => state.clientAuth);
+  const [showLogin, setShowLogin] = useState(false);
 
     const navigate = useNavigate();
 
@@ -16,6 +27,34 @@ const LaunchedProducts = () => {
     if (error) return <p>Error: {error}</p>;
 
     console.log("data pr", data)
+
+
+    const handleEnquireNow = async (id) => {
+        if (user && token) {
+          // User authenticated, make the post request
+          try {
+            const response = await axios.post(
+              `${BASE_URL}/user/create/enquiry`,
+              { productIds: [id] },
+              { headers: { Authorization: `Bearer ${token}` } }
+            );
+    
+            toast.success("Enquiry succesfull team will contact soon", { autoClose: 3000 });
+            console.log("Enquiry successful", response.data);
+          } catch (error) {
+            toast.error("Enquiry failed");
+            console.error("Enquiry failed", error);
+          }
+        } else {
+          // User is not authenticated, show login popup
+          setShowLogin(true);
+        }
+      };
+    
+      const handleLoginSuccess = async () => {
+        await dispatch(clientLogin());
+        setShowLogin(false); // Close popup on success
+      };
 
     return (
         <div className='xl:px-[60px] px-[16px] xl:py-[70px] py-[30px]'>
@@ -41,7 +80,7 @@ const LaunchedProducts = () => {
 
                             <p className='text-textBlack md:text-sm text-xs mb-[22px]'>{item.name}</p>
 
-                            <button className="w-full md:h-[45px] h-[32px] flex items-center justify-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+                            <button onClick={() => handleEnquireNow(item._id)} className="w-full md:h-[45px] h-[32px] flex items-center justify-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
                                 Enquire Now
                             </button>
                         </div>
@@ -51,11 +90,12 @@ const LaunchedProducts = () => {
                 </div>
                 <div className='flex justify-center'>
 
-                        <button onClick={() => navigate('/products')} className="w-[216px] h-[48px] md:flex hidden justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+                        <button className="w-[216px] h-[48px] md:flex hidden justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
                             View All
                         </button>
                     </div>
             </div>
+            {showLogin && <LoginPopup onClose={() => setShowLogin(false)} onLoginSuccess={handleLoginSuccess} />}
         </div>
     )
 }

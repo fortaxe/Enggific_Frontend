@@ -1,12 +1,15 @@
+import Loader from '@/clientComponents/Loader';
 import LoginPopup from '@/clientComponents/LoginPopup';
 import MagniFyingImage from '@/clientComponents/MagniFyingImage';
 import useFetchData from '@/clientComponents/utils/useFetchData';
 import { BASE_URL } from '@/constants';
+import { clientLogin } from '@/redux/clientSlice/clientAuthSlice';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const ProductDetail = () => {
   const { productId } = useParams();
@@ -25,26 +28,29 @@ const ProductDetail = () => {
     }
   }, [data]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error: {error}</p>;
 
 
-  console.log("product details", data.product)
+//   console.log("product details", data)
 
 
   
 
-  const handleEnquireNow = async () => {
+  const handleEnquireNow = async (id) => {
     if (user && token) {
       // User authenticated, make the post request
       try {
         const response = await axios.post(
           `${BASE_URL}/user/create/enquiry`,
-          { productId },
+          { productIds: [id] },
           { headers: { Authorization: `Bearer ${token}` } }
         );
+
+        toast.success("Enquiry succesfull team will contact soon", { autoClose: 3000 });
         console.log("Enquiry successful", response.data);
       } catch (error) {
+        toast.error("Enquiry failed");
         console.error("Enquiry failed", error);
       }
     } else {
@@ -122,7 +128,7 @@ const ProductDetail = () => {
                         </div>
                     </div>
 
-                    <button onClick={handleEnquireNow} className="w-[275px] h-[45px] flex justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+                    <button onClick={()=>handleEnquireNow(data.product._id)} className="w-[275px] h-[45px] flex justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
                         Enquire Now
                     </button>
 
@@ -137,9 +143,9 @@ const ProductDetail = () => {
             </div>
 
             <div className="flex flex-wrap justify-center gap-[29px]">
-                    {[...Array(4)].map((_, index) => (
+                    {(data.relatedProducts  && data.relatedProducts.length >0 )&& data.relatedProducts.map((item) => (
                         <div
-                            key={index}
+                            key={item._id}
                             className="w-[calc(50%-14.5px)] md:w-[calc(25%-21.75px)] md:h-auto h-[282px]  border border-[#D2D2D2] px-[14px] py-[18px] mb-[70px]"
                         >
                             <div className='md:w-[55px] md:h-[27px] w-[32.14px] h-[15.78px] bg-[#FF1C1C] flex items-center justify-center'>
@@ -147,12 +153,12 @@ const ProductDetail = () => {
                             </div>
 
                             <div className='md:h-[273px] h-[159.55px] mb-[12px]'>
-                                <img src='/product-1.png' alt='product' className='w-full h-full object-cover' />
+                                <img src={item.thumbnailImage} alt='product' className='w-full h-full object-cover' />
                             </div>
 
-                            <p className='text-textBlack md:text-sm text-xs mb-[22px]'>Vernier Caliper 150mm, 6 inches, Magnetic Steel made with Pinch Fine Measure Function</p>
+                            <p className='text-textBlack md:text-sm text-xs mb-[22px]'>{item.name}</p>
 
-                            <button className="w-full md:h-[45px] h-[32px] flex items-center justify-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+                            <button onClick={()=>handleEnquireNow(item._id)} className="w-full md:h-[45px] h-[32px] flex items-center justify-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
                                 Enquire Now
                             </button>
                         </div>
