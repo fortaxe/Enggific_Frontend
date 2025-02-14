@@ -178,7 +178,7 @@ const EnquiriesNavbar = () => {
                             </DropdownMenuContent>
                         </DropdownMenu>
                         
-                        <DropdownMenu>
+                        {/* <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <Button className="bg-white hover:bg-gray-200 text-black">User</Button>
                             </DropdownMenuTrigger>
@@ -191,7 +191,7 @@ const EnquiriesNavbar = () => {
                                     </DropdownMenuItem>
                                 ))}
                             </DropdownMenuContent>
-                        </DropdownMenu>
+                        </DropdownMenu> */}
                         
                     </div>
                 </div>
