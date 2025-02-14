@@ -73,9 +73,7 @@ const Users = () => {
                     <TableRow>
                         <TableHead>Date</TableHead>
                         <TableHead>Name</TableHead>
-                        <TableHead>Clinic Name</TableHead>
                         <TableHead>Mobile Number</TableHead>
-                        <TableHead>Speciality</TableHead>
                         <TableHead>City</TableHead>
                         <TableHead>Edit</TableHead>
                         <TableHead>Delete</TableHead>
@@ -90,9 +88,7 @@ const Users = () => {
                                
                             </TableCell>
                             <TableCell>{user?.name}</TableCell>
-                            <TableCell>{user?.clinicName}</TableCell>
                             <TableCell>{user?.mobileNumber}</TableCell>
-                            <TableCell>{user?.speciality}</TableCell>
                             <TableCell>{user?.city}</TableCell>
                             <TableCell>
                                 <Pencil className="h-5 w-5 cursor-pointer" onClick={() => handleUpdateUser(user)} />
