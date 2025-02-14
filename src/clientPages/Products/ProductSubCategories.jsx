@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import { BASE_URL } from '@/constants';
 import useFetchData from '@/clientComponents/utils/useFetchData';
 import useFetchSubCategoryData from '@/clientComponents/utils/useFetchSubCategoryData';
+import Loader from '@/clientComponents/Loader';
+import NotFound from '@/clientComponents/NotFound';
 
 const ProductSubCategories = () => {
 
@@ -15,7 +17,7 @@ const ProductSubCategories = () => {
 
   const { data, loading, error } = useFetchSubCategoryData(categoryId);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error: {error.message}</p>;
 
   console.log("sub cate", data)
@@ -177,7 +179,7 @@ const ProductSubCategories = () => {
         </div>
 
         <div className='flex flex-wrap justify-start gap-[29px] mt-[40px] mb-[70.07px]'>
-          {(data.productTypes && data.productTypes.length > 0) ? data.productTypes.map((item) => (<EquipmentCard key={item._id} equipment={item} page='sub-category' />)) :<div className='flex justify-center items-center w-full h-[300px]'>No Sub Category Found</div>}
+          {(data.productTypes && data.productTypes.length > 0) ? data.productTypes.map((item) => (<EquipmentCard key={item._id} equipment={item} page='sub-category' subId={item.category._id} />)) :<NotFound />}
         </div>
       </div>
     </div>
