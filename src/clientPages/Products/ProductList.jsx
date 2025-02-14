@@ -155,7 +155,7 @@ const ProductList = () => {
 
                     <div className='lg:col-span-3'>
                         {/* Sorting */}
-                        <div className='flex items-center mb-[31px] gap-[13px]'>
+                        {/* <div className='flex items-center mb-[31px] gap-[13px]'>
                             <label htmlFor="SortBy" className="block text-lg font-bold text-textBlack"> Sort By </label>
 
                             <select id="SortBy" className="mt-1 w-[155px] h-[38px] border border-[#D2D2D2] focus:border-[#E5810C] focus:outline-none text-sm">
@@ -165,7 +165,7 @@ const ProductList = () => {
                                 <option value="Title, DESC">Title</option>
                                 <option value="Title, ASC">Title</option>
                             </select>
-                        </div>
+                        </div> */}
                         <div className="flex flex-wrap gap-[29px]">
                             {(filteredProducts && filteredProducts.length > 0) ? filteredProducts.map((item, index) => (
                                 <div
