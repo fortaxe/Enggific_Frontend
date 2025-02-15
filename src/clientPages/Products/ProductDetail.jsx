@@ -1,6 +1,7 @@
 import Loader from '@/clientComponents/Loader';
 import LoginPopup from '@/clientComponents/LoginPopup';
 import MagniFyingImage from '@/clientComponents/MagniFyingImage';
+import NotFound from '@/clientComponents/NotFound';
 import useFetchData from '@/clientComponents/utils/useFetchData';
 import { BASE_URL } from '@/constants';
 import { clientLogin } from '@/redux/clientSlice/clientAuthSlice';
@@ -143,7 +144,7 @@ const ProductDetail = () => {
             </div>
 
             <div className="flex flex-wrap justify-center gap-[29px]">
-                {(data.relatedProducts && data.relatedProducts.length > 0) && data.relatedProducts.map((item) => (
+                {(data.relatedProducts && data.relatedProducts.length > 0) ? data.relatedProducts.map((item) => (
                     <div
                         key={item._id}
                         className="w-[calc(50%-14.5px)] md:w-[calc(25%-21.75px)] md:h-auto h-[282px]  border border-[#D2D2D2] px-[14px] py-[18px] mb-[70px]"
@@ -162,7 +163,7 @@ const ProductDetail = () => {
                             Enquire Now
                         </button>
                     </div>
-                ))}
+                )): <NotFound />}
             </div>
 
             {showLogin && <LoginPopup onClose={() => setShowLogin(false)} onLoginSuccess={handleLoginSuccess} />}
