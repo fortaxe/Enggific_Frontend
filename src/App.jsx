@@ -26,6 +26,7 @@ import "./App.css"
 import SearchedProduct from "./clientPages/Products/SearchedProduct";
 import AboutUs from "./clientPages/AboutUs";
 import ContactUs from "./clientPages/ContactUs";
+import ScrollToTop from "./clientComponents/ScrollToTop";
 
 const DashboardLayout = () => {
   return (
@@ -64,6 +65,7 @@ const DefaultLayout = () => {
 function App() {
   return (
     <BrowserRouter>
+    <ScrollToTop/>{/* This will ensure scrolling to top on route change */}
       <Routes>
         <Route path="/admin" element={<AdminLogin />} />
         <Route
