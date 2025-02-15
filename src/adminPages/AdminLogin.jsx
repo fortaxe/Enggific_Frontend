@@ -46,7 +46,7 @@ const AdminLogin = () => {
     return (
         <div className="flex justify-center items-center h-screen">
             <div className="w-full max-w-md p-8 bg-white rounded-md">
-                <h2 className="text-2xl font-bold mb-6 text-[#386D62]">Admin Login</h2>
+                <h2 className="text-2xl font-bold mb-6 text-[#E5810C]">Admin Login</h2>
                 <Formik
                     initialValues={initialValues}
                     validationSchema={validationSchema}
