@@ -1,5 +1,6 @@
 import Loader from '@/clientComponents/Loader';
 import LoginPopup from '@/clientComponents/LoginPopup';
+import MobileFilters from '@/clientComponents/MobileFilters';
 import NotFound from '@/clientComponents/NotFound';
 import useFetchData from '@/clientComponents/utils/useFetchData';
 import useFetchProductBySubCategoryData from '@/clientComponents/utils/useFetchProductBySubCategoryData';
@@ -23,12 +24,13 @@ const ProductList = () => {
   const [showLogin, setShowLogin] = useState(false);
 
   const [filters, setFilters] = useState([])
+    const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const fetchFilters = async () => {
       try {
         const response = await axios.get(`${BASE_URL}/admin/get/productTypes`);
-        // console.log("filters Data", response)
+        console.log("filters Data", response)
         setFilters(response.data.productTypes);
         setActiveFilter(response.data.productTypes[1]._id);
       } catch (error) {
@@ -47,8 +49,6 @@ const ProductList = () => {
         
     }
 
-
-  const { subCategoryId } = useParams();
 
   // const { data, loading, error } = useFetchProductBySubCategoryData(subCategoryId);
   const apiUrl = `${BASE_URL}/admin/get/products`;
@@ -113,6 +113,7 @@ const ProductList = () => {
 
                 <div className="mt-8 block lg:hidden">
                     <button
+                      onClick={() => setIsOpen(true)}
                         className="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600"
                     >
                         <span className="text-sm font-medium"> Filters & Sorting </span>
@@ -153,6 +154,8 @@ const ProductList = () => {
                         </div>
                     </div>
 
+                    {isOpen && <MobileFilters  filters={filters} isOpen={isOpen} setIsOpen={setIsOpen} activeFilter={activeFilter} setActiveFilter={setActiveFilter} />}
+
                     <div className='lg:col-span-3'>
                         {/* Sorting */}
                         {/* <div className='flex items-center mb-[31px] gap-[13px]'>
@@ -170,7 +173,7 @@ const ProductList = () => {
                             {(filteredProducts && filteredProducts.length > 0) ? filteredProducts.map((item, index) => (
                                 <div
                                     key={index}
-                                    className="w-[calc(50%-14.5px)] lg:w-[calc(33.333%-19.33px)] md:h-auto  border border-[#D2D2D2] px-[14px] py-[18px] cursor-pointer"
+                                    className="w-[calc(50%-14.5px)] lg:w-[calc(33.333%-19.33px)] md:h-auto  border border-[#D2D2D2] px-[14px] py-[18px] cursor-pointer overflow-hidden"
                                 >
                                     <div className='md:w-[55px] md:h-[27px] w-[32.14px] h-[15.78px] bg-[#FF1C1C] flex items-center justify-center'>
                                         <p className='text-xs font-bold text-white'>Sale</p>
@@ -180,7 +183,7 @@ const ProductList = () => {
                                         <img src={item.thumbnailImage} alt='product' className='w-full h-full object-cover' />
                                     </div>
 
-                                    <p className='text-textBlack md:text-sm text-xs mb-[22px]'>{item.name}</p>
+                                    <p className='text-textBlack md:text-sm text-xs mb-[22px] break-words'>{item.name}</p>
 
                                     <button onClick={()=>handleEnquireNow(item._id)} className="w-full md:h-[45px] h-[32px] flex items-center justify-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
                                         Enquire Now
