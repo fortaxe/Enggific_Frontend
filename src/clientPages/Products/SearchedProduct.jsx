@@ -92,7 +92,7 @@ if (error) return <p>Error: {error.message}</p>;
                     {(filteredProducts && filteredProducts.length > 0) ? filteredProducts.map((product) => (
                         <div
                             key={product._id}
-                            className="w-[calc(50%-14.5px)] md:w-[calc(25%-21.75px)] md:h-auto h-[282px]  border border-[#D2D2D2] px-[14px] py-[18px] mb-[70px]"
+                            className="w-[calc(50%-14.5px)] md:w-[calc(25%-21.75px)] md:h-auto h-[282px]  border border-[#D2D2D2] px-[14px] py-[18px] mb-[70px] overflow-hidden"
                         >
                             <div className='md:w-[55px] md:h-[27px] w-[32.14px] h-[15.78px] bg-[#FF1C1C] flex items-center justify-center'>
                                 <p className='text-xs font-bold text-white'>Sale</p>
@@ -102,7 +102,7 @@ if (error) return <p>Error: {error.message}</p>;
                                 <img src={product.thumbnailImage} alt='product' className='w-full h-full object-cover' />
                             </div>
 
-                            <p className='text-textBlack md:text-sm text-xs mb-[22px]'>{product.name}</p>
+                            <p className='text-textBlack md:text-sm text-xs mb-[22px] break-words'>{product.name}</p>
 
                             <button onClick={()=>handleEnquireNow(product._id)} className="w-full md:h-[45px] h-[32px] flex items-center justify-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
                                 Enquire Now
