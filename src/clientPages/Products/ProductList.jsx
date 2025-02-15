@@ -105,7 +105,7 @@ const ProductList = () => {
       ):[];
 
     return (
-        <section>
+        <section className='xl:mt-[270px] mt-[200px]'>
             <div className="mx-auto max-w-full px-4 py-[29px] sm:px-6 sm:py-12 lg:px-8">
                 <header>
                     <h2 className="xl:text-[38px] text-[26px] text-textBlack font-bold sm:text-3xl">Measuring Devices</h2>

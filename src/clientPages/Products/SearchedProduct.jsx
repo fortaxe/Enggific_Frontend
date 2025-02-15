@@ -82,17 +82,17 @@ if (error) return <p>Error: {error.message}</p>;
 //     product.toLowerCase().includes(searchTerm)
 //   );
   return (
-    <div className='px-[60px] py-[70px]'>
+    <div className='xl:px-[60px] px-[16px] xl:mt-[270px] mt-[200px]'>
         <div className='mb-[70px]'>
                 <h2 className='md:text-[38px] text-[26px] text-textBlack'>We found the following for <span className='font-bold'>{searchTerm}</span></h2>
         </div>
 
         {/* searched List */}
-        <div className="flex flex-wrap justify-center gap-[29px]">
+        <div className="flex flex-wrap justify-center gap-[29px] xl:mb-[70px] mb-[30px]">
                     {(filteredProducts && filteredProducts.length > 0) ? filteredProducts.map((product) => (
                         <div
                             key={product._id}
-                            className="w-[calc(50%-14.5px)] md:w-[calc(25%-21.75px)] md:h-auto h-[282px]  border border-[#D2D2D2] px-[14px] py-[18px] mb-[70px] overflow-hidden"
+                            className="w-[calc(50%-14.5px)] md:w-[calc(25%-21.75px)] md:h-auto h-[282px]  border border-[#D2D2D2] px-[14px] py-[18px] overflow-hidden"
                         >
                             <div className='md:w-[55px] md:h-[27px] w-[32.14px] h-[15.78px] bg-[#FF1C1C] flex items-center justify-center'>
                                 <p className='text-xs font-bold text-white'>Sale</p>
