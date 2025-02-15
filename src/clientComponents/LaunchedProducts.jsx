@@ -68,17 +68,17 @@ const LaunchedProducts = () => {
                     {(data.products && data.products.length > 0) && data.products.slice(0, 4).map((item, index) => (
                         <div
                             key={index}
-                            className="w-[calc(50%-14.5px)] md:w-[calc(25%-21.75px)] h-auto border border-[#D2D2D2] px-[14px] py-[18px] md:mb-[70px] mb-[0px]"
+                            className="w-[calc(50%-14.5px)] md:w-[calc(25%-21.75px)] h-auto border border-[#D2D2D2] px-[14px] py-[18px] md:mb-[70px] mb-[0px] overflow-hidden"
                         >
                             <div className='md:w-[55px] md:h-[27px] w-[32.14px] h-[15.78px] bg-[#FF1C1C] flex items-center justify-center'>
                                 <p className='text-xs font-bold text-white'>Sale</p>
                             </div>
 
-                            <div className='md:h-[273px] h-[159.55px] mb-[12px]'>
+                            <div className='md:h-[273px] h-[159.55px]  mb-[12px]' onClick={()=> navigate(`/product/${item._id}`)}>
                                 <img src={item.thumbnailImage} alt='product' className='w-full h-full object-cover' />
                             </div>
 
-                            <p className='text-textBlack md:text-sm text-xs mb-[22px]'>{item.name}</p>
+                            <p className='text-textBlack md:text-sm text-xs mb-[22px] break-words'>{item.name}</p>
 
                             <button onClick={() => handleEnquireNow(item._id)} className="w-full md:h-[45px] h-[32px] flex items-center justify-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
                                 Enquire Now
