@@ -1,7 +1,14 @@
+import { BASE_URL } from '@/constants';
 import React from 'react'
 import { Link } from 'react-router-dom'
+import useFetchData from './utils/useFetchData';
 
 const Footer = () => {
+
+  const apiUrl = `${BASE_URL}/user/get/socialMediaLinks`;
+
+    const { data, loading } = useFetchData(apiUrl);
+
   return (
     <footer className="bg-[#F8F8F8]">
       <div className="mx-auto max-w-full-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
@@ -78,7 +85,7 @@ const Footer = () => {
                 <li>
                   <a
                     className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-                    href="#"
+                    href={`mailto:${data ? data.links[0].adminEmail : ""}`}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -95,14 +102,14 @@ const Footer = () => {
                       />
                     </svg>
 
-                    <span className="flex-1 text-gray-700">help@ENGGIFIC.com</span>
+                    {loading ? "...." :<span className="flex-1 text-gray-700">{data ? data.links[0].adminEmail : ""}</span>}
                   </a>
                 </li>
 
                 <li>
                   <a
                     className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-                    href="#"
+                    href={`tel:+91${data ? data.links[0]?.adminMobileNumber : ""}`}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +126,7 @@ const Footer = () => {
                       />
                     </svg>
 
-                    <span className="flex-1 text-gray-700">+91 2565 265 565</span>
+                    {loading ? "...." :<span className="flex-1 text-gray-700">+91 {data ? data.links[0]?.adminMobileNumber : ""}</span>}
                   </a>
                 </li>
 
