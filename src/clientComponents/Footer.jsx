@@ -5,18 +5,18 @@ const Footer = () => {
     <footer className="bg-[#F8F8F8]">
       <div className="mx-auto max-w-full-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
         <div className="grid grid-cols-1 gap-0 lg:grid-cols-3">
-          <div>
-            <div className="flex justify-center text-teal-600 sm:justify-start">
-              <img src='/enggific_logo.png' alt='logo' className='w-[152px] h-[125.09px]'/>
+          <div className='mb-[30px]'>
+            <div className="flex justify-start text-teal-600 sm:justify-start">
+              <img src='/enggific_logo.png' alt='logo' className='xl:w-[152px] xl:h-[125.09px] w-[102.57px] h-[84.41px]'/>
             </div>
 
-            <p className="mt-6 max-w-md text-center leading-relaxed text-gray-500 sm:max-w-xs sm:text-left">
+            <p className="mt-6 max-w-md leading-relaxed text-gray-500 sm:max-w-xs text-left">
             ENGGIFIC Engineering & Scientific offers a wide range of engineering and scientific laboratory equipment as a pioneering provider
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2">
-            <div className="text-center sm:text-left">
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:col-span-2">
+            <div className="text-left">
               <p className="text-lg font-medium text-gray-900">Company</p>
 
               <ul className="mt-8 space-y-4 text-sm">
@@ -40,7 +40,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div className="text-center sm:text-left">
+            <div className="text-left">
               <p className="text-lg font-medium text-gray-900">Help</p>
 
               <ul className="mt-8 space-y-4 text-sm">
@@ -56,7 +56,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div className="text-center sm:text-left">
+            <div className="text-left">
               <p className="text-lg font-medium text-gray-900">Privacy Policy</p>
 
               <ul className="mt-8 space-y-4 text-sm">
@@ -70,7 +70,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div className="text-center sm:text-left">
+            <div className="text-left">
               <p className="text-lg font-medium text-gray-900">Contact Us</p>
 
               <ul className="mt-8 space-y-4 text-sm">
