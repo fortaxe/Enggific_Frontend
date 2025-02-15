@@ -54,7 +54,7 @@ const ChooseUs = () => {
     ]
 
     return (
-        <div className='bg-[#22384D] md:px-[60px] px-[16px] md:pb-[100px] pb-[63.99px] xl:pt-[70px] pt-[52px]'>
+        <div className='bg-[#22384D] md:px-[60px] px-[16px] md:pb-[100px] pb-[30px] xl:pt-[70px] pt-[30px]'>
             <div className=''>
                 <div className='text-center mb-[34px]'>
                     <h3 className='md:text-2xl text-base text-white'>The benefits of</h3>
@@ -65,7 +65,7 @@ const ChooseUs = () => {
                     {data.map((item, index) => (
                         <div
                             key={index}
-                            className="w-[calc(50%-14.5px)] lg:w-[calc(33.333%-19.33px)] md:h-32 h-auto mb-[50px]"
+                            className="w-[calc(50%-14.5px)] lg:w-[calc(33.333%-19.33px)] md:h-36 h-[10px] mb-[50px]"
                         >
                             <div className='flex gap-[14px] items-center mb-[18px]'>
                                 <div>
