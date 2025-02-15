@@ -71,11 +71,11 @@ const ProductDetail = () => {
 
     return (
         <div className='xl:px-[60px] px-[16px] xl:mt-[270px] mt-[200px]'>
-            <div className="md:flex items-start py-12 2xl:px-20 md:px-6 px-4">
+            <div className="md:flex items-start py-12 md:px-6">
                 <div className="flex xl:flex-row flex-col md:gap-4 gap-2">
                     {/* Main Image with Magnify Effect */}
-                    {/* <MagniFyingImage image={selectedImage} /> */}
-                    <img src={selectedImage} alt="product" className=" xl:w-[414.31px] w-[380px] h-[380px] xl:h-[414.31px] object-cover" />
+
+                    <img src={selectedImage} alt="product" className="xl:w-[414.31px] w-full max-w-[414px] h-[380px] xl:h-[414.31px] object-cover" />
 
                     {/* Thumbnail Images */}
                     <div className="xl:w-[94.88px] w-[58.04px] flex xl:flex-col flex-row xl:gap-3 gap-[9.28px]">
@@ -91,15 +91,6 @@ const ProductDetail = () => {
                         ))}
                     </div>
                 </div>
-                {/* <div className="md:hidden">
-                    <img className="w-full" alt="product" src="https://i.ibb.co/QMdWfzX/component-image-one.png" />
-                    <div className="flex items-center justify-between mt-3 space-x-4 md:space-x-0">
-                        <img alt="img-tag-one" className="md:w-48 md:h-48 w-full" src="https://i.ibb.co/cYDrVGh/Rectangle-245.png" />
-                        <img alt="img-tag-one" className="md:w-48 md:h-48 w-full" src="https://i.ibb.co/f17NXrW/Rectangle-244.png" />
-                        <img alt="img-tag-one" className="md:w-48 md:h-48 w-full" src="https://i.ibb.co/cYDrVGh/Rectangle-245.png" />
-                        <img alt="img-tag-one" className="md:w-48 md:h-48 w-full" src="https://i.ibb.co/f17NXrW/Rectangle-244.png" />
-                    </div>
-                </div> */}
                 <div className="xl:w-4/6 w-full lg:ml-8 md:ml-6 ml-0 md:mt-0 mt-6">
                     <div className="xl:max-w-[742px] mb-[20px]">
                         <p className="text-2xl text-textBlack">{data.product && data.product.name}</p>
