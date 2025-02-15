@@ -20,7 +20,7 @@ const Header = () => {
     // console.log("socials data", data)
 
     return (
-        <header className='header bg-white'>
+        <header className='header bg-white fixed top-0 left-0 w-full z-50'>
             {(data.links && data.links.length > 0) && <div className='w-full flex justify-between items-center p-4 px-[80px] h-[34px] md:h-auto'>
                 <div className='md:flex items-center hidden'>
                     <svg width={22} height={22} viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -80,19 +80,14 @@ const Header = () => {
                             </div>
 
                             <button
-                                className="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
+                                className="block md:hidden"
                                 onClick={() => setSidebarOpen(true)}
                             >
                                 <span className="sr-only">Toggle menu</span>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="size-5"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                                <svg width={24} height={20} viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.5 0.5H22.5C22.5 0.5 23.5 0.5 23.5 1.5V2.5C23.5 2.5 23.5 3.5 22.5 3.5H1.5C1.5 3.5 0.5 3.5 0.5 2.5V1.5C0.5 1.5 0.5 0.5 1.5 0.5Z" fill="white" />
+                                    <path d="M1.5 8.5H22.5C22.5 8.5 23.5 8.5 23.5 9.5V10.5C23.5 10.5 23.5 11.5 22.5 11.5H1.5C1.5 11.5 0.5 11.5 0.5 10.5V9.5C0.5 9.5 0.5 8.5 1.5 8.5Z" fill="white" />
+                                    <path d="M1.5 16.5H22.5C22.5 16.5 23.5 16.5 23.5 17.5V18.5C23.5 18.5 23.5 19.5 22.5 19.5H1.5C1.5 19.5 0.5 19.5 0.5 18.5V17.5C0.5 17.5 0.5 16.5 1.5 16.5Z" fill="white" />
                                 </svg>
                             </button>
                         </div>
@@ -106,7 +101,7 @@ const Header = () => {
                     <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setSidebarOpen(false)}></div>
 
                     {/* Side Panel */}
-                    <div className="fixed top-0 left-0 w-64 h-full bg-[#22384D] text-white z-50 shadow-lg transform transition-transform ease-in-out duration-300 translate-x-0">
+                    <div className="fixed top-0 right-0 w-64 h-full bg-[#22384D] text-white z-50 shadow-lg transform transition-transform ease-in-out duration-300 translate-x-0">
                         <div className="flex justify-between items-center p-4 border-b border-gray-700">
                             <span className="text-lg font-semibold">Menu</span>
                             <button onClick={() => setSidebarOpen(false)} className="text-gray-300 hover:text-white">
