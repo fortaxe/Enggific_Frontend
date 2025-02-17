@@ -96,9 +96,9 @@ const ProductDetail = () => {
                         <p className="text-2xl text-textBlack">{data.product && data.product.name}</p>
                     </div>
 
-                    <div className='mb-[20px]'>
+                    {/* <div className='mb-[20px]'>
                         <p className='text-base text-[#747474]'>SKU: {data.product && data.product.sku}</p>
-                    </div>
+                    </div> */}
 
                     <div className='bg-[#F5FFF1] flex justify-center items-center gap-[3px] w-[134px] h-[45px] text-[#51C86B] border border-[#51C86B] mb-[20px]'>
                         <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
