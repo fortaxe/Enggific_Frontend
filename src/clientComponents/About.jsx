@@ -4,7 +4,7 @@ const About = () => {
     return (
         <div className='relative h-[436px] bg-cover bg-center' style={{ backgroundImage: `url(/about_bg.png)` }}>
             <div className="absolute inset-0 bg-white bg-opacity-95 flex flex-row justify-center items-center px-[16px] xl:px-0">
-                <div className='flex flex-col justify-center items-center xl:mb-[69.81px] mb-[47px] mt-[70px]'>
+                <div className='flex flex-col justify-center items-center xl:mb-[69.81px] mb-[47px] md:mt-[70px] mt-[30px]'>
                     <div className='xl:mb-[20px] mb-[12px]'>
                     <svg className='xl:w-[65px] xl:h-[72px] w-[35px] h-[38.89px]' viewBox="0 0 65 72" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2 28.875C2 16.206 2 9.87152 5.93574 5.93574C9.87152 2 16.206 2 28.875 2H35.5938C48.2626 2 54.5974 2 58.5329 5.93574C62.4687 9.87152 62.4688 16.206 62.4688 28.875V42.3125C62.4688 54.9814 62.4687 61.3161 58.5329 65.2517C54.5974 69.1875 48.2626 69.1875 35.5938 69.1875H28.875C16.206 69.1875 9.87152 69.1875 5.93574 65.2517C2 61.3161 2 54.9814 2 42.3125V28.875Z" stroke="#E5810C" strokeWidth={4} />
