@@ -15,6 +15,7 @@ const LaunchedProducts = () => {
   const dispatch = useDispatch();
   const { user, token } = useSelector((state) => state.clientAuth);
   const [showLogin, setShowLogin] = useState(false);
+  const [productTobeEnquire, setProductTobeEnquire] = useState(null);
 
     const navigate = useNavigate();
 
@@ -26,30 +27,15 @@ const LaunchedProducts = () => {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>;
 
-    console.log("data pr", data)
-
+    // console.log("data pr", data)
 
     const handleEnquireNow = async (id) => {
-        if (user && token) {
-          // User authenticated, make the post request
-          try {
-            const response = await axios.post(
-              `${BASE_URL}/user/create/enquiry`,
-              { productIds: [id] },
-              { headers: { Authorization: `Bearer ${token}` } }
-            );
-    
-            toast.success("Enquiry succesfull team will contact soon", { autoClose: 3000 });
-            console.log("Enquiry successful", response.data);
-          } catch (error) {
-            toast.error("Enquiry failed");
-            console.error("Enquiry failed", error);
-          }
-        } else {
-          // User is not authenticated, show login popup
-          setShowLogin(true);
-        }
+
+      setProductTobeEnquire(id)
+      setShowLogin(true)
+        
       };
+   
     
       const handleLoginSuccess = async () => {
         await dispatch(clientLogin());
@@ -95,7 +81,7 @@ const LaunchedProducts = () => {
                         </button>
                     </div>
             </div>
-            {showLogin && <LoginPopup onClose={() => setShowLogin(false)} onLoginSuccess={handleLoginSuccess} />}
+            {showLogin && <LoginPopup onClose={() => setShowLogin(false)} onLoginSuccess={handleLoginSuccess} productId={productTobeEnquire} />}
         </div>
     )
 }

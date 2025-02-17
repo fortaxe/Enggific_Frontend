@@ -26,6 +26,8 @@ const ProductList = () => {
   const [filters, setFilters] = useState([])
     const [isOpen, setIsOpen] = useState(false);
 
+    const [productTobeEnquire, setProductTobeEnquire] = useState(null);
+
   useEffect(() => {
     const fetchFilters = async () => {
       try {
@@ -71,25 +73,28 @@ const ProductList = () => {
     // console.log("data list", data)
 
     const handleEnquireNow = async (id) => {
-        if (user && token) {
-          // User authenticated, make the post request
-          try {
-            const response = await axios.post(
-              `${BASE_URL}/user/create/enquiry`,
-              { productIds: [id] },
-              { headers: { Authorization: `Bearer ${token}` } }
-            );
+
+      setProductTobeEnquire(id)
+      setShowLogin(true)
+        // if (user && token) {
+        //   // User authenticated, make the post request
+        //   try {
+        //     const response = await axios.post(
+        //       `${BASE_URL}/user/create/enquiry`,
+        //       { productIds: [id] },
+        //       { headers: { Authorization: `Bearer ${token}` } }
+        //     );
     
-            toast.success("Enquiry succesfull team will contact soon", { autoClose: 3000 });
-            // console.log("Enquiry successful", response.data);
-          } catch (error) {
-            toast.error("Enquiry failed");
-            console.error("Enquiry failed", error);
-          }
-        } else {
-          // User is not authenticated, show login popup
-          setShowLogin(true);
-        }
+        //     toast.success("Enquiry succesfull team will contact soon", { autoClose: 3000 });
+        //     // console.log("Enquiry successful", response.data);
+        //   } catch (error) {
+        //     toast.error("Enquiry failed");
+        //     console.error("Enquiry failed", error);
+        //   }
+        // } else {
+        //   // User is not authenticated, show login popup
+        //   setShowLogin(true);
+        // }
       };
     
       const handleLoginSuccess = async () => {
@@ -197,7 +202,7 @@ const ProductList = () => {
 
                 </div>
             </div>
-            {showLogin && <LoginPopup onClose={() => setShowLogin(false)} onLoginSuccess={handleLoginSuccess} />}
+            {showLogin && <LoginPopup onClose={() => setShowLogin(false)} onLoginSuccess={handleLoginSuccess} productId={productTobeEnquire} />}
         </section>
     )
 }

@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clientLogin } from "@/redux/clientSlice/clientAuthSlice";
+import { BASE_URL } from "@/constants";
+import { toast } from "react-toastify";
+import axios from "axios";
 
-const LoginPopup = ({ onClose, onLoginSuccess }) => {
+const LoginPopup = ({ onClose, onLoginSuccess, productId }) => {
   const dispatch = useDispatch();
   const { loading, error } = useSelector((state) => state.clientAuth);
+  const token = useSelector((state) => state.clientAuth.token);
 
   const [formData, setFormData] = useState({
     mobileNumber: "",
@@ -17,30 +21,43 @@ const LoginPopup = ({ onClose, onLoginSuccess }) => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    if (e.target.name === "email") {
-      setEmailError(""); // Clear error when user types
-    }
+    if (e.target.name === "email") setEmailError("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate email
     if (!formData.email.endsWith("@gmail.com")) {
       setEmailError("Email must be a Gmail address (@gmail.com)");
       return;
     }
 
-    const result = await dispatch(clientLogin(formData));
-    if (result.meta.requestStatus === "fulfilled") {
-      onLoginSuccess();
+    try {
+      // Login the user
+      const result = await dispatch(clientLogin(formData));
+
+      if (result.meta.requestStatus === "fulfilled") {
+        // If login is successful, send enquiry request
+        await axios.post(
+          `${BASE_URL}/user/create/enquiry`,
+          { productIds: [productId] },
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
+
+        toast.success("Enquiry submitted successfully!", { autoClose: 3000 });
+        onClose();
+      }
+    } catch (error) {
+      toast.error("Enquiry failed. Try again.");
+      console.error("Enquiry Error:", error);
     }
   };
+
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[100]">
       <div className="bg-white p-6 rounded shadow-lg w-96">
-        <h2 className="text-lg font-bold mb-4">Login</h2>
+        <h2 className="text-lg font-bold mb-4">Enquiry</h2>
         {error && <p className="text-red-500 mb-2">{error}</p>}
 
         <form onSubmit={handleSubmit} className="space-y-3">
@@ -86,7 +103,7 @@ const LoginPopup = ({ onClose, onLoginSuccess }) => {
             className="bg-orange-500 text-white px-4 py-2 rounded w-full"
             disabled={loading}
           >
-            {loading ? "Logging in..." : "Login"}
+            {loading ? "Enquire in..." : "Enquire"}
           </button>
         </form>
 
