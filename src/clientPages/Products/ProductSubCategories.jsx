@@ -171,7 +171,7 @@ const ProductSubCategories = () => {
       ]
 
   return (
-    <div className='xl:mt-[170px] mt-[200px]'>
+    <div className='xl:mt-[170px] mt-[100px]'>
       <div className='xl:px-[60px] px-[16px]'>
         <div className='text-center xl:mb-[55px] mb-[29px]'>
           <h3 className='md:text-2xl text-base text-textBlack'>Explore</h3>

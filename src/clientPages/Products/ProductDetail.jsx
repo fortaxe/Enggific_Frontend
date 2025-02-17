@@ -55,7 +55,7 @@ const ProductDetail = () => {
 
 
     return (
-        <div className='xl:px-[60px] px-[16px] xl:mt-[170px] mt-[200px]'>
+        <div className='xl:px-[60px] px-[16px] xl:mt-[170px] mt-[100px]'>
             <div className="md:flex items-start py-12 md:px-6">
                 <div className="flex xl:flex-row flex-col md:gap-4 gap-2">
                     {/* Main Image with Magnify Effect */}

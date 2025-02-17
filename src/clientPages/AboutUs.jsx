@@ -11,7 +11,7 @@ const AboutUs = () => {
   const navigate = useNavigate();
 
   return (
-    <div className='xl:mt-[170px] mt-[200px]'>
+    <div className='xl:mt-[170px] mt-[100px]'>
       <div className='flex flex-wrap md:flex-row flex-col justify-start gap-[29px] md:px-[60px] px-[16px]'>
         <div className='w-full md:w-[calc(55%-14.5px)] md:h-[336px] h-[282px] py-[18px] md:mb-[70px] mb-[30px] bg-cover bg-center' style={{ backgroundImage: `url(/hands.png)` }}>
 
