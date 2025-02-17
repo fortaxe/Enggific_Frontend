@@ -111,7 +111,7 @@ const EnquiriesNavbar = () => {
     const uniqueStatuses = useMemo(() => [...new Set(enquiries?.map(enquiry => enquiry?.status))], [enquiries]);
 
     return (
-        <nav className="bg-[#22384D] text-white shadow-lg sticky top-0 z-10">
+        <nav className="bg-[#E5810C] text-white shadow-lg sticky top-0 z-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
