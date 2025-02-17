@@ -36,12 +36,14 @@ const LoginPopup = ({ onClose, onLoginSuccess, productId }) => {
       // Login the user
       const result = await dispatch(clientLogin(formData));
 
+      console.log("result", result);
+
       if (result.meta.requestStatus === "fulfilled") {
         // If login is successful, send enquiry request
         await axios.post(
           `${BASE_URL}/user/create/enquiry`,
           { productIds: [productId] },
-          { headers: { Authorization: `Bearer ${token}` } }
+          { headers: { Authorization: `Bearer ${result?.payload?.token}` } }
         );
 
         toast.success("Enquiry submitted successfully!", { autoClose: 3000 });
