@@ -98,6 +98,9 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      react-fast-marquee:
+        specifier: ^1.6.5
+        version: 1.6.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-image-magnifiers:
         specifier: ^1.4.0
         version: 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2398,6 +2401,12 @@ packages:
 
   react-fast-compare@2.0.4:
     resolution: {integrity: sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==}
+
+  react-fast-marquee@1.6.5:
+    resolution: {integrity: sha512-swDnPqrT2XISAih0o74zQVE2wQJFMvkx+9VZXYYNSLb/CUcAzU9pNj637Ar2+hyRw6b4tP6xh4GQZip2ZCpQpg==}
+    peerDependencies:
+      react: '>= 16.8.0 || ^18.0.0'
+      react-dom: '>= 16.8.0 || ^18.0.0'
 
   react-image-magnifiers@1.4.0:
     resolution: {integrity: sha512-ZszHusdsYteccKGysHXUOgLRGtHqfRYuG1koHh3VAvuhrzF4BEs1Ot5tSe1WA2v+EsjAEfYcrRyi/Is4QDD61A==}
@@ -5206,6 +5215,11 @@ snapshots:
       prop-types: 15.8.1
 
   react-fast-compare@2.0.4: {}
+
+  react-fast-marquee@1.6.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   react-image-magnifiers@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
