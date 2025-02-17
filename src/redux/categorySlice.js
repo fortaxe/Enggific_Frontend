@@ -29,9 +29,10 @@ export const fetchCategories = createAsyncThunk(
   export const createCategory = createAsyncThunk(
     "category/createCategory",
     async (categoryData, { rejectWithValue }) => {
-      const token = localStorage.getItem("token");
+      
       
       try {
+        const token = localStorage.getItem("token");
         const response = await axios.post(
          `${BASE_URL}/admin/create/category`,
           categoryData,
@@ -57,12 +58,13 @@ export const fetchCategories = createAsyncThunk(
     async (categoryData, { rejectWithValue }) => {
       
       try {
+        const token = localStorage.getItem("token");
         const response = await axios.patch(
           `${BASE_URL}/admin/update/category`,
           categoryData,
           {
             headers: {
-              Authorization: `Bearer ${Token}`,
+              Authorization: `Bearer ${token}`,
               "Content-Type": "multipart/form-data",
             },
           }
@@ -81,9 +83,10 @@ export const fetchCategories = createAsyncThunk(
     "category/deleteCategory",
     async (categoryId, { rejectWithValue }) => {
       try {
+        const token = localStorage.getItem("token");
         const response = await axios.delete(`${BASE_URL}/admin/delete/category`, {
           headers: {
-            Authorization: `Bearer ${Token}`,
+            Authorization: `Bearer ${token}`,
           },
           data: { id: categoryId }, // Pass the id in the body
         });
