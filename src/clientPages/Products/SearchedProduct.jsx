@@ -68,7 +68,7 @@ if (error) return <p>Error: {error.message}</p>;
 //     product.toLowerCase().includes(searchTerm)
 //   );
   return (
-    <div className='xl:px-[60px] px-[16px] xl:mt-[270px] mt-[200px]'>
+    <div className='xl:px-[60px] px-[16px] xl:mt-[170px] mt-[200px]'>
         <div className='mb-[70px]'>
                 <h2 className='md:text-[38px] text-[26px] text-textBlack'>We found the following for <span className='font-bold'>{searchTerm}</span></h2>
         </div>
