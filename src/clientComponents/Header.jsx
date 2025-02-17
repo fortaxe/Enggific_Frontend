@@ -21,7 +21,7 @@ const Header = () => {
 
     return (
         <header className='header bg-white fixed top-0 left-0 w-full z-50'>
-            {(data.links && data.links.length > 0) && <div className='w-full flex justify-between items-center p-4 px-[80px] h-[34px] md:h-auto'>
+            {(data.links && data.links.length > 0) && <div className='w-full md:flex hidden justify-between items-center p-4 h-[34px] md:h-auto'>
                 <div className='md:flex items-center hidden'>
                     <svg width={22} height={22} viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M17.3313 9.00055C17.3313 13.9991 10.6666 18.9976 10.6666 18.9976C10.6666 18.9976 4.00195 13.9991 4.00195 9.00055C4.00195 7.23296 4.70412 5.53777 5.954 4.2879C7.20387 3.03803 8.89906 2.33586 10.6666 2.33586C12.4342 2.33586 14.1294 3.03803 15.3793 4.2879C16.6292 5.53777 17.3313 7.23296 17.3313 9.00055Z" stroke="#414141" strokeWidth="1.33926" strokeLinecap="round" strokeLinejoin="round" />
@@ -46,10 +46,10 @@ const Header = () => {
             </div>}
 
             {/* Nav */}
-            <div className="bg-[#22384D]">
-                <div className="mx-auto flex h-[133.33px] max-w-screen-3xl items-center gap-8 px-4 sm:px-6 lg:px-[80px]">
+            <div className="bg-[#22384D] md:px-[80px] px-[16px]">
+                <div className="mx-auto flex md:h-[133.33px] h-[82px] max-w-screen-3xl items-center gap-8 px-4 sm:px-6 lg:px-[80px]">
                     <Link className="block text-teal-600" to="/">
-                        <img src="/enggific_logo.png" alt="enggific" className='w-[103.69px] h-[85.33]' />
+                        <img src="/enggific_logo.png" alt="enggific" className='md:w-[103.69px] md:h-[85.33] w-[63.83px] h-[55px]' />
                     </Link>
 
                     <div className="flex flex-1 items-center justify-end md:justify-between">
