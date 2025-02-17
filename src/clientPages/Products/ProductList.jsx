@@ -32,7 +32,7 @@ const ProductList = () => {
         const response = await axios.get(`${BASE_URL}/admin/get/productTypes`);
         console.log("filters Data", response)
         setFilters(response.data.productTypes);
-        setActiveFilter(response.data.productTypes[1]._id);
+        setActiveFilter(response.data.productTypes[0]._id);
       } catch (error) {
         console.error(error);
       }
@@ -136,7 +136,7 @@ const ProductList = () => {
                         <div>
                             <p className="block text-lg font-bold text-textBlack px-[11px] mb-[17px]">Sub Category</p>
                             <div className="space-y-2">
-                                {(filters && filters.length > 0) && filters.slice(0,3).map((filter) => (
+                                {(filters && filters.length > 0) && filters.map((filter) => (
                                     <div
                                         key={filter._id}
                                         className={`w-[265px] h-[49px] px-[11px] flex items-center cursor-pointer rounded-md 
