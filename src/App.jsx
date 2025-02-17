@@ -54,7 +54,7 @@ const DefaultLayout = () => {
   return (
     <div>
       <Header />
-      <main className="xl:mt-[170px] mt-[150px]">
+      <main className="xl:mt-[170px] mt-[68px]">
         <Outlet /> {/* Renders nested routes inside DefaultLayout */}
       </main>
       <Footer />
