@@ -1,23 +1,29 @@
 import React from "react";
+import Marquee from "react-fast-marquee";
 
 const CompanyBanners = () => {
   return (
-    <div className="xl:px-[60px] px-[16px] xl:py-[70px] py-[30px]">
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-[16px] xl:gap-[29px]">
-        {[...Array(6)].map((_, index) => (
-          <div
-            key={index}
-            className="w-full h-[80px] md:h-[90px] xl:h-[100px]"
-            style={{
-              backgroundImage: `url(/company${index + 1}.png)`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          ></div>
-        ))}
+    <div className="xl:pt-[70px] pt-[30px]">
+      <div className='text-center mb-[30px]'>
+        <h2 className='md:text-[38px] md:leading-[43.7px] text-[26px] leading-[29.9px] text-textOrange font-bold'>Our Clients</h2>
       </div>
+      <Marquee className="bg-white dark:bg-primary" pauseOnHover={true} speed={80}>
+        {[...Array(6)].map((_, index) => (
+
+          <img
+            key={index}
+            src={`/company${index + 1}.png`}
+            width={200}
+            height={200}
+            alt={`image`}
+            className="ml-6"
+            style={{ aspectRatio: 3 / 2, objectFit: "contain" }}
+          />
+        ))}
+      </Marquee>
     </div>
   );
 };
 
 export default CompanyBanners;
+
