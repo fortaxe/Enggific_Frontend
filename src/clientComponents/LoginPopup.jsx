@@ -75,6 +75,7 @@ const LoginPopup = ({ onClose, onLoginSuccess, productId }) => {
           <input
             type="text"
             name="mobileNumber"
+            maxLength={10}
             placeholder="Mobile Number"
             value={formData.mobileNumber}
             onChange={handleChange}
