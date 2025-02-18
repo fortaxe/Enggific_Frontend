@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { BASE_URL, Token } from "@/constants";
+import { BASE_URL } from "@/constants";
 
 
 
@@ -9,11 +9,12 @@ export const fetchProductTypes = createAsyncThunk(
     "productTypeList/fetchProductTypes",
     async (_, { rejectWithValue }) => {
       try {
+        const token = localStorage.getItem("token");
         const response = await axios.get(
           `${BASE_URL}/admin/get/productTypes`,
           {
             headers: {
-              Authorization: `Bearer ${Token}`,
+              Authorization: `Bearer ${token}`,
             },
           }
         );
@@ -81,9 +82,10 @@ export const fetchProductTypes = createAsyncThunk(
     "productType/deleteProductType",
     async (productTypeId, { rejectWithValue }) => {
       try {
+        const token = localStorage.getItem("token");
         const response = await axios.delete(`${BASE_URL}/admin/delete/productType`, {
           headers: {
-            Authorization: `Bearer ${Token}`,
+            Authorization: `Bearer ${token}`,
           },
           data: { id: productTypeId }, // Pass the id in the body
         });

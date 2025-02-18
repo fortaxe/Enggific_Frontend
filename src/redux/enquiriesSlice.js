@@ -1,4 +1,4 @@
-import { BASE_URL, Token } from "@/constants";
+import { BASE_URL } from "@/constants";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import moment from "moment";
@@ -53,12 +53,12 @@ export const deleteEnquiry = createAsyncThunk(
   "enquiry/deleteEnquiry",
   async (id, { rejectWithValue }) => {
     try {
-     
+      const token = localStorage.getItem("token");
       const response = await axios.delete(
         `${BASE_URL}/admin/delete/enquiry`,
         {
           headers: {
-            Authorization: `Bearer ${Token}`,
+            Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
           data: { id },
