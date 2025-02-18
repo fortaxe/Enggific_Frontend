@@ -93,7 +93,7 @@ const AdminNavbar = ({ title, onSearch }) => {
                         </div>
                     </div>
                     <div className="flex items-center space-x-4">
-                        <DropdownMenu>
+                        {/* <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <Button variant="outline" className="bg-white hover:bg-gray-200 text-black">Category</Button>
                             </DropdownMenuTrigger>
@@ -106,7 +106,7 @@ const AdminNavbar = ({ title, onSearch }) => {
                                     </DropdownMenuItem>
                                 ))}
                             </DropdownMenuContent>
-                        </DropdownMenu>
+                        </DropdownMenu> */}
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <Button variant="outline" className="bg-white text-black hover:bg-gray-200">Status</Button>
