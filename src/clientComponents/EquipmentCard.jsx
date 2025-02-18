@@ -29,7 +29,7 @@ const EquipmentCard = ({ equipment, page, subId }) => {
                 <div className=''>
                     {/* {equipment.icon} */}
                 </div>
-                <p className='break-words'>{equipment.name}</p>
+                <p className='break-words lg:text-lg text-base'>{equipment.name}</p>
             </div>
         </div>
     )
