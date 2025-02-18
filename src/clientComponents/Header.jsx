@@ -46,8 +46,8 @@ const Header = () => {
             </div>}
 
             {/* Nav */}
-            <div className="bg-[#22384D] 2xl:px-[80px] px-[16px]">
-                <div className="mx-auto flex h-[82px] max-w-screen-3xl items-center gap-8 px-4 sm:px-6 lg:px-[80px]">
+            <div className="bg-[#22384D] lg:px-[60px] px-[16px]">
+                <div className="mx-auto flex h-[82px] max-w-screen-3xl items-center gap-8">
                     <Link className="block text-teal-600" to="/">
                         <img src="/enggific_logo.png" alt="enggific" className='md:w-[77.77px] md:h-[64px] w-[63.83px] h-[55px]' />
                     </Link>

@@ -54,7 +54,7 @@ const LaunchedProducts = () => {
                     {(data.products && data.products.length > 0) && data.products.slice(0, 4).map((item, index) => (
                         <div
                             key={index}
-                            className="w-[calc(50%-14.5px)] md:w-[calc(25%-21.75px)] h-auto border border-[#D2D2D2] px-[14px] py-[18px] md:mb-[70px] mb-[0px] overflow-hidden"
+                            className="w-[calc(50%-14.5px)] xs1400:w-[calc(32.73%-19.33px)] h-auto border border-[#D2D2D2] px-[14px] py-[18px] md:mb-[70px] mb-[0px] overflow-hidden"
                         >
                             <div className='md:w-[55px] md:h-[27px] w-[32.14px] h-[15.78px] bg-[#FF1C1C] flex items-center justify-center'>
                                 <p className='text-xs font-bold text-white'>Sale</p>
@@ -74,12 +74,12 @@ const LaunchedProducts = () => {
 
                     
                 </div>
-                <div className='flex justify-center'>
+                {/* <div className='flex justify-center'>
 
                         <button className="w-[216px] h-[48px] md:flex hidden justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
                             View All
                         </button>
-                    </div>
+                    </div> */}
             </div>
             {showLogin && <LoginPopup onClose={() => setShowLogin(false)} onLoginSuccess={handleLoginSuccess} productId={productTobeEnquire} />}
         </div>
