@@ -61,7 +61,7 @@ const ChooseUs = () => {
                     <h2 className='md:text-[38px] text-[26px] text-white font-bold'>Choosing us</h2>
                 </div>
 
-                <div className='flex flex-wrap  md:gap-[29px] gap-[26px] md:p-4 md:pb-0 p-0'>
+                <div className='flex flex-wrap  md:gap-[29px] gap-[26px] md:p-4 md:pb-0 pb-[61.99px]'>
                     {data.map((item, index) => (
                         <div
                             key={index}
