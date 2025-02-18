@@ -7,7 +7,7 @@ const CompanyBanners = () => {
       <div className='text-center mb-[30px]'>
         <h2 className='md:text-[38px] md:leading-[43.7px] text-[26px] leading-[29.9px] text-textOrange font-bold'>Our Clients</h2>
       </div>
-      <Marquee className="bg-white dark:bg-primary" pauseOnHover={true} speed={80}>
+      <Marquee className="bg-white dark:bg-primary md:pb-[70px] pb-[30px]" pauseOnHover={true} speed={80}>
         {[...Array(6)].map((_, index) => (
 
           <img
