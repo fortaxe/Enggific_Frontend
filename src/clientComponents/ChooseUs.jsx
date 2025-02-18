@@ -56,16 +56,16 @@ const ChooseUs = () => {
     return (
         <div className='bg-[#22384D] md:px-[60px] px-[16px] md:pb-[100px] pb-[30px] xl:pt-[70px] pt-[30px]'>
             <div className=''>
-                <div className='text-center mb-[34px]'>
+                <div className='text-center'>
                     <h3 className='md:text-2xl text-base text-white'>The benefits of</h3>
                     <h2 className='md:text-[38px] text-[26px] text-white font-bold'>Choosing us</h2>
                 </div>
 
-                <div className='flex flex-wrap  md:gap-[29px] gap-[26px] md:p-4 p-0'>
+                <div className='flex flex-wrap  md:gap-[29px] gap-[26px] md:p-4 md:pb-0 p-0'>
                     {data.map((item, index) => (
                         <div
                             key={index}
-                            className="w-[calc(50%-14.5px)] lg:w-[calc(33.333%-19.33px)] md:h-36 h-[10px] mb-[50px]"
+                            className="w-[calc(50%-14.5px)] lg:w-[calc(33.333%-19.33px)] md:h-36 h-[10px] mt-[50px]"
                         >
                             <div className='flex gap-[14px] items-center mb-[18px]'>
                                 <div>
