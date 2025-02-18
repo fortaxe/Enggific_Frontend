@@ -13,9 +13,10 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+
 
 const ProductList = () => {
+  const { subCategoryId } = useParams();
 
     const [activeFilter, setActiveFilter] = useState("");
 
@@ -28,19 +29,22 @@ const ProductList = () => {
 
     const [productTobeEnquire, setProductTobeEnquire] = useState(null);
 
-  useEffect(() => {
-    const fetchFilters = async () => {
-      try {
-        const response = await axios.get(`${BASE_URL}/admin/get/productTypes`);
-        console.log("filters Data", response)
-        setFilters(response.data.productTypes);
-        setActiveFilter(response.data.productTypes[0]._id);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchFilters();
-  },[])
+    useEffect(() => {
+        const fetchFilters = async () => {
+          try {
+            const response = await axios.post(`${BASE_URL}/get/productTypesByCategory`, {
+              categoryId: subCategoryId,
+            });
+            console.log("Filters Data:", response);
+            setFilters(response.data.productTypes);
+            setActiveFilter(response.data.productTypes[0]?._id || null);
+          } catch (error) {
+            console.error(error);
+          }
+        };
+      
+        fetchFilters();
+      }, [subCategoryId]);
 
     
     const navigate = useNavigate()
@@ -52,7 +56,7 @@ const ProductList = () => {
     }
 
 
-  // const { data, loading, error } = useFetchProductBySubCategoryData(subCategoryId);
+//   const { data, loading, error } = useFetchProductBySubCategoryData(subCategoryId);
   const apiUrl = `${BASE_URL}/admin/get/products`;
 
     const { data, loading, error } = useFetchData(apiUrl);
@@ -113,7 +117,7 @@ const ProductList = () => {
         <section className='xl:mt-[170px] mt-[100px]'>
             <div className="mx-auto max-w-full px-4 py-[29px] sm:px-6 sm:py-12 lg:px-8">
                 <header>
-                    <h2 className="xl:text-[38px] text-[26px] text-textBlack font-bold sm:text-3xl">Measuring Devices</h2>
+                    <h2 className="xl:text-[38px] text-[26px] text-textBlack font-bold sm:text-3xl">{filters[0]?.category?.name}</h2>
                 </header>
 
                 <div className="mt-8 block lg:hidden">
@@ -137,7 +141,7 @@ const ProductList = () => {
                 </div>
 
                 <div className="mt-4 lg:mt-8 lg:grid lg:grid-cols-4 lg:items-start lg:gap-2">
-                    <div className="hidden space-y-4 lg:block">
+                    <div className="hidden space-y-4 lg:block h-[700px] overflow-y-auto no-scrollbar">
                         <div>
                             <p className="block text-lg font-bold text-textBlack px-[11px] mb-[17px]">Sub Category</p>
                             <div className="space-y-2">
@@ -178,7 +182,7 @@ const ProductList = () => {
                             {(filteredProducts && filteredProducts.length > 0) ? filteredProducts.map((item, index) => (
                                 <div
                                     key={index}
-                                    className="w-[calc(50%-14.5px)] lg:w-[calc(33.333%-19.33px)] md:h-auto  border border-[#D2D2D2] px-[14px] py-[18px] cursor-pointer overflow-hidden"
+                                    className="w-[calc(50%-14.5px)] xs1400:w-[calc(32.73%-19.33px)] md:h-auto  border border-[#D2D2D2] px-[14px] 2xl:px-[30px] py-[18px] cursor-pointer overflow-hidden"
                                 >
                                     <div className='md:w-[55px] md:h-[27px] w-[32.14px] h-[15.78px] bg-[#FF1C1C] flex items-center justify-center'>
                                         <p className='text-xs font-bold text-white'>Sale</p>
