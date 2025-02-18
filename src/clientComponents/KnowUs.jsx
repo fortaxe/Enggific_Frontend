@@ -3,7 +3,7 @@ import { Carousel } from 'react-responsive-carousel'
 
 const KnowUs = () => {
     return (
-        <div className='bg-[#F8F8F8] xl:px-[153px] px-[16px] pt-[94px] pb-[104px]'>
+        <div className='bg-[#F8F8F8] px-[16px] pt-[94px] pb-[104px]'>
             <div className="flex flex-wrap md:justify-center justify-start gap-[29px]">
                 <div
                     className={`md:h-[304px] md:w-[428px] h-auto w-auto`}
@@ -30,7 +30,7 @@ const KnowUs = () => {
                 </div>
 
 
-                <div className="h-[304px] xl:w-[739px] w-full">
+                <div className="h-[304px] xl:w-[739px] md:w-[428px] w-full">
                     <div className='w-full h-[253px] py-[29px]'>
                         <Carousel
                             showArrows={true}

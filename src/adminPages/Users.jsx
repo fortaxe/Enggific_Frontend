@@ -73,6 +73,7 @@ const Users = () => {
                     <TableRow>
                         <TableHead>Date</TableHead>
                         <TableHead>Name</TableHead>
+                        <TableHead>Email</TableHead>
                         <TableHead>Mobile Number</TableHead>
                         <TableHead>City</TableHead>
                         <TableHead>Edit</TableHead>
@@ -88,6 +89,7 @@ const Users = () => {
                                
                             </TableCell>
                             <TableCell>{user?.name}</TableCell>
+                            <TableCell>{user?.email}</TableCell>
                             <TableCell>{user?.mobileNumber}</TableCell>
                             <TableCell>{user?.city}</TableCell>
                             <TableCell>

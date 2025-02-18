@@ -54,13 +54,13 @@ const LaunchedProducts = () => {
                     {(data.products && data.products.length > 0) && data.products.slice(0, 4).map((item, index) => (
                         <div
                             key={index}
-                            className="w-[calc(50%-14.5px)] xs1400:w-[calc(32.73%-19.33px)] h-auto border border-[#D2D2D2] px-[14px] py-[18px] md:mb-[70px] mb-[0px] overflow-hidden"
+                            className="w-[calc(50%-14.5px)] md:w-[calc(25%-21.75px)] h-auto border border-[#D2D2D2] px-[14px] py-[18px] md:mb-[70px] mb-[0px] overflow-hidden"
                         >
-                            <div className='md:w-[55px] md:h-[27px] w-[32.14px] h-[15.78px] bg-[#FF1C1C] flex items-center justify-center'>
+
+                            <div className='relative md:h-[273px] h-[159.55px]  mb-[12px]' onClick={()=> navigate(`/product/${item._id}`)}>
+                            <div className='absolute top-0 left-0 md:w-[55px] md:h-[27px] w-[32.14px] h-[15.78px] bg-[#FF1C1C] flex items-center justify-center'>
                                 <p className='text-xs font-bold text-white'>Sale</p>
                             </div>
-
-                            <div className='md:h-[273px] h-[159.55px]  mb-[12px]' onClick={()=> navigate(`/product/${item._id}`)}>
                                 <img src={item.thumbnailImage} alt='product' className='w-full h-full object-cover' />
                             </div>
 

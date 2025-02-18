@@ -14,7 +14,7 @@ const CompanyBanners = () => {
             key={index}
             src={`/company${index + 1}.png`}
             width={200}
-            height={200}
+            height={90}
             alt={`image`}
             className="ml-6"
             style={{ aspectRatio: 3 / 2, objectFit: "contain" }}

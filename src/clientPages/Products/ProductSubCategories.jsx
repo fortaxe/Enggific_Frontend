@@ -175,7 +175,7 @@ const ProductSubCategories = () => {
       <div className='xl:px-[60px] px-[16px]'>
         <div className='text-center xl:mb-[55px] mb-[29px]'>
           <h3 className='md:text-2xl text-base text-textBlack'>Explore</h3>
-          <h2 className='md:text-[38px] text-[26px] text-textOrange font-bold'>Our product sub categoris</h2>
+          <h2 className='md:text-[38px] text-[26px] text-textOrange font-bold'>Our Product Sub Categories</h2>
         </div>
 
         <div className='flex flex-wrap justify-start gap-[29px] mt-[40px] mb-[70.07px]'>

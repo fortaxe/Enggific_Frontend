@@ -80,11 +80,12 @@ if (error) return <p>Error: {error.message}</p>;
                             key={product._id}
                             className="w-[calc(50%-14.5px)] xs1400:w-[calc(32.73%-19.33px)] md:h-auto h-[282px]  border border-[#D2D2D2] px-[14px] py-[18px] overflow-hidden"
                         >
-                            <div className='md:w-[55px] md:h-[27px] w-[32.14px] h-[15.78px] bg-[#FF1C1C] flex items-center justify-center'>
+                            
+
+                            <div className='relative md:h-[273px] h-[159.55px] mb-[12px] cursor-pointer' onClick={()=>handleNavigate(product._id)}>
+                            <div className='absolute top-0 left-0 md:w-[55px] md:h-[27px] w-[32.14px] h-[15.78px] bg-[#FF1C1C] flex items-center justify-center'>
                                 <p className='text-xs font-bold text-white'>Sale</p>
                             </div>
-
-                            <div className='md:h-[273px] h-[159.55px] mb-[12px] cursor-pointer' onClick={()=>handleNavigate(product._id)}>
                                 <img src={product.thumbnailImage} alt='product' className='w-full h-full object-cover' />
                             </div>
 
