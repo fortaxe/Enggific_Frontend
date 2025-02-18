@@ -56,6 +56,31 @@
     --chart-5: 340 75% 55%
   }
 }
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/Helvetica.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/Helvetica-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/Helvetica-Roman.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+body {
+  font-family: 'Helvetica', sans-serif;
+}
 @layer base {
   * {
     
@@ -106,4 +131,13 @@
 .jodit-wysiwyg td,
 .jodit-dialog__content td {
   border: solid 1px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; 
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
 }
