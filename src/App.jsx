@@ -82,10 +82,12 @@ function App() {
          <Route path="/" element={<DefaultLayout />}>
           <Route index element={<Home />} />
           <Route path="/product-categories" element={<ProductCategories />} />
-          <Route path="/product-categories/:categoryId" element={<ProductSubCategories />} />
-          <Route path="/product-categories/:categoryId/:subCategoryId" element={<ProductList />} />
+          <Route path="/:categoryName/sub-categories" element={<ProductSubCategories />} />
+          {/* <Route path="/product-categories/:categoryId/:subCategoryId" element={<ProductList />} /> */}
+          <Route path="/:categoryName/:subCategoryName/products" element={<ProductList />} />
           {/* <Route path="/products" element={<ProductList />} /> */}
-          <Route path="/product/:productId" element={<ProductDetail />} />
+          {/* <Route path="/product/:productId" element={<ProductDetail />} /> */}
+          <Route path="/:categoryName/:subCategoryName/:productName" element={<ProductDetail />} />
           <Route path="/search" element={<SearchedProduct />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
