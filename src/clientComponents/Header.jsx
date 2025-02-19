@@ -64,7 +64,7 @@ const Header = () => {
                                 </li>
 
                                 <li className='relative'>
-                                    <div className='absolute -top-[1.5rem] left-[20%] w-[47px] h-[17px] bg-[#FF1C1C] flex justify-center items-center text-[10px] text-white'>Explore</div>
+                                    <div className='absolute -top-[1.2rem] left-[20%] w-[47px] h-[17px] bg-[#FF1C1C] flex justify-center items-center text-[10px] text-white'>Explore</div>
                                     <Link className="text-white transition hover:text-textOrange" to="/product-categories"> Categories </Link>
                                 </li>
 
