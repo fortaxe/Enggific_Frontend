@@ -33,6 +33,12 @@ const CreateProduct = () => {
   const [loading, setLoading] = useState(false);
   const { productTypes } = useSelector((state) => state.productTypeList);
 
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [filteredProductTypes, setFilteredProductTypes] = useState([]);
+
+
+  console.log("categories admin", categories)
+
   useEffect(() => {
     dispatch(fetchCategories());
   }, [dispatch]);
@@ -119,6 +125,17 @@ const CreateProduct = () => {
     });
   };
 
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+    // Filter product types based on the selected category
+    const filteredTypes = productTypes.filter(
+      (productType) => productType.category._id === category._id
+    );
+    setFilteredProductTypes(filteredTypes);
+    // Reset productType selection
+    formik.setFieldValue("productType", null);
+  };
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -144,7 +161,7 @@ const CreateProduct = () => {
         return;
       }
 
-      
+
 
       const data = new FormData();
 
@@ -155,7 +172,7 @@ const CreateProduct = () => {
       data.append("composition", values.composition);
       data.append("sku", values.sku);
       data.append("productTypeId", values.productType?._id);
-      
+
       // Handle categories - send as single category field with comma-separated values
       // if (values.categories && values.categories.length > 0) {
       //   data.append("category", values.categories.join(','));
@@ -252,7 +269,7 @@ const CreateProduct = () => {
     <div className="bg-gray-100">
       <UsersAndTersmsNavbar title="Create Product" />
 
-      <div className="max-w-5xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
+      <div className="max-w-7xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
         <form onSubmit={formik.handleSubmit} className="space-y-6">
           <div className="grid grid-cols-2 gap-x-6">
 
@@ -318,38 +335,68 @@ const CreateProduct = () => {
               </div>
             </div>
 
+
+           
+
             {/* Category Selection */}
             {/* <MultiCategoryDropdown formik={formik} categories={categories} /> */}
-            <div className="col-span-2 md:col-span-1 mt-4">
+            <div className="col-span-2 md:col-span-1 mt-4 flex gap-4 items-center justify-start">
+               {/* Category Dropdown */}
+            <div className="block">
               <label className="block text-sm font-medium text-gray-700 pb-2">
-                Sub category
+                Category
               </label>
               <DropdownMenu>
-                <DropdownMenuTrigger asChild className="w-full">
+                <DropdownMenuTrigger asChild>
                   <Button variant="outline">
-                  {formik?.values?.productType?.name || "Select Sub Category"}
+                    {selectedCategory?.name || "Select Category"}
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  {productTypes?.map((productType) => (
+                  {categories?.map((category) => (
                     <DropdownMenuItem
-                      key={productType._id}
-                      onClick={() => handleProductTypeSelect(productType?.name, productType?._id)}
+                      key={category._id}
+                      onClick={() => handleCategorySelect(category)}
                     >
-                      {/* {console.log("productType", productType)} */}
-                      {productType?.name}
+                      {category.name}
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
+            </div>
+            <div className="">
+            <label className="block text-sm font-medium text-gray-700 pb-2">
+                Sub category
+              </label>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" disabled={!selectedCategory} className="overflow-hidden break-words">
+                    {formik?.values?.productType?.name || "Select Sub Category"}
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  {filteredProductTypes?.map((productType) => (
+                    <DropdownMenuItem
+                      key={productType._id}
+                      onClick={() =>
+                        handleProductTypeSelect(productType.name, productType._id)
+                      }
+                    >
+                      {productType.name}
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+              
               {/* {formik.touched.productType && formik.errors.productType && (
                 <div className="text-red-500">{formik.errors.productType}</div>
               )} */}
             </div>
           </div>
 
-          <div className="flex flex-col items-center">
-        
+          <div className="flex flex-col justify-start">
+
             {/* Product Details */}
             <div className="max-w-4xl w-full mt-6">
               <label className="block text-sm font-medium text-gray-700 pb-2">Product Details</label>
@@ -368,7 +415,7 @@ const CreateProduct = () => {
 
           {/* Tags */}
           <div className="grid grid-cols-2 gap-x-6 mt-6">
-            
+
             {/* Product Images */}
             <div className="col-span-2">
               <label className="block text-sm font-medium text-gray-700 pb-2">Product Images</label>
