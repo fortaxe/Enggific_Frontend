@@ -37,7 +37,7 @@ const CreateProduct = () => {
   const [filteredProductTypes, setFilteredProductTypes] = useState([]);
 
 
-  console.log("categories admin", categories)
+  // console.log("categories admin", categories)
 
   useEffect(() => {
     dispatch(fetchCategories());
