@@ -10,11 +10,13 @@ import logoSlice from "../redux/logoSlice";
 import termsSlice from "../redux/termsSlice";
 import productTypeSLice from "../redux/productTypeSlice";
 import clientAuthReducer from "../redux/clientSlice/clientAuthSlice";
+import idReducer from "../redux/clientSlice/idSlice";
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
     clientAuth: clientAuthReducer, // Client authentication
+    idStore: idReducer,
     productList: productListSlice,
     categoryList: categorySlice,
     enquiryList: enquiryListSlice,
