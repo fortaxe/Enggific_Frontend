@@ -1,23 +1,42 @@
+import { addId } from '@/redux/clientSlice/idSlice';
 import React from 'react'
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 
-const EquipmentCard = ({ equipment, page, subId }) => {
+const EquipmentCard = ({ equipment, page, subName , subId }) => {
+
+    const [idType, setIdType] = useState("");
+  const [id, setId] = useState("");
 
     const navigate = useNavigate()
+
+    const dispatch = useDispatch();
+    
 
     const category = {
         id: '1'
     }
 
+    const handleAdd = (newId) => {
+            dispatch(addId({ idType:"category", id: newId }));
+            // setIdType("");
+            // setId("");
+            navigate(`/${equipment.name}/sub-categories`)
+        
+      };
+
     const handleNavigate = () => {
         if(page === 'sub-category'){
-            navigate(`/product-categories/${equipment._id}/${subId}`)    
+            dispatch(addId({ idType:"sub-category", id: subId }));
+            navigate(`/${subName}/${equipment.name}/products`)
         } else {
-        navigate(`/product-categories/${equipment._id}`)
+            // console.log("equipment._id", equipment._id)
+            handleAdd(equipment._id)
         }
     }
 
-    console.log("page", page)
+    // console.log("page", page)
 
     const backgroundImage = page === 'sub-category' ? equipment.productTypeLogo : equipment.categoryLogo
     

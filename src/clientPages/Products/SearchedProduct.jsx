@@ -5,6 +5,7 @@ import useFetchData from '@/clientComponents/utils/useFetchData';
 import useQuery from '@/clientComponents/utils/useQuery';
 import { BASE_URL } from '@/constants';
 import { clientLogin } from '@/redux/clientSlice/clientAuthSlice';
+import { addId } from '@/redux/clientSlice/idSlice';
 import axios from 'axios';
 import React from 'react'
 import { useState } from 'react';
@@ -58,8 +59,9 @@ if (error) return <p>Error: {error.message}</p>;
     setShowLogin(false); // Close popup on success
   };
 
-  const handleNavigate = (productId) => {
-    navigate(`/product/${productId}`)  
+  const handleNavigate = (categoryName, subCategoryName, productName, productId) => {
+    dispatch(addId({ idType:"product", id: productId }));
+    navigate(`/${categoryName}/${subCategoryName}/${productName}`)
     
 }
 
@@ -82,7 +84,7 @@ if (error) return <p>Error: {error.message}</p>;
                         >
                             
 
-                            <div className='relative md:h-[273px] h-[159.55px] mb-[12px] cursor-pointer' onClick={()=>handleNavigate(product._id)}>
+                            <div className='relative md:h-[273px] h-[159.55px] mb-[12px] cursor-pointer' onClick={()=>handleNavigate(product?.productType?.category?.name, product?.productType?.name, product?.name, product?._id)}>
                             <div className='absolute top-0 left-0 md:w-[55px] md:h-[27px] w-[32.14px] h-[15.78px] bg-[#FF1C1C] flex items-center justify-center'>
                                 <p className='text-xs font-bold text-white'>Sale</p>
                             </div>

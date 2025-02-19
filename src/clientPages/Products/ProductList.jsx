@@ -6,6 +6,7 @@ import useFetchData from '@/clientComponents/utils/useFetchData';
 import useFetchProductBySubCategoryData from '@/clientComponents/utils/useFetchProductBySubCategoryData';
 import { BASE_URL } from '@/constants';
 import { clientLogin } from '@/redux/clientSlice/clientAuthSlice';
+import { addId } from '@/redux/clientSlice/idSlice';
 import axios from 'axios';
 import React from 'react'
 import { useEffect } from 'react';
@@ -16,7 +17,8 @@ import { useNavigate } from 'react-router-dom';
 
 
 const ProductList = () => {
-  const { subCategoryId } = useParams();
+  // const { subCategoryId } = useParams();
+  
 
   const [activeFilter, setActiveFilter] = useState("");
 
@@ -28,6 +30,14 @@ const ProductList = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [productTobeEnquire, setProductTobeEnquire] = useState(null);
+
+  const ids = useSelector((state) => state.idStore.ids);
+
+  console.log("ids", ids)
+
+  const subCategoryId = ids.find(item => item.idType === "sub-category")?.id;
+
+  console.log("subCategoryId", subCategoryId)
 
   useEffect(() => {
     const fetchFilters = async () => {
@@ -44,14 +54,15 @@ const ProductList = () => {
     };
 
     fetchFilters();
-  }, [subCategoryId]);
+  }, [ids,subCategoryId]);
 
 
   const navigate = useNavigate()
 
 
-  const handleNavigate = (productId) => {
-    navigate(`/product/${productId}`)
+  const handleNavigate = (categoryName, subCategoryName, productName, productId) => {
+    dispatch(addId({ idType:"product", id: productId }));
+    navigate(`/${categoryName}/${subCategoryName}/${productName}`)
 
   }
 
@@ -184,7 +195,8 @@ const ProductList = () => {
                   key={index}
                   className="w-[calc(50%-14.5px)] xl:w-[calc(32.73%-19.33px)] md:h-auto  border border-[#D2D2D2] px-[14px] 2xl:px-[30px] py-[18px] cursor-pointer overflow-hidden"
                 >
-                  <div className='relative md:h-[273px] h-[159.55px] mb-[12px]' onClick={() => handleNavigate(item._id)}>
+                  {console.log("item", item)}
+                  <div className='relative md:h-[273px] h-[159.55px] mb-[12px]' onClick={() => handleNavigate(item?.productType?.category?.name, item?.productType?.name, item?.name, item?._id)}>
                     <div className='absolute top-0 left-0 md:w-[55px] md:h-[27px] w-[32.14px] h-[15.78px] bg-[#FF1C1C] flex items-center justify-center'>
                       <p className='text-xs font-bold text-white'>Sale</p>
                     </div>

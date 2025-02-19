@@ -6,14 +6,23 @@ import useFetchData from '@/clientComponents/utils/useFetchData';
 import useFetchSubCategoryData from '@/clientComponents/utils/useFetchSubCategoryData';
 import Loader from '@/clientComponents/Loader';
 import NotFound from '@/clientComponents/NotFound';
+import { useSelector } from 'react-redux';
 
 const ProductSubCategories = () => {
 
   const apiUrl = `${BASE_URL}/get/productTypesByCategory`;
 
-  const { categoryId } = useParams();
+  const { categoryName } = useParams();
 
-  console.log("apiUrl", apiUrl)
+  const ids = useSelector((state) => state.idStore.ids);
+
+  console.log("ids", ids)
+
+  console.log("categoryName", categoryName)
+
+  const categoryId = ids.find(item => item.idType === "category")?.id;
+
+console.log("Category ID:", categoryId);
 
   const { data, loading, error } = useFetchSubCategoryData(categoryId);
 
@@ -179,7 +188,7 @@ const ProductSubCategories = () => {
         </div>
 
         <div className='flex flex-wrap justify-start gap-[29px] mt-[40px] mb-[70.07px]'>
-          {(data.productTypes && data.productTypes.length > 0) ? data.productTypes.map((item) => (<EquipmentCard key={item._id} equipment={item} page='sub-category' subId={item.category._id} />)) :<NotFound />}
+          {(data.productTypes && data.productTypes.length > 0) ? data.productTypes.map((item) => (<EquipmentCard key={item._id} equipment={item} page='sub-category' subName={item.category.name} subId={item.category._id} />)) :<NotFound />}
         </div>
       </div>
     </div>

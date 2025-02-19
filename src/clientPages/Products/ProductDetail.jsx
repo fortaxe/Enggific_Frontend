@@ -13,9 +13,8 @@ import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const ProductDetail = () => {
-    const { productId } = useParams();
-    const apiUrl = `${BASE_URL}/user/get/product/${productId}`;
-    const { data, loading, error } = useFetchData(apiUrl);
+    // const { productId } = useParams();
+    
 
     const [selectedImage, setSelectedImage] = useState(null);
 
@@ -23,6 +22,16 @@ const ProductDetail = () => {
     const { user, token } = useSelector((state) => state.clientAuth);
     const [showLogin, setShowLogin] = useState(false);
     const [productTobeEnquire, setProductTobeEnquire] = useState(null);
+
+    const ids = useSelector((state) => state.idStore.ids);
+
+  console.log("ids", ids)
+
+  const productId = ids.find(item => item.idType === "product")?.id;
+
+
+  const apiUrl = `${BASE_URL}/user/get/product/${productId}`;
+    const { data, loading, error } = useFetchData(apiUrl);
 
     useEffect(() => {
         if (data?.product?.productImages?.length) {
