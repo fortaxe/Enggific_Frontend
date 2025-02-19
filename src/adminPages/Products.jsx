@@ -155,6 +155,7 @@ const Products = () => {
                         <TableHeader>
                             <TableRow>
                                 <TableHead>Name</TableHead>
+                                <TableHead>Category</TableHead>
                                 <TableHead>Sub-Category</TableHead>
                               
                                 <TableHead>Status</TableHead>
@@ -168,9 +169,12 @@ const Products = () => {
                         <TableBody >
                             {filteredAndSearchedProducts?.map((product) => (
                                 <TableRow key={product?._id}>
-                                    {console.log("prrrr", product)}
+                                    {/* {console.log("prrrr", product)} */}
                                     <TableCell>
                                         {product?.name}
+                                    </TableCell>
+                                    <TableCell>
+                                        {product?.productType?.category?.name}
                                     </TableCell>
                                     <TableCell>
                                         {product?.productType?.name}
