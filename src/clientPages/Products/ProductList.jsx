@@ -45,7 +45,7 @@ const ProductList = () => {
         const response = await axios.post(`${BASE_URL}/get/productTypesByCategory`, {
           categoryId: subCategoryId,
         });
-        console.log("Filters Data:", response);
+        // console.log("Filters Data:", response);
         setFilters(response.data.productTypes);
         setActiveFilter(response.data.productTypes[0]?._id || null);
       } catch (error) {
@@ -62,7 +62,7 @@ const ProductList = () => {
 
   const handleNavigate = (categoryName, subCategoryName, productName, productId) => {
     dispatch(addId({ idType:"product", id: productId }));
-    navigate(`/${categoryName}/${subCategoryName}/${productName}`)
+    navigate(`/${categoryName.replace(/\s+/g, '-')}/${subCategoryName.replace(/\s+/g, '-')}/${productName.replace(/\s+/g, '-')}`)
 
   }
 

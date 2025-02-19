@@ -22,14 +22,14 @@ const EquipmentCard = ({ equipment, page, subName , subId }) => {
             dispatch(addId({ idType:"category", id: newId }));
             // setIdType("");
             // setId("");
-            navigate(`/${equipment.name}/sub-categories`)
+            navigate(`/${(equipment.name).replace(/\s+/g, '-')}/sub-categories`)
         
       };
 
     const handleNavigate = () => {
         if(page === 'sub-category'){
             dispatch(addId({ idType:"sub-category", id: subId }));
-            navigate(`/${subName}/${equipment.name}/products`)
+            navigate(`/${subName.replace(/\s+/g, '-')}/${(equipment.name).replace(/\s+/g, '-')}/products`)
         } else {
             // console.log("equipment._id", equipment._id)
             handleAdd(equipment._id)

@@ -16,13 +16,13 @@ const ProductSubCategories = () => {
 
   const ids = useSelector((state) => state.idStore.ids);
 
-  console.log("ids", ids)
+  // console.log("ids", ids)
 
-  console.log("categoryName", categoryName)
+  // console.log("categoryName", categoryName)
 
   const categoryId = ids.find(item => item.idType === "category")?.id;
 
-console.log("Category ID:", categoryId);
+// console.log("Category ID:", categoryId);
 
   const { data, loading, error } = useFetchSubCategoryData(categoryId);
 

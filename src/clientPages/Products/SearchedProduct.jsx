@@ -61,7 +61,7 @@ if (error) return <p>Error: {error.message}</p>;
 
   const handleNavigate = (categoryName, subCategoryName, productName, productId) => {
     dispatch(addId({ idType:"product", id: productId }));
-    navigate(`/${categoryName}/${subCategoryName}/${productName}`)
+    navigate(`/${categoryName.replace(/\s+/g, '-')}/${subCategoryName.replace(/\s+/g, '-')}/${productName.replace(/\s+/g, '-')}`)
     
 }
 
