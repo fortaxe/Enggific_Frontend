@@ -142,7 +142,7 @@ const EnquiriesNavbar = () => {
                                         onChange={(e) => handleDateChange(e.target.value, false)}
                                         className="border rounded px-2 py-1"
                                     />
-                                    <Button onClick={applyDateFilter} className="mt-2 bg-white hover:bg-gray-200 text-black">
+                                    <Button onClick={applyDateFilter} className="mt-2 b bg-[#E5810C] hover:bg-[#E5810C] text-white">
                                         Apply
                                     </Button>
                                 </div>

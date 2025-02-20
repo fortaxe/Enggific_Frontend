@@ -35,6 +35,16 @@ const EditProduct = ({ product, onSave }) => {
         productTypes.find(type => type._id === product?.productType?._id)?.name || 'Select Product Type'
     );
 
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [filteredProductTypes, setFilteredProductTypes] = useState([]);
+
+    
+    useEffect(() => {
+        const productType = productTypes.find(type => type._id === product?.productType?._id)?.name || 'Select Product Type'
+        setFilteredProductTypes([productType])
+        setSelectedProductType(productType)
+    }, [productTypes]);
+
     useEffect(() => {
         dispatch(fetchCategories());
         dispatch(fetchProductTypes());
@@ -83,7 +93,8 @@ const EditProduct = ({ product, onSave }) => {
             try {
                 await dispatch(updateProduct(data)).unwrap();
                 toast.success("Product updated successfully");
-                if (onSave) onSave();
+                window.location.reload();
+                // if (onSave) onSave();
             } catch (error) {
                 toast.error(error?.error || "Failed to update product");
             } finally {
@@ -129,8 +140,19 @@ const EditProduct = ({ product, onSave }) => {
         formik.setFieldTouched("thumbnailImage", true, false);
     };
 
+    const handleCategorySelect = (category) => {
+        setSelectedCategory(category);
+        // Filter product types based on the selected category
+        const filteredTypes = productTypes.filter(
+            (productType) => productType.category._id === category._id
+        );
+        setFilteredProductTypes(filteredTypes);
+        // Reset productType selection
+        formik.setFieldValue("productType", null);
+    };
+
     return (
-        <div className="max-w-5xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
+        <div className="max-w-6xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
             <form onSubmit={formik.handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-2 gap-6">
                     {/* Name and SKU fields */}
@@ -188,33 +210,46 @@ const EditProduct = ({ product, onSave }) => {
                         </div>
                     </div>
 
-                    <div>
+                    
+
+
+                    {/* Category */}
+                    <div className="block mt-4">
                         <label className="block text-sm font-medium text-gray-700 pb-2">
-                            Code
+                            Category
                         </label>
-                        <Input
-                            name="sku"
-                            value={formik.values.sku}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            placeholder="Enter SKU"
-                        />
-                        {formik.touched.sku && formik.errors.sku && (
-                            <div className="text-red-500">{formik.errors.sku}</div>
-                        )}
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button variant="outline" className="w-full flex justify-start">
+                                    {selectedCategory?.name || "Select Category"}
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent>
+                                {categories?.map((category) => (
+                                    <DropdownMenuItem
+                                        key={category._id}
+                                        onClick={() => handleCategorySelect(category)}
+                                    >
+                                        {category.name}
+                                    </DropdownMenuItem>
+                                ))}
+                            </DropdownMenuContent>
+                        </DropdownMenu>
                     </div>
 
                     {/* Product Type */}
-                    <div>
+                    <div className='mt-4'>
                         <label className="block text-sm font-medium text-gray-700 pb-2">
                             Sub category
                         </label>
                         <DropdownMenu>
-                            <DropdownMenuTrigger className="w-full px-4 py-2 text-left border rounded-md">
+                            <DropdownMenuTrigger className="w-full px-4 py-2 text-left border rounded-md" asChild>
+                            <Button variant="outline" disabled={!selectedCategory} className="overflow-hidden break-words w-full flex justify-start">
                                 {selectedProductType}
+                                </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent>
-                                {productTypes.map((type) => (
+                                {filteredProductTypes.map((type) => (
                                     <DropdownMenuItem
                                         key={type._id}
                                         onClick={() => {
@@ -231,13 +266,29 @@ const EditProduct = ({ product, onSave }) => {
                             <div className="text-red-500">{formik.errors.productTypeId}</div>
                         )}
                     </div>
+
+                    <div className='w-3/12'>
+                        <label className="block text-sm font-medium text-gray-700 pb-2">
+                            Code
+                        </label>
+                        <Input
+                            name="sku"
+                            value={formik.values.sku}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            placeholder="Enter SKU"
+                        />
+                        {formik.touched.sku && formik.errors.sku && (
+                            <div className="text-red-500">{formik.errors.sku}</div>
+                        )}
+                    </div>
                 </div>
 
                 {/* Composition */}
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col justify-start">
                     <div className="max-w-4xl w-full mt-6">
                         <label className="block text-sm font-medium text-gray-700 pb-2">
-                            Composition
+                        Product Details
                         </label>
                         <JoditEditor
                             ref={compositionEditorRef}
@@ -263,7 +314,7 @@ const EditProduct = ({ product, onSave }) => {
                     />
                 </div> */}
 
-                <DialogFooter>
+                <DialogFooter className="max-w-4xl">
                     <Button type="submit" className="bg-[#E5810C] hover:bg-[#E5810C]" disabled={isUpdating}>
                         {isUpdating ? <CustomSpinner size={20} /> : "Update"}
                     </Button>
