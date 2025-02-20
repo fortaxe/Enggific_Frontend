@@ -27,6 +27,8 @@ import SearchedProduct from "./clientPages/Products/SearchedProduct";
 import AboutUs from "./clientPages/AboutUs";
 import ContactUs from "./clientPages/ContactUs";
 import ScrollToTop from "./clientComponents/ScrollToTop";
+import WhatsAppIcon from "./clientComponents/WhatsAppIcon";
+
 
 const DashboardLayout = () => {
   return (
@@ -63,6 +65,9 @@ const DefaultLayout = () => {
 };
 
 function App() {
+
+  const isAdminRoute = window.location.pathname.startsWith('/admin');
+
   return (
     <BrowserRouter>
     <ScrollToTop/>{/* This will ensure scrolling to top on route change */}
@@ -91,9 +96,10 @@ function App() {
           <Route path="/search" element={<SearchedProduct />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
-          {/* Add more client routes here */}
         </Route>
       </Routes>
+      {/* Show WhatsApp Icon only on non-admin routes */}
+      {!isAdminRoute && <WhatsAppIcon />}
       <ToastContainer />
     </BrowserRouter>
   );
