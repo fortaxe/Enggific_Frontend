@@ -93,6 +93,7 @@ const Enquiries = () => {
                                 <TableHead>Date</TableHead>
                                 <TableHead>User Name</TableHead>
                                 <TableHead>Mobile Number</TableHead>
+                                <TableHead>Email</TableHead>
                                 <TableHead>Products</TableHead>
                                 <TableHead>Status</TableHead>
                                 <TableHead>City</TableHead>
@@ -110,8 +111,10 @@ const Enquiries = () => {
                                             {enquiry?.createdAt ? moment(enquiry?.createdAt).format('hh:mm A') : ''}
                                         </span>
                                     </TableCell>
+                                    {console.log("enquiry", enquiry)}
                                     <TableCell>{enquiry?.user?.name}</TableCell>
                                     <TableCell>{enquiry?.user?.mobileNumber}</TableCell>
+                                    <TableCell>{enquiry?.user?.email}</TableCell>
                                     <TableCell>
                                         <Input
                                             className="w-[250px] h-[50px]"
