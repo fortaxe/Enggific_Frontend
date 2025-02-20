@@ -1,23 +1,58 @@
 import React from 'react'
 import SearchBox from './SeachBox'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { BASE_URL } from '@/constants';
 import useFetchData from './utils/useFetchData';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { addId } from '@/redux/clientSlice/idSlice';
+
 
 const Header = () => {
 
     const [isSidebarOpen, setSidebarOpen] = useState(false);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const dropdownRef = useRef(null);
 
     const apiUrl = `${BASE_URL}/user/get/socialMediaLinks`;
 
     const { data, loading, error } = useFetchData(apiUrl);
+
+    const categoryApiUrl = `${BASE_URL}/admin/get/categories`;
+
+
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsDropdownOpen(false);
+            }
+        };
+
+        window.addEventListener("click", handleClickOutside);
+        return () => window.removeEventListener("click", handleClickOutside);
+    }, []);
+
+    const { data: categoryData, loading: categoryLoading, error: categoryError } = useFetchData(categoryApiUrl);
+
+    // console.log("categoryData", categoryData)
 
 
     if (loading) return <p>...</p>;
     if (error) return <p>Error: {error}</p>;
 
     // console.log("socials data", data)
+
+    const handleRedirect = (name, id) => {
+        dispatch(addId({ idType: "category", id: id }));
+        setIsDropdownOpen(false)
+        navigate(`/${name.replace(/\s+/g, '-')}/sub-categories`)
+    }
+
+
 
     return (
         <header className='header bg-white fixed top-0 left-0 w-full z-50'>
@@ -56,38 +91,81 @@ const Header = () => {
                         <nav aria-label="Global" className="hidden md:block">
                             <ul className="flex items-center gap-[32px] text-base">
                                 <li>
-                                    <Link className="text-white transition hover:text-textOrange" to="/"> Home </Link>
+                                    <Link className="text-white transition hover:text-textOrange" to="/">
+                                        Home
+                                    </Link>
                                 </li>
 
                                 <li>
-                                    <Link className="text-white transition hover:text-textOrange" to="/about-us"> About Us </Link>
+                                    <Link className="text-white transition hover:text-textOrange" to="/about-us">
+                                        About Us
+                                    </Link>
                                 </li>
 
-                                <li className='relative'>
-                                    <div className='absolute -top-[1.2rem] left-[20%] w-[47px] h-[17px] bg-[#FF1C1C] flex justify-center items-center text-[10px] text-white'>Explore</div>
-                                    <Link className="text-white transition hover:text-textOrange" to="/product-categories"> Categories </Link>
+                                <li className="relative" ref={dropdownRef}>
+                                    <div className="absolute -top-[1.2rem] left-[20%] w-[47px] h-[17px] bg-[#FF1C1C] flex justify-center items-center text-[10px] text-white">
+                                        Explore
+                                    </div>
+                                    <button
+                                        className="text-white transition hover:text-textOrange"
+                                        onMouseEnter={() => setIsDropdownOpen(true)}
+                                        onClick={() => setIsDropdownOpen((prev) => !prev)}
+                                    >
+                                        Categories
+                                    </button>
+
+                                    {categoryLoading ? "...." : isDropdownOpen && (
+                                        <div className="absolute left-0 top-full mt-2 w-[200px] bg-white shadow-lg rounded-md z-50">
+                                            <ul className="py-2">
+                                                {(categoryData && categoryData.categories.length > 0) && categoryData.categories.map((category) => (
+                                                    <li key={category._id}>
+                                                        <p
+                                                            // to={`/${category.name}/sub-categories`}
+                                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer hover:text-textOrange"
+                                                            onClick={() => handleRedirect(category.name, category._id)}
+                                                        >
+                                                            {category.name}
+                                                        </p>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
                                 </li>
 
                                 <li>
-                                    <Link className="text-white transition hover:text-textOrange" to="/contact-us"> Contact Us </Link>
+                                    <Link className="text-white transition hover:text-textOrange" to="/contact-us">
+                                        Contact Us
+                                    </Link>
                                 </li>
                             </ul>
                         </nav>
 
                         <div className="flex items-center gap-4">
-                            <div className="hidden md:block sm:gap-4">
-                                <SearchBox />
-                            </div>
-
                             <button
                                 className="block md:hidden"
                                 onClick={() => setSidebarOpen(true)}
                             >
                                 <span className="sr-only">Toggle menu</span>
-                                <svg width={24} height={20} viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1.5 0.5H22.5C22.5 0.5 23.5 0.5 23.5 1.5V2.5C23.5 2.5 23.5 3.5 22.5 3.5H1.5C1.5 3.5 0.5 3.5 0.5 2.5V1.5C0.5 1.5 0.5 0.5 1.5 0.5Z" fill="white" />
-                                    <path d="M1.5 8.5H22.5C22.5 8.5 23.5 8.5 23.5 9.5V10.5C23.5 10.5 23.5 11.5 22.5 11.5H1.5C1.5 11.5 0.5 11.5 0.5 10.5V9.5C0.5 9.5 0.5 8.5 1.5 8.5Z" fill="white" />
-                                    <path d="M1.5 16.5H22.5C22.5 16.5 23.5 16.5 23.5 17.5V18.5C23.5 18.5 23.5 19.5 22.5 19.5H1.5C1.5 19.5 0.5 19.5 0.5 18.5V17.5C0.5 17.5 0.5 16.5 1.5 16.5Z" fill="white" />
+                                <svg
+                                    width={24}
+                                    height={20}
+                                    viewBox="0 0 24 20"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M1.5 0.5H22.5C22.5 0.5 23.5 0.5 23.5 1.5V2.5C23.5 2.5 23.5 3.5 22.5 3.5H1.5C1.5 3.5 0.5 3.5 0.5 2.5V1.5C0.5 1.5 0.5 0.5 1.5 0.5Z"
+                                        fill="white"
+                                    />
+                                    <path
+                                        d="M1.5 8.5H22.5C22.5 8.5 23.5 8.5 23.5 9.5V10.5C23.5 10.5 23.5 11.5 22.5 11.5H1.5C1.5 11.5 0.5 11.5 0.5 10.5V9.5C0.5 9.5 0.5 8.5 1.5 8.5Z"
+                                        fill="white"
+                                    />
+                                    <path
+                                        d="M1.5 16.5H22.5C22.5 16.5 23.5 16.5 23.5 17.5V18.5C23.5 18.5 23.5 19.5 22.5 19.5H1.5C1.5 19.5 0.5 19.5 0.5 18.5V17.5C0.5 17.5 0.5 16.5 1.5 16.5Z"
+                                        fill="white"
+                                    />
                                 </svg>
                             </button>
                         </div>
