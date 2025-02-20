@@ -29,7 +29,7 @@ const ProductSubCategories = () => {
   if (loading) return <Loader />;
   if (error) return <p>Error: {error.message}</p>;
 
-  console.log("sub cate", data)
+  // console.log("sub cate", data)
 
     const equipments = [
         {
