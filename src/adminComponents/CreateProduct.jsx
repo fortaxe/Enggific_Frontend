@@ -269,7 +269,7 @@ const CreateProduct = () => {
     <div className="bg-gray-100">
       <UsersAndTersmsNavbar title="Create Product" />
 
-      <div className="max-w-7xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
+      <div className="max-w-6xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
         <form onSubmit={formik.handleSubmit} className="space-y-6">
           <div className="grid grid-cols-2 gap-x-6">
 
@@ -316,39 +316,20 @@ const CreateProduct = () => {
               {thumbnailError && <div className="text-red-500 mt-1">{thumbnailError}</div>}
             </div>
 
-            {/* SKU */}
-            <div className="mt-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 pb-2">Code</label>
-                <Input
-                  type="text"
-                  id="sku"
-                  name="sku"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.sku}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm "
-                />
-                {formik.touched.sku && formik.errors.sku && (
-                  <div className="text-red-500 mt-1 text-sm">{formik.errors.sku}</div>
-                )}
-              </div>
-            </div>
+          
 
 
            
 
             {/* Category Selection */}
-            {/* <MultiCategoryDropdown formik={formik} categories={categories} /> */}
-            <div className="col-span-2 md:col-span-1 mt-4 flex gap-4 items-center justify-start">
-               {/* Category Dropdown */}
-            <div className="block">
+              {/* Category Dropdown */}
+              <div className="block mt-4">
               <label className="block text-sm font-medium text-gray-700 pb-2">
                 Category
               </label>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="outline">
+                  <Button variant="outline" className="w-full flex justify-start">
                     {selectedCategory?.name || "Select Category"}
                   </Button>
                 </DropdownMenuTrigger>
@@ -364,13 +345,15 @@ const CreateProduct = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
+            {/* <MultiCategoryDropdown formik={formik} categories={categories} /> */}
+            <div className=" mt-4 flex gap-4 items-center justify-start">
             <div className="">
             <label className="block text-sm font-medium text-gray-700 pb-2">
                 Sub category
               </label>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="outline" disabled={!selectedCategory} className="overflow-hidden break-words">
+                  <Button variant="outline" disabled={!selectedCategory} className="overflow-hidden break-words w-full flex justify-start">
                     {formik?.values?.productType?.name || "Select Sub Category"}
                   </Button>
                 </DropdownMenuTrigger>
@@ -395,6 +378,25 @@ const CreateProduct = () => {
             </div>
           </div>
 
+            {/* SKU */}
+            <div className="mt-4 w-3/12">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 pb-2">Code</label>
+                <Input
+                  type="text"
+                  id="sku"
+                  name="sku"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.sku}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm "
+                />
+                {formik.touched.sku && formik.errors.sku && (
+                  <div className="text-red-500 mt-1 text-sm">{formik.errors.sku}</div>
+                )}
+              </div>
+            </div>
+
           <div className="flex flex-col justify-start">
 
             {/* Product Details */}
@@ -417,7 +419,7 @@ const CreateProduct = () => {
           <div className="grid grid-cols-2 gap-x-6 mt-6">
 
             {/* Product Images */}
-            <div className="col-span-2">
+            <div className="col-span-1">
               <label className="block text-sm font-medium text-gray-700 pb-2">Product Images</label>
               <Input
                 type="file"
@@ -447,7 +449,7 @@ const CreateProduct = () => {
           </div>
 
           {/* Submit Button */}
-          <div className="flex justify-end mt-6">
+          <div className="flex justify-end mt-6 max-w-4xl">
             <Button
               type="submit"
               disabled={isCreating || loading}

@@ -220,7 +220,8 @@ const Sidebar = () => {
               ${isActiveRoute("/admin/dashboard/change-credentials") ? "bg-[#E5810C] text-white dark:bg-gray-700" : ""
                 }`}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+              <svg xmlns="http://www.w3.org/2000/svg" className={`w-5 h-5 ${isActiveRoute("/admin/dashboard/change-credentials") ? "fill-white text-white dark:bg-gray-700" : "fill-black"
+                  }`} aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M18 8a6 6 0 01-7.743 5.743L10 14l-1 1-1 1H6v2H2v-4l4.257-4.257A6 6 0 1118 8zm-6-4a1 1 0 100 2 2 2 0 012 2 1 1 0 102 0 4 4 0 00-4-4z" clipRule="evenodd" />
               </svg>
 
@@ -231,7 +232,8 @@ const Sidebar = () => {
               to="/admin"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#E5810C] hover:text-white dark:hover:bg-gray-700 group"
             >
-              <svg className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
+              <svg className={`w-5 h-5 ${false ? "fill-white text-white dark:bg-gray-700" : ""
+                  }`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3" />
               </svg>
               <span className="flex-1 ms-3 whitespace-nowrap" onClick={handleLogout}>Logout</span>
