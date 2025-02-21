@@ -14,7 +14,7 @@ const KnowUs = () => {
                         <h2 className='md:text-[38px] text-[32px] leading-[43.7px] font-bold text-black'>Hear It from Those Who Know Us Best</h2>
                     </div>
 
-                    <p className='text-base text-textBlack mb-[28px]'>Discover how our top-quality lab equipment and exceptional service have made a difference for professionals and organizations worldwide.</p>
+                    <p className='text-base text-textBlack mb-[28px] leading-[28px]'>Discover how our top-quality lab equipment and exceptional service have made a difference for professionals and organizations worldwide.</p>
 
                     <div>
                         <svg width={148} height={74} viewBox="0 0 148 74" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">

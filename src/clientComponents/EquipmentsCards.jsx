@@ -102,7 +102,7 @@ const EquipmentsCards = () => {
                     <h2 className='md:text-[38px] md:leading-[43.7px] text-[26px] leading-[29.9px] text-textOrange font-bold'>Engineering & scientific laboratory equipments.</h2>
                 </div>
 
-                <div className='flex flex-wrap justify-start gap-[29px] mt-[40px] xl:mb-[70.07px] mb-[32.89px]'>
+                <div className='flex flex-wrap justify-start gap-[29px] xl:mt-[55px] mt-[29px] xl:mb-[70.07px] mb-[32.89px]'>
                     {(data?.categories && data?.categories.length) && data.categories.slice(0, 6).map((item) => (
                         <EquipmentCard key={item._id} equipment={item} />
                     ))}
