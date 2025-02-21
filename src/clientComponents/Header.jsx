@@ -142,6 +142,9 @@ const Header = () => {
                         </nav>
 
                         <div className="flex items-center gap-4">
+                        <div className="hidden md:block sm:gap-4">
+                                <SearchBox />
+                            </div>
                             <button
                                 className="block md:hidden"
                                 onClick={() => setSidebarOpen(true)}
