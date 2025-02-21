@@ -15,7 +15,7 @@ const About = () => {
                     </div>
                     <p className='md:text-[38px] text-[22px] text-textOrange font-bold mb-[23px]'>Know about us</p>
 
-                    <p className='md:text-base text-[13px] text-textBlack text-center max-w-[767px]'>ENGGIFIC Engineering & Scientific is one of the pioneers engaged in offering <span className='font-bold'>wide range of Engineering & Scientific laboratory equipments</span>. We Manufacture, Export, Import and Supply a wide range of LAB EQUIPMENTS which includes testing equipment, measuring devices, quality control equipment, scientific apparatus, land surveying instruments, site safety equipments, civil engineering equipments, mechanical lab testing machine, drawing instruments, construction machinery and more.</p>
+                    <p className='md:text-base text-[13px] text-textBlack text-center max-w-[767px] leading-[28px]'>ENGGIFIC Engineering & Scientific is one of the pioneers engaged in offering <span className='font-bold'>wide range of Engineering & Scientific laboratory equipments</span>. We Manufacture, Export, Import and Supply a wide range of LAB EQUIPMENTS which includes testing equipment, measuring devices, quality control equipment, scientific apparatus, land surveying instruments, site safety equipments, civil engineering equipments, mechanical lab testing machine, drawing instruments, construction machinery and more.</p>
                 </div>
             </div>
         </div>
