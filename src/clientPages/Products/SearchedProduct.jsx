@@ -27,7 +27,7 @@ const SearchedProduct = () => {
 //   console.log('searchTerm', searchTerm)
 
    // const { data, loading, error } = useFetchProductBySubCategoryData(subCategoryId);
-   const apiUrl = `${BASE_URL}/admin/get/products`;
+   const apiUrl = `${BASE_URL}/user/get/products`;
 
    const { data, loading, error } = useFetchData(apiUrl);
 
