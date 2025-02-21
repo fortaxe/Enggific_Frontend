@@ -27,7 +27,7 @@ const WhatsAppIcon = () => {
                 aria-label="Chat on WhatsApp"
             >
                 {/* <MessageCircle size={24} /> */}
-                <img src='/whatsapp.svg' alt='whatsapp' className='w-10 h-10' />
+                <img src='/whatsapp_1.svg' alt='whatsapp' className='w-[54px] h-[54px]' />
             </button>
         </div>
     );
