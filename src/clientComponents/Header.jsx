@@ -56,13 +56,13 @@ const Header = () => {
 
     return (
         <header className='header bg-white fixed top-0 left-0 w-full z-50'>
-            {(data.links && data.links.length > 0) && <div className='w-full lg:flex hidden justify-evenly items-center p-4 h-[34px] md:h-auto'>
+            {(data.links && data.links.length > 0) && <div className='w-full lg:flex hidden justify-evenly items-center p-4 h-[34px]'>
                 <div className='lg:flex items-center hidden'>
                     <svg width={22} height={22} viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M17.3313 9.00055C17.3313 13.9991 10.6666 18.9976 10.6666 18.9976C10.6666 18.9976 4.00195 13.9991 4.00195 9.00055C4.00195 7.23296 4.70412 5.53777 5.954 4.2879C7.20387 3.03803 8.89906 2.33586 10.6666 2.33586C12.4342 2.33586 14.1294 3.03803 15.3793 4.2879C16.6292 5.53777 17.3313 7.23296 17.3313 9.00055Z" stroke="#414141" strokeWidth="1.33926" strokeLinecap="round" strokeLinejoin="round" />
                         <path d="M8.16724 9.00048C8.16724 9.66332 8.43055 10.299 8.89925 10.7677C9.36795 11.2364 10.0037 11.4997 10.6665 11.4997C11.3293 11.4997 11.965 11.2364 12.4337 10.7677C12.9024 10.299 13.1658 9.66332 13.1658 9.00048C13.1658 8.33764 12.9024 7.70194 12.4337 7.23324C11.965 6.76453 11.3293 6.50122 10.6665 6.50122C10.0037 6.50122 9.36795 6.76453 8.89925 7.23324C8.43055 7.70194 8.16724 8.33764 8.16724 9.00048Z" stroke="#414141" strokeWidth="1.33926" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
-                    <p className='2xl:text-base md:text-sm text-textBlack'>29 & 30, First Floor, Unity House, Abid, Hyderabad- 500001, Telangana</p>
+                    <p className='text-xs text-textBlack'>29 & 30, First Floor, Unity House, Abid, Hyderabad- 500001, Telangana</p>
                 </div>
                 <div className='lg:flex items-center hidden'>
                     <a href={`mailto:${data.links[0].adminEmail}`} className="flex items-center">
@@ -70,11 +70,11 @@ const Header = () => {
                             <path d="M4.33341 4H17.6667C17.6667 4 19.3334 4 19.3334 5.66667V15.6667C19.3334 15.6667 19.3334 17.3333 17.6667 17.3333H4.33341C4.33341 17.3333 2.66675 17.3333 2.66675 15.6667V5.66667C2.66675 5.66667 2.66675 4 4.33341 4Z" stroke="#414141" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
                             <path d="M19.3334 6.5L11.8584 11.25C11.6011 11.4112 11.3037 11.4967 11.0001 11.4967C10.6965 11.4967 10.399 11.4112 10.1417 11.25L2.66675 6.5" stroke="#414141" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
-                        <p className='2xl:text-base  md:text-sm text-textBlack hover:text-orange-500 transition-all duration-300'>{data.links[0].adminEmail}</p>
+                        <p className='text-xs text-textBlack hover:text-orange-500 transition-all duration-300'>{data.links[0].adminEmail}</p>
                     </a>
                 </div>
                 <div className='lg:flex items-center hidden'>
-                    <a href={`tel:+91${data.links[0]?.adminMobileNumber}`} className="2xl:text-base md:text-sm text-textBlack hover:text-orange-500 transition-all duration-300">
+                    <a href={`tel:+91${data.links[0]?.adminMobileNumber}`} className="text-xs text-textBlack hover:text-orange-500 transition-all duration-300">
                         Customer support +91 {data.links[0]?.adminMobileNumber}
                     </a>
                 </div>
@@ -82,7 +82,7 @@ const Header = () => {
 
             {/* Nav */}
             <div className="bg-[#22384D] lg:px-[60px] px-[16px]">
-                <div className="mx-auto flex h-[82px] max-w-screen-3xl items-center gap-8">
+                <div className="mx-auto flex h-[82px] max-w-screen-3xl items-center gap-[54px]">
                     <Link className="block text-teal-600" to="/">
                         <img src="/enggific_logo.png" alt="enggific" className='md:w-[77.77px] md:h-[64px] w-[63.83px] h-[55px]' />
                     </Link>
