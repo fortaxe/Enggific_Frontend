@@ -45,11 +45,12 @@ const ContactUs = () => {
                     <a href={`tel:+91${data && data.links[0]?.adminMobileNumber}`}>
                         <div className="border border-[#AEAEAE] w-[349px] h-[349px] sm:h-48 md:h-56 lg:w-[321px] lg:h-[321px] flex flex-col justify-center items-center p-4">
 
-                            <div className='bg-[#FDC115] w-[129.88px] h-[129.88px] md:w-[110px] md:h-[110px] rounded-full flex justify-center items-center md:mb-[29px] mb-[16px]'>
-                                <svg className='w-[75.56px] h-[75.56px] md:w-[68px] md:h-[68px]' viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M67.6267 52.0542C67.5151 52.9559 67.5709 53.9219 67.2703 54.7548C66.519 56.8329 65.656 58.8723 64.7543 60.886C62.3628 66.2314 58.0135 68.4941 52.1185 67.7341C45.1158 66.8282 39.122 63.6124 33.3472 59.8341C31.9776 58.941 30.6294 58.0136 29.2684 57.0991V57.185L28.4526 56.6311V56.7341L27.9846 56.2619L28.0276 56.3091L27.5381 55.8411L27.5853 55.8883L27.0529 55.5234C26.3703 54.8235 25.7305 54.0808 25.0006 53.4367C16.1088 45.5624 8.3203 36.7993 3.25395 25.9238C1.10719 21.3083 -0.515759 16.5125 0.420229 11.2701C1.02991 7.83525 2.68721 5.1475 6.0018 3.71776C8.14856 2.78606 10.2953 1.85867 12.4936 0.9785C15.6579 -0.309556 16.4093 -0.0648375 18.423 2.67014L18.8781 3.17248L18.818 3.14242L19.2902 3.61471L19.1571 3.66623C20.8531 6.76616 22.5276 9.87896 24.2493 12.966C25.9194 15.9715 25.6919 17.0706 22.8839 19.0199C17.8433 22.5191 16.624 28.4957 20.6556 33.1198C25.0613 38.1581 29.8037 42.8918 34.85 47.2884C39.4784 51.32 45.4421 50.1007 48.9456 45.0601C50.8948 42.2564 52.0026 42.0288 54.9995 43.699C58.0865 45.4164 61.1993 47.0909 64.2992 48.7868L64.3422 48.6623L64.8187 49.126L64.7887 49.0702L65.2953 49.5253L67.6267 52.0542Z" fill="#FFFEFC" />
-                                </svg>
+                            <div
+                                className='bg-[#FDC115] w-[129.88px] h-[129.88px] md:w-[110px] md:h-[110px] rounded-full flex justify-center items-center md:mb-[29px] mb-[16px] bg-no-repeat bg-center bg-contain'
+                                style={{ backgroundImage: "url('/call.svg')" }}
+                            >
                             </div>
+
 
 
                             <p className='text-2xl font-bold text-textOrange'>Call Us</p>
@@ -61,8 +62,10 @@ const ContactUs = () => {
                     {/* Email_us */}
                     <a href={`mailto:${data && data.links[0].adminEmail}`}>
                         <div className="border border-[#AEAEAE] w-[349px] h-[349px] sm:h-48 md:h-56 lg:w-[321px] lg:h-[321px] flex flex-col justify-center items-center">
-                            <div className='bg-[#FDC115] w-[110px] h-[110px] rounded-full flex justify-center items-center mb-[29px]'>
-                                <svg lassName='w-[68px] h-[68px]' viewBox="0 -2.5 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" fill="#000000" stroke="#000000"><g id="SVGRepo_bgCarrier" strokeWidth={0} /><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" /><g id="SVGRepo_iconCarrier"> <title>email [#ffffff]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" strokeWidth={1} fill="none" fillRule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-340.000000, -922.000000)" fill="#ffffff"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M294,774.474 L284,765.649 L284,777 L304,777 L304,765.649 L294,774.474 Z M294.001,771.812 L284,762.981 L284,762 L304,762 L304,762.981 L294.001,771.812 Z" id="email-[#ffffff]"> </path> </g> </g> </g> </g></svg>
+                        <div
+                                className='bg-[#FDC115] w-[129.88px] h-[129.88px] md:w-[110px] md:h-[110px] rounded-full flex justify-center items-center md:mb-[29px] mb-[16px] bg-no-repeat bg-center bg-contain'
+                                style={{ backgroundImage: "url('/email.svg')" }}
+                            >
                             </div>
 
                             <p className='text-2xl font-bold text-textOrange'>Email Us</p>
