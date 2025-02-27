@@ -7,7 +7,7 @@ const HeroCarousel = ({ carouselData }) => {
 
   console.log("carar", carouselData)
 
-  const images = ['Mesuring_Device_banner.png', 'Control_equipment_banner.png', 'safety_equipments_banner.png']
+  const images = ['Mesuring_Device_banner.webp', 'Control_equipment_banner.webp', 'safety_equipments_banner.webp']
 
   const data = images.map((item) => ({
     image: `/${item}`,
