@@ -146,3 +146,37 @@ body {
   opacity: 1 !important;
   transform: translateY(0) !important;
 }
+
+
+/* Custom Orange Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #E5810C; /* Orange color */
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #cc6d09; /* Darker shade on hover */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Optional: light background for the track */
+}
+
+.carousel-slider > button {
+  display: none
+}
+
+
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
