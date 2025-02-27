@@ -49,7 +49,7 @@ const Home = () => {
       </AnimatedComponent>
       <OurCards />
       <LaunchedProducts />
-      {/* <KnowUs /> */}
+      <KnowUs />
       <CompanyBanners />
       <div className='relative h-[90px] bg-cover bg-top ' style={{ backgroundImage: `url(/contact_bg.jpg)` }}>
         <div className="absolute inset-0  flex flex-row justify-center items-center gap-[32px] bg-[rgba(34,56,77,0.74)]">
