@@ -316,14 +316,14 @@ const CreateProduct = () => {
               {thumbnailError && <div className="text-red-500 mt-1">{thumbnailError}</div>}
             </div>
 
-          
 
 
-           
+
+
 
             {/* Category Selection */}
-              {/* Category Dropdown */}
-              <div className="block mt-4">
+            {/* Category Dropdown */}
+            <div className="block mt-4">
               <label className="block text-sm font-medium text-gray-700 pb-2">
                 Category
               </label>
@@ -347,55 +347,60 @@ const CreateProduct = () => {
             </div>
             {/* <MultiCategoryDropdown formik={formik} categories={categories} /> */}
             <div className=" mt-4 flex gap-4 items-center justify-start">
-            <div className="">
-            <label className="block text-sm font-medium text-gray-700 pb-2">
-                Sub category
-              </label>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="outline" disabled={!selectedCategory} className="overflow-hidden break-words w-full flex justify-start">
-                    {formik?.values?.productType?.name || "Select Sub Category"}
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  {filteredProductTypes?.map((productType) => (
-                    <DropdownMenuItem
-                      key={productType._id}
-                      onClick={() =>
-                        handleProductTypeSelect(productType.name, productType._id)
-                      }
+              <div className="">
+                <label className="block text-sm font-medium text-gray-700 pb-2">
+                  Sub category
+                </label>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="outline"
+                      disabled={!selectedCategory}
+                      className="overflow-hidden break-words w-full flex justify-start"
                     >
-                      {productType.name}
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
-              
+                      {formik?.values?.productType?.name || "Select Sub Category"}
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="max-h-60 overflow-y-auto">
+                    {filteredProductTypes?.map((productType) => (
+                      <DropdownMenuItem
+                        key={productType._id}
+                        onClick={() =>
+                          handleProductTypeSelect(productType.name, productType._id)
+                        }
+                      >
+                        {productType.name}
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+
+              </div>
+
               {/* {formik.touched.productType && formik.errors.productType && (
                 <div className="text-red-500">{formik.errors.productType}</div>
               )} */}
             </div>
           </div>
 
-            {/* SKU */}
-            <div className="mt-4 w-3/12">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 pb-2">Code</label>
-                <Input
-                  type="text"
-                  id="sku"
-                  name="sku"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.sku}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm "
-                />
-                {formik.touched.sku && formik.errors.sku && (
-                  <div className="text-red-500 mt-1 text-sm">{formik.errors.sku}</div>
-                )}
-              </div>
+          {/* SKU */}
+          <div className="mt-4 w-3/12">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 pb-2">Code</label>
+              <Input
+                type="text"
+                id="sku"
+                name="sku"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.sku}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm "
+              />
+              {formik.touched.sku && formik.errors.sku && (
+                <div className="text-red-500 mt-1 text-sm">{formik.errors.sku}</div>
+              )}
             </div>
+          </div>
 
           <div className="flex flex-col justify-start">
 
