@@ -1,4 +1,5 @@
 import About from '@/clientComponents/About'
+import { AnimatedComponent } from '@/clientComponents/AnimatedComponent'
 import ChooseUs from '@/clientComponents/ChooseUs'
 import CompanyBanners from '@/clientComponents/CompanyBanners'
 import EquipmentsCards from '@/clientComponents/EquipmentsCards'
@@ -18,30 +19,34 @@ const Home = () => {
 
   const apiUrl = `${BASE_URL}/admin/get/banners`;
 
-    const { data, loading, error } = useFetchData(apiUrl);
-    
+  const { data, loading, error } = useFetchData(apiUrl);
 
-    if (loading) return <Loader />;
-    if (error) return <p>Error: {error}</p>;
 
-    // console.log("banners data", data)
+  if (loading) return <Loader />;
+  if (error) return <p>Error: {error}</p>;
+
+  // console.log("banners data", data)
 
   return (
     <div className=''>
-      <HeroCarousel carouselData={ data.banners ? data.banners : []}/>
-      <About />
+      <AnimatedComponent>
+        <HeroCarousel carouselData={data.banners ? data.banners : []} />
+        <About />
+      </AnimatedComponent>
       <div className='relative h-[90px] bg-cover bg-top ' style={{ backgroundImage: `url(/contact_bg.jpg)` }}>
         <div className="absolute inset-0  flex flex-row justify-center items-center gap-[32px] bg-[rgba(34,56,77,0.74)]">
           <div className='hidden md:block'>
             <p className='md:text-xl text-base text-white'>Contact us for a comprehensive range of engineering and scientific laboratory equipments</p>
           </div>
-          <button onClick={()=> navigate('/contact-us')} className="xl:w-[216px] xl:h-[48px] w-[144px] h-[32px] flex justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+          <button onClick={() => navigate('/contact-us')} className="xl:w-[216px] xl:h-[48px] w-[144px] h-[32px] flex justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
             Contact Us
           </button>
         </div>
       </div>
       <EquipmentsCards />
+      <AnimatedComponent>
       <ChooseUs />
+      </AnimatedComponent>
       <OurCards />
       <LaunchedProducts />
       <KnowUs />
@@ -51,7 +56,7 @@ const Home = () => {
           <div className='hidden md:block'>
             <p className='text-xl text-white'>Contact us for a comprehensive range of engineering and scientific laboratory equipments</p>
           </div>
-          <button onClick={()=> navigate('/contact-us')} className="xl:w-[216px] xl:h-[48px] w-[144px] h-[32px] flex justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+          <button onClick={() => navigate('/contact-us')} className="xl:w-[216px] xl:h-[48px] w-[144px] h-[32px] flex justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
             Contact Us
           </button>
         </div>

@@ -3,6 +3,8 @@ import EquipmentCard from './EquipmentCard'
 import { BASE_URL } from '@/constants';
 import useFetchData from './utils/useFetchData';
 import { useNavigate } from 'react-router-dom';
+import { AnimatedComponent } from './AnimatedComponent';
+
 
 const EquipmentsCards = () => {
 
@@ -96,6 +98,7 @@ const EquipmentsCards = () => {
 
     return (
         <div className='xl:pt-[90px] pt-[30px] pb-[70px] xl:px-[60px] px-[16px] bg-white'>
+            <AnimatedComponent>
             <div className=''>
                 <div className='text-center'>
                     <h3 className='md:text-2xl text-base text-textBlack'>Explore wide range of</h3>
@@ -115,6 +118,7 @@ const EquipmentsCards = () => {
                     </button>
                 </div>
             </div>
+            </AnimatedComponent>
         </div>
     )
 }

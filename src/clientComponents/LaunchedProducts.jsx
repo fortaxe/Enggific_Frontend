@@ -49,6 +49,8 @@ const LaunchedProducts = () => {
         setShowLogin(false); // Close popup on success
       };
 
+      if(data.products && data.products.length=== 0) return null
+
     return (
         <div className='xl:px-[60px] px-[16px] xl:py-[70px] py-[30px]'>
             <div>

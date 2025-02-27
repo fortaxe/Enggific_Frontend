@@ -141,3 +141,8 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none; 
 }
+
+.show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
