@@ -6,7 +6,7 @@ const OurCards = () => {
         <div className='bg-[#F8F8F8] flex justify-center items-center py-[91px]'>
             <div className='flex flex-wrap gap-[29px] max-w-[937px] w-full'>
                 <div className='relative w-full sm:w-[calc(50%-14.5px)] md:w-[calc(50%-14.5px)] h-[320px] shadow-md z-[1]'>
-            {/* <AnimatedFromLeft> */}
+            <AnimatedFromLeft>
                     <div className='z-[1] py-[61px] pl-[50px] pr-[18px]'>
                         <div className='w-[90px] h-[4px] bg-[#E5810C] mb-[15px]' />
                         <div className='mb-[15px]'>
@@ -22,12 +22,12 @@ const OurCards = () => {
                             <path d="M275.186 96.0202C165.953 16.8358 46.2378 -0.960684 0.0344238 0.0391187L0.0344342 198H450V131.513C379.661 149.909 304.149 115.516 275.186 96.0202Z" fill="#FDF3E7" />
                         </svg>
                     </div>
-            {/* </AnimatedFromLeft> */}
+            </AnimatedFromLeft>
                 </div>
 
 
                 <div className='relative w-full sm:w-[calc(50%-14.5px)] md:w-[calc(50%-14.5px)] h-[320px] shadow-md z-[1]'>
-                {/* <AnimatedFromRight> */}
+                <AnimatedFromRight>
                     <div className='z-[1] py-[61px] pl-[50px] pr-[18px]'>
                         <div className='w-[90px] h-[4px] bg-[#E5810C] mb-[15px]' />
                         <div className='mb-[15px]'>
@@ -45,7 +45,7 @@ const OurCards = () => {
                             <path d="M237.931 103.238C170.225 140.344 51.4335 81.9139 0 48V196H450V0C401.491 5.98481 322.564 56.8557 237.931 103.238Z" fill="#FDF3E7" />
                         </svg>
                     </div>
-                {/* </AnimatedFromRight> */}
+                </AnimatedFromRight>
                 </div>
 
 
