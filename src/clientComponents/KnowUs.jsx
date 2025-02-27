@@ -1,6 +1,7 @@
 import React from 'react'
 import { Carousel } from 'react-responsive-carousel'
 
+
 const KnowUs = () => {
     return (
         <div className='bg-[#F8F8F8] px-[16px] pt-[94px] pb-[104px]'>
