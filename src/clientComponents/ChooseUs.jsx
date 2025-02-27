@@ -61,22 +61,22 @@ const ChooseUs = () => {
                     <h2 className='md:text-[38px] text-[26px] text-white font-bold'>Choosing us</h2>
                 </div>
 
-                <div className='flex flex-wrap  md:gap-[29px] gap-[16px] md:p-4 md:pb-0 pb-[61.99px]'>
+                <div className='grid grid-cols-2 md:grid-cols-3 md:gap-[29px] gap-[16px] md:pb-0 pb-[61.99px]'>
                     {data.map((item, index) => (
                        <div
                        key={index}
-                       className="w-[calc(50%-14.5px)] lg:w-[calc(33.333%-19.33px)] mt-[50px] shadow-2xl p-4 bg-gray-800 rounded-xl group transition-all duration-300 hover:bg-gray-700"
+                       className="w-full mt-[50px] shadow-2xl p-4 bg-gray-800 rounded-xl group transition-all duration-300 hover:bg-gray-700"
                    >
                        <div className="flex gap-[14px] items-center mb-[18px]">
                            <div className="text-white transition-transform duration-1000 group-hover:rotate-[360deg]">
                                {item.icon}
                            </div>
-                           <p className="md:text-[22px] text-[15.31px] leading-[17.61px] md:leading-normal text-white font-bold max-w-[210px] break-words">
+                           <p className="md:text-base lg:text-[22px] text-[9px] leading-[17.61px] md:leading-normal text-white font-bold max-w-[210px] break-words">
                                {item.title}
                            </p>
                        </div>
                        <div className="md:block hidden">
-                           <p className="text-base text-white">{item.decription}</p>
+                           <p className="md:text-sm lg:text-base text-white">{item.decription}</p>
                        </div>
                    </div>
                    
