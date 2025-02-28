@@ -41,7 +41,7 @@ const ChooseUs = () => {
     ]
 
     return (
-        <div className='md:px-[60px] px-[16px] md:pb-[100px] pb-[30px] xl:pt-[70px] pt-[30px]'>
+        <div className='md:px-[60px] px-[16px] md:pb-[100px] pb-[30px] '>
             {/* <AnimatedComponent> */}
             <div className=''>
                 <div className=''>
