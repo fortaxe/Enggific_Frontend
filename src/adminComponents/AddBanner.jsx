@@ -37,10 +37,10 @@ const AddBanner = ({ isOpen, onClose }) => {
                 return;
             }
 
-            const { file: compressedFile } = await compressImage(bannerImage);
+            // const { file: compressedFile } = await compressImage(bannerImage);
 
             const formData = new FormData();
-            formData.append("bannerImage", compressedFile);
+            formData.append("bannerImage", bannerImage);
 
             setLoading(true);
             // Dispatch the createBanner action
