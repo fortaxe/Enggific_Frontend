@@ -195,6 +195,7 @@ const Header = () => {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
+                        onMouseLeave={()=> setIsDropdownOpen(false)}
                         transition={{ duration: 0.3, ease: "easeIn" }}
                       >
                         <ul className="py-2">
