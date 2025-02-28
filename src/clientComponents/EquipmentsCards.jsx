@@ -100,7 +100,7 @@ const EquipmentsCards = () => {
         <div className='xl:pt-[90px] pt-[30px] pb-[70px] xl:px-[60px] px-[16px] bg-white'>
             <AnimatedComponent>
                 <div className=''>
-                    <div className=''>
+                    <div className='md:mb-[60px] mb-[30px]'>
                         <h3 className='md:text-2xl text-base text-textBlack'>Explore wide range of</h3>
 
                         <div className="flex items-baseline">
