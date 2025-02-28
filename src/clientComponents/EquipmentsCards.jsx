@@ -98,7 +98,7 @@ const EquipmentsCards = () => {
     ]
 
     return (
-        <div className='xl:pt-[90px] pt-[30px] pb-[70px] xl:px-[60px] px-[16px] bg-white'>
+        <div className='xl:pt-[90px] pt-[30px] xl:px-[60px] px-[16px] bg-white'>
             <AnimatedComponent>
                 <div className=''>
                     <div className='md:mb-[40px] mb-[30px]'>
