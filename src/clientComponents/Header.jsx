@@ -137,7 +137,7 @@ const Header = () => {
               </svg>
 
               <span className="text-xs text-white hover:text-orange-500 transition-all duration-300">Customer support +91 {data.links[0]?.adminMobileNumber}</span>
-              
+
             </a>
           </div>
         </div>
@@ -195,7 +195,7 @@ const Header = () => {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        onMouseLeave={()=> setIsDropdownOpen(false)}
+                        onMouseLeave={() => setIsDropdownOpen(false)}
                         transition={{ duration: 0.3, ease: "easeIn" }}
                       >
                         <ul className="py-2">
@@ -269,18 +269,33 @@ const Header = () => {
       {isSidebarOpen && (
         <>
           {/* Overlay */}
-          <div
-            className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          <motion.div
+            className="fixed inset-0 bg-black z-40"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.5 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
             onClick={() => setSidebarOpen(false)}
-          ></div>
+          ></motion.div>
 
           {/* Side Panel */}
-          <div className="fixed top-0 right-0 w-64 h-full bg-[#00093E] text-white z-50 shadow-lg transform transition-transform ease-in-out duration-300 translate-x-0">
+          <motion.div
+            className="fixed top-0 right-0 w-64 h-full bg-white text-black z-50 shadow-lg"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{
+              type: "spring",
+              stiffness: 300,
+              damping: 30,
+              duration: 0.3
+            }}
+          >
             <div className="flex justify-between items-center p-4 border-b border-gray-700">
               <span className="text-lg font-semibold">Menu</span>
               <button
                 onClick={() => setSidebarOpen(false)}
-                className="text-gray-300 hover:text-white"
+                className="text-black cursor-pointer"
               >
                 ✕
               </button>
@@ -326,7 +341,7 @@ const Header = () => {
                 </li>
               </ul>
             </nav>
-          </div>
+          </motion.div>
         </>
       )}
     </header>
