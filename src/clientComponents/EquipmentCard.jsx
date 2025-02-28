@@ -41,14 +41,14 @@ const EquipmentCard = ({ equipment, page, subName , subId }) => {
     const backgroundImage = page === 'sub-category' ? equipment.productTypeLogo : equipment.categoryLogo
     
     return (
-        <div onClick={handleNavigate} className='w-full sm:w-[calc(50%-14.5px)] md:w-[calc(50%-14.5px)] lg:w-[calc(33.333%-19.33px)] h-[282.95px] shadow-md cursor-pointer'>
-            <div className='h-[214.42px] bg-cover bg-center border-b-[3.92px] border-[#E5810C]' style={{ backgroundImage: `url(${backgroundImage})` }}>
+        <div onClick={handleNavigate} className='w-full md:w-[calc(50%-14.5px)] lg:w-[calc(33.33%-19.33px)]  xl:w-[calc(24%-19.33px)] max-h-[383px] shadow-md cursor-pointer'>
+            <div className='h-[283px] bg-cover bg-center border-b-[3.92px] border-[#E5810C]' style={{ backgroundImage: `url(${backgroundImage})` }}>
             </div>
-            <div className='h-[68.53px] border border-[#E0E0E0] px-[31px] flex gap-[13.2px] justify-start items-center overflow-hidden hover:border-[#E5810C] hover:bg-[#E5810C] hover:text-white transition-all duration-300'>
-                <div className=''>
-                    {/* {equipment.icon} */}
-                </div>
-                <p className='break-words lg:text-lg text-base'>{equipment.name}</p>
+            <div className='h-[68.53px] border border-[#E0E0E0] px-[31px] py-[20px] flex gap-[13.2px] justify-start items-center overflow-hidden hover:border-[#E5810C] hover:bg-[#E5810C] hover:text-white transition-all duration-300'>
+                {/* <div className=''>
+                    {equipment.icon}
+                </div> */}
+                <p className='break-words xl:text-lg text-base'>{equipment.name}</p>
             </div>
         </div>
     )
