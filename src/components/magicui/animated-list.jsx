@@ -61,38 +61,45 @@ AnimatedList.displayName = "AnimatedList";
 
 let notifications = [
   {
-    name: "Payment received",
-    description: "Magic UI",
-    time: "15m ago",
- 
-    icon: "💸",
+    name: "Unmatched Quality Standards",
+
+    icon: "💯",
     color: "#00C9A7",
   },
   {
-    name: "User signed up",
-    description: "Magic UI",
-    time: "10m ago",
-    icon: "👤",
+    name: "Comprehensive Product Range",
+
+    icon: "🛒",
     color: "#FFB800",
   },
   {
-    name: "New message",
-    description: "Magic UI",
-    time: "5m ago",
-    icon: "💬",
+    name: "Expert Team",
+
+    icon: "👤",
     color: "#FF3D71",
   },
   {
-    name: "New event",
-    description: "Magic UI",
-    time: "2m ago",
-    icon: "🗞️",
+    name: "Reliable After-Sales Support",
+
+    icon: "🏪",
     color: "#1E86FF",
   },
+  {
+    name: "On-Time Delivery",
+
+    icon: "⏱️",
+    color: "#A16ED7",
+  },
+  {
+    name: "Competitive Pricing",
+
+    icon: "💸",
+    color: "#D7966E",
+  },
 ];
- 
+
 notifications = Array.from({ length: 10 }, () => notifications).flat();
- 
+
 const Notification = ({ name, description, icon, color, time }) => {
   return (
     <figure
@@ -118,7 +125,7 @@ const Notification = ({ name, description, icon, color, time }) => {
         <div className="flex flex-col overflow-hidden">
           <figcaption className="flex flex-row items-center whitespace-pre text-lg font-medium dark:text-white ">
             <span className="text-sm sm:text-lg">{name}</span>
-            <span className="mx-1">·</span>
+            {/* <span className="mx-1">·</span> */}
             <span className="text-xs text-gray-500">{time}</span>
           </figcaption>
           <p className="text-sm font-normal dark:text-white/60">
@@ -129,19 +136,19 @@ const Notification = ({ name, description, icon, color, time }) => {
     </figure>
   );
 };
- 
+
 export function AnimatedListDemo() {
   return (
     <div
       className=
-        "relative flex h-[309px] w-full flex-col overflow-hidden rounded-[23.37px]"
+      "relative flex h-[300px] w-full flex-col overflow-hidden"
     >
       <AnimatedList>
         {notifications.map((item, idx) => (
           <Notification {...item} key={idx} />
         ))}
       </AnimatedList>
- 
+
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background"></div>
     </div>
   );
