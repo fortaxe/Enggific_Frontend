@@ -134,7 +134,7 @@ export function AnimatedListDemo() {
   return (
     <div
       className=
-        "relative flex h-[300px] w-full flex-col overflow-hidden"
+        "relative flex h-[309px] w-full flex-col overflow-hidden rounded-[23.37px]"
     >
       <AnimatedList>
         {notifications.map((item, idx) => (
