@@ -118,12 +118,12 @@ const EquipmentsCards = () => {
                         ))}
                     </div>
 
-                    <div className='flex justify-center'>
+                    {/* <div className='flex justify-center'>
 
                         <button onClick={() => navigate('/product-categories')} className="xl:w-[216px] xl:h-[48px] w-[189px] h-[42px] bg-orange-500 text-white text-base hover:bg-orange-600 transition">
                             View All
                         </button>
-                    </div>
+                    </div> */}
                 </div>
             </AnimatedComponent>
         </div>
