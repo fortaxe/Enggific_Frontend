@@ -275,7 +275,7 @@ const Header = () => {
           ></div>
 
           {/* Side Panel */}
-          <div className="fixed top-0 right-0 w-64 h-full bg-[#22384D] text-white z-50 shadow-lg transform transition-transform ease-in-out duration-300 translate-x-0">
+          <div className="fixed top-0 right-0 w-64 h-full bg-[#00093E] text-white z-50 shadow-lg transform transition-transform ease-in-out duration-300 translate-x-0">
             <div className="flex justify-between items-center p-4 border-b border-gray-700">
               <span className="text-lg font-semibold">Menu</span>
               <button
