@@ -171,7 +171,7 @@ const ProductCategories = () => {
           <h2 className='md:text-[38px] text-[26px] text-textOrange font-bold'>Product Categories</h2>
         </div>
 
-        <div className='flex flex-wrap justify-start gap-[29px] mt-[40px] mb-[70.07px]'>
+        <div className='flex flex-wrap justify-start md:gap-[29px] gap-[16px] mt-[40px] mb-[70.07px]'>
           {(data?.categories && data?.categories.length) && data?.categories.map((item) => (<EquipmentCard key={item._id} equipment={item} />))}
         </div>
       </div>
