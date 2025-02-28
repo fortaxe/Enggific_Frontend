@@ -8,6 +8,7 @@ import KnowUs from '@/clientComponents/KnowUs'
 import LaunchedProducts from '@/clientComponents/LaunchedProducts'
 import Loader from '@/clientComponents/Loader'
 import OurCards from '@/clientComponents/OurCards'
+import UserCounterList from '@/clientComponents/UserCounterList'
 import useFetchData from '@/clientComponents/utils/useFetchData'
 import { BASE_URL } from '@/constants'
 import React from 'react'
@@ -33,6 +34,7 @@ const Home = () => {
     <div className=''>
 
       <HeroCarousel carouselData={data.banners ? data.banners : []} />
+      <UserCounterList />
       <About />
 
       {/* <div className='relative h-[90px] bg-cover bg-top ' style={{ backgroundImage: `url(/contact_bg.jpg)` }}>
