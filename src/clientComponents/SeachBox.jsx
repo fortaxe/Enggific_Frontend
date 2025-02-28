@@ -26,7 +26,7 @@ const SearchBox = () => {
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    className="w-full p-2 pl-4 pr-10 text-gray-600 border-none focus:outline-none"
+                    className="w-full p-2 pl-4 pr-10 text-gray-600 border-none focus:outline-none bg-[#EAEAEA]"
                 />
                 <button
                     onClick={handleSearch}
