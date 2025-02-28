@@ -4,6 +4,7 @@ import { BASE_URL } from '@/constants';
 import useFetchData from './utils/useFetchData';
 import { useNavigate } from 'react-router-dom';
 import { AnimatedComponent } from './AnimatedComponent';
+import CategoryCarousel from './CategoryCarousel';
 
 
 const EquipmentsCards = () => {
@@ -97,10 +98,10 @@ const EquipmentsCards = () => {
     ]
 
     return (
-        <div className='xl:pt-[90px] pt-[30px] pb-[70px] xl:px-[60px] px-[16px] bg-white'>
+        <div className='xl:pt-[90px] pt-[30px] xl:px-[60px] px-[16px] bg-white'>
             <AnimatedComponent>
                 <div className=''>
-                    <div className='md:mb-[60px] mb-[30px]'>
+                    <div className='md:mb-[40px] mb-[30px]'>
                         <h3 className='md:text-2xl text-base text-textBlack'>Explore wide range of</h3>
 
                         <div className="flex items-baseline">
@@ -111,11 +112,13 @@ const EquipmentsCards = () => {
                         </div>
                         {/* <h2 className='md:text-[38px] md:leading-[43.7px] text-[26px] leading-[29.9px] text-textBlack font-bold'>Engineering & scientific laboratory equipments</h2> */}
                     </div>
+                    <CategoryCarousel categories={data.categories} />
 
-                    <div className='flex flex-wrap justify-start md:gap-[29px] gap-[16px] xl:mt-[55px] mt-[29px] xl:mb-[70.07px] mb-[32.89px]'>
-                        {(data?.categories && data?.categories.length) && data.categories.slice(0, 6).map((item) => (
+                    <div className='flex flex-wrap justify-start md:gap-[29px] gap-[16px] xl:mb-[70.07px] mb-[32.89px]'>
+                        {/* {(data?.categories && data?.categories.length) && data.categories.slice(0, 6).map((item) => (
                             <EquipmentCard key={item._id} equipment={item} />
-                        ))}
+                        ))} */}
+                        
                     </div>
 
                     {/* <div className='flex justify-center'>

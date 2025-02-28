@@ -52,9 +52,9 @@ const LaunchedProducts = () => {
       if(data.products && data.products.length=== 0) return null
 
     return (
-        <div className='xl:px-[60px] px-[16px] xl:py-[70px] py-[30px]'>
+        <div className='xl:px-[60px] px-[16px] xl:pt-[70px] py-[30px]'>
             <div>
-                <div className='text-center xl:mb-[55px] mb-[19px]'>
+                <div className='text-center'>
                     <h3 className='md:text-2xl text-base text-textBlack'>What’s new</h3>
                     <h2 className='md:text-[38px] text-[26px] text-textOrange font-bold'>Newly launched products</h2>
                 </div>
