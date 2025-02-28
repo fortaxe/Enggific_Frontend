@@ -48,7 +48,9 @@ const Home = () => {
       <ChooseUs />
       </AnimatedComponent>
       <OurCards />
+      <AnimatedComponent>
       <LaunchedProducts />
+      </AnimatedComponent>
       <KnowUs />
       <CompanyBanners />
       <div className='relative h-[90px] bg-cover bg-top ' style={{ backgroundImage: `url(/contact_bg.jpg)` }}>
