@@ -59,13 +59,13 @@ const ChooseUs = () => {
                     {data.map((item, index) => (
                        <div
                        key={index}
-                       className="w-full min-h-[300px] shadow-2xl px-[39px] group transition-all duration-300 "
+                       className="w-full min-h-[300px] shadow-[0px_4px_8px_rgba(0,0,0,0.08)] px-[39px] group transition-all duration-300 "
                    >
                        <div className="flex flex-col gap-[14px] mb-[18px]">
                            <div className="top-0 left-[5%] bg-[orange] w-[39.67px] h-[39.67px] md:w-[83px] md:h-[99px] flex items-center justify-center mb-[34px]">
                                {item.icon}
                            </div>
-                           <p className="md:text-base lg:text-[22px] text-[9px] leading-[17.61px] md:leading-normal text-textBlack font-bold break-words">
+                           <p className="text-base lg:text-[22px] text-[9px] leading-[17.61px] md:leading-normal text-textBlack font-bold break-words">
                                {item.title}
                            </p>
                            <p className="md:text-sm lg:text-base text-textBlack">{item.decription}</p>

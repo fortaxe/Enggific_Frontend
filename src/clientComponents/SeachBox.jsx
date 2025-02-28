@@ -30,7 +30,7 @@ const SearchBox = () => {
                 />
                 <button
                     onClick={handleSearch}
-                    className="absolute right-0 top-0 h-full md:w-[45.33px] xl:w-[64px] px-4 bg-orange-600 text-white flex items-center justify-center"
+                    className="absolute right-0 top-0 h-full md:w-[45.33px] xl:w-[64px] px-4 bg-[#FA9508] text-white flex items-center justify-center"
                 >
                     <svg width={25} height={25} viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M17.9873 17.9875L22.5104 22.5105" stroke="white" strokeWidth="1.95" strokeLinecap="round" strokeLinejoin="round" />

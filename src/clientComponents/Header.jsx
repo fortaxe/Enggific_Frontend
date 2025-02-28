@@ -54,7 +54,7 @@ const Header = () => {
   }
 
   return (
-    <header className="header bg-[#00093E] fixed top-0 left-0 w-full z-50">
+    <header className="header bg-[#00093E] fixed top-0 left-0 w-full z-50 shadow-xl">
       {data.links && data.links.length > 0 && (
         <div className="w-full lg:flex hidden justify-evenly items-center p-4 h-[34px]">
           <div className="lg:flex items-center gap-2 hidden">
@@ -195,6 +195,7 @@ const Header = () => {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
+                        onMouseLeave={()=> setIsDropdownOpen(false)}
                         transition={{ duration: 0.3, ease: "easeIn" }}
                       >
                         <ul className="py-2">
@@ -248,15 +249,15 @@ const Header = () => {
                 >
                   <path
                     d="M1.5 0.5H22.5C22.5 0.5 23.5 0.5 23.5 1.5V2.5C23.5 2.5 23.5 3.5 22.5 3.5H1.5C1.5 3.5 0.5 3.5 0.5 2.5V1.5C0.5 1.5 0.5 0.5 1.5 0.5Z"
-                    fill="white"
+                    fill="black"
                   />
                   <path
                     d="M1.5 8.5H22.5C22.5 8.5 23.5 8.5 23.5 9.5V10.5C23.5 10.5 23.5 11.5 22.5 11.5H1.5C1.5 11.5 0.5 11.5 0.5 10.5V9.5C0.5 9.5 0.5 8.5 1.5 8.5Z"
-                    fill="white"
+                    fill="black"
                   />
                   <path
                     d="M1.5 16.5H22.5C22.5 16.5 23.5 16.5 23.5 17.5V18.5C23.5 18.5 23.5 19.5 22.5 19.5H1.5C1.5 19.5 0.5 19.5 0.5 18.5V17.5C0.5 17.5 0.5 16.5 1.5 16.5Z"
-                    fill="white"
+                    fill="black"
                   />
                 </svg>
               </button>

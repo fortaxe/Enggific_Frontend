@@ -48,7 +48,7 @@ const EquipmentCard = ({ equipment, page, subName , subId }) => {
                 {/* <div className=''>
                     {equipment.icon}
                 </div> */}
-                <p className='break-words xl:text-lg text-base'>{equipment.name}</p>
+                <p className='break-words xl:text-lg text-base capitalize'>{equipment.name.toLowerCase()}</p>
             </div>
         </div>
     )

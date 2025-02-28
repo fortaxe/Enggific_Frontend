@@ -100,7 +100,7 @@ const EquipmentsCards = () => {
         <div className='xl:pt-[90px] pt-[30px] pb-[70px] xl:px-[60px] px-[16px] bg-white'>
             <AnimatedComponent>
                 <div className=''>
-                    <div className=''>
+                    <div className='md:mb-[60px] mb-[30px]'>
                         <h3 className='md:text-2xl text-base text-textBlack'>Explore wide range of</h3>
 
                         <div className="flex items-baseline">
@@ -118,12 +118,12 @@ const EquipmentsCards = () => {
                         ))}
                     </div>
 
-                    <div className='flex justify-center'>
+                    {/* <div className='flex justify-center'>
 
                         <button onClick={() => navigate('/product-categories')} className="xl:w-[216px] xl:h-[48px] w-[189px] h-[42px] bg-orange-500 text-white text-base hover:bg-orange-600 transition">
                             View All
                         </button>
-                    </div>
+                    </div> */}
                 </div>
             </AnimatedComponent>
         </div>
