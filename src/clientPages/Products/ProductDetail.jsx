@@ -14,7 +14,7 @@ import { toast } from 'react-toastify';
 
 const ProductDetail = () => {
     // const { productId } = useParams();
-    
+
 
     const [selectedImage, setSelectedImage] = useState(null);
 
@@ -25,12 +25,12 @@ const ProductDetail = () => {
 
     const ids = useSelector((state) => state.idStore.ids);
 
-  console.log("ids", ids)
+    console.log("ids", ids)
 
-  const productId = ids.find(item => item.idType === "product")?.id;
+    const productId = ids.find(item => item.idType === "product")?.id;
 
 
-  const apiUrl = `${BASE_URL}/user/get/product/${productId}`;
+    const apiUrl = `${BASE_URL}/user/get/product/${productId}`;
     const { data, loading, error } = useFetchData(apiUrl);
 
     useEffect(() => {
@@ -52,8 +52,8 @@ const ProductDetail = () => {
 
         setProductTobeEnquire(id)
         setShowLogin(true)
-          
-        };
+
+    };
     const handleLoginSuccess = async () => {
         await dispatch(clientLogin());
         setShowLogin(false); // Close popup on success
@@ -64,35 +64,39 @@ const ProductDetail = () => {
 
 
     return (
-        <div className='xl:px-[60px] px-[16px] xl:mt-[170px] mt-[100px]'>
+        <div className='xl:px-[60px] px-[16px] lg:mt-[170px] mt-0'>
             <div className="md:flex items-start py-12 md:px-6">
-                <div className="flex xl:flex-row flex-col md:gap-4 gap-2">
+                <div className="flex flex-col xl:flex-row gap-2 md:gap-4">
                     {/* Main Image with Magnify Effect */}
-
-                    <img src={selectedImage} alt="product" className="xl:w-[414.31px] w-full max-w-[414px] h-[380px] xl:h-[414.31px] object-cover" />
+                    <img
+                        src={selectedImage}
+                        alt="product"
+                        className="w-full max-w-[414px] h-[250px] sm:h-[300px] md:h-[350px] xl:h-[414.31px] object-cover"
+                    />
 
                     {/* Thumbnail Images */}
-                    <div className="xl:w-[94.88px] w-[58.04px] flex xl:flex-col flex-row xl:gap-3 gap-[9.28px]">
-                        {data.product && data.product.productImages.map((img) => (
+                    <div className="flex xl:flex-col flex-row gap-2 xl:gap-3 overflow-x-auto 450:justify-start justify-center custom-scrollbar">
+                        {data.product?.productImages.map((img) => (
                             <img
                                 key={img._id}
-                                className={`xl:w-[94.88px] xl:h-[94.88px] w-[58.04px] h-[58.04px] cursor-pointer border-2 rounded ${selectedImage === img.url ? "border-[#E5810C]" : "border-gray-300"
+                                className={`w-[58.04px] h-[58.04px] sm:w-[70px] sm:h-[70px] xl:w-[94.88px] xl:h-[94.88px] cursor-pointer border-2 rounded ${selectedImage === img.url ? "border-[#E5810C]" : "border-gray-300"
                                     }`}
-                                alt={`product`}
+                                alt="product"
                                 src={img.url}
                                 onClick={() => setSelectedImage(img.url)}
                             />
                         ))}
                     </div>
                 </div>
+
                 <div className="xl:w-4/6 w-full lg:ml-8 md:ml-6 ml-0 md:mt-0 mt-6">
                     <div className="xl:max-w-[742px] mb-[20px]">
                         <p className="text-2xl text-textBlack">{data.product && data.product.name}</p>
                     </div>
 
-                    {/* <div className='mb-[20px]'>
-                        <p className='text-base text-[#747474]'>SKU: {data.product && data.product.sku}</p>
-                    </div> */}
+                    <div className='mb-[20px]'>
+                        <p className='text-base text-[#747474] font-bold'>BRAND: {data.product && data.product.sku}</p>
+                    </div>
 
                     <div className='bg-[#F5FFF1] flex justify-center items-center gap-[3px] w-[134px] h-[45px] text-[#51C86B] border border-[#51C86B] mb-[20px]'>
                         <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -101,7 +105,19 @@ const ProductDetail = () => {
                         {data.product.status === 'available' ? "In Stock" : "Out of Stock"}
                     </div>
 
-                    <div className='border border-[#D2D2D2] pl-[17px] pt-[30px] pb-[29px] mb-[20px]'>
+                    {/* <div className='border border-[#D2D2D2] pl-[17px] pt-[30px] pb-[29px] mb-[20px]'>
+                        <div>
+                            {data.product && data.product.composition ? (
+                                <div
+                                    className="text-base text-textBlack"
+                                    dangerouslySetInnerHTML={{ __html: data.product.composition.length > 200 ? `${data.product.composition.substring(0, 200)}...` : data.product.composition }}
+                                />
+                            ) : (
+                                <p className="text-base text-textBlack">No composition available</p>
+                            )}
+                        </div>
+                    </div> */}
+                    <div className='border border-[#D2D2D2] pl-[17px] pt-[30px] pb-[29px] mb-[20px] mt-[50px]'>
                         <div>
                             {data.product && data.product.composition ? (
                                 <div
@@ -117,6 +133,20 @@ const ProductDetail = () => {
                     <button onClick={() => handleEnquireNow(data.product._id)} className="w-[275px] h-[45px] flex justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
                         Enquire Now
                     </button>
+
+
+                    {/* <div className='border border-[#D2D2D2] pl-[17px] pt-[30px] pb-[29px] mb-[20px] mt-[50px]'>
+                        <div>
+                            {data.product && data.product.composition ? (
+                                <div
+                                    className="text-base text-textBlack"
+                                    dangerouslySetInnerHTML={{ __html: data.product.composition }}
+                                />
+                            ) : (
+                                <p className="text-base text-textBlack">No composition available</p>
+                            )}
+                        </div>
+                    </div> */}
 
                 </div>
             </div>
@@ -148,7 +178,7 @@ const ProductDetail = () => {
                             Enquire Now
                         </button>
                     </div>
-                )): <NotFound />}
+                )) : <NotFound />}
             </div>
 
             {showLogin && <LoginPopup onClose={() => setShowLogin(false)} onLoginSuccess={handleLoginSuccess} productId={productTobeEnquire} />}
