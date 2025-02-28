@@ -27,12 +27,14 @@ const Home = () => {
 
   // console.log("banners data", data)
 
+
+
   return (
     <div className=''>
-      <AnimatedComponent>
-        <HeroCarousel carouselData={data.banners ? data.banners : []} />
-        <About />
-      </AnimatedComponent>
+
+      <HeroCarousel carouselData={data.banners ? data.banners : []} />
+      <About />
+
       <div className='relative h-[90px] bg-cover bg-top ' style={{ backgroundImage: `url(/contact_bg.jpg)` }}>
         <div className="absolute inset-0  flex flex-row justify-center items-center gap-[32px] bg-[rgba(34,56,77,0.74)]">
           <div className='hidden md:block'>
@@ -45,11 +47,11 @@ const Home = () => {
       </div>
       <EquipmentsCards />
       <AnimatedComponent>
-      <ChooseUs />
+        <ChooseUs />
       </AnimatedComponent>
       <OurCards />
       <AnimatedComponent>
-      <LaunchedProducts />
+        <LaunchedProducts />
       </AnimatedComponent>
       <KnowUs />
       <CompanyBanners />
