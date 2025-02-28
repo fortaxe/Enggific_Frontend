@@ -18,7 +18,7 @@ import { useNavigate } from 'react-router-dom';
 
 const ProductList = () => {
   // const { subCategoryId } = useParams();
-  
+
 
   const [activeFilter, setActiveFilter] = useState("");
 
@@ -54,14 +54,14 @@ const ProductList = () => {
     };
 
     fetchFilters();
-  }, [ids,subCategoryId]);
+  }, [ids, subCategoryId]);
 
 
   const navigate = useNavigate()
 
 
   const handleNavigate = (categoryName, subCategoryName, productName, productId) => {
-    dispatch(addId({ idType:"product", id: productId }));
+    dispatch(addId({ idType: "product", id: productId }));
     navigate(`/${categoryName.replace(/\s+/g, '-')}/${subCategoryName.replace(/\s+/g, '-')}/${productName.replace(/\s+/g, '-')}`)
 
   }
@@ -69,7 +69,7 @@ const ProductList = () => {
 
   //   const { data, loading, error } = useFetchProductBySubCategoryData(subCategoryId);
   const apiUrl = `${BASE_URL}/user/get/products`;
-  
+
 
   const { data, loading, error } = useFetchData(apiUrl);
 
@@ -153,27 +153,31 @@ const ProductList = () => {
         </div>
 
         <div className="mt-4 lg:mt-8 lg:grid lg:grid-cols-4 lg:items-start lg:gap-2">
-          <div className="hidden space-y-4 lg:block h-[700px] overflow-y-auto no-scrollbar">
+          <div className="hidden space-y-4 lg:block h-[500px] overflow-y-auto custom-scrollbar overflow-x-hidden">
             <div>
-              <p className="block text-lg font-bold text-textBlack px-[11px] mb-[17px]">Sub Category</p>
+              <p className="block text-lg font-bold text-textBlack px-[11px] mb-[17px]">
+                Sub Category
+              </p>
               <div className="space-y-2">
-                {(filters && filters.length > 0) && filters.map((filter) => (
-                  <div
-                    key={filter._id}
-                    className={`w-[265px] h-[49px] px-[11px] flex items-center cursor-pointer rounded-md 
-                                                    ${activeFilter === filter._id
-                        ? 'bg-[#FCF1E4] text-[#E5810C]'
-                        : 'text-textBlack'
-                      } 
-                                                    hover:bg-[#FCF1E4] hover:text-[#E5810C] transition duration-300`}
-                    onClick={() => setActiveFilter(filter._id)}
-                  >
-                    <p className="text-base">{filter.name}</p>
-                  </div>
-                ))}
+                {filters?.length > 0 &&
+                  filters.map((filter) => (
+                    <div
+                      key={filter._id}
+                      className={`w-[265px] h-[49px] px-[11px] flex items-center cursor-pointer rounded-md
+              ${activeFilter === filter._id
+                          ? 'bg-[#FCF1E4] text-[#E5810C]'
+                          : 'text-textBlack'
+                        }
+              hover:bg-[#FCF1E4] hover:text-[#E5810C] transition duration-300`}
+                      onClick={() => setActiveFilter(filter._id)}
+                    >
+                      <p className="text-base">{filter.name}</p>
+                    </div>
+                  ))}
               </div>
             </div>
           </div>
+
 
           {isOpen && <MobileFilters filters={filters} isOpen={isOpen} setIsOpen={setIsOpen} activeFilter={activeFilter} setActiveFilter={setActiveFilter} />}
 
