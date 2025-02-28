@@ -15,7 +15,7 @@ const HeroCarousel = ({ carouselData }) => {
         interval={3000}
       >
         {carouselData.length > 0 && carouselData.map((item, index) => (
-          <div key={index} className="w-full h-auto">
+          <div key={index} className="w-full max-h-[562px]">
             <img
               src={item.bannerImage}
               alt={`Slide ${index + 1}`}

@@ -13,7 +13,7 @@ const EquipmentsCards = () => {
     const apiUrl = `${BASE_URL}/admin/get/categories`;
 
     const { data, loading, error } = useFetchData(apiUrl);
-    
+
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>;
@@ -99,25 +99,32 @@ const EquipmentsCards = () => {
     return (
         <div className='xl:pt-[90px] pt-[30px] pb-[70px] xl:px-[60px] px-[16px] bg-white'>
             <AnimatedComponent>
-            <div className=''>
-                <div className='text-center'>
-                    <h3 className='md:text-2xl text-base text-textBlack'>Explore wide range of</h3>
-                    <h2 className='md:text-[38px] md:leading-[43.7px] text-[26px] leading-[29.9px] text-textOrange font-bold'>Engineering & scientific laboratory equipments.</h2>
-                </div>
+                <div className=''>
+                    <div className=''>
+                        <h3 className='md:text-2xl text-base text-textBlack'>Explore wide range of</h3>
 
-                <div className='flex flex-wrap justify-start md:gap-[29px] gap-[16px] xl:mt-[55px] mt-[29px] xl:mb-[70.07px] mb-[32.89px]'>
-                    {(data?.categories && data?.categories.length) && data.categories.slice(0, 6).map((item) => (
-                        <EquipmentCard key={item._id} equipment={item} />
-                    ))}
-                </div>
+                        <div className="flex items-baseline">
+                            <h2 className='md:text-[38px] md:leading-[43.7px] text-[26px] leading-[29.9px] text-textBlack font-bold'>
+                                Engineering & scientific laboratory equipments
+                            </h2>
+                            <div className="flex-grow h-px bg-gray-300 ml-2"></div>
+                        </div>
+                        {/* <h2 className='md:text-[38px] md:leading-[43.7px] text-[26px] leading-[29.9px] text-textBlack font-bold'>Engineering & scientific laboratory equipments</h2> */}
+                    </div>
 
-                <div className='flex justify-center'>
+                    <div className='flex flex-wrap justify-start md:gap-[29px] gap-[16px] xl:mt-[55px] mt-[29px] xl:mb-[70.07px] mb-[32.89px]'>
+                        {(data?.categories && data?.categories.length) && data.categories.slice(0, 6).map((item) => (
+                            <EquipmentCard key={item._id} equipment={item} />
+                        ))}
+                    </div>
 
-                    <button onClick={() => navigate('/product-categories')} className="xl:w-[216px] xl:h-[48px] w-[189px] h-[42px] bg-orange-500 text-white text-base hover:bg-orange-600 transition">
-                        View All
-                    </button>
+                    <div className='flex justify-center'>
+
+                        <button onClick={() => navigate('/product-categories')} className="xl:w-[216px] xl:h-[48px] w-[189px] h-[42px] bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+                            View All
+                        </button>
+                    </div>
                 </div>
-            </div>
             </AnimatedComponent>
         </div>
     )
