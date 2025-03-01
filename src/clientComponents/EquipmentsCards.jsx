@@ -15,16 +15,17 @@ const EquipmentsCards = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className='xl:pt-[90px] pt-[30px] xl:px-[60px] px-[16px] bg-white pb-[60px] rounded-[12px]'>
+    <div className='xl:pt-[90px]  xl:px-[60px] px-[16px] bg-white pb-[30px] sm:pb-[40px] md:pb-[60px] rounded-[12px]'>
       {/* <AnimatedComponent> */}
       <div>
-        <div className='md:mb-[40px] mb-[30px]'>
-          <h3 className='md:text-2xl text-base  text-textBlack text-center'>Explore wide range of</h3>
-          <div className="relative">
-            <h2 className='md:text-[38px] md:leading-[43.7px] text-[22px] leading-[28px] text-textBlack font-bold pr-[70px] text-center'>
+        <div className="flex flex-col items-center justify-center text-center">
+          <div className='md:mb-[40px] mb-[30px]'>
+            <h3 className='md:text-2xl text-base text-textBlack'>Explore wide range of</h3>
+            <div className="relative">
+              <h2 className='md:text-[38px] md:leading-[43.7px] text-[25px] leading-[28px] text-textBlack font-bold'>
               Engineering & scientific laboratory equipments
-            </h2>
-          
+              </h2>
+            </div>
           </div>
         </div>
         <CategoryCarousel categories={data.categories} />
