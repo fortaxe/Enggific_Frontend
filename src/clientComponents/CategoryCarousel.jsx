@@ -22,22 +22,22 @@ const CategoryCarousel = ({ categories, page, subName, subId }) => {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 1280 },
       items: 4,
-      // Removed partialVisibilityGutter
+      
     },
     desktop: {
       breakpoint: { max: 1280, min: 1024 },
       items: 3,
-      // Removed partialVisibilityGutter
+      
     },
     tablet: {
       breakpoint: { max: 1024, min: 640 },
       items: 2,
-      // Removed partialVisibilityGutter
+      
     },
     mobile: {
       breakpoint: { max: 640, min: 0 },
       items: 1,
-      // Removed partialVisibilityGutter
+      
     },
   };
 

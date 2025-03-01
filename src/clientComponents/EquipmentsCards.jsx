@@ -7,34 +7,34 @@ import AnimatedComponent from './AnimatedComponent';
 import CategoryCarousel from './CategoryCarousel';
 
 const EquipmentsCards = () => {
-    const navigate = useNavigate();
-    const apiUrl = `${BASE_URL}/admin/get/categories`;
-    const { data, loading, error } = useFetchData(apiUrl);
-    
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error}</p>;
-    
-    return (
-      <div className='xl:pt-[90px] pt-[30px] xl:px-[60px] px-[16px] bg-white pb-[60px] rounded-[12px]'>
-        {/* <AnimatedComponent> */}
-          <div>
-            <div className='md:mb-[40px] mb-[30px]'>
-              <h3 className='md:text-2xl text-base text-textBlack'>Explore wide range of</h3>
-              <div className="flex items-baseline flex-wrap">
-                <h2 className='md:text-[38px] md:leading-[43.7px] text-[22px] leading-[28px] text-textBlack font-bold max-w-3xl mr-2'>
-                  Engineering & scientific laboratory equipments
-                </h2>
-                <div className="flex-grow h-px bg-gray-300 ml-1 min-w-[50px]"></div>
-              </div>
-            </div>
-            <CategoryCarousel categories={data.categories} />
+  const navigate = useNavigate();
+  const apiUrl = `${BASE_URL}/admin/get/categories`;
+  const { data, loading, error } = useFetchData(apiUrl);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
+  return (
+    <div className='xl:pt-[90px] pt-[30px] xl:px-[60px] px-[16px] bg-white pb-[60px] rounded-[12px]'>
+      {/* <AnimatedComponent> */}
+      <div>
+        <div className='md:mb-[40px] mb-[30px]'>
+          <h3 className='md:text-2xl text-base  text-textBlack text-center'>Explore wide range of</h3>
+          <div className="relative">
+            <h2 className='md:text-[38px] md:leading-[43.7px] text-[22px] leading-[28px] text-textBlack font-bold pr-[70px] text-center'>
+              Engineering & scientific laboratory equipments
+            </h2>
+          
           </div>
-        {/* </AnimatedComponent> */}
+        </div>
+        <CategoryCarousel categories={data.categories} />
       </div>
-    );
-  };
-  
-  export default EquipmentsCards;
+      {/* </AnimatedComponent> */}
+    </div>
+  );
+};
+
+export default EquipmentsCards;
 
 // const equipments = [
 //     {
@@ -113,13 +113,13 @@ const EquipmentsCards = () => {
 // ]
 
 
-                    {/* <div className='flex justify-center'>
+{/* <div className='flex justify-center'>
 
                         <button onClick={() => navigate('/product-categories')} className="xl:w-[216px] xl:h-[48px] w-[189px] h-[42px] bg-orange-500 text-white text-base hover:bg-orange-600 transition">
                             View All
                         </button>
                     </div> */}
 
- {/* {(data?.categories && data?.categories.length) && data.categories.slice(0, 6).map((item) => (
+{/* {(data?.categories && data?.categories.length) && data.categories.slice(0, 6).map((item) => (
                             <EquipmentCard key={item._id} equipment={item} />
                         ))} */}

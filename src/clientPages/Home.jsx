@@ -31,11 +31,11 @@ const Home = () => {
         <About />
         <EquipmentsCards />
         {/* <AnimatedComponent> */}
-          <ChooseUs />
+        <ChooseUs />
         {/* </AnimatedComponent> */}
         <OurCards />
         {/* <AnimatedComponent> */}
-          <LaunchedProducts />
+        <LaunchedProducts />
         {/* </AnimatedComponent> */}
         <KnowUs />
         <CompanyBanners />

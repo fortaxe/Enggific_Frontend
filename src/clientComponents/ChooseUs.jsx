@@ -40,15 +40,15 @@ const ChooseUs = () => {
         <div className='md:px-[60px] px-[16px] md:pb-[60px] pb-[30px]'>
             {/* <AnimatedComponent> */}
             <div className=''>
-                <div className=''>
-                    <h3 className='md:text-2xl text-base text-textBlack'>The benefits of</h3>
-                    <div className="flex items-baseline">
-                        <h2 className='md:text-[38px] md:leading-[43.7px] text-[26px] leading-[29.9px] text-textBlack font-bold'>
-                            Choosing us
-                        </h2>
-                        <div className="flex-grow h-px bg-gray-300 ml-2"></div>
-                    </div>
-                </div>
+            <div className=''>
+          <h3 className='md:text-2xl text-base  text-textBlack text-center'>The benefits of</h3>
+          <div className="relative">
+            <h2 className='md:text-[38px] md:leading-[43.7px] text-[22px] leading-[28px] text-textBlack font-bold pr-[70px] text-center'>
+              Choosing us
+            </h2>
+          
+          </div>
+        </div>
 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-[29px] gap-[16px]  md:mt-[50px] mt-[16px]'>
                     {data.map((item, index) => (
