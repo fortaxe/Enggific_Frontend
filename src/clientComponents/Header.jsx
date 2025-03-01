@@ -150,7 +150,7 @@ const Header = () => {
             <img
               src="/enggific_logo.png"
               alt="enggific"
-              className="md:w-[77.77px] md:h-[64px] w-[63.83px] h-[55px]"
+              className="md:w-[77.77px] md:h-[64px] w-[54px] h-[54px]"
             />
           </Link>
 
@@ -232,9 +232,17 @@ const Header = () => {
             </nav>
 
             <div className="flex items-center gap-4">
-              <div className="hidden md:block sm:gap-4">
+            <div className="hidden md:block sm:gap-4">
                 <SearchBox />
               </div>
+              
+              {/* Know More button - visible only below sm breakpoint */}
+              <Link to="/contact-us" className="sm:hidden block">
+                <button className="bg-gradient-to-r from-[#F8710C] to-[#F22B06] rounded-[5px] h-[38px] px-[10px] text-white text-sm">
+                  Contact Us
+                </button>
+              </Link>
+              
               <button
                 className="block md:hidden"
                 onClick={() => setSidebarOpen(true)}
