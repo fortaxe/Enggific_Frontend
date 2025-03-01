@@ -37,9 +37,10 @@ const UserCounter = ({ targetNumber, label }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="md:text-[73.4px] text-[54.39px] font-bold text-[#FA9508]"
+        className="md:text-[73.4px] text-[54.39px] font-bold bg-gradient-to-r from-[#F8710C] to-[#F22B06] text-transparent bg-clip-text"
+
       >
-        {formatNumber(count)}+
+        {formatNumber(count)}{targetNumber !== "24/7" ? "+" : ""}
       </motion.div>
       <div className="text-lg text-textBlack text-left">{label}</div>
     </div>
@@ -55,7 +56,7 @@ const UserCounterList = () => {
   ];
 
   return (
-    <div className="md:flex md:flex-wrap md:justify-center md:items-center grid grid-cols-2 lg:gap-[115px] gap-[30px] h-full lg:py-[100px] py-[30px]">
+    <div className="md:flex md:flex-wrap md:justify-center md:items-center grid grid-cols-2 lg:gap-[95px] gap-[30px] h-full md:py-[60px] sm:py-[40px] py-[30px]">
       {stats.map((stat, index) => (
         <div key={index} className="w-1/2 md:w-auto flex justify-center">
           <UserCounter targetNumber={stat.targetNumber} label={stat.label} />

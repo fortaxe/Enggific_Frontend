@@ -3,11 +3,11 @@ import { Globe } from "@/components/magicui/globe";
 
 const OurCards = () => {
   return (
-    <div className='bg-[#F8F8F8] flex justify-center items-center py-[50px] px-[16px] md:px-[60px]'>
+    <div className='bg-[#F8F8F8] flex justify-center items-center pb-[16px] sm:pb-[40px] md:pb-[60px] px-[16px] sm:px-[40px] md:px-[60px]'>
       <div className='flex flex-col md:flex-row justify-between items-center w-full relative min-h-[500px]'>
         {/* Vision Card - Left Side */}
         <div className='w-full sm:w-[calc(50%-14.5px)] md:w-[calc(25%-14.5px)] mb-8 md:mb-0'>
-          <div className='w-[90px] h-[4px] bg-[#E5810C] mb-[15px]' />
+          <div className='w-[90px] h-[4px] bg-gradient-to-r from-[#F8710C] to-[#F22B06] mb-[15px]' />
           <div className='mb-[15px]'>
             <p className='md:text-[38px] text-[32px] font-bold'>Our Vision</p>
           </div>
@@ -23,7 +23,7 @@ const OurCards = () => {
 
         {/* Mission Card - Right Side */}
         <div className='w-full sm:w-[calc(50%-14.5px)] md:w-[calc(25%-14.5px)] mt-8 md:mt-0'>
-          <div className='w-[90px] h-[4px] bg-[#E5810C] mb-[15px]' />
+          <div className='w-[90px] h-[4px] bg-gradient-to-r from-[#F8710C] to-[#F22B06] mb-[15px]' />
           <div className='mb-[15px]'>
             <p className='md:text-[38px] text-[32px] font-bold'>Our Mission</p>
           </div>
