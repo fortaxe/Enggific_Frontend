@@ -30,13 +30,13 @@ const Home = () => {
         <UserCounterList />
         <About />
         <EquipmentsCards />
-        <AnimatedComponent>
+        {/* <AnimatedComponent> */}
           <ChooseUs />
-        </AnimatedComponent>
+        {/* </AnimatedComponent> */}
         <OurCards />
-        <AnimatedComponent>
+        {/* <AnimatedComponent> */}
           <LaunchedProducts />
-        </AnimatedComponent>
+        {/* </AnimatedComponent> */}
         <KnowUs />
         <CompanyBanners />
       </Suspense>
