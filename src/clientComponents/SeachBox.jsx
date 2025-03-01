@@ -26,11 +26,11 @@ const SearchBox = () => {
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    className="w-full p-2 pl-4 pr-10 text-gray-600 border-none focus:outline-none bg-[#EAEAEA]"
+                    className="w-full rounded-[5px] p-2 pl-4 pr-10 text-gray-600 border-none focus:outline-none bg-[#EAEAEA]"
                 />
                 <button
                     onClick={handleSearch}
-                    className="absolute right-0 top-0 h-full md:w-[45.33px] xl:w-[64px] px-4 bg-[#FA9508] text-white flex items-center justify-center"
+                    className="absolute right-0 top-0 h-full md:w-[45.33px] xl:w-[64px] px-4 bg-gradient-to-r from-[#F8710C] to-[#F22B06] text-white flex items-center justify-center rounded-r-[5px]"
                 >
                     <svg width={25} height={25} viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M17.9873 17.9875L22.5104 22.5105" stroke="white" strokeWidth="1.95" strokeLinecap="round" strokeLinejoin="round" />

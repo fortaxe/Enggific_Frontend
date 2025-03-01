@@ -27,7 +27,7 @@ const useScrollAnimation = (className) => {
 }
 
 // Slide down from the top
-export const AnimatedComponent = ({ children }) => {
+const AnimatedComponent = ({ children }) => {
   useScrollAnimation("animate-from-top")
 
   return (
@@ -64,3 +64,5 @@ export const AnimatedFromRight = ({ children }) => {
     </div>
   )
 }
+
+export default AnimatedComponent
