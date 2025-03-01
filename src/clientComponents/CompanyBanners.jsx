@@ -9,7 +9,6 @@ const CompanyBanners = () => {
       </div>
       <Marquee className="bg-white dark:bg-primary md:pb-[70px] pb-[30px]" pauseOnHover={true} speed={80}>
         {[...Array(6)].map((_, index) => (
-
           <img
             key={index}
             src={`/company${index + 1}.png`}

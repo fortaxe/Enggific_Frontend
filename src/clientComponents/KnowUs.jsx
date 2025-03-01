@@ -4,18 +4,18 @@ import { Carousel } from 'react-responsive-carousel'
 
 const KnowUs = () => {
     return (
-        <div className='bg-[#F8F8F8] px-[16px] md:pt-[94px] pt-[30px] pb-[104px]'>
-            <div className="flex flex-wrap md:justify-center justify-start gap-[29px]">
+        <div className='bg-[#F8F8F8] px-[16px] md:pt-[94px] pt-[30px] pb-[30px] sm:pb-[40px] md:pb-[60px]'>
+            <div className="flex flex-wrap md:justify-center justify-start ">
                 <div
                     className={`md:h-[304px] md:w-[428px] h-auto w-auto`}
                 >
                     <div className='w-[90px] h-[4px] bg-[#E5810C] mb-[15px]' />
 
-                    <div className='mb-[15px]'>
-                        <h2 className='md:text-[38px] text-[32px] leading-[43.7px] font-bold text-black'>Hear It from Those Who Know Us Best</h2>
+                    <div className='mb-[10px] sm:mb-[15px]'>
+                        <h2 className='md:text-[38px] text-[32px] leading-[36px] font-bold text-black'>Hear It from Those Who Know Us Best</h2>
                     </div>
 
-                    <p className='text-base text-textBlack mb-[28px] leading-[28px]'>Discover how our top-quality lab equipment and exceptional service have made a difference for professionals and organizations worldwide.</p>
+                    <p className='text-[14px] sm:text-base text-textBlack mb-[10px] sm:mb-[15px] leading-[22px]'>Discover how our top-quality lab equipment and exceptional service have made a difference for professionals and organizations worldwide.</p>
 
                     <div>
                         <svg width={148} height={74} viewBox="0 0 148 74" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
@@ -31,8 +31,8 @@ const KnowUs = () => {
                 </div>
 
 
-                <div className="h-[304px] xl:w-[739px] md:w-[428px] w-full">
-                    <div className='w-full h-[253px] py-[29px]'>
+                <div className="h-full xl:w-[739px] md:w-[428px] w-full">
+                    <div className='w-full h-full mt-[10px]'>
                         <Carousel
                             showArrows={true}
                             autoPlay={true}
@@ -72,8 +72,8 @@ const KnowUs = () => {
                                 )
                             )}
                         >
-                            <div className='bg-white xl:px-[69px] px-[20px] py-[39px]'>
-                                <p className='text-lg text-textBlack text-left'>The lab equipment we purchased exceeded our expectations in terms of quality and precision. The team provided excellent support, guiding us through the entire process. Highly recommend them for reliable scientific solutions</p>
+                            <div className='bg-white xl:px-[69px] px-[20px] py-[10px] sm:py-[39px]'>
+                                <p className='text-[14px] leading-[22px] sm:text-lg text-textBlack text-left'>The lab equipment we purchased exceeded our expectations in terms of quality and precision. The team provided excellent support, guiding us through the entire process. Highly recommend them for reliable scientific solutions</p>
 
                                 <div className='flex justify-between items-center mt-[15px]'>
                                     <div>
@@ -91,8 +91,8 @@ const KnowUs = () => {
                                 </div>
                             </div>
 
-                            <div className='bg-white xl:px-[69px] px-[20px] py-[39px]'>
-                                <p className='text-lg text-textBlack text-left'>The lab equipment we purchased exceeded our expectations in terms of quality and precision. The team provided excellent support, guiding us through the entire process. Highly recommend them for reliable scientific solutions</p>
+                            <div className='bg-white xl:px-[69px] px-[20px] py-[10px] sm:py-[39px]'>
+                                <p className='text-[14px] leading-[22px] sm:text-lg  text-left'>The lab equipment we purchased exceeded our expectations in terms of quality and precision. The team provided excellent support, guiding us through the entire process. Highly recommend them for reliable scientific solutions</p>
 
                                 <div className='flex justify-between items-center mt-[15px]'>
                                     <div>
