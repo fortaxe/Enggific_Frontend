@@ -49,7 +49,7 @@ const LaunchedProducts = () => {
     if (data.products && data.products.length === 0) return null
 
     return (
-        <div className='xl:px-[60px] px-[16px]  md:pt-[60px] sm:pt-[30px] pt-[16px] '>
+        <div className='xl:px-[60px] px-[16px]  md:pt-[60px] sm:pt-[40px] pt-[30px] '>
             <div>
 
 
@@ -64,7 +64,7 @@ const LaunchedProducts = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-[29px] ">
+                <div className="flex flex-wrap justify-center gap-[8px] sm:gap-[29px] ">
                     {(data.products && data.products.length > 0) && data.products.slice(0, 4).map((item, index) => (
                         <div
                             key={index}
