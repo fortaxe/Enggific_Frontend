@@ -51,17 +51,19 @@ const LaunchedProducts = () => {
     return (
         <div className='xl:px-[60px] px-[16px]  md:pt-[60px] sm:pt-[30px] pt-[16px] '>
             <div>
-               
 
-                <div className='md:mb-[40px] mb-[30px]'>
-          <h3 className='md:text-2xl text-base  text-textBlack text-center'>What’s new</h3>
-          <div className="relative">
-            <h2 className='md:text-[38px] md:leading-[43.7px] text-[22px] leading-[28px] text-textBlack font-bold pr-[70px] text-center'>
-              Newly launched products
-            </h2>
-          
-          </div>
-        </div>
+
+                <div className="flex flex-col items-center justify-center text-center">
+                    <div className='md:mb-[40px] mb-[30px]'>
+                        <h3 className='md:text-2xl text-base text-textBlack'>What’s new</h3>
+                        <div className="relative">
+                            <h2 className='md:text-[38px] md:leading-[43.7px] text-[22px] leading-[28px] text-textBlack font-bold pr-[70px]'>
+                                Newly launched products
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+
 
                 <div className="flex flex-wrap justify-center gap-[29px] ">
                     {(data.products && data.products.length > 0) && data.products.slice(0, 4).map((item, index) => (

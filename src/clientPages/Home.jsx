@@ -13,7 +13,6 @@ const KnowUs = lazy(() => import('@/clientComponents/KnowUs'));
 const LaunchedProducts = lazy(() => import('@/clientComponents/LaunchedProducts'));
 const OurCards = lazy(() => import('@/clientComponents/OurCards'));
 const UserCounterList = lazy(() => import('@/clientComponents/UserCounterList'));
-const AnimatedComponent = lazy(() => import('@/clientComponents/AnimatedComponent'));
 
 const Home = () => {
   const navigate = useNavigate();
