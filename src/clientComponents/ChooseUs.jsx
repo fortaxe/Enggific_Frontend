@@ -54,7 +54,7 @@ const ChooseUs = () => {
                     {data.map((item, index) => (
                         <div
                             key={index}
-                            className="w-full min-h-[300px] px-[45px] group transition-all duration-300 "
+                            className="w-full min-h-[300px] px-[45px] group transition-all duration-300 rounded-[15px]"
                             style={{ boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.08)' }}
                         >
                             <div className="flex flex-col">

@@ -83,7 +83,7 @@ const AboutUs = () => {
 
       <KnowUs />
 
-      <div className='relative h-[90px] bg-cover bg-top mb-[30px]' style={{ backgroundImage: `url(/contact_bg.jpg)` }}>
+      {/* <div className='relative h-[90px] bg-cover bg-top mb-[30px]' style={{ backgroundImage: `url(/contact_bg.jpg)` }}>
         <div className="absolute inset-0  flex flex-row justify-center items-center gap-[32px] bg-[rgba(34,56,77,0.74)]">
           <div className='xl:block hidden'>
             <p className='text-xl text-white'>Contact us for a comprehensive range of engineering and scientific laboratory equipments</p>
@@ -92,10 +92,9 @@ const AboutUs = () => {
             Contact Us
           </button>
         </div>
-      </div>
+      </div> */}
 
       <LocationMap />
-
     </div>
   )
 }
