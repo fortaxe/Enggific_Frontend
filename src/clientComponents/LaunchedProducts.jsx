@@ -2,12 +2,10 @@ import { BASE_URL } from '@/constants';
 import React from 'react'
 import useFetchData from './utils/useFetchData';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import LoginPopup from './LoginPopup';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { clientLogin } from '@/redux/clientSlice/clientAuthSlice';
-import axios from 'axios';
 import { addId } from '@/redux/clientSlice/idSlice';
 
 const LaunchedProducts = () => {
