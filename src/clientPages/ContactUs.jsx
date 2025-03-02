@@ -9,103 +9,124 @@ import { useState } from 'react';
 
 const ContactUs = () => {
     const [formData, setFormData] = useState({
-      name: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
+        name: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
     });
-  
+
     const handleChange = (e) => {
-      const { name, value } = e.target;
-      setFormData({
-        ...formData,
-        [name]: value,
-      });
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
     };
-  
+
     const handleSubmit = (e) => {
-      e.preventDefault();
-      console.log(formData);
+        e.preventDefault();
+        console.log(formData);
     };
-  
+
     return (
-      <div className="flex flex-col lg:flex-row justify-center items-center px-[16px] sm:px-[40px] md:px-[60px] xl:px-[150px] pt-[60px]  lg:pt-[126px]">
-        <div className="bg-white rounded-lg w-full max-w-[545px] mb-8 lg:mb-0">
-          <h2 className="text-[54px] font-bold mb-[36px] text-left ">Get in Touch</h2>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-5">
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full px-4 py-2 mt-2 h-[50px] border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-                placeholder="Name"
-              />
+        <div className="flex flex-col lg:flex-row justify-center items-center px-[16px] sm:px-[40px] md:px-[60px] xl:px-[150px] pt-[60px]  lg:pt-[126px] pb-[30px] sm:pb-[40px] md:pb-[60px]">
+            <div className="bg-white rounded-lg w-full max-w-[545px] mb-8 lg:mb-0">
+                <h2 className="text-[54px] font-bold mb-[36px] text-left ">Get in Touch</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className="mb-5">
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            className="w-full px-4 py-2 mt-2 h-[50px] border border-gray-300 rounded-md "
+                            required
+                            placeholder="Name"
+                        />
+                    </div>
+
+                    <div className="mb-5">
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="w-full px-4 py-2 mt-2 border h-[50px] border-gray-300 rounded-md "
+                            required
+                            placeholder="Email"
+                        />
+                    </div>
+
+                    <div className="mb-5">
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            className="w-full px-4 py-2 mt-2 border h-[50px] border-gray-300 rounded-md "
+                            required
+                            placeholder="Phone Number"
+                        />
+                    </div>
+
+                    <div className="mb-5">
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            value={formData.confirmPassword}
+                            onChange={handleChange}
+                            className="w-full px-4 py-2 mt-2 border h-[50px] border-gray-300 rounded-md "
+                            required
+                            placeholder="Message"
+                        />
+                    </div>
+
+                    <button className="bg-gradient-to-r from-[#F8710C] to-[#F22B06] rounded-[5px] h-[38px] sm:h-[45px] px-[10px] sm:px-[18px] text-white text-center sm:text-[15.25] text-[14px] w-full mb-[30px] sm:mb-[40px] md:mb-[60px]">
+                        Submit
+                    </button>
+                </form>
+
+                <div className="flex sm:flex-row flex-col  sm:space-x-8">
+                    <div className="flex items-center mb-[10px] sm:mb-0">
+                        <img src="/phone.png" alt="phone" className="w-[28px] h-[28px] mr-[15px]" />
+                        <div>
+                            <p className="font-bold">PHONE</p>
+                            <p>+91 2546987458</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center ml-[0px] sm:ml-8">
+                        <img src="/email.png" alt="email" className="w-[28px] h-[28px] mr-[15px]" />
+                        <div>
+                            <p className="font-bold">EMAIL</p>
+                            <p>help@enggific.com</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
             </div>
-  
-            <div className="mb-5">
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full px-4 py-2 mt-2 border h-[50px] border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-                placeholder="Email"
-              />
+
+            {/* LocationMap - Show map next to the form on large screens, below it on smaller screens */}
+            <div className="hidden lg:block w-full md:w-[50%] ml-[50px]">
+                <ContactUsMap />
             </div>
-  
-            <div className="mb-5">
-              <input
-                type="password"
-                id="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                className="w-full px-4 py-2 mt-2 border h-[50px] border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-                placeholder="Phone Number"
-              />
+
+            <div className="lg:hidden w-full ">
+                <ContactUsMap />
             </div>
-  
-            <div className="mb-5">
-              <input
-                type="password"
-                id="confirmPassword"
-                name="confirmPassword"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                className="w-full px-4 py-2 mt-2 border h-[50px] border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-                placeholder="Message"
-              />
-            </div>
-  
-            <button className="bg-gradient-to-r from-[#F8710C] to-[#F22B06] rounded-[5px] h-[38px] sm:h-[45px] px-[10px] sm:px-[18px] text-white text-center sm:text-[15.25] text-[14px] w-full">
-              Submit
-            </button>
-          </form>
         </div>
-  
-        {/* LocationMap - Show map next to the form on large screens, below it on smaller screens */}
-        <div className="hidden lg:block w-full md:w-[50%] ml-[50px]">
-          <ContactUsMap />
-        </div>
-  
-        <div className="lg:hidden w-full mt-8">
-          <ContactUsMap />
-        </div>
-      </div>
     );
-  };
-  
-  export default ContactUs;
-  
-  
+};
+
+export default ContactUs;
+
+
 // const ContactUs = () => {
 //     const [activePopup, setActivePopup] = useState(null);
 
