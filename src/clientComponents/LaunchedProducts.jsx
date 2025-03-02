@@ -77,7 +77,7 @@ const LaunchedProducts = () => {
                                 <img src={item.thumbnailImage} alt='product' className='w-full h-full object-cover rounded-[5px]' />
                             </div>
 
-                            <p className='text-textBlack md:text-sm text-xs mb-[22px] break-words'>{item.name}</p>
+                            <p className='text-textBlack md:text-sm text-xs mb-[22px] break-words'>{item?.name}</p>
 
                             <button onClick={() => handleEnquireNow(item._id)} className="w-full md:h-[45px] h-[32px] flex items-center justify-center text-white text-base bg-gradient-to-r from-[#F8710C] to-[#F22B06] transition rounded-[5px] text-[14px] sm:text-[16px]">
                                 Enquire Now

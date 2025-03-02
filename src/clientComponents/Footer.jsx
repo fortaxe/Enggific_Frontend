@@ -2,7 +2,7 @@ import { BASE_URL } from '@/constants';
 import React from 'react'
 import { Link } from 'react-router-dom'
 import useFetchData from './utils/useFetchData';
-
+// font - 14 22 gap - 10
 const Footer = () => {
 
   const apiUrl = `${BASE_URL}/user/get/socialMediaLinks`;
@@ -11,23 +11,24 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#F8F8F8]">
-      <div className="mx-auto max-w-full-xl px-4 pb-6 pt-[60px] sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-full-xl px-4 pb-6 pt-[30px] sm:pt-[40px] md:pt-[60px] sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-0 lg:grid-cols-3">
           <div className='mb-[30px]'>
             <div className="flex justify-start text-teal-600 sm:justify-start">
-              <img src='/enggific_logo.png' alt='logo' className='xl:w-[152px] xl:h-[125.09px] w-[102.57px] h-[84.41px]'/>
+              <img src='/enggific_logo.png' alt='logo' 
+              className="md:w-[77.77px] md:h-[64px] w-[54px] h-[54px]" />
             </div>
 
-            <p className="mt-6 max-w-md leading-relaxed text-gray-500 sm:max-w-xs text-left">
+            <p className="mt-[10px] sm:mt-6 max-w-md leading-relaxed text-[14px] sm:text-base sm:max-w-xs text-left">
             ENGGIFIC Engineering & Scientific offers a wide range of engineering and scientific laboratory equipment as a pioneering provider
             </p>
           </div>
 
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:col-span-2">
             <div className="text-left">
-              <p className="text-lg font-medium text-gray-900">Company</p>
+              <p className="text-[13px] sm:text-lg font-bold text-gray-900">Company</p>
 
-              <ul className="mt-8 space-y-4 text-sm">
+              <ul className="mt-[10px] sm:mt-8 space-y-[8px] sm:space-y-4 text-sm">
                 <Link to='/about-us'>
                   <a className="text-gray-700 transition hover:text-gray-700/75" href="#">
                   About Us
@@ -49,9 +50,9 @@ const Footer = () => {
             </div>
 
             <div className="text-left">
-              <p className="text-lg font-medium text-gray-900">Help</p>
+              <p className="text-[13px] sm:text-lg font-bold text-gray-900">Help</p>
 
-              <ul className="mt-8 space-y-4 text-sm">
+              <ul className="mt-[10px] sm:mt-8 space-y-[8px] sm:space-y-4 text-sm">
                 <li>
                   <a className="text-gray-700 transition hover:text-gray-700/75" href="#">
                   Customer Support
@@ -65,9 +66,9 @@ const Footer = () => {
             </div>
 
             <div className="text-left">
-              <p className="text-lg font-medium text-gray-900">Privacy Policy</p>
+              <p className="text-[13px] sm:text-lg font-bold text-gray-900">Privacy Policy</p>
 
-              <ul className="mt-8 space-y-4 text-sm">
+              <ul className="mt-[8px] sm:mt-8 space-y-[8px] sm:space-y-4 text-sm">
                 <li>
                   <a className="text-gray-700 transition hover:text-gray-700/75" href="#">Terms of Service</a>
                 </li>
@@ -79,9 +80,9 @@ const Footer = () => {
             </div>
 
             <div className="text-left">
-              <p className="text-lg font-medium text-gray-900">Contact Us</p>
+              <p className="text-[13px] sm:text-lg font-bold text-gray-900">Contact Us</p>
 
-              <ul className="mt-8 space-y-4 text-sm">
+              <ul className="mt-[8px] sm:mt-8 space-y-[8px] sm:space-y-4 text-sm">
                 <li>
                   <a
                     className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
@@ -162,9 +163,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-[#414141] pt-6">
+        <div className="mt-[30px] sm:mt-12 border-t border-[#414141] pt-6">
           <div className="flex justify-center space-x-6">
-            <p className="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">&copy; copyright 2025, All Rights Reserved by ENGGIFIC</p>
+            <p className="text-sm text-gray-500 sm:order-first sm:mt-0">&copy; copyright 2025, All Rights Reserved by ENGGIFIC</p>
           </div>
         </div>
       </div>

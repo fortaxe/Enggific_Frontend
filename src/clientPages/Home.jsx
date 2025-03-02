@@ -4,15 +4,18 @@ import Loader from '@/clientComponents/Loader';
 import HeroCarousel from '@/clientComponents/HeroCarousel';
 import useFetchData from '@/clientComponents/utils/useFetchData';
 import { BASE_URL } from '@/constants';
+import About from "@/clientComponents/About";
+//import ChooseUs from "@/clientComponents/ChooseUs";
+import UserCounterList from "@/clientComponents/UserCounterList";
 
-const About = lazy(() => import('@/clientComponents/About'));
+// const About = lazy(() => import('@/clientComponents/About'));
 const ChooseUs = lazy(() => import('@/clientComponents/ChooseUs'));
 const CompanyBanners = lazy(() => import('@/clientComponents/CompanyBanners'));
 const EquipmentsCards = lazy(() => import('@/clientComponents/EquipmentsCards'));
 const KnowUs = lazy(() => import('@/clientComponents/KnowUs'));
 const LaunchedProducts = lazy(() => import('@/clientComponents/LaunchedProducts'));
 const OurCards = lazy(() => import('@/clientComponents/OurCards'));
-const UserCounterList = lazy(() => import('@/clientComponents/UserCounterList'));
+//const UserCounterList = lazy(() => import('@/clientComponents/UserCounterList'));
 
 const Home = () => {
   const navigate = useNavigate();
@@ -25,9 +28,10 @@ const Home = () => {
   return (
     <div>
       <HeroCarousel carouselData={data.banners ? data.banners : []} />
+      <UserCounterList />
+      <About />
       <Suspense fallback={"Loading..."}>
-        <UserCounterList />
-        <About />
+       
         <EquipmentsCards />
         {/* <AnimatedComponent> */}
         <ChooseUs />
