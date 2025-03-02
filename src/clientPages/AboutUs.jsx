@@ -43,10 +43,10 @@ const AboutUs = () => {
 
         <div className='w-full md:flex justify-center items-center md:w-[calc(50%-37px)] md:h-auto h-[282px] py-[18px] xl:mb-[70px] mb-[30px]'>
           <div>
-          <h2 className='md:text-[38px] text-[26px] text-textBlack font-bold mb-[22.81px]'>What’s New?</h2>
-          <p className='text-base text-textBlack leading-[28px]'>
-            We have added many new products to our lab equipment list which are the latest in technology and have advanced features. We have added many lab products which are compact, portable, easy to carry, user-friendly, and will surely benefit our customers.
-          </p>
+            <h2 className='md:text-[38px] text-[26px] text-textBlack font-bold mb-[22.81px]'>What’s New?</h2>
+            <p className='text-base text-textBlack leading-[28px]'>
+              We have added many new products to our lab equipment list which are the latest in technology and have advanced features. We have added many lab products which are compact, portable, easy to carry, user-friendly, and will surely benefit our customers.
+            </p>
           </div>
         </div>
       </div>
@@ -71,10 +71,10 @@ const AboutUs = () => {
 
         <div className='w-full md:flex justify-center items-center md:w-[calc(50%-37px)] md:h-auto h-[282px] py-[18px] xl:mb-[70px] mb-[30px]'>
           <div>
-          <h2 className='md:text-[38px] text-[26px] text-textBlack font-bold mb-[22.81px]'>Get In Touch</h2>
-          <p className='text-base text-textBlack leading-[28px]'>
-          Whether you're setting up a new laboratory or upgrading your existing equipment, <span className='font-bold text-textOrange'>ENGGIFIC</span> is here to help. Explore our products or contact us to discuss your specific requirements. Together, let’s create solutions that shape the future of science and technology.
-          </p>
+            <h2 className='md:text-[38px] text-[26px] text-textBlack font-bold mb-[22.81px]'>Get In Touch</h2>
+            <p className='text-base text-textBlack leading-[28px]'>
+              Whether you're setting up a new laboratory or upgrading your existing equipment, <span className='font-bold text-textOrange'>ENGGIFIC</span> is here to help. Explore our products or contact us to discuss your specific requirements. Together, let’s create solutions that shape the future of science and technology.
+            </p>
           </div>
         </div>
       </div>
