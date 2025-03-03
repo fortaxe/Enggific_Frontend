@@ -7,6 +7,7 @@ import { BASE_URL } from '@/constants';
 import About from "@/clientComponents/About";
 //import ChooseUs from "@/clientComponents/ChooseUs";
 import UserCounterList from "@/clientComponents/UserCounterList";
+import { AnimatedList } from "@/components/magicui/animated-list";
 
 // const About = lazy(() => import('@/clientComponents/About'));
 const ChooseUs = lazy(() => import('@/clientComponents/ChooseUs'));

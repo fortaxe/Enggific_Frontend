@@ -182,7 +182,7 @@ const Header = () => {
                   <button
                     className="text-textBlack transition hover:text-textOrange"
                     onMouseEnter={() => setIsDropdownOpen(true)}
-                    onClick={() => setIsDropdownOpen((prev) => !prev)}
+                     onClick={() => navigate("/product-categories")}
                   >
                     Categories
                   </button>
