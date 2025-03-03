@@ -21,14 +21,14 @@ const CompanyBanners = () => {
   }, []);
 
   return (
-    <div className="xl:pt-[70px] pt-[30px]">
+    <div className="xl:pt-[60px] pt-[30px]">
       <div className="text-center mb-[30px]">
         <h2 className="md:text-[38px] md:leading-[43.7px] text-[25px] leading-[29.9px] text-textBlack font-bold">
           Our Clients
         </h2>
       </div>
 
-      <Marquee className="bg-white dark:bg-primary md:pb-[70px] pb-[30px]" pauseOnHover={true} speed={80}>
+      <Marquee className="bg-white dark:bg-primary md:pb-[60px] pb-[30px]" pauseOnHover={true} speed={80}>
         {[...Array(6)].map((_, index) => (
           <img
             key={index}
