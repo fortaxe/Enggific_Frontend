@@ -29,7 +29,7 @@ const ProductSubCategories = () => {
                     </div>
                 </div>
 
-                <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-4 md:gap-6 lg:gap-[29px] mt-[40px] mb-[70.07px] '>
+                <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-4 md:gap-6 lg:gap-[29px] mt-[30px] sm:mt-[40px] md:mt-[60px] mb-[30px] sm:mb-[40px] md:mb-[60px] '>
                     {(data.productTypes && data.productTypes.length > 0) ?
                         data.productTypes.map((item) => (
                             <EquipmentCard
