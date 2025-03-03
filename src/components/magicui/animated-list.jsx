@@ -141,8 +141,8 @@ export function AnimatedListDemo() {
   return (
     <div className="relative flex h-[255px] w-full flex-col overflow-hidden">
       {/* Added padding to prevent overlapping with container edge */}
-      <div className="px-4 pt-4">
-        <AnimatedList className="gap-6"> {/* Increased gap between items */}
+      <div className="px-[8px] pt-4">
+        <AnimatedList className="gap-[10px] sm:gap-6"> {/* Increased gap between items */}
           {notifications.map((item, idx) => (
             <Notification {...item} key={idx} />
           ))}
