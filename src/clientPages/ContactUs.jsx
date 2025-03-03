@@ -31,55 +31,55 @@ const ContactUs = () => {
     return (
         <div className="flex flex-col lg:flex-row justify-center items-center px-[16px] sm:px-[40px] md:px-[60px] xl:px-[150px] pt-[60px]  lg:pt-[126px] pb-[30px] sm:pb-[40px] md:pb-[60px]">
             <div className="bg-white rounded-lg w-full max-w-[545px] mb-8 lg:mb-0">
-                <h2 className="text-[54px] font-bold mb-[36px] text-left ">Get in Touch</h2>
+                <h2 className="text-[54px] font-bold mb-[30px] sm:mb-[36px] text-left ">Get in Touch</h2>
                 <form onSubmit={handleSubmit}>
-                    <div className="mb-5">
+                    <div className="mb-2 sm:mb-5">
                         <input
                             type="text"
                             id="name"
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 mt-2 h-[50px] border border-gray-300 rounded-md "
+                            className="w-full px-4 py-2 mt-2 h-[38px] sm:h-[50px] border border-gray-300 rounded-md "
                             required
                             placeholder="Name"
                         />
                     </div>
 
-                    <div className="mb-5">
+                    <div className="mb-2 sm:mb-5">
                         <input
                             type="email"
                             id="email"
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 mt-2 border h-[50px] border-gray-300 rounded-md "
+                            className="w-full px-4 py-2 mt-2 border h-[38px] sm:h-[50px] border-gray-300 rounded-md "
                             required
                             placeholder="Email"
                         />
                     </div>
 
-                    <div className="mb-5">
+                    <div className="mb-2 sm:mb-5">
                         <input
                             type="password"
                             id="password"
                             name="password"
                             value={formData.password}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 mt-2 border h-[50px] border-gray-300 rounded-md "
+                            className="w-full px-4 py-2 mt-2 border h-[38px] sm:h-[50px] border-gray-300 rounded-md "
                             required
                             placeholder="Phone Number"
                         />
                     </div>
 
-                    <div className="mb-5">
+                    <div className="mb-2 sm:mb-5">
                         <input
                             type="password"
                             id="confirmPassword"
                             name="confirmPassword"
                             value={formData.confirmPassword}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 mt-2 border h-[50px] border-gray-300 rounded-md "
+                            className="w-full px-4 py-2 mt-2 border h-[38px] sm:h-[50px] border-gray-300 rounded-md "
                             required
                             placeholder="Message"
                         />
@@ -92,17 +92,17 @@ const ContactUs = () => {
 
                 <div className="flex sm:flex-row flex-col  sm:space-x-8">
                     <div className="flex items-center mb-[10px] sm:mb-0">
-                        <img src="/phone.png" alt="phone" className="w-[28px] h-[28px] mr-[15px]" />
+                        <img src="/phone.png" alt="phone" className="w-[22px] h-[22px] sm:w-[28px] sm:h-[28px] mr-[15px]" />
                         <div>
-                            <p className="font-bold">PHONE</p>
+                            <p className="text-[14px] sm:text-[16px] font-bold">PHONE</p>
                             <p>+91 2546987458</p>
                         </div>
                     </div>
 
                     <div className="flex items-center ml-[0px] sm:ml-8">
-                        <img src="/email.png" alt="email" className="w-[28px] h-[28px] mr-[15px]" />
+                        <img src="/email.png" alt="email" className="w-[22px] h-[22px] sm:w-[28px] sm:h-[28px] mr-[15px]" />
                         <div>
-                            <p className="font-bold">EMAIL</p>
+                            <p className="text-[14px] sm:text-[16px] font-bold">EMAIL</p>
                             <p>help@enggific.com</p>
                         </div>
                     </div>
