@@ -31,7 +31,7 @@ const ContactUs = () => {
     return (
         <div className="flex flex-col lg:flex-row justify-center items-center px-[16px] sm:px-[40px] md:px-[60px] xl:px-[150px] pt-[60px]  lg:pt-[126px] pb-[30px] sm:pb-[40px] md:pb-[60px]">
             <div className="bg-white rounded-lg w-full max-w-[545px] mb-8 lg:mb-0">
-                <h2 className="text-[54px] font-bold mb-[30px] sm:mb-[36px] text-left ">Get in Touch</h2>
+                <h2 className="text-[54px] font-bold mb-[15px] sm:mb-[36px] text-left ">Get in Touch</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-2 sm:mb-5">
                         <input
@@ -40,7 +40,9 @@ const ContactUs = () => {
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 mt-2 h-[38px] sm:h-[50px] border border-gray-300 rounded-md "
+                            className="w-full px-4 py-2 mt-2 h-[38px] sm:h-[50px] border border-gray-300 rounded-md 
+                            placeholder:text-[12px] sm:placeholder:text-[14px] placeholder:text-[#aaaaaa]
+                            "
                             required
                             placeholder="Name"
                         />
@@ -53,7 +55,7 @@ const ContactUs = () => {
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 mt-2 border h-[38px] sm:h-[50px] border-gray-300 rounded-md "
+                            className="w-full px-4 py-2 mt-2 border h-[38px] sm:h-[50px] border-gray-300 rounded-md  placeholder:text-[12px] sm:placeholder:text-[14px] placeholder:text-[#aaaaaa]"
                             required
                             placeholder="Email"
                         />
@@ -66,7 +68,7 @@ const ContactUs = () => {
                             name="password"
                             value={formData.password}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 mt-2 border h-[38px] sm:h-[50px] border-gray-300 rounded-md "
+                            className="w-full px-4 py-2 mt-2 border h-[38px] sm:h-[50px] border-gray-300 rounded-md  placeholder:text-[12px] sm:placeholder:text-[14px] placeholder:text-[#aaaaaa]"
                             required
                             placeholder="Phone Number"
                         />
@@ -79,7 +81,7 @@ const ContactUs = () => {
                             name="confirmPassword"
                             value={formData.confirmPassword}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 mt-2 border h-[38px] sm:h-[50px] border-gray-300 rounded-md "
+                            className="w-full px-4 py-2 mt-2 border h-[38px] sm:h-[50px] border-gray-300 rounded-md  placeholder:text-[12px] sm:placeholder:text-[14px] placeholder:text-[#aaaaaa]"
                             required
                             placeholder="Message"
                         />
