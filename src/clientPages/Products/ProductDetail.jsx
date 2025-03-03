@@ -42,7 +42,7 @@ const ProductDetail = () => {
         setProductTobeEnquire(id)
         setShowLogin(true)
     };
-    
+
     const handleLoginSuccess = async () => {
         await dispatch(clientLogin());
         setShowLogin(false); // Close popup on success
@@ -51,24 +51,23 @@ const ProductDetail = () => {
     return (
         <div className='xl:px-[60px] px-[16px] lg:mt-[170px] mt-0'>
             {/* Restructured layout for md and above */}
-            <div className="md:flex items-start py-12 md:px-6">
-                {/* Sticky image container for md and above */}
-                <div className="hidden md:block md:sticky md:top-[100px] md:h-fit">
+            <div className="md:flex items-start">
+                {/* Sticky image container with fixed width for md and above */}
+                <div className="hidden md:block md:sticky md:top-[100px] md:h-fit md:w-[400px] xl:w-[550px] flex-shrink-0">
                     <div className="flex flex-col xl:flex-row gap-2 md:gap-4">
                         <img
                             src={selectedImage}
                             alt="product"
-                            className="w-full max-w-[414px] h-[350px] xl:h-[414.31px] object-contain"
+                            className="w-full h-[350px] xl:h-[414.31px] object-contain"
                         />
 
                         {/* Thumbnail Images */}
-                        <div className="flex xl:flex-col flex-row gap-2 xl:gap-3 overflow-x-auto custom-scrollbar">
+                        <div className="flex xl:flex-col flex-row gap-2 xl:gap-3 overflow-x-auto custom-scrollbar ">
                             {data.product?.productImages.map((img) => (
                                 <img
                                     key={img._id}
-                                    className={`w-[70px] h-[70px] xl:w-[94.88px] xl:h-[94.88px] cursor-pointer border-2 rounded ${
-                                        selectedImage === img.url ? "border-[#E5810C]" : "border-gray-300"
-                                    }`}
+                                    className={`w-full h-[88px] xl:w-[94.88px] xl:h-[94.88px] cursor-pointer object-contain border-2 rounded ${selectedImage === img.url ? "border-[#E5810C]" : "border-gray-300"
+                                        }`}
                                     alt="product"
                                     src={img.url}
                                     onClick={() => setSelectedImage(img.url)}
@@ -79,13 +78,13 @@ const ProductDetail = () => {
                 </div>
 
                 {/* Scrollable content container with product details and related products */}
-                <div className="xl:w-4/6 w-full lg:ml-8 md:ml-6 ml-0 md:mt-0 mt-6">
+                <div className="w-full lg:ml-8 md:ml-6 ml-0 md:mt-0 mt-6 flex-grow">
                     {/* Mobile view images (non-sticky) */}
                     <div className="md:hidden flex flex-col gap-2 mb-6">
                         <img
                             src={selectedImage}
                             alt="product"
-                            className="w-full max-w-[414px] h-[250px] sm:h-[300px] object-contain"
+                            className="w-full h-[250px] sm:h-[300px] object-contain"
                         />
 
                         {/* Thumbnail Images */}
@@ -93,9 +92,8 @@ const ProductDetail = () => {
                             {data.product?.productImages.map((img) => (
                                 <img
                                     key={img._id}
-                                    className={`w-[58.04px] h-[58.04px] sm:w-[70px] sm:h-[70px] cursor-pointer border-2 rounded ${
-                                        selectedImage === img.url ? "border-[#E5810C]" : "border-gray-300"
-                                    }`}
+                                    className={`w-[58.04px] h-[58.04px] sm:w-[70px] sm:h-[70px] cursor-pointer border-2 rounded ${selectedImage === img.url ? "border-[#E5810C]" : "border-gray-300"
+                                        }`}
                                     alt="product"
                                     src={img.url}
                                     onClick={() => setSelectedImage(img.url)}
@@ -106,8 +104,8 @@ const ProductDetail = () => {
 
                     {/* Product Details */}
                     <div>
-                        <div className="xl:max-w-[742px] mb-[20px]">
-                            <p className="text-2xl text-textBlack">{data.product && data.product.name}</p>
+                        <div className="mb-[20px]">
+                            <p className="text-2xl font-bold text-textBlack">{data.product && data.product.name}</p>
                         </div>
 
                         <div className='mb-[20px]'>
@@ -121,7 +119,7 @@ const ProductDetail = () => {
                             {data.product.status === 'available' ? "In Stock" : "Out of Stock"}
                         </div>
 
-                        <div className='border border-[#D2D2D2] pl-[17px] pt-[30px] pb-[29px] mb-[20px] mt-[50px]'>
+                        <div className='border border-[#D2D2D2] pl-[17px] pt-[20px] mb-[20px]'>
                             <div>
                                 {data.product && data.product.composition ? (
                                     <div
@@ -134,37 +132,36 @@ const ProductDetail = () => {
                             </div>
                         </div>
 
-                        <button onClick={() => handleEnquireNow(data.product._id)} className="w-[275px] h-[45px] flex justify-center items-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+                        <button onClick={() => handleEnquireNow(data.product._id)} className="bg-gradient-to-r from-[#F8710C] to-[#F22B06] rounded-[5px] h-[38px] sm:h-[45px] px-[10px] sm:px-[18px] text-white text-center mt-[16px] sm:mt-[22px] sm:text-[15.25] text-[14px]">
                             Enquire Now
                         </button>
                     </div>
 
                     {/* Divider - now inside the scrollable container */}
-                    <div className='bg-[#D2D2D2] h-[1px] w-full my-[70px]' />
+                    <div className='bg-[#D2D2D2] h-[1px] w-full my-[60px]' />
 
                     {/* Related Products - now inside the scrollable container */}
                     <div>
-                        <div className='text-center mb-[55px]'>
-                            <h2 className='md:text-[38px] text-[26px] text-textOrange font-bold'>Related products</h2>
+                        <div className='text-center mb-[60px]'>
+                            <h2 className='md:text-[38px] text-[26px] text-textBlack font-bold'>Related products</h2>
                         </div>
 
-                        <div className="flex flex-wrap justify-center gap-[29px]">
-                            {(data.relatedProducts && data.relatedProducts.length > 0) ? data.relatedProducts.map((item) => (
+                        <div className="grid grid-cols-2 lg:grid-cols-3 gap-[8px] sm:gap-[29px] justify-center">
+                            {(data.relatedProducts && data.relatedProducts.length > 0) ? data.relatedProducts?.map((item) => (
                                 <div
                                     key={item._id}
-                                    className="w-[calc(50%-14.5px)] md:w-[calc(25%-21.75px)] md:h-auto h-[282px] border border-[#D2D2D2] px-[14px] py-[18px] mb-[70px]"
+                                    className="w-full rounded-[5px] border border-[#D2D2D2] px-[14px] py-[18px]"
                                 >
-                                    <div className='md:w-[55px] md:h-[27px] w-[32.14px] h-[15.78px] bg-[#FF1C1C] flex items-center justify-center'>
-                                        <p className='text-xs font-bold text-white'>Sale</p>
+                                    <div className='relative md:h-[273px] h-[159.55px] mb-[10px] sm:mb-[25px] cursor-pointer'>
+                                        <div className='absolute top-[13px] left-0 md:w-[55px] md:h-[27px] w-[31px] h-[14px] bg-[#FF1C1C] flex items-center justify-center'>
+                                            <p className='text-[9px] sm:text-xs font-bold text-white'>Sale</p>
+                                        </div>
+                                        <img src={item?.thumbnailImage} alt='product' className='w-full h-full object-contain rounded-[5px]' />
                                     </div>
 
-                                    <div className='md:h-[273px] h-[159.55px] mb-[12px]'>
-                                        <img src={item?.thumbnailImage} alt='product' className='w-full h-full object-cover' />
-                                    </div>
+                                    <p className='text-textBlack md:text-sm text-xs mb-[10px] sm:mb-[22px] truncate'>{item?.name}</p>
 
-                                    <p className='text-textBlack md:text-sm text-xs mb-[22px]'>{item?.name}</p>
-
-                                    <button onClick={() => handleEnquireNow(item._id)} className="w-full md:h-[45px] h-[32px] flex items-center justify-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+                                    <button onClick={() => handleEnquireNow(item._id)} className="w-full md:h-[45px] h-[32px] flex items-center justify-center rounded-[5px] bg-gradient-to-r from-[#F8710C] to-[#F22B06] text-white text-base transition">
                                         Enquire Now
                                     </button>
                                 </div>

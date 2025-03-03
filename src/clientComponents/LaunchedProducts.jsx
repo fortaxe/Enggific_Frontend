@@ -30,16 +30,12 @@ const LaunchedProducts = () => {
     const handleNavigate = (categoryName, subCategoryName, productName, productId) => {
         dispatch(addId({ idType: "product", id: productId }));
         navigate(`/${categoryName.replace(/\s+/g, '-')}/${subCategoryName.replace(/\s+/g, '-')}/${productName.replace(/\s+/g, '-')}`)
-
     }
 
     const handleEnquireNow = async (id) => {
-
         setProductTobeEnquire(id)
         setShowLogin(true)
-
     };
-
 
     const handleLoginSuccess = async () => {
         await dispatch(clientLogin());
@@ -53,7 +49,7 @@ const LaunchedProducts = () => {
             <div>
 
 
-            <div className="flex flex-col items-center justify-center text-center">
+                <div className="flex flex-col items-center justify-center text-center">
                     <div className='md:mb-[40px] mb-[30px]'>
                         <h3 className='md:text-2xl text-base text-textBlack'>What's new</h3>
                         <div className="relative">
@@ -74,10 +70,10 @@ const LaunchedProducts = () => {
                                 <div className='absolute top-[13px] left-0 md:w-[55px] md:h-[27px] w-[31px] h-[14px] bg-[#FF1C1C] flex items-center justify-center '>
                                     <p className='text-[9px] sm:text-xs font-bold text-white '>Sale</p>
                                 </div>
-                                <img src={item.thumbnailImage} alt='product' className='w-full h-full object-cover rounded-[5px]' />
+                                <img src={item.thumbnailImage} alt='product' className='w-full h-[273px] object-cover rounded-[5px]' />
                             </div>
 
-                            <p className='text-textBlack md:text-sm text-xs mb-[22px] break-words'>{item?.name}</p>
+                            <p className='text-textBlack md:text-sm text-xs mb-[22px] break-words truncate'>{item?.name}</p>
 
                             <button onClick={() => handleEnquireNow(item._id)} className="w-full md:h-[45px] h-[32px] flex items-center justify-center text-white text-base bg-gradient-to-r from-[#F8710C] to-[#F22B06] transition rounded-[5px] text-[14px] sm:text-[16px]">
                                 Enquire Now
