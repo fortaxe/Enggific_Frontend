@@ -65,7 +65,7 @@ const ChooseUs = () => {
                                 <p className="text-[19.9px] lg:text-[22px] leading-[23px] md:leading-normal text-textBlack font-bold break-words mb-[12px]">
                                     {item.title}
                                 </p>
-                                <p className="md:text-sm lg:text-base text-textBlack text-[14px] leading-[22px]">{item.decription}</p>
+                                <p className="md:text-[13px] lg:text-base text-textBlack text-[14px] leading-[22px]">{item.decription}</p>
                             </div>
 
                         </div>
