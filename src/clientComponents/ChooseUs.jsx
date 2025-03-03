@@ -41,7 +41,7 @@ const ChooseUs = () => {
             {/* <AnimatedComponent> */}
             <div className=''>
                 <div className="flex flex-col items-center justify-center text-center">
-                    <div className='md:mb-[40px] mb-[10px]'>
+                    <div >
                         <h3 className='md:text-2xl text-base text-textBlack'>The benefits of</h3>
                         <div className="relative">
                             <h2 className='md:text-[38px] md:leading-[43.7px] text-[25px] leading-[28px] text-textBlack font-bold'>
@@ -51,7 +51,7 @@ const ChooseUs = () => {
                     </div>
                 </div>
 
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-[29px] gap-[20px]  md:mt-[50px] mt-[16px]'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-[29px] gap-[20px]  md:mt-[60px] mt-[30px]'>
                     {data.map((item, index) => (
                         <div
                             key={index}
