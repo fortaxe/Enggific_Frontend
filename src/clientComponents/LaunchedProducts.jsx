@@ -45,7 +45,7 @@ const LaunchedProducts = () => {
     if (data.products && data.products.length === 0) return null
 
     return (
-        <div className='xl:px-[60px] px-[16px]  md:pt-[60px] sm:pt-[40px] pt-[30px] pb-[30px]'>
+        <div className='xl:px-[60px] px-[16px]  md:pt-[60px] sm:pt-[40px] pt-[30px]'>
             <div>
 
 
