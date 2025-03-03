@@ -56,7 +56,7 @@ const AboutUs = () => {
       <ChooseUs />
 
       <div className='flex flex-wrap justify-start gap-[29px] xl:px-[60px] px-[16px] '>
-        <div className='w-full md:w-[calc(55%-14.5px)] md:h-[336px] h-[282px] mb-[30px] sm:mb-[70px] bg-cover bg-center' style={{ backgroundImage: `url(/team.png)` }}>
+        <div className='w-full md:w-[calc(55%-14.5px)] md:h-[336px] h-[282px]  sm:mb-[60px] bg-cover bg-center' style={{ backgroundImage: `url(/team.png)` }}>
 
         </div>
         <div className='w-full md:flex justify-center items-center md:w-[calc(45%-14.5px)] md:h-auto lg:mb-[70px]'>

@@ -4,7 +4,7 @@ import { Carousel } from 'react-responsive-carousel'
 
 const KnowUs = () => {
     return (
-        <div className='bg-[#F8F8F8] px-[16px] md:pt-[94px] pt-[30px] pb-[30px] sm:pb-[40px] md:pb-[60px]'>
+        <div className='bg-[#F8F8F8] px-[16px] md:pt-[60px] pt-[30px] pb-[30px] sm:pb-[40px] md:pb-[60px]'>
             <div className="flex flex-wrap md:justify-center justify-start ">
                 <div
                     className={`md:h-[304px] md:w-[428px] h-auto w-auto`}

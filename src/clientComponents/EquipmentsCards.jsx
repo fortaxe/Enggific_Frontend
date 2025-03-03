@@ -15,7 +15,7 @@ const EquipmentsCards = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className='xl:pt-[90px]  xl:px-[60px] px-[16px] bg-white pb-[30px] sm:pb-[40px] md:pb-[60px] rounded-[12px]'>
+    <div className=' xl:px-[60px] px-[16px] bg-white pb-[30px] sm:pb-[40px] md:pb-[60px] rounded-[12px]'>
       {/* <AnimatedComponent> */}
       <div>
         <div className="flex flex-col items-center justify-center text-center">

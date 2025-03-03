@@ -62,13 +62,13 @@ const LaunchedProducts = () => {
                     {(data.products && data.products.length > 0) && data.products.slice(0, 4).map((item, index) => (
                         <div
                             key={index}
-                            className="w-[calc(50%-14.5px)] md:w-[calc(25%-21.75px)] h-auto border border-[#D2D2D2] px-[8px] sm:px-[14px] py-[10px] sm:py-[18px] md:mb-[70px] mb-[0px] overflow-hidden rounded-[12px]"
+                            className="w-[calc(50%-14.5px)] md:w-[calc(25%-21.75px)] h-auto border border-[#D2D2D2] px-[8px] sm:px-[14px] py-[10px] sm:py-[18px]  overflow-hidden rounded-[12px]"
                         >
                             <div className='relative md:h-[273px] h-[159.55px]  mb-[25px] cursor-pointer' onClick={() => handleNavigate(item?.productType?.category?.name, item?.productType?.name, item?.name, item?._id)}>
                                 <div className='absolute top-[13px] left-0 md:w-[55px] md:h-[27px] w-[31px] h-[14px] bg-[#FF1C1C] flex items-center justify-center '>
                                     <p className='text-[9px] sm:text-xs font-bold text-white '>Sale</p>
                                 </div>
-                                <img src={item.thumbnailImage} alt='product' className='w-full h-full object-contain rounded-[5px]' />
+                                <img src={item.thumbnailImage} alt='product' className='w-full h-full object-contain rounded-[5px] ' />
                             </div>
 
                             <p className='text-textBlack md:text-sm text-xs mb-[22px] break-words truncate'>{item?.name}</p>

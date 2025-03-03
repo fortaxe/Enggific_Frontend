@@ -104,7 +104,7 @@ const Notification = ({ name, description, icon, color, time }) => {
   return (
     <figure
       className={cn(
-        "relative mx-auto min-h-fit w-full max-w-[500px] cursor-pointer overflow-hidden rounded-2xl p-4",
+        "relative mx-auto min-h-fit w-full max-w-[495px] cursor-pointer overflow-hidden rounded-2xl p-4",
         // animation styles
         "transition-all duration-200 ease-in-out hover:scale-[103%]",
         // light styles
@@ -139,18 +139,17 @@ const Notification = ({ name, description, icon, color, time }) => {
 
 export function AnimatedListDemo() {
   return (
-    <div
-      className=
-      "relative flex h-[255px] w-full flex-col overflow-hidden"
-    >
-      <AnimatedList>
-        {notifications.map((item, idx) => (
-          <Notification {...item} key={idx} />
-        ))}
-      </AnimatedList>
+    <div className="relative flex h-[255px] w-full flex-col overflow-hidden">
+      {/* Added padding to prevent overlapping with container edge */}
+      <div className="px-4 pt-4">
+        <AnimatedList className="gap-6"> {/* Increased gap between items */}
+          {notifications.map((item, idx) => (
+            <Notification {...item} key={idx} />
+          ))}
+        </AnimatedList>
+      </div>
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background"></div>
     </div>
   );
 }
-
