@@ -70,7 +70,7 @@ const LaunchedProducts = () => {
                                 <div className='absolute top-[13px] left-0 md:w-[55px] md:h-[27px] w-[31px] h-[14px] bg-[#FF1C1C] flex items-center justify-center '>
                                     <p className='text-[9px] sm:text-xs font-bold text-white '>Sale</p>
                                 </div>
-                                <img src={item.thumbnailImage} alt='product' className='w-full h-[273px] object-cover rounded-[5px]' />
+                                <img src={item.thumbnailImage} alt='product' className='w-full h-full object-cover rounded-[5px]' />
                             </div>
 
                             <p className='text-textBlack md:text-sm text-xs mb-[22px] break-words truncate'>{item?.name}</p>
