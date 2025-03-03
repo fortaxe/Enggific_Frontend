@@ -103,14 +103,14 @@ const LoginPopup = ({ onClose, onLoginSuccess, productId }) => {
           />
           <button
             type="submit"
-            className="bg-orange-500 text-white px-4 py-2 rounded w-full"
+            className="bg-gradient-to-r from-[#F8710C] to-[#F22B06] rounded-[5px] w-full h-[38px] sm:h-[45px] px-[10px] sm:px-[18px] text-white text-center mt-[16px] sm:mt-[22px] sm:text-[15.25] text-[14px]"
             disabled={loading}
           >
             {loading ? "Enquire in..." : "Enquire"}
           </button>
         </form>
 
-        <button onClick={onClose} className="mt-3 text-red-500 w-full">
+        <button onClick={onClose} className="mt-3 bg-gradient-to-r from-[#F8710C] to-[#F22B06] bg-clip-text text-transparent w-full">
           Cancel
         </button>
       </div>

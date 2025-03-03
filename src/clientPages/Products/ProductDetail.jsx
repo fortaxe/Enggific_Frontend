@@ -49,11 +49,11 @@ const ProductDetail = () => {
     };
 
     return (
-        <div className='xl:px-[60px] px-[16px] lg:mt-[170px] mt-0'>
+        <div className='xl:px-[60px] px-[16px]  lg:mt-0 mt-[110px] mb-[30px] sm:mb-[40px] md:mb-[60px]'>
             {/* Restructured layout for md and above */}
             <div className="md:flex items-start">
                 {/* Sticky image container with fixed width for md and above */}
-                <div className="hidden md:block md:sticky md:top-[100px] md:h-fit md:w-[400px] xl:w-[550px] flex-shrink-0">
+                <div className="hidden  md:block md:sticky md:top-[100px] md:h-fit md:w-[400px] xl:w-[550px] flex-shrink-0">
                     <div className="flex flex-col xl:flex-row gap-2 md:gap-4">
                         <img
                             src={selectedImage}
@@ -104,7 +104,7 @@ const ProductDetail = () => {
 
                     {/* Product Details */}
                     <div>
-                        <div className="mb-[20px]">
+                        <div className="mb-[20px] ">
                             <p className="text-2xl font-bold text-textBlack">{data.product && data.product.name}</p>
                         </div>
 
@@ -138,11 +138,11 @@ const ProductDetail = () => {
                     </div>
 
                     {/* Divider - now inside the scrollable container */}
-                    <div className='bg-[#D2D2D2] h-[1px] w-full my-[60px]' />
+                    <div className='bg-[#D2D2D2] h-[1px] w-full my-[30px] sm:my-[40px] md:my-[60px]' />
 
                     {/* Related Products - now inside the scrollable container */}
                     <div>
-                        <div className='text-center mb-[60px]'>
+                        <div className='text-center mb-[30px]  sm:mb-[40px] md:mb-[60px]'>
                             <h2 className='md:text-[38px] text-[26px] text-textBlack font-bold'>Related products</h2>
                         </div>
 

@@ -20,10 +20,10 @@ const EquipmentsCards = () => {
       <div>
         <div className="flex flex-col items-center justify-center text-center">
           <div className='md:mb-[40px] mb-[30px]'>
-            <h3 className='md:text-2xl text-base text-textBlack'>Explore wide range of</h3>
+            <h3 className='md:text-2xl text-base text-textBlack'>Explore</h3>
             <div className="relative">
               <h2 className='md:text-[38px] md:leading-[43.7px] text-[25px] leading-[28px] text-textBlack font-bold'>
-              Engineering & scientific laboratory equipments
+                Our Product categories
               </h2>
             </div>
           </div>
