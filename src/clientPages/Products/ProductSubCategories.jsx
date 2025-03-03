@@ -9,42 +9,45 @@ import NotFound from '@/clientComponents/NotFound';
 import { useSelector } from 'react-redux';
 
 const ProductSubCategories = () => {
-  const apiUrl = `${BASE_URL}/get/productTypesByCategory`;
-  const { categoryName } = useParams();
-  const ids = useSelector((state) => state.idStore.ids);
-  const categoryId = ids.find(item => item.idType === "category")?.id;
-  const { data, loading, error } = useFetchSubCategoryData(categoryId);
-  
-  if (loading) return <Loader />;
-  if (error) return <p>Error: {error.message}</p>;
-  
-  return (
-      <div className='xl:mt-[170px] mt-[100px]'>
-          <div className='xl:px-[60px] px-[16px]  '>
-              <div className='text-center xl:mb-[55px] mb-[29px]'>
-                  <h3 className='md:text-2xl text-base text-textBlack'>Explore</h3>
-                  <h2 className='md:text-[38px] text-[26px] text-textBlack font-bold'>Our Product Sub Categories</h2>
-              </div>
-              
-              <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-4 md:gap-6 lg:gap-[29px] mt-[40px] mb-[70.07px] '>
-                  {(data.productTypes && data.productTypes.length > 0) ? 
-                      data.productTypes.map((item) => (
-                          <EquipmentCard 
-                              key={item._id} 
-                              equipment={item} 
-                              page='sub-category' 
-                              subName={item.category.name} 
-                              subId={item.category._id} 
-                          />
-                      )) : 
-                      <div className="col-span-2 md:col-span-3 lg:col-span-4 xl:col-span-5">
-                          <NotFound />
-                      </div>
-                  }
-              </div>
-          </div>
-      </div>
-  )
+    const apiUrl = `${BASE_URL}/get/productTypesByCategory`;
+    const { categoryName } = useParams();
+    const ids = useSelector((state) => state.idStore.ids);
+    const categoryId = ids.find(item => item.idType === "category")?.id;
+    const { data, loading, error } = useFetchSubCategoryData(categoryId);
+
+    if (loading) return <Loader />;
+    if (error) return <p>Error: {error.message}</p>;
+
+    return (
+        <div className='xl:mt-[170px] mt-[100px]'>
+            <div className='xl:px-[60px] px-[16px]  '>
+                <div className='md:mb-[40px] mb-[30px]'>
+                    <h3 className='md:text-2xl text-base text-center text-textBlack'>Explore</h3>
+                    <div className="relative">
+                        <h2 className='md:text-[38px] md:leading-[43.7px] text-center text-[22px] leading-[28px] text-textBlack font-bold'>
+                        Our Product Sub Categories</h2>
+                    </div>
+                </div>
+
+                <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-4 md:gap-6 lg:gap-[29px] mt-[40px] mb-[70.07px] '>
+                    {(data.productTypes && data.productTypes.length > 0) ?
+                        data.productTypes.map((item) => (
+                            <EquipmentCard
+                                key={item._id}
+                                equipment={item}
+                                page='sub-category'
+                                subName={item.category.name}
+                                subId={item.category._id}
+                            />
+                        )) :
+                        <div className="col-span-2 md:col-span-3 lg:col-span-4 xl:col-span-5">
+                            <NotFound />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    )
 }
 
 export default ProductSubCategories
