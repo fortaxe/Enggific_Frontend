@@ -149,7 +149,7 @@ const ProductDetail = () => {
                     <h2 className='md:text-[38px] text-[26px] text-textBlack font-bold'>Related products</h2>
                 </div>
 
-                <div className="grid grid-cols-2 xs850:grid-cols-3 xl:grid-cols-4 gap-[8px] sm:gap-[29px] justify-center">
+                <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[8px] sm:gap-[29px] justify-center">
                     {(data.relatedProducts && data.relatedProducts.length > 0) ? data.relatedProducts?.map((item) => (
                         <div
                             key={item._id}
