@@ -7,7 +7,7 @@ const KnowUs = () => {
         <div className='bg-[#F8F8F8] px-[16px] md:pt-[60px] pt-[30px] pb-[30px] sm:pb-[40px] md:pb-[60px]'>
             <div className="flex flex-wrap md:justify-center justify-start ">
                 <div
-                    className={`md:h-[304px] md:w-[428px] h-auto w-auto`}
+                    className={` md:w-[428px] h-auto w-auto`}
                 >
                     <div className='w-[90px] h-[4px] bg-[#E5810C] mb-[15px]' />
 

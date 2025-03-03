@@ -92,7 +92,7 @@ const UserCounterList = () => {
   ];
   
   return (
-    <div className="md:flex md:flex-wrap md:justify-center md:items-center grid grid-cols-4 gap-[20px] md:gap-[80px] lg:gap-[95px] h-full md:py-[60px] sm:py-[40px] py-[30px]">
+    <div className="md:flex md:flex-wrap md:justify-center md:items-center grid grid-cols-4 gap-[20px] md:gap-[80px] lg:gap-[95px] h-full md:py-[60px] sm:py-[40px] pt-[30px]">
       {stats.map((stat, index) => (
         <div key={index} className="w-1/2 md:w-auto flex justify-center">
           <UserCounter targetNumber={stat.targetNumber} label={stat.label} />

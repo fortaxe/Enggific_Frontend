@@ -3,7 +3,7 @@ import { AnimatedListDemo } from "@/components/magicui/animated-list"
 
 const About = () => {
   return (
-    <div className="flex flex-col md:flex-row items-start justify-center px-4 md:px-8 lg:px-[157px] 2xl:px-[257px] py-[30px] sm:py-[40px] md:py-[60px]">
+    <div className="flex flex-col md:flex-row items-start justify-center px-4 md:px-8 lg:px-[157px] 2xl:px-[257px] pt-[14px] pb-[30px] sm:py-[40px] md:py-[60px]">
       {/* Left Side - Animated List */}
       <div className="w-full xl:w-[40%]">
         {/* Removed the border for inspection */}
