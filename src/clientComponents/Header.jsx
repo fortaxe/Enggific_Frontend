@@ -190,7 +190,7 @@ const Header = () => {
                   {categoryLoading
                     ? "...."
                     : isDropdownOpen && (
-                      <motion.div
+                      <div
                         className="absolute left-0 top-full mt-2 w-[200px] bg-white shadow-lg rounded-md z-50"
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -216,7 +216,7 @@ const Header = () => {
                               </li>
                             ))}
                         </ul>
-                      </motion.div>
+                      </div>
                     )}
                 </li>
 
