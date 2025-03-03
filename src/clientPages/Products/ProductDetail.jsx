@@ -136,41 +136,41 @@ const ProductDetail = () => {
                             Enquire Now
                         </button>
                     </div>
+                </div>
 
-                    {/* Divider - now inside the scrollable container */}
-                    <div className='bg-[#D2D2D2] h-[1px] w-full my-[30px] sm:my-[40px] md:my-[60px]' />
 
-                    {/* Related Products - now inside the scrollable container */}
-                    <div>
-                        <div className='text-center mb-[30px]  sm:mb-[40px] md:mb-[60px]'>
-                            <h2 className='md:text-[38px] text-[26px] text-textBlack font-bold'>Related products</h2>
-                        </div>
+            </div>
+            {/* Divider - now inside the scrollable container */}
+            <div className='bg-[#D2D2D2] h-[1px] w-full my-[30px] sm:my-[40px] md:my-[60px]' />
 
-                        <div className="grid grid-cols-2 lg:grid-cols-3 gap-[8px] sm:gap-[29px] justify-center">
-                            {(data.relatedProducts && data.relatedProducts.length > 0) ? data.relatedProducts?.map((item) => (
-                                <div
-                                    key={item._id}
-                                    className="w-full rounded-[5px] border border-[#D2D2D2] px-[14px] py-[18px]"
-                                >
-                                    <div className='relative md:h-[273px] h-[159.55px] mb-[10px] sm:mb-[25px] cursor-pointer'>
-                                        <div className='absolute top-[13px] left-0 md:w-[55px] md:h-[27px] w-[31px] h-[14px] bg-[#FF1C1C] flex items-center justify-center'>
-                                            <p className='text-[9px] sm:text-xs font-bold text-white'>Sale</p>
-                                        </div>
-                                        <img src={item?.thumbnailImage} alt='product' className='w-full h-full object-contain rounded-[5px]' />
-                                    </div>
+            {/* Related Products - now inside the scrollable container */}
+            <div>
+                <div className='text-center mb-[30px]  sm:mb-[40px] md:mb-[60px]'>
+                    <h2 className='md:text-[38px] text-[26px] text-textBlack font-bold'>Related products</h2>
+                </div>
 
-                                    <p className='text-textBlack md:text-sm text-xs mb-[10px] sm:mb-[22px] truncate'>{item?.name}</p>
-
-                                    <button onClick={() => handleEnquireNow(item._id)} className="w-full md:h-[45px] h-[32px] flex items-center justify-center rounded-[5px] bg-gradient-to-r from-[#F8710C] to-[#F22B06] text-white text-base transition">
-                                        Enquire Now
-                                    </button>
+                <div className="grid grid-cols-2 xs850:grid-cols-3 xl:grid-cols-4 gap-[8px] sm:gap-[29px] justify-center">
+                    {(data.relatedProducts && data.relatedProducts.length > 0) ? data.relatedProducts?.map((item) => (
+                        <div
+                            key={item._id}
+                            className="w-full rounded-[5px] border border-[#D2D2D2] px-[14px] py-[18px]"
+                        >
+                            <div className='relative md:h-[273px] h-[159.55px] mb-[10px] sm:mb-[25px] cursor-pointer'>
+                                <div className='absolute top-[13px] left-0 md:w-[55px] md:h-[27px] w-[31px] h-[14px] bg-[#FF1C1C] flex items-center justify-center'>
+                                    <p className='text-[9px] sm:text-xs font-bold text-white'>Sale</p>
                                 </div>
-                            )) : <NotFound />}
+                                <img src={item?.thumbnailImage} alt='product' className='w-full h-full object-contain rounded-[5px]' />
+                            </div>
+
+                            <p className='text-textBlack md:text-sm text-xs mb-[10px] sm:mb-[22px] truncate'>{item?.name}</p>
+
+                            <button onClick={() => handleEnquireNow(item._id)} className="w-full md:h-[45px] h-[32px] flex items-center justify-center rounded-[5px] bg-gradient-to-r from-[#F8710C] to-[#F22B06] text-white text-base transition">
+                                Enquire Now
+                            </button>
                         </div>
-                    </div>
+                    )) : <NotFound />}
                 </div>
             </div>
-
             {showLogin && <LoginPopup onClose={() => setShowLogin(false)} onLoginSuccess={handleLoginSuccess} productId={productTobeEnquire} />}
         </div>
     );
