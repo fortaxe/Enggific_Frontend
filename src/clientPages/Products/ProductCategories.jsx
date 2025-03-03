@@ -8,12 +8,12 @@ const ProductCategories = () => {
 
   const apiUrl = `${BASE_URL}/admin/get/categories`;
 
-    const { data, loading, error } = useFetchData(apiUrl);
+  const { data, loading, error } = useFetchData(apiUrl);
 
-    if (loading) return <Loader />;
-    if (error) return <p>Error: {error}</p>;
+  if (loading) return <Loader />;
+  if (error) return <p>Error: {error}</p>;
 
-    // console.log("data", data)
+  // console.log("data", data)
 
   const equipments = [
     {
@@ -166,9 +166,13 @@ const ProductCategories = () => {
   return (
     <div className='xl:mt-[170px] mt-[100px]'>
       <div className='xl:px-[60px] px-[16px]'>
-        <div className='text-center xl:mb-[55px] mb-[29px]'>
-          <h3 className='md:text-2xl text-base text-textBlack'>Explore</h3>
-          <h2 className='md:text-[38px] text-[26px] text-textOrange font-bold'>Product Categories</h2>
+        <div className='md:mb-[40px] mb-[30px]'>
+          <h3 className='md:text-2xl text-base text-center text-textBlack'>What's new</h3>
+          <div className="relative">
+            <h2 className='md:text-[38px] text-center md:leading-[43.7px] text-[22px] leading-[28px] text-textBlack font-bold'>
+              Newly launched products
+            </h2>
+          </div>
         </div>
 
         <div className='flex flex-wrap justify-start md:gap-[29px] gap-[16px] mt-[40px] mb-[70.07px]'>
