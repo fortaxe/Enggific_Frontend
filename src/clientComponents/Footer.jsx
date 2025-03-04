@@ -2,12 +2,32 @@ import { BASE_URL } from '@/constants';
 import React from 'react'
 import { Link } from 'react-router-dom'
 import useFetchData from './utils/useFetchData';
+import { useNavigate } from 'react-router-dom';
+import { addId } from '@/redux/clientSlice/idSlice';
+import { useDispatch } from 'react-redux';
 // font - 14 22 gap - 10
 const Footer = () => {
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const apiUrl = `${BASE_URL}/user/get/socialMediaLinks`;
 
     const { data, loading } = useFetchData(apiUrl);
+
+
+    const apiUrlCategories = `${BASE_URL}/admin/get/categories`;
+  const { data:catagoriesData, loading:catagoriesLoading, error:catagoriesError } = useFetchData(apiUrlCategories);
+
+  if (catagoriesLoading) return "...";
+  if (catagoriesError) return <p>Error: {error}</p>;
+
+  const handleAdd = (newId, name) => {
+    dispatch(addId({ idType: "category", id: newId }));
+    // setIdType("");
+    // setId("");
+    navigate(`/${(name).replace(/\s+/g, '-')}/sub-categories`);
+};
 
   return (
     <footer className="bg-[#F8F8F8]">
@@ -26,30 +46,22 @@ const Footer = () => {
 
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:col-span-2">
             <div className="text-left">
-              <p className="text-[13px] sm:text-lg font-bold text-gray-900">Company</p>
+              <p className="text-[13px] sm:text-lg font-bold text-gray-900">Our Categories</p>
 
               <ul className="mt-[10px] sm:mt-8 space-y-[8px] sm:space-y-4 text-sm">
-                <Link to='/about-us'>
-                  <a className="text-gray-700 transition hover:text-gray-700/75" href="#">
-                  About Us
-                  </a>
-                </Link>
+                
 
-                <li>
-                  <a className="text-gray-700 transition hover:text-gray-700/75" href="#">
-                  Career
-                  </a>
+                {catagoriesData?.categories && catagoriesData?.categories.map((item, index) => (
+                  <li key={index} onClick={() =>handleAdd(item._id, item.name)}>
+                  <p className="text-gray-700 transition hover:text-gray-700/75 capitalize cursor-pointer" href="#">
+                  {(item.name).toLowerCase()}
+                  </p>
                 </li>
-
-                <li>
-                  <a className="text-gray-700 transition hover:text-gray-700/75" href="#">
-                  News & Updates
-                  </a>
-                </li>
+                ))}
               </ul>
             </div>
 
-            <div className="text-left">
+            {/* <div className="text-left">
               <p className="text-[13px] sm:text-lg font-bold text-gray-900">Help</p>
 
               <ul className="mt-[10px] sm:mt-8 space-y-[8px] sm:space-y-4 text-sm">
@@ -63,21 +75,9 @@ const Footer = () => {
                   <a className="text-gray-700 transition hover:text-gray-700/75" href="#">Site Map</a>
                 </li>
               </ul>
-            </div>
+            </div> */}
 
-            <div className="text-left">
-              <p className="text-[13px] sm:text-lg font-bold text-gray-900">Privacy Policy</p>
-
-              <ul className="mt-[8px] sm:mt-8 space-y-[8px] sm:space-y-4 text-sm">
-                <li>
-                  <a className="text-gray-700 transition hover:text-gray-700/75" href="#">Terms of Service</a>
-                </li>
-
-                <li>
-                  <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> Privacy Policy </a>
-                </li>
-              </ul>
-            </div>
+            
 
             <div className="text-left">
               <p className="text-[13px] sm:text-lg font-bold text-gray-900">Contact Us</p>
@@ -158,6 +158,19 @@ const Footer = () => {
                   29 & 30, First Floor, Unity House, Abid, Hyderabad- 500001, Telangana
                   </address>
                 </li>
+              </ul>
+            </div>
+            <div className="text-left">
+              <p className="text-[13px] sm:text-lg font-bold text-gray-900">Privacy Policy</p>
+
+              <ul className="mt-[8px] sm:mt-8 space-y-[8px] sm:space-y-4 text-sm">
+                <li>
+                  <a className="text-gray-700 transition hover:text-gray-700/75" href="#">Terms of Service</a>
+                </li>
+
+                {/* <li>
+                  <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> Privacy Policy </a>
+                </li> */}
               </ul>
             </div>
           </div>
