@@ -5,6 +5,7 @@ import NotFound from '@/clientComponents/NotFound';
 import useFetchData from '@/clientComponents/utils/useFetchData';
 import { BASE_URL } from '@/constants';
 import { clientLogin } from '@/redux/clientSlice/clientAuthSlice';
+import { setFixed, setRelative } from '@/redux/clientSlice/positionSlice';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
@@ -22,12 +23,21 @@ const ProductDetail = () => {
 
     const ids = useSelector((state) => state.idStore.ids);
 
-    console.log("ids", ids)
+    // console.log("ids", ids)
 
     const productId = ids.find(item => item.idType === "product")?.id;
 
     const apiUrl = `${BASE_URL}/user/get/product/${productId}`;
     const { data, loading, error } = useFetchData(apiUrl);
+
+
+    useEffect(() => {
+        dispatch(setRelative()); // Set to 'relative' when visiting this page
+    
+        return () => {
+          dispatch(setFixed()); // Set to 'fixed' when leaving this page
+        };
+      }, [dispatch]);
 
     useEffect(() => {
         if (data?.product?.productImages?.length) {
