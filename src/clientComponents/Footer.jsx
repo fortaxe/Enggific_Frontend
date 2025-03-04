@@ -13,11 +13,11 @@ const Footer = () => {
 
   const apiUrl = `${BASE_URL}/user/get/socialMediaLinks`;
 
-    const { data, loading } = useFetchData(apiUrl);
+  const { data, loading } = useFetchData(apiUrl);
 
 
-    const apiUrlCategories = `${BASE_URL}/admin/get/categories`;
-  const { data:catagoriesData, loading:catagoriesLoading, error:catagoriesError } = useFetchData(apiUrlCategories);
+  const apiUrlCategories = `${BASE_URL}/admin/get/categories`;
+  const { data: catagoriesData, loading: catagoriesLoading, error: catagoriesError } = useFetchData(apiUrlCategories);
 
   if (catagoriesLoading) return "...";
   if (catagoriesError) return <p>Error: {error}</p>;
@@ -27,7 +27,7 @@ const Footer = () => {
     // setIdType("");
     // setId("");
     navigate(`/${(name).replace(/\s+/g, '-')}/sub-categories`);
-};
+  };
 
   return (
     <footer className="bg-[#F8F8F8]">
@@ -35,28 +35,28 @@ const Footer = () => {
         <div className="grid grid-cols-1 gap-0 lg:grid-cols-3">
           <div className='mb-[30px]'>
             <div className="flex justify-start text-teal-600 sm:justify-start">
-              <img src='/enggific_logo.png' alt='logo' 
-              className="md:w-[77.77px] md:h-[64px] w-[54px] h-[54px]" />
+              <img src='/enggific_logo.png' alt='logo'
+                className="md:w-[152px] md:h-[125.09px] w-[54px] h-[54px]" />
             </div>
 
-            <p className="mt-[10px] sm:mt-6 max-w-md leading-relaxed text-[14px] sm:text-base sm:max-w-xs text-left">
-            ENGGIFIC Engineering & Scientific offers a wide range of engineering and scientific laboratory equipment as a pioneering provider
+            <p className="mt-[10px] sm:mt-6 max-w-md leading-relaxed text-[14px] md:text-base sm:max-w-xs text-left text-textBlack">
+              ENGGIFIC Engineering & Scientific offers a wide range of engineering and scientific laboratory equipment as a pioneering provider
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:col-span-2">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:col-span-2">
             <div className="text-left">
               <p className="text-[13px] sm:text-lg font-bold text-gray-900">Our Categories</p>
 
-              <ul className="mt-[10px] sm:mt-8 space-y-[8px] sm:space-y-4 text-sm">
-                
+              <ul className="mt-[10px] sm:mt-8 space-y-[8px] sm:space-y-4 text-sm md:text-base">
+
 
                 {catagoriesData?.categories && catagoriesData?.categories.map((item, index) => (
-                  <li key={index} onClick={() =>handleAdd(item._id, item.name)}>
-                  <p className="text-gray-700 transition hover:text-gray-700/75 capitalize cursor-pointer" href="#">
-                  {(item.name).toLowerCase()}
-                  </p>
-                </li>
+                  <li key={index} onClick={() => handleAdd(item._id, item.name)}>
+                    <p className="text-gray-700 transition hover:text-gray-700/75 capitalize cursor-pointer" href="#">
+                      {(item.name).toLowerCase()}
+                    </p>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -64,7 +64,7 @@ const Footer = () => {
             {/* <div className="text-left">
               <p className="text-[13px] sm:text-lg font-bold text-gray-900">Help</p>
 
-              <ul className="mt-[10px] sm:mt-8 space-y-[8px] sm:space-y-4 text-sm">
+              <ul className="mt-[10px] sm:mt-8 space-y-[8px] sm:space-y-4 text-sm md:text-base">
                 <li>
                   <a className="text-gray-700 transition hover:text-gray-700/75" href="#">
                   Customer Support
@@ -77,12 +77,12 @@ const Footer = () => {
               </ul>
             </div> */}
 
-            
+
 
             <div className="text-left">
               <p className="text-[13px] sm:text-lg font-bold text-gray-900">Contact Us</p>
 
-              <ul className="mt-[8px] sm:mt-8 space-y-[8px] sm:space-y-4 text-sm">
+              <ul className="mt-[8px] sm:mt-8 space-y-[8px] sm:space-y-4 text-sm md:text-base">
                 <li>
                   <a
                     className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
@@ -103,7 +103,7 @@ const Footer = () => {
                       />
                     </svg>
 
-                    {loading ? "...." :<span className="flex-1 text-gray-700">{data ? data.links[0].adminEmail : ""}</span>}
+                    {loading ? "...." : <span className="flex-1 text-gray-700">{data ? data.links[0].adminEmail : ""}</span>}
                   </a>
                 </li>
 
@@ -127,7 +127,7 @@ const Footer = () => {
                       />
                     </svg>
 
-                    {loading ? "...." :<span className="flex-1 text-gray-700">+91 {data ? data.links[0]?.adminMobileNumber : ""}</span>}
+                    {loading ? "...." : <span className="flex-1 text-gray-700">+91 {data ? data.links[0]?.adminMobileNumber : ""}</span>}
                   </a>
                 </li>
 
@@ -155,7 +155,7 @@ const Footer = () => {
                   </svg>
 
                   <address className="-mt-0.5 flex-1 not-italic text-gray-700">
-                  29 & 30, First Floor, Unity House, Abid, Hyderabad- 500001, Telangana
+                    29 & 30, First Floor, Unity House, Abid, Hyderabad- 500001, Telangana
                   </address>
                 </li>
               </ul>
@@ -163,9 +163,9 @@ const Footer = () => {
             <div className="text-left">
               <p className="text-[13px] sm:text-lg font-bold text-gray-900">Privacy Policy</p>
 
-              <ul className="mt-[8px] sm:mt-8 space-y-[8px] sm:space-y-4 text-sm">
+              <ul className="mt-[8px] sm:mt-8 space-y-[8px] sm:space-y-4 text-sm md:text-base">
                 <li>
-                  <a className="text-gray-700 transition hover:text-gray-700/75" href="#">Terms of Service</a>
+                  <Link className="text-gray-700 transition hover:text-gray-700/75" to="/terms-of-service">Terms of Service</Link>
                 </li>
 
                 {/* <li>
@@ -173,12 +173,27 @@ const Footer = () => {
                 </li> */}
               </ul>
             </div>
+
+            <div>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.5854987624554!2d78.47466047480196!3d17.390984103389135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb97865b0f6f8b%3A0x2eac3b68b49a1e8b!2sUnity%20House%2C%20Abids%2C%20Hyderabad%2C%20Telangana%20500001!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                // width="300"
+                // height="300"
+                className='xl:w-[300px] xl:h-[300px] w-[180px] h-[180px]'
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Unity House, Abids, Hyderabad Location"
+              ></iframe>
+            </div>
+
           </div>
         </div>
 
         <div className="mt-[30px] sm:mt-12 border-t border-[#414141] pt-6">
           <div className="flex justify-center space-x-6">
-            <p className="text-sm text-gray-500 sm:order-first sm:mt-0">&copy; copyright 2025, All Rights Reserved by ENGGIFIC</p>
+            <p className="text-sm md:text-base text-gray-500 sm:order-first sm:mt-0">&copy; copyright 2025, All Rights Reserved by ENGGIFIC</p>
           </div>
         </div>
       </div>
