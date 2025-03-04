@@ -28,6 +28,7 @@ import AboutUs from "./clientPages/AboutUs";
 import ContactUs from "./clientPages/ContactUs";
 import ScrollToTop from "./clientComponents/ScrollToTop";
 import WhatsAppIcon from "./clientComponents/WhatsAppIcon";
+import TermsCondition from "./clientPages/TermsCondition";
 
 
 const DashboardLayout = () => {
@@ -96,6 +97,7 @@ function App() {
           <Route path="/search" element={<SearchedProduct />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/terms-of-service" element={<TermsCondition />} />
         </Route>
       </Routes>
       {/* Show WhatsApp Icon only on non-admin routes */}
