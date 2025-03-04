@@ -7,6 +7,8 @@ import { useState, useEffect, useRef } from "react"
 import { useDispatch } from "react-redux"
 import { addId } from "@/redux/clientSlice/idSlice"
 import { motion } from "framer-motion"
+import { useSelector } from "react-redux"
+
 
 const Header = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false)
@@ -18,6 +20,8 @@ const Header = () => {
   const { data, loading, error } = useFetchData(apiUrl)
 
   const categoryApiUrl = `${BASE_URL}/admin/get/categories`
+
+  const position = useSelector((state) => state.position.value);
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -53,8 +57,9 @@ const Header = () => {
     navigate(`/${name.replace(/\s+/g, "-")}/sub-categories`)
   }
 
+
   return (
-    <header className="header bg-[#00093E] fixed top-0 left-0 w-full z-50 shadow-xl">
+    <header className={`header bg-[#00093E] ${position} top-0 left-0 w-full z-50 shadow-xl`}>
       {data.links && data.links.length > 0 && (
         <div className="w-full lg:flex hidden justify-evenly items-center p-4 h-[34px]">
           <div className="lg:flex items-center gap-2 hidden">
