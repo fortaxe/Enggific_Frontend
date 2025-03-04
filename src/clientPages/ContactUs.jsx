@@ -120,7 +120,7 @@ const ContactUs = () => {
             </div>
 
             <div className="lg:hidden w-full ">
-                <ContactUsMap />
+                <ContactUsMap height="300" />
             </div>
         </div>
     );
