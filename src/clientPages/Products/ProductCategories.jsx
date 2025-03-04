@@ -25,7 +25,7 @@ const ProductCategories = () => {
         </div>
 
         {/* Grid for Categories */}
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[16px] mt-[40px] mb-[70.07px]'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-[30px] gap-[16px] mt-[40px] mb-[70.07px]'>
           {(data?.categories && data?.categories.length) && data?.categories.map((item) => (
             <CategoryPageCard key={item._id} equipment={item} />
           ))}
