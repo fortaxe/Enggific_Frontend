@@ -1,7 +1,11 @@
 import React from 'react'
 import { AnimatedListDemo } from "@/components/magicui/animated-list"
+import { useNavigate } from 'react-router-dom';
 
 const About = () => {
+
+  const navigate = useNavigate()
+
   return (
     <div className="flex flex-col md:flex-row items-start justify-center px-4 md:px-8 lg:px-[157px] 2xl:px-[257px] pt-[14px] sm:pt-0 pb-[30px] sm:pb-[40px] md:pb-[60px]">
       {/* Left Side - Animated List */}
@@ -27,7 +31,7 @@ const About = () => {
           mechanical lab testing machines, drawing instruments, construction
           machinery, and more.
         </p>
-        <button className="bg-gradient-to-r from-[#F8710C] to-[#F22B06] rounded-[5px] h-[38px] sm:h-[45px] px-[10px] sm:px-[18px] text-white text-center mt-[16px] sm:mt-[22px] sm:text-[15.25] text-[14px]">
+        <button onClick={()=> navigate('/about-us')} className="bg-gradient-to-r from-[#F8710C] to-[#F22B06] rounded-[5px] h-[38px] sm:h-[45px] px-[10px] sm:px-[18px] text-white text-center mt-[16px] sm:mt-[22px] sm:text-[15.25] text-[14px]">
           Know More
         </button>
       </div>
