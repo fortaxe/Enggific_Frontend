@@ -106,7 +106,7 @@ const CategoryCarousel = ({ categories, page, subName, subId }) => {
           {visibleCategories.map((category, index) => (
             <div
               key={index}
-              className="flex-shrink-0 bg-white shadow-md flex flex-col cursor-pointer rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300"
+              className="flex-shrink-0 bg-white shadow-md flex flex-col cursor-pointer rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 h-[224px]"
               style={{ 
                 boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)',
                 width: `calc((100% - ${(itemsPerScreen - 1) * 29}px) / ${itemsPerScreen})`,
