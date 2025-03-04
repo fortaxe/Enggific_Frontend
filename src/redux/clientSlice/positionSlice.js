@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const positionSlice = createSlice({
   name: "position",
   initialState: {
-    value: "relative",
+    value: "fixed",
   },
   reducers: {
     setRelative: (state) => {
