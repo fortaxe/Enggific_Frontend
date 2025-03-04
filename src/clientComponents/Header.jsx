@@ -203,7 +203,7 @@ const Header = () => {
                             categoryData.categories.map((category) => (
                               <li key={category._id}>
                                 <p
-                                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer hover:text-textOrange"
+                                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer hover:text-textOrange capitalize"
                                   onClick={() =>
                                     handleRedirect(
                                       category.name,
@@ -211,7 +211,7 @@ const Header = () => {
                                     )
                                   }
                                 >
-                                  {category.name}
+                                  {(category.name).toLowerCase()}
                                 </p>
                               </li>
                             ))}
