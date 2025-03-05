@@ -120,7 +120,7 @@ const CategoryCarousel = ({ categories, page, subName, subId }) => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className='h-[68.53px] w-full border border-[#E0E0E0] px-3 py-[20px] flex justify-center items-center border-t-gradient-to-r from-[#F8710C] to-[#F22B06] border-t-2 group-hover:bg-gradient-to-r from-[#F8710C] to-[#F22B06] hover:text-white transition-all duration-300'>
+              <div className='h-[68.53px] w-full border border-[#E0E0E0] px-3 py-[20px] flex justify-center items-center border-t-gradient-to-r from-[#F8710C] to-[#F22B06] border-t-2 group-hover:bg-gradient-to-r from-[#F8710C] to-[#F22B06] group-hover:text-white transition-all duration-300'>
                 <p className='break-words text-center text-base truncate w-full capitalize'>{category.name.toLowerCase()}</p>
               </div>
             </div>
