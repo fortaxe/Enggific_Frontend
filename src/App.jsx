@@ -29,6 +29,8 @@ import ContactUs from "./clientPages/ContactUs";
 import ScrollToTop from "./clientComponents/ScrollToTop";
 import WhatsAppIcon from "./clientComponents/WhatsAppIcon";
 import TermsCondition from "./clientPages/TermsCondition";
+import AdminPrivacyPolicy from "./adminPages/AdminPrivacyPolicy";
+import PrivacyPolicy from "./clientPages/ClientPrivacyPolicy";
 
 
 const DashboardLayout = () => {
@@ -44,6 +46,7 @@ const DashboardLayout = () => {
           <Route path="product/type" element={<ProductTypes />} />
           <Route path="admin-options" element={<AdminOptions />} />
           <Route path="/termsandconditions" element={<TermsAndConditions />} />
+          <Route path="/pravacy-policy" element={<AdminPrivacyPolicy />} />
           <Route path="/change-credentials" element={<ChangeCredentials />} />
           <Route path="/add/product" element={<CreateProduct />} />
           {/* Add more routes for other dashboard pages here */}
@@ -98,6 +101,7 @@ function App() {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/terms-of-service" element={<TermsCondition />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Route>
       </Routes>
       {/* Show WhatsApp Icon only on non-admin routes */}
