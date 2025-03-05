@@ -8,6 +8,7 @@ import bannerSlice from "../redux/bannerSlice";
 import socialMediaLinkSlice from "../redux/socialMediaSlice"; 
 import logoSlice from "../redux/logoSlice";
 import termsSlice from "../redux/termsSlice";
+import privacySlice from "../redux/privacySlice";
 import productTypeSLice from "../redux/productTypeSlice";
 import clientAuthReducer from "../redux/clientSlice/clientAuthSlice";
 import idReducer from "../redux/clientSlice/idSlice";
@@ -27,6 +28,7 @@ const store = configureStore({
     socialMediaLink: socialMediaLinkSlice, 
     logo: logoSlice,
     terms: termsSlice,
+    privacy: privacySlice,
     productTypeList: productTypeSLice,
   },
 });
