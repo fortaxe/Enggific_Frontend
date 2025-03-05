@@ -36,7 +36,9 @@ const CategoryPageCard = ({ equipment, page, subName, subId }) => {
     const backgroundImage = page === 'sub-category' ? equipment.productTypeLogo : equipment.categoryLogo;
 
     return (
-        <div onClick={handleNavigate} className='w-full shadow-md cursor-pointer rounded-[12px] group'>
+        <div onClick={handleNavigate} className='w-full cursor-pointer rounded-[12px] group'
+        style={{ boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.08)' }}
+        >
             <div className='h-[160px] sm:h-[283px] rounded-t-[12px] bg-cover bg-center bg-no-repeat' style={{ backgroundImage: `url(${backgroundImage})` }}>
             </div>
             <div className='sm:h-[68.53px] px-2 sm:px-4 md:px-[31px] py-[10px] sm:py-[20px] flex gap-[13.2px] justify-center items-center overflow-hidden transition-all duration-300 rounded-b-[12px] group-hover:bg-gradient-to-r from-[#F8710C] to-[#F22B06] border-t-2 border-[#E0E0E0] group-hover:text-white'>

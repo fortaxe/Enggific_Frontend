@@ -1,6 +1,5 @@
 import { addId } from '@/redux/clientSlice/idSlice';
 import React from 'react';
-import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -100,16 +99,16 @@ const CategoryCarousel = ({ categories, page, subName, subId }) => {
           className="flex transition-transform duration-500 ease-in-out"
           style={{ 
             transform: `translateX(0px)`,
-            gap: '29px',
+            gap: '30px',
           }}
         >
           {visibleCategories.map((category, index) => (
             <div
               key={index}
-              className="flex-shrink-0 bg-white shadow-md flex flex-col cursor-pointer rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 h-[224px] group"
+              className="flex-shrink-0 bg-white flex flex-col cursor-pointer rounded-xl overflow-hidden transition-all duration-300 h-[224px] group my-[10px]"
               style={{ 
-                boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)',
-                width: `calc((100% - ${(itemsPerScreen - 1) * 29}px) / ${itemsPerScreen})`,
+                 boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.08)',
+                width: `calc((100% - ${(itemsPerScreen - 1) * 30}px) / ${itemsPerScreen})`,
               }}
               onClick={() => handleAdd(category._id, category.name)}
             >
@@ -120,7 +119,7 @@ const CategoryCarousel = ({ categories, page, subName, subId }) => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className='h-[68.53px] w-full border border-[#E0E0E0] px-3 py-[20px] flex justify-center items-center border-t-gradient-to-r from-[#F8710C] to-[#F22B06] border-t-2 group-hover:bg-gradient-to-r from-[#F8710C] to-[#F22B06] group-hover:text-white transition-all duration-300'>
+              <div className='h-[68.53px] w-full  px-3 py-[20px] flex justify-center items-center border-t-gradient-to-r from-[#F8710C] to-[#F22B06] border-t-2 group-hover:bg-gradient-to-r from-[#F8710C] to-[#F22B06] group-hover:text-white transition-all duration-300'>
                 <p className='break-words text-center text-base truncate w-full capitalize'>{category.name.toLowerCase()}</p>
               </div>
             </div>

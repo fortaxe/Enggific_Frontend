@@ -196,14 +196,14 @@ const Header = () => {
                     ? "...."
                     : isDropdownOpen && (
                       <div
-                        className="absolute left-0 top-full mt-2 w-[200px] bg-white shadow-lg rounded-md z-50"
+                        className="absolute left-0 top-full mt-2 w-[200px] bg-white shadow-lg rounded-md z-50 border"
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         onMouseLeave={() => setIsDropdownOpen(false)}
                         transition={{ duration: 0.3, ease: "easeIn" }}
                       >
-                        <ul className="py-2">
+                        <ul className="">
                           {categoryData?.categories?.length > 0 &&
                             categoryData.categories.map((category) => (
                               <li key={category._id}>
