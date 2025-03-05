@@ -5,6 +5,7 @@ import NotFound from '@/clientComponents/NotFound';
 import useFetchData from '@/clientComponents/utils/useFetchData';
 import { BASE_URL } from '@/constants';
 import { clientLogin } from '@/redux/clientSlice/clientAuthSlice';
+import { addId } from '@/redux/clientSlice/idSlice';
 import { setFixed, setRelative } from '@/redux/clientSlice/positionSlice';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
@@ -58,8 +59,13 @@ const ProductDetail = () => {
         setShowLogin(false); // Close popup on success
     };
 
+    const handleRedirect = (categoryName, subCategoryName, productName, productId) => {
+        dispatch(addId({ idType: "product", id: productId }));
+        navigate(`/${categoryName.replace(/\s+/g, '-')}/${subCategoryName.replace(/\s+/g, '-')}/${productName.replace(/\s+/g, '-')}`)
+    }
+
     return (
-        <div className='xl:px-[60px] px-[16px]  lg:mt-0 mt-[110px] mb-[30px] sm:mb-[40px] md:mb-[60px]'>
+        <div className='xl:px-[60px] px-[16px]  mt-0 mb-[30px] sm:mb-[40px] md:mb-[60px]'>
             {/* Restructured layout for md and above */}
             <div className="md:flex items-start">
                 {/* Sticky image container with fixed width for md and above */}
@@ -68,7 +74,7 @@ const ProductDetail = () => {
                         <img
                             src={selectedImage}
                             alt="product"
-                            className="w-full h-[350px] xl:h-[414.31px] object-contain"
+                            className="xl:w-[414.31px] w-full h-[350px] xl:h-[414.31px] object-contain"
                         />
 
                         {/* Thumbnail Images */}
@@ -164,7 +170,9 @@ const ProductDetail = () => {
                         <div
                             key={item._id}
                             className="w-full rounded-[5px] border border-[#D2D2D2] px-[14px] py-[18px]"
+                            onClick={() => handleRedirect(item.productType.category.name, item.productType.name, item.name, item._id )}
                         >
+                             {console.log("iteee", item)}
                             <div className='relative md:h-[273px] h-[159.55px] mb-[10px] sm:mb-[25px] cursor-pointer'>
                                 <div className='absolute top-[13px] left-0 md:w-[55px] md:h-[27px] w-[31px] h-[14px] bg-[#FF1C1C] flex items-center justify-center'>
                                     <p className='text-[9px] sm:text-xs font-bold text-white'>Sale</p>
