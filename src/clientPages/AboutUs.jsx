@@ -13,7 +13,7 @@ const AboutUs = () => {
   return (
     <div className='xl:mt-[170px] mt-[100px]'>
       <div className='flex flex-wrap md:flex-row flex-col justify-start gap-[29px] md:px-[60px] px-[16px]'>
-        <div className='w-full md:w-[calc(55%-14.5px)] md:h-[336px] h-[282px]  md:mb-[70px]  bg-cover bg-center' style={{ backgroundImage: `url(/hands.png)` }}>
+        <div className='w-full md:w-[calc(55%-14.5px)] md:h-[336px] h-[282px]  md:mb-[70px]  bg-cover bg-center rounded-[12px]' style={{ backgroundImage: `url(/hands.png)` }}>
 
         </div>
         <div className='w-full md:flex justify-center items-center md:w-[calc(45%-14.5px)] md:h-auto   xl:mb-[70px] mb-[30px]'>
@@ -29,7 +29,7 @@ const AboutUs = () => {
       <OurCards />
 
       <div className='flex flex-wrap md:flex-row flex-col justify-start mt-[30px] md:mt-[60px] gap-[29px] xl:px-[60px] px-[16px]'>
-        <div className='w-full md:w-[calc(55%-14.5px)] md:h-[336px] h-[282px]  xl:mb-[70px]  bg-cover bg-center' style={{ backgroundImage: `url(/dgps.png)` }}>
+        <div className='w-full md:w-[calc(55%-14.5px)] md:h-[336px] h-[282px]  xl:mb-[70px]  bg-cover bg-center rounded-[12px]' style={{ backgroundImage: `url(/dgps.png)` }}>
         </div>
         <div className='w-full md:w-[calc(45%-14.5px)] xl:mb-[70px] '>
           <div className='flex items-center h-full'>
@@ -39,12 +39,12 @@ const AboutUs = () => {
       </div>
 
 
-      <div className='flex flex-wrap justify-start gap-[30px] sm:gap-[74px] xl:px-[170px] px-[16px]'>
-        <div className='w-full md:w-[calc(50%-37px)] md:h-[336px] h-[258.7px]  xl:mb-[70px]  bg-cover bg-center' style={{ backgroundImage: `url(/what_new.png)` }}>
+      <div className='flex flex-wrap md:flex-row flex-col justify-start mt-[30px] md:mt-[60px] gap-[29px] xl:px-[60px] px-[16px]'>
+        <div className='w-full md:w-[calc(55%-14.5px)] md:h-[336px] h-[282px]  xl:mb-[70px]  bg-cover bg-center rounded-[12px]' style={{ backgroundImage: `url(/what_new.png)` }}>
         </div>
 
-        <div className='w-full md:flex justify-center items-center md:w-[calc(50%-37px)] md:h-auto xl:mb-[70px] mb-[30px]'>
-          <div>
+        <div className='w-full md:flex justify-center items-center md:w-[calc(45%-14.5px)] md:h-auto   xl:mb-[70px] mb-[30px]'>
+          <div className=''>
             <h2 className='md:text-[38px] text-[26px] text-textBlack font-bold mb-[10px] sm:mb-[22.81px]'>What’s New?</h2>
             <p className='text-[13px] sm:text-base text-textBlack '>
               We have added many new products to our lab equipment list which are the latest in technology and have advanced features. We have added many lab products which are compact, portable, easy to carry, user-friendly, and will surely benefit our customers.
@@ -56,7 +56,7 @@ const AboutUs = () => {
       <ChooseUs />
 
       <div className='flex flex-wrap justify-start gap-[29px] xl:px-[60px] px-[16px] '>
-        <div className='w-full md:w-[calc(55%-14.5px)] md:h-[336px] h-[282px]  sm:mb-[60px] bg-cover bg-center' style={{ backgroundImage: `url(/team.png)` }}>
+        <div className='w-full md:w-[calc(55%-14.5px)] md:h-[336px] h-[282px]  sm:mb-[60px] bg-cover bg-center rounded-[12px]' style={{ backgroundImage: `url(/team.png)` }}>
 
         </div>
         <div className='w-full md:flex justify-center items-center md:w-[calc(45%-14.5px)] md:h-auto lg:mb-[70px]'>
@@ -67,11 +67,12 @@ const AboutUs = () => {
         </div>
       </div>
 
-      <div className='flex flex-wrap justify-start sm:gap-[74px] xl:px-[170px] px-[16px]   bg-[#F8F8F8]'>
-        <div className='w-full md:w-[calc(50%-37px)] md:h-[336px] h-[258.7px] mb-[30px] sm:my-[60px] bg-no-repeat bg-cover bg-center' style={{ backgroundImage: `url(/get_in_touch.png)` }}>
+      <div className='flex flex-wrap justify-start gap-[29px] xl:px-[60px] px-[16px]   bg-[#F8F8F8]'>
+        <div className='w-full md:w-[calc(55%-14.5px)] md:h-[336px] h-[258.7px] mb-[30px] sm:my-[60px] bg-no-repeat bg-cover bg-center rounded-[12px] flex justify-center items-center'>
+        <img src='/get_in_touch.png'  alt='get-in-touch' className='w-[460px] h-[274.82px] object-contain rounded-[12px]'/>
         </div>
 
-        <div className='w-full md:flex justify-center items-center md:w-[calc(50%-37px)] md:h-auto xl:mb-[60px] mb-[30px]'>
+        <div className='w-full md:flex justify-center items-center md:w-[calc(45%-14.5px)] md:h-auto lg:mb-[70px]'>
           <div>
             <h2 className='md:text-[38px] text-[26px] text-textBlack font-bold mb-[10px] sm:mb-[22.81px]'>Get In Touch</h2>
             <p className='sm:text-base text-[13px] text-textBlack'>
