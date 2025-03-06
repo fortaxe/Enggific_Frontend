@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import EquipmentCard from '../../clientComponents/EquipmentCard'
 import { useParams } from 'react-router-dom';
 import { BASE_URL } from '@/constants';
@@ -8,12 +8,18 @@ import Loader from '@/clientComponents/Loader';
 import NotFound from '@/clientComponents/NotFound';
 import { useSelector } from 'react-redux';
 
+
 const ProductSubCategories = () => {
+
     const apiUrl = `${BASE_URL}/get/productTypesByCategory`;
     const { categoryName } = useParams();
-    const ids = useSelector((state) => state.idStore.ids);
-    const categoryId = ids.find(item => item.idType === "category")?.id;
-    const { data, loading, error } = useFetchSubCategoryData(categoryId);
+
+  const ids = useSelector((state) => state.idStore.ids);
+
+    const categoryId = ids.find(item => item.idType === "category")?.id || null;
+    
+    const { data, loading, error } = categoryId ? useFetchSubCategoryData(categoryId) : { data: {}, loading: false, error: null };
+
 
     if (loading) return <Loader />;
     if (error) return <p>Error: {error.message}</p>;
@@ -29,11 +35,20 @@ const ProductSubCategories = () => {
                     </div>
                 </div>
 
-                <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-4 md:gap-6 lg:gap-[29px] mt-[30px] sm:mt-[40px] md:mt-[60px] mb-[30px] sm:mb-[40px] md:mb-[60px] '>
-                    {(data.productTypes && data.productTypes.length > 0) ?
-                        data.productTypes.map((item) => (
+                {/* <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-4 md:gap-6 lg:gap-[29px] mt-[30px] sm:mt-[40px] md:mt-[60px] mb-[30px] sm:mb-[40px] md:mb-[60px] '> */}
+                {/* <div className="flex transition-transform duration-500 ease-in-out mt-[30px] sm:mt-[40px] md:mt-[60px] mb-[30px] sm:mb-[40px] md:mb-[60px]"
+          style={{
+            transform: `translateX(0px)`,
+            gap: '21px',
+          }}> */}
+           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-[30px] gap-[16px] mt-[40px] mb-[70.07px]' style={{
+            transform: `translateX(0px)`,
+            gap: '21px',
+          }}>
+                    {(data.productTypes && data.productTypes.length > 0) ? data.productTypes.map((item, index) => (
                             <EquipmentCard
                                 key={item._id}
+                                index={index}
                                 equipment={item}
                                 page='sub-category'
                                 subName={item.category.name}

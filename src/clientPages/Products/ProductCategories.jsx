@@ -1,11 +1,14 @@
 import CategoryPageCard from "@/clientComponents/categoryPageCard";
 import EquipmentCard from '@/clientComponents/EquipmentCard'
 import Loader from '@/clientComponents/Loader';
+import NotFound from "@/clientComponents/NotFound";
 import useFetchData from '@/clientComponents/utils/useFetchData';
 import { BASE_URL } from '@/constants';
 import React from 'react'
 
+
 const ProductCategories = () => {
+
   const apiUrl = `${BASE_URL}/admin/get/categories`;
   const { data, loading, error } = useFetchData(apiUrl);
 
@@ -25,10 +28,20 @@ const ProductCategories = () => {
         </div>
 
         {/* Grid for Categories */}
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-[30px] gap-[16px] mt-[40px] mb-[70.07px]'>
-          {(data?.categories && data?.categories.length) && data?.categories.map((item) => (
-            <CategoryPageCard key={item._id} equipment={item} />
-          ))}
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-[30px] gap-[16px] mt-[40px] mb-[70.07px]' style={{
+            transform: `translateX(0px)`,
+            gap: '21px',
+          }}>
+        {/* <div className="flex transition-transform duration-500 ease-in-out mt-[30px] sm:mt-[40px] md:mt-[60px] mb-[30px] sm:mb-[40px] md:mb-[60px]"
+          style={{
+            transform: `translateX(0px)`,
+            gap: '21px',
+          }}> */}
+          {(data?.categories && data?.categories.length > 0) ? data?.categories.map((item, index) => (
+            <CategoryPageCard key={item._id} equipment={item} index={index} />
+          )): <div className="col-span-2 md:col-span-3 lg:col-span-4 xl:col-span-5">
+          <NotFound />
+      </div>}
         </div>
       </div>
     </div>
