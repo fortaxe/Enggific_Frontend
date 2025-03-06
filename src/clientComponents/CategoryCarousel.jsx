@@ -56,15 +56,15 @@ const CategoryCarousel = ({ categories, page, subName, subId }) => {
     if (currentIndex < categories.length - itemsPerScreen) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      setCurrentIndex(0); // Loop back to start
+      setCurrentIndex(0); // Loop back to the start
     }
   };
-
+  
   const handlePrev = () => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
     } else {
-      setCurrentIndex(categories.length - itemsPerScreen); // Loop to end
+      setCurrentIndex(categories.length - itemsPerScreen); // Loop to last visible set
     }
   };
 
