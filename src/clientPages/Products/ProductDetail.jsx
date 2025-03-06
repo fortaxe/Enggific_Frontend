@@ -74,7 +74,7 @@ const ProductDetail = () => {
                         <img
                             src={selectedImage}
                             alt="product"
-                            className="xl:w-[414.31px] w-full h-[350px] xl:h-[414.31px] object-contain border-2 border-gray-300"
+                            className="xl:w-[414.31px] w-full h-[350px] xl:h-[414.31px] object-contain border-2 border-gray-300 rounded-[5px]"
                         />
 
                         {/* Thumbnail Images */}
@@ -82,7 +82,7 @@ const ProductDetail = () => {
                             {data.product?.productImages.map((img) => (
                                 <img
                                     key={img._id}
-                                    className={`w-full h-[88px] xl:w-[94.88px] xl:h-[94.88px] cursor-pointer object-contain border-2 rounded ${selectedImage === img.url ? "border-[#E5810C]" : "border-gray-300"
+                                    className={`w-full h-[88px] xl:w-[94.88px] xl:h-[94.88px] cursor-pointer object-contain border-2 rounded-[5px] ${selectedImage === img.url ? "border-[#E5810C]" : "border-gray-300"
                                         }`}
                                     alt="product"
                                     src={img.url}
@@ -100,7 +100,7 @@ const ProductDetail = () => {
                         <img
                             src={selectedImage}
                             alt="product"
-                            className="w-full h-[250px] sm:h-[300px] object-contain border-2 border-gray-300"
+                            className="w-full h-[250px] sm:h-[300px] object-contain border-2 border-gray-300 rounded-[5px]"
                         />
 
                         {/* Thumbnail Images */}
@@ -128,14 +128,14 @@ const ProductDetail = () => {
                             <p className='text-base text-[#747474] font-bold'>BRAND: {data.product && data.product.sku}</p>
                         </div>
 
-                        <div className='bg-[#F5FFF1] flex justify-center items-center gap-[3px] w-[134px] h-[45px] text-[#51C86B] border border-[#51C86B] mb-[20px]'>
+                        <div className='bg-[#F5FFF1] flex justify-center items-center gap-[3px] w-[134px] h-[45px] text-[#51C86B] border border-[#51C86B] mb-[20px] rounded-[5px]'>
                             <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M21.4934 5.97752L12.6735 1.1486C12.2543 0.9171 11.7456 0.9171 11.3264 1.1486L2.50651 5.97752C2.05699 6.22347 1.77729 6.69489 1.77686 7.20729V16.7929C1.77729 17.3053 2.05699 17.7768 2.50651 18.0227L11.3264 22.8516C11.7457 23.0828 12.2542 23.0828 12.6735 22.8516L21.4934 18.0227C21.9429 17.7768 22.2226 17.3053 22.223 16.7929V7.20729C22.2226 6.69489 21.9429 6.22346 21.4934 5.97752ZM11.8997 2.20298C11.9597 2.17018 12.0322 2.17018 12.0922 2.20298L20.4701 6.78834L17.0684 8.64955L8.59727 4.01307L11.8997 2.20298ZM11.3986 21.5216L3.0798 16.9683C3.01722 16.9322 2.97893 16.8652 2.97957 16.7929V7.85676L11.3986 12.4672V21.5216ZM3.52982 6.78834L7.34544 4.69862L15.8156 9.3351L12 11.4228L3.52982 6.78834ZM21.0203 16.7929C21.021 16.8652 20.9827 16.9322 20.9201 16.9683L12.6013 21.5216V12.4652L16.2095 10.4897V14.4056C16.2095 14.8685 16.7106 15.1578 17.1115 14.9263C17.2976 14.8189 17.4122 14.6204 17.4122 14.4056V9.83222L21.0203 7.85676V16.7929Z" fill="#51C86B" />
                             </svg>
                             {data.product.status === 'available' ? "In Stock" : "Out of Stock"}
                         </div>
 
-                        <div className='border border-[#D2D2D2] pl-[17px] pt-[20px] mb-[20px]'>
+                        <div className='border border-[#D2D2D2] px-[17px] pt-[20px] mb-[20px] rounded-[5px]'>
                             <div>
                                 {data.product && data.product.composition ? (
                                     <div
