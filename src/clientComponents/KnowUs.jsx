@@ -5,9 +5,9 @@ import { Carousel } from 'react-responsive-carousel'
 const KnowUs = () => {
     return (
         <div className='md:px-[60px] px-[16px] md:pb-[60px] pb-[30px] bg-[#F8F8F8] md:mt-[60px] mt-[30px] md:pt-[60px] pt-[30px] sm:pb-[40px]'>
-            <div className="flex justify-between gap-[60px]">
+            <div className="flex md:flex-row flex-col justify-between gap-[60px]">
                 <div
-                    className={`w-1/2 h-auto`}
+                    className={`md:w-1/2 w-full h-auto`}
                 >
                     <div className='w-[90px] h-[4px] bg-[#E5810C] mb-[15px]' />
 
@@ -31,7 +31,7 @@ const KnowUs = () => {
                 </div>
 
 
-                <div className="h-full w-1/2">
+                <div className="h-full md:w-1/2 w-full">
                     <div className='w-full h-full mt-[10px] cursor-pointer'>
                         <Carousel
                             showArrows={true}
