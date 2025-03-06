@@ -61,12 +61,12 @@ const UserCounter = ({ targetNumber, label }) => {
   }, [targetNumber]);
   
   return (
-    <div className="flex flex-col items-start w-[50%] md:w-full">
+    <div className="flex flex-col items-center w-[50%] md:w-full md:mb-[60px] mb-[30px]">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="xl:text-[73.4px] sm:text-[40px] text-[28px] font-bold bg-gradient-to-r from-[#F8710C] to-[#F22B06] text-transparent bg-clip-text whitespace-nowrap"
+        className="xl:text-[93.65px] sm:text-[40px] text-[32px] bg-gradient-to-r from-[#F8710C] to-[#F22B06] text-transparent bg-clip-text whitespace-nowrap"
       >
         {targetNumber === "24/7" ? (
           <>
@@ -78,7 +78,7 @@ const UserCounter = ({ targetNumber, label }) => {
           </>
         )}
       </motion.div>
-      <div className="lg:text-[23px] sm:text-base text-[11px] text-textBlack text-left">{label}</div>
+      <div className="xl:text-[24px] sm:text-base text-[10px] text-textBlack text-center">{label}</div>
     </div>
   );
 };
@@ -92,13 +92,13 @@ const UserCounterList = () => {
   ];
   
   return (
-    <div className="md:flex md:flex-wrap md:justify-center md:items-center grid grid-cols-4 gap-[20px] md:gap-[80px] lg:gap-[95px] h-full md:py-[60px] sm:py-[40px] pt-[30px]">
-      {stats.map((stat, index) => (
-        <div key={index} className="w-1/2 md:w-auto flex justify-center">
-          <UserCounter targetNumber={stat.targetNumber} label={stat.label} />
-        </div>
-      ))}
-    </div>
+    <div className="xl:flex xl:flex-wrap xl:justify-center xl:items-center grid grid-cols-4 gap-[28px] md:gap-[80px] lg:gap-[95px] h-full md:py-[60px] sm:py-[40px] pt-[30px] md:px-[60px] px-[16px]">
+    {stats.map((stat, index) => (
+      <div key={index} className="w-full md:w-auto flex justify-center">
+        <UserCounter targetNumber={stat.targetNumber} label={stat.label} />
+      </div>
+    ))}
+  </div>
   );
 };
 

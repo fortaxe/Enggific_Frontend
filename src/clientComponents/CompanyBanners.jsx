@@ -29,22 +29,23 @@ const CompanyBanners = () => {
       </div>
 
       <Marquee className="bg-white dark:bg-primary md:pb-[60px] pb-[30px]" pauseOnHover={true} speed={80}>
-        {[...Array(6)].map((_, index) => (
-          <img
-            key={index}
-            src={`/company${index + 1}.png`}
-            width={isMobile ? 90 : 200}
-            height={isMobile ? 40 : 90}
-            alt={`image`}
-            className="ml-6"
-            style={{ 
-              aspectRatio: 3 / 2, 
-              objectFit: "contain",
-              ...(isMobile && { maxWidth: "90px", maxHeight: "40px" })
-            }}
-          />
-        ))}
-      </Marquee>
+  {[...Array(10)].map((_, index) => (
+    <img
+      key={index}
+      src={`/company${index + 1}.png`}
+      width={isMobile ? 90 : 140}
+      height={isMobile ? 40 : 64}
+      alt={`image`}
+      className="ml-6 mr-[30px]" // Added margin-right for spacing
+      style={{ 
+        aspectRatio: 3 / 2, 
+        objectFit: "contain",
+        ...(isMobile && { maxWidth: "90px", maxHeight: "40px" })
+      }}
+    />
+  ))}
+</Marquee>
+
     </div>
   );
 };
