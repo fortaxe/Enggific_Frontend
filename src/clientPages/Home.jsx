@@ -31,7 +31,7 @@ const Home = () => {
       <HeroCarousel carouselData={data.banners ? data.banners : []} />
       <UserCounterList />
       <About />
-      <Suspense fallback={"Loading..."}>
+      <Suspense fallback={<Loader />}>
        
         <EquipmentsCards />
         {/* <AnimatedComponent> */}
