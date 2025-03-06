@@ -61,7 +61,7 @@ const UserCounter = ({ targetNumber, label }) => {
   }, [targetNumber]);
   
   return (
-    <div className="flex flex-col items-center w-[50%] md:w-full md:mb-[60px] mb-[30px]">
+    <div className="flex flex-col items-center w-full md:w-full md:mb-[60px] mb-[30px]">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -92,9 +92,9 @@ const UserCounterList = () => {
   ];
   
   return (
-    <div className="xl:flex xl:flex-wrap xl:justify-center xl:items-center grid grid-cols-4 gap-[28px] md:gap-[80px] lg:gap-[95px] h-full md:py-[60px] sm:py-[40px] pt-[30px] md:px-[60px] px-[16px]">
+    <div className="2xl:flex 2xl:flex-wrap 2xl:justify-center 2xl:items-center grid grid-cols-4 gap-[28px] md:gap-[80px] lg:gap-[95px] h-full md:py-[60px] sm:py-[40px] pt-[30px] md:px-[60px] px-[16px]">
     {stats.map((stat, index) => (
-      <div key={index} className="w-full md:w-auto flex justify-center">
+      <div key={index} className="w-full md:w-auto flex justify-start">
         <UserCounter targetNumber={stat.targetNumber} label={stat.label} />
       </div>
     ))}
