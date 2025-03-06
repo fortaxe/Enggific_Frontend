@@ -155,7 +155,7 @@ const Header = () => {
             <img
               src="/enggific_logo.png"
               alt="enggific"
-              className="md:w-[77.77px] md:h-[64px] w-[54px] h-[54px]"
+              className="w-[52.5px] h-[43px]"
             />
           </Link>
 

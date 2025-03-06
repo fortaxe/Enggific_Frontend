@@ -65,7 +65,7 @@ const ProductDetail = () => {
     }
 
     return (
-        <div className='xl:px-[60px] px-[16px]  mt-0 mb-[30px] sm:mb-[40px] md:mb-[60px]'>
+        <div className='md:px-[60px] px-[16px]  mt-0 mb-[30px] sm:mb-[40px] md:mb-[60px]'>
             {/* Restructured layout for md and above */}
             <div className="md:flex items-start">
                 {/* Sticky image container with fixed width for md and above */}
@@ -74,7 +74,7 @@ const ProductDetail = () => {
                         <img
                             src={selectedImage}
                             alt="product"
-                            className="xl:w-[414.31px] w-full h-[350px] xl:h-[414.31px] object-contain"
+                            className="xl:w-[414.31px] w-full h-[350px] xl:h-[414.31px] object-contain border-2 border-gray-300"
                         />
 
                         {/* Thumbnail Images */}
@@ -100,7 +100,7 @@ const ProductDetail = () => {
                         <img
                             src={selectedImage}
                             alt="product"
-                            className="w-full h-[250px] sm:h-[300px] object-contain"
+                            className="w-full h-[250px] sm:h-[300px] object-contain border-2 border-gray-300"
                         />
 
                         {/* Thumbnail Images */}
@@ -172,7 +172,6 @@ const ProductDetail = () => {
                             className="w-full rounded-[5px] border border-[#D2D2D2] px-[14px] py-[18px]"
                             onClick={() => handleRedirect(item.productType.category.name, item.productType.name, item.name, item._id )}
                         >
-                             {console.log("iteee", item)}
                             <div className='relative md:h-[273px] h-[159.55px] mb-[10px] sm:mb-[25px] cursor-pointer'>
                                 <div className='absolute top-[13px] left-0 md:w-[55px] md:h-[27px] w-[31px] h-[14px] bg-[#FF1C1C] flex items-center justify-center'>
                                     <p className='text-[9px] sm:text-xs font-bold text-white'>Sale</p>

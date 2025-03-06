@@ -4,10 +4,10 @@ import { Carousel } from 'react-responsive-carousel'
 
 const KnowUs = () => {
     return (
-        <div className='bg-[#F8F8F8] md:mt-[60px] mt-[30px] px-[16px] md:pt-[60px] pt-[30px] pb-[30px] sm:pb-[40px] md:pb-[60px]'>
-            <div className="flex flex-wrap md:justify-center justify-start ">
+        <div className='md:px-[60px] px-[16px] md:pb-[60px] pb-[30px] bg-[#F8F8F8] md:mt-[60px] mt-[30px] md:pt-[60px] pt-[30px] sm:pb-[40px]'>
+            <div className="flex justify-between gap-[60px]">
                 <div
-                    className={` md:w-[428px] h-auto w-auto`}
+                    className={`w-1/2 h-auto`}
                 >
                     <div className='w-[90px] h-[4px] bg-[#E5810C] mb-[15px]' />
 
@@ -31,8 +31,8 @@ const KnowUs = () => {
                 </div>
 
 
-                <div className="h-full xl:w-[739px] md:w-[428px] w-full">
-                    <div className='w-full h-full mt-[10px]'>
+                <div className="h-full w-1/2">
+                    <div className='w-full h-full mt-[10px] cursor-pointer'>
                         <Carousel
                             showArrows={true}
                             autoPlay={true}
@@ -40,6 +40,7 @@ const KnowUs = () => {
                             showThumbs={false}
                             showStatus={false}
                             showIndicators={false}
+                            emulateTouch={true}
                             interval={3000}
                             renderArrowPrev={(onClickHandler, hasPrev, label) => (
                                 hasPrev && (
@@ -48,7 +49,7 @@ const KnowUs = () => {
                                         onClick={onClickHandler}
                                         title={label}
                                         style={{ backgroundColor: '#F8F8F8' }}
-                                        className="absolute hidden xl:block left-0 top-1/2 transform -translate-y-1/2 p-2 z-10 h-full"
+                                        className="absolute hidden  left-0 top-1/2 transform -translate-y-1/2 p-2 z-10 h-full"
                                     >
                                         <svg width={38} height={38} viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M17.1036 18.9624L24.6145 11.4515L22.9834 9.82031L13.8413 18.9624L22.9834 28.1045L24.6145 26.4733L17.1036 18.9624Z" fill="#8C8C8C" />
@@ -63,7 +64,7 @@ const KnowUs = () => {
                                         onClick={onClickHandler}
                                         title={label}
                                         style={{ backgroundColor: '#F8F8F8' }}
-                                        className="absolute hidden xl:block right-0 top-1/2 transform -translate-y-1/2 p-2 z-10 h-full"
+                                        className="absolute hidden  right-0 top-1/2 transform -translate-y-1/2 p-2 z-10 h-full"
                                     >
                                         <svg width={38} height={38} viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M20.8964 18.9624L13.3855 11.4515L15.0167 9.82031L24.1588 18.9624L15.0167 28.1045L13.3855 26.4733L20.8964 18.9624Z" fill="#8C8C8C" />
@@ -72,8 +73,8 @@ const KnowUs = () => {
                                 )
                             )}
                         >
-                            <div className='bg-white xl:px-[69px] px-[20px] py-[10px] sm:py-[39px]'>
-                                <p className='text-[14px] leading-[22px] sm:text-lg text-textBlack text-left'>The lab equipment we purchased exceeded our expectations in terms of quality and precision. The team provided excellent support, guiding us through the entire process. Highly recommend them for reliable scientific solutions</p>
+                            <div className='bg-white md:px-[69px] px-[20px] py-[10px] sm:py-[39px] rounded-[12px]'>
+                                <p className='md:text-[18px] leading-[22px] text-[14px] text-textBlack text-left'>The lab equipment we purchased exceeded our expectations in terms of quality and precision. The team provided excellent support, guiding us through the entire process. Highly recommend them for reliable scientific solutions</p>
 
                                 <div className='flex justify-between items-center mt-[15px]'>
                                     <div>
@@ -91,8 +92,8 @@ const KnowUs = () => {
                                 </div>
                             </div>
 
-                            <div className='bg-white xl:px-[69px] px-[20px] py-[10px] sm:py-[39px]'>
-                                <p className='text-[14px] leading-[22px] sm:text-lg  text-left'>The lab equipment we purchased exceeded our expectations in terms of quality and precision. The team provided excellent support, guiding us through the entire process. Highly recommend them for reliable scientific solutions</p>
+                            <div className='bg-white md:px-[69px] px-[20px] py-[10px] sm:py-[39px] rounded-[12px]'>
+                                <p className='md:text-[18px] leading-[22px] text-[14px] text-textBlack text-left'>The lab equipment we purchased exceeded our expectations in terms of quality and precision. The team provided excellent support, guiding us through the entire process. Highly recommend them for reliable scientific solutions</p>
 
                                 <div className='flex justify-between items-center mt-[15px]'>
                                     <div>
