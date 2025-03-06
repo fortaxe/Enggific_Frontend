@@ -40,17 +40,17 @@ const CategoryCarousel = ({ categories, page, subName, subId }) => {
   }, []);
 
   // Auto play functionality
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (categories.length > itemsPerScreen) {
-        setCurrentIndex((prevIndex) =>
-          prevIndex === categories.length - itemsPerScreen ? 0 : prevIndex + 1
-        );
-      }
-    }, 3000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     if (categories.length > itemsPerScreen) {
+  //       setCurrentIndex((prevIndex) =>
+  //         prevIndex === categories.length - itemsPerScreen ? 0 : prevIndex + 1
+  //       );
+  //     }
+  //   }, 3000);
 
-    return () => clearInterval(interval);
-  }, [categories.length, itemsPerScreen]);
+  //   return () => clearInterval(interval);
+  // }, [categories.length, itemsPerScreen]);
 
   const handleNext = () => {
     if (currentIndex < categories.length - itemsPerScreen) {
