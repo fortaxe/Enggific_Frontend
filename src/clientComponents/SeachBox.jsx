@@ -18,7 +18,7 @@ const SearchBox = () => {
     };
 
     return (
-        <div className="flex items-center  800-less:w-[285.33px] xl:w-[589px]">
+        <div className="flex items-center 1000-less:w-[185.33px] xl:w-[589px]">
             <div className="relative w-full">
                 <input
                     type="text"

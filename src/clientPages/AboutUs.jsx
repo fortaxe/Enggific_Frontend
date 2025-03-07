@@ -11,7 +11,7 @@ const AboutUs = () => {
   const navigate = useNavigate();
 
   return (
-    <div className='xl:mt-[170px] mt-[100px]'>
+    <div className='lg:mt-[170px] mt-[100px]'>
       <div className='flex flex-wrap md:flex-row flex-col justify-start gap-[29px] md:px-[60px] px-[16px]'>
         <div className='w-full md:w-[calc(55%-14.5px)] md:h-[336px] h-[282px]  md:mb-[70px]  bg-cover bg-center rounded-[12px]' style={{ backgroundImage: `url(/hands.png)` }}>
 
@@ -28,7 +28,7 @@ const AboutUs = () => {
 
       <OurCards />
 
-      <div className='flex flex-wrap md:flex-row flex-col justify-start mt-[30px] md:mt-[60px] gap-[29px] xl:px-[60px] px-[16px]'>
+      <div className='flex flex-wrap md:flex-row flex-col justify-start mt-[30px] md:mt-[60px] gap-[29px] md:px-[60px] px-[16px]'>
         <div className='w-full md:w-[calc(55%-14.5px)] md:h-[336px] h-[282px]  xl:mb-[70px]  bg-cover bg-center rounded-[12px]' style={{ backgroundImage: `url(/dgps.png)` }}>
         </div>
         <div className='w-full md:w-[calc(45%-14.5px)] xl:mb-[70px] '>
@@ -39,7 +39,7 @@ const AboutUs = () => {
       </div>
 
 
-      <div className='flex flex-wrap md:flex-row flex-col justify-start mt-[30px] md:mt-[60px] gap-[29px] xl:px-[60px] px-[16px]'>
+      <div className='flex flex-wrap md:flex-row flex-col justify-start mt-[30px] md:mt-[60px] gap-[29px] md:px-[60px] px-[16px]'>
         <div className='w-full md:w-[calc(55%-14.5px)] md:h-[336px] h-[282px]  xl:mb-[70px]  bg-cover bg-center rounded-[12px]' style={{ backgroundImage: `url(/what_new.png)` }}>
         </div>
 
@@ -55,7 +55,7 @@ const AboutUs = () => {
 
       <ChooseUs />
 
-      <div className='flex flex-wrap justify-start gap-[29px] xl:px-[60px] px-[16px] '>
+      <div className='flex flex-wrap justify-start gap-[29px] md:px-[60px] px-[16px] '>
         <div className='w-full md:w-[calc(55%-14.5px)] md:h-[336px] h-[282px]  sm:mb-[60px] bg-cover bg-center rounded-[12px]' style={{ backgroundImage: `url(/team.png)` }}>
 
         </div>
@@ -67,7 +67,7 @@ const AboutUs = () => {
         </div>
       </div>
 
-      <div className='flex flex-wrap justify-start gap-[29px] xl:px-[60px] px-[16px]   bg-[#F8F8F8]'>
+      <div className='flex flex-wrap justify-start gap-[29px] md:px-[60px] px-[16px]   bg-[#F8F8F8]'>
         <div className='w-full md:w-[calc(55%-14.5px)] md:h-[336px] h-[258.7px] mb-[30px] sm:my-[60px] bg-no-repeat bg-cover bg-center rounded-[12px] flex justify-center items-center'>
         <img src='/get_in_touch.png'  alt='get-in-touch' className='w-[460px] h-[274.82px] object-contain rounded-[12px]'/>
         </div>

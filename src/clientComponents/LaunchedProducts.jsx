@@ -45,7 +45,7 @@ const LaunchedProducts = () => {
     if (data.products && data.products.length === 0) return null
 
     return (
-        <div className='md:px-[60px] sm:px-[8px]  md:pt-[60px] sm:pt-[40px] pt-[30px]'>
+        <div className='md:px-[60px] px-[16px]  md:pt-[60px] sm:pt-[40px] pt-[30px]'>
             <div>
                 <div className="flex flex-col items-center justify-center text-center">
                     <div className='md:mb-[40px] mb-[30px]'>

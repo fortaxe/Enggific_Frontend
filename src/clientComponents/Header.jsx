@@ -149,7 +149,7 @@ const Header = () => {
       )}
 
       {/* Nav */}
-      <div className="bg-white lg:px-[60px] px-[16px]">
+      <div className="bg-white md:px-[60px] px-[16px]">
         <div className="mx-auto flex h-[82px] max-w-screen-3xl items-center gap-[54px]">
           <Link className="block text-teal-600" to="/">
             <img
