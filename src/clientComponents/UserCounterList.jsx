@@ -61,7 +61,7 @@ const UserCounter = ({ targetNumber, label }) => {
   }, [targetNumber]);
   
   return (
-    <div className="flex flex-col items-start w-full md:w-full md:mb-[60px] mb-[30px]">
+    <div className="flex flex-col items-start w-full md:w-full">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
