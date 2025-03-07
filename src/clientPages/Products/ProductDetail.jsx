@@ -61,7 +61,7 @@ const ProductDetail = () => {
 
     const handleRedirect = (categoryName, subCategoryName, productName, productId) => {
         dispatch(addId({ idType: "product", id: productId }));
-        navigate(`/${categoryName.replace(/\s+/g, '-')}/${subCategoryName.replace(/\s+/g, '-')}/${productName.replace(/\s+/g, '-')}`)
+        navigate(`/${categoryName.replace(/\s+/g, '-')}/${subCategoryName.replace(/\s+/g, '-')}/${productName.replace(/\s+/g, '-').replace(/\//g, '|')}`)
     }
 
     return (

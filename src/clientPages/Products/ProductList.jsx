@@ -62,7 +62,8 @@ const ProductList = () => {
 
   const handleNavigate = (categoryName, subCategoryName, productName, productId) => {
     dispatch(addId({ idType: "product", id: productId }));
-    navigate(`/${categoryName.replace(/\s+/g, '-')}/${subCategoryName.replace(/\s+/g, '-')}/${productName.replace(/\s+/g, '-')}`)
+    navigate(`/${categoryName.replace(/\s+/g, '-')}/${subCategoryName.replace(/\s+/g, '-')}/${productName.replace(/\s+/g, '-').replace(/’’\/5/, '.5inch')}
+`)
 
   }
 

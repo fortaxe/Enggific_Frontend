@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { clientLogin } from '@/redux/clientSlice/clientAuthSlice';
 import { addId } from '@/redux/clientSlice/idSlice';
+import Loader from './Loader';
 
 const LaunchedProducts = () => {
 
@@ -22,14 +23,15 @@ const LaunchedProducts = () => {
     const { data, loading, error } = useFetchData(apiUrl);
 
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Loader />;
     if (error) return <p>Error: {error}</p>;
 
     // console.log("data pr", data)
 
     const handleNavigate = (categoryName, subCategoryName, productName, productId) => {
         dispatch(addId({ idType: "product", id: productId }));
-        navigate(`/${categoryName.replace(/\s+/g, '-')}/${subCategoryName.replace(/\s+/g, '-')}/${productName.replace(/\s+/g, '-')}`)
+        navigate(`/${categoryName.replace(/\s+/g, '-')}/${subCategoryName.replace(/\s+/g, '-')}/${productName.replace(/\s+/g, '-').replace(/’’\/5/, '.5inch')}
+`)
     }
 
     const handleEnquireNow = async (id) => {
