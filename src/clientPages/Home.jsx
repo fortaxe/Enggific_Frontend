@@ -4,12 +4,12 @@ import Loader from '@/clientComponents/Loader';
 import HeroCarousel from '@/clientComponents/HeroCarousel';
 import useFetchData from '@/clientComponents/utils/useFetchData';
 import { BASE_URL } from '@/constants';
-import About from "@/clientComponents/About";
+// import About from "@/clientComponents/About";
 //import ChooseUs from "@/clientComponents/ChooseUs";
 import UserCounterList from "@/clientComponents/UserCounterList";
 import { AnimatedList } from "@/components/magicui/animated-list";
 
-// const About = lazy(() => import('@/clientComponents/About'));
+const About = lazy(() => import('@/clientComponents/About'));
 const ChooseUs = lazy(() => import('@/clientComponents/ChooseUs'));
 const CompanyBanners = lazy(() => import('@/clientComponents/CompanyBanners'));
 const EquipmentsCards = lazy(() => import('@/clientComponents/EquipmentsCards'));
