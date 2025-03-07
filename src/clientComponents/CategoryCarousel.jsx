@@ -79,7 +79,7 @@ const CategoryCarousel = ({ categories }) => {
       >
         {categories.map((category, index) => (
           <div
-            className="relative w-full h-80 rounded-[12px] overflow-hidden cursor-pointer border border-gray-200 group"
+            className="relative w-full h-80 rounded-[12px] overflow-hidden cursor-pointer border border-gray-200 group hover:border-[2px] hover:border-[#F44208]"
             key={index}
             onClick={() => handleAdd(category._id, category.name)}
             onMouseEnter={() => setHoveredIndex(index)}

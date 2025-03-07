@@ -33,7 +33,7 @@ const EquipmentCard = ({ equipment, page, subName, subId, index }) => {
 
     return (
         <div
-        className="relative w-full h-80 rounded-[12px] overflow-hidden cursor-pointer border border-gray-200 group"
+        className="relative w-full h-80 rounded-[12px] overflow-hidden cursor-pointer border border-gray-200 group hover:border-[2px] hover:border-[#F44208]"
         onClick={handleNavigate}
         onMouseEnter={() => setHoveredIndex(index)}
         onMouseLeave={() => setHoveredIndex(null)}

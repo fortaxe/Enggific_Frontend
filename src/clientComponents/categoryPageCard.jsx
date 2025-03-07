@@ -49,7 +49,7 @@ const CategoryPageCard = ({ equipment, page, subName, subId, index }) => {
         //     </div>
         // </div>
         <div
-        className="relative w-full h-80 rounded-[12px] overflow-hidden cursor-pointer border border-gray-200 group"
+        className="relative w-full h-80 rounded-[12px] overflow-hidden cursor-pointer border border-gray-200 group hover:border-[2px] hover:border-[#F44208]"
         // key={index}
         // style={{
         //   width: `calc((100% - ${(itemsPerScreen - 1) * 21}px) / ${itemsPerScreen})`,
