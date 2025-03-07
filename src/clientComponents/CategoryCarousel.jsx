@@ -48,7 +48,7 @@ const CategoryCarousel = ({ categories }) => {
       className="absolute left-[10.5px] top-1/2 transform -translate-y-1/2 z-10 bg-transparent w-10 h-full flex items-center justify-center shadow-md group-hover:bg-black group-hover:bg-opacity-50 rounded-l-[12px]"
       onClick={onClick}
     >
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 group-hover:stroke-[#fff]" fill="none" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
       </svg>
     </button>
@@ -59,7 +59,7 @@ const CategoryCarousel = ({ categories }) => {
       className="absolute right-[10.5px] top-1/2 transform -translate-y-1/2 z-10 bg-transparent w-10 h-full flex items-center justify-center shadow-md group-hover:bg-black group-hover:bg-opacity-50 rounded-r-[12px]"
       onClick={onClick}
     >
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 group-hover:stroke-[#fff]" fill="none" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
       </svg>
     </button>
