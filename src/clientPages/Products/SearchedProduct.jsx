@@ -81,7 +81,7 @@ if (error) return <p>Error: {error.message}</p>;
                     {(filteredProducts && filteredProducts.length > 0) ? filteredProducts.map((product) => (
                         <div
                             key={product._id}
-                            className="w-[calc(50%-14.5px)] xs1400:w-[calc(32.73%-19.33px)] md:h-auto h-[282px]  border border-[#D2D2D2] px-[14px] py-[18px] overflow-hidden"
+                            className="w-[calc(50%-14.5px)] xs1400:w-[calc(32.73%-19.33px)] md:h-auto h-[282px]  border border-[#D2D2D2] p-[14px] overflow-hidden rounded-[12px]"
                         >
                             
 
@@ -94,7 +94,7 @@ if (error) return <p>Error: {error.message}</p>;
 
                             <p className='text-textBlack md:text-sm text-xs mb-[22px] break-words'>{product.name}</p>
 
-                            <button onClick={()=>handleEnquireNow(product._id)} className="w-full md:h-[45px] h-[32px] flex items-center justify-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+                            <button onClick={()=>handleEnquireNow(product._id)} className="w-full md:h-[45px] h-[32px] flex items-center justify-center bg-gradient-to-r from-[#F8710C] to-[#F22B06] text-white text-base hover:from-[#FFFFFF] hover:text-[#F22B06] hover:border border-[#F22B06] transition rounded-[5px]">
                                 Enquire Now
                             </button>
                         </div>

@@ -199,7 +199,7 @@ const ProductList = () => {
               {(filteredProducts && filteredProducts.length > 0) ? filteredProducts.map((item, index) => (
                 <div
                   key={index}
-                  className="w-[calc(50%-14.5px)] xl:w-[calc(32.73%-19.33px)] md:h-auto  border border-[#D2D2D2] px-[14px] 2xl:px-[30px] py-[18px] cursor-pointer overflow-hidden"
+                  className="w-[calc(50%-14.5px)] xl:w-[calc(32.73%-19.33px)] md:h-auto  border border-[#D2D2D2] p-[14px] cursor-pointer overflow-hidden rounded-[12px]"
                 >
                   {console.log("item", item)}
                   <div className='relative md:h-[273px] h-[159.55px] mb-[12px]' onClick={() => handleNavigate(item?.productType?.category?.name, item?.productType?.name, item?.name, item?._id)}>
@@ -211,7 +211,7 @@ const ProductList = () => {
 
                   <p className='text-textBlack md:text-sm text-xs mb-[22px] break-words'>{item.name}</p>
 
-                  <button onClick={() => handleEnquireNow(item._id)} className="w-full md:h-[45px] h-[32px] flex items-center justify-center bg-orange-500 text-white text-base hover:bg-orange-600 transition">
+                  <button onClick={() => handleEnquireNow(item._id)} className="w-full md:h-[45px] h-[32px] flex items-center justify-center bg-gradient-to-r from-[#F8710C] to-[#F22B06] text-white text-base hover:from-[#FFFFFF] hover:text-[#F22B06] hover:border border-[#F22B06] transition rounded-[5px]">
                     Enquire Now
                   </button>
                 </div>
