@@ -7,12 +7,12 @@ const About = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="flex flex-col md:flex-row items-start justify-center px-4 md:px-8 lg:px-[157px] 2xl:px-[257px] pt-[14px] sm:pt-0 pb-[30px] sm:pb-[40px] md:pb-[60px]">
+    <div className="flex flex-col md:flex-row md:gap-[60px] gap-[30px] items-center justify-center md:px-[60px] px-[16px] pt-[14px] sm:pt-0 pb-[30px] sm:pb-[40px] md:pb-[60px]">
       {/* Left Side - Animated List */}
       <div className="w-full xl:w-[40%]">
         {/* Removed the border for inspection */}
-        <div className="bg-white rounded-[23.37px] overflow-hidden">
-          <AnimatedListDemo />
+        <div className="bg-white md:flex lg:items-end lg:justify-end md:items-center md:justify-center rounded-[23.37px] overflow-hidden">
+          <img src='/About_Image.png' alt="About Image" className="lg:w-[496px] w-full h-[452px] object-contain" />
         </div>
       </div>
       
@@ -31,7 +31,7 @@ const About = () => {
           mechanical lab testing machines, drawing instruments, construction
           machinery, and more.
         </p>
-        <button onClick={()=> navigate('/about-us')} className="bg-gradient-to-r from-[#F8710C] to-[#F22B06] rounded-[5px] h-[38px] sm:h-[45px] px-[10px] sm:px-[18px] text-white text-center mt-[16px] sm:mt-[22px] sm:text-[15.25] text-[14px]">
+        <button onClick={()=> navigate('/about-us')} className="bg-gradient-to-r from-[#F8710C] to-[#F22B06] rounded-[5px] h-[38px] sm:h-[45px] px-[10px] sm:px-[18px] text-white text-center mt-[16px] sm:mt-[22px] sm:text-[15.25] text-[14px] hover:from-[#FFFFFF] hover:text-[#F22B06] hover:border border-[#F22B06] font-bold">
           Know More
         </button>
       </div>
