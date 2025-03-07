@@ -17,7 +17,7 @@ const ProductCategories = () => {
 
   return (
     <div className='xl:mt-[170px] mt-[100px]'>
-      <div className='lg:px-[60px] px-[16px]'>
+      <div className='md:px-[60px] px-[16px]'>
         <div className='md:mb-[40px] mb-[30px]'>
           <h3 className='md:text-2xl text-base text-center text-textBlack'>What's new</h3>
           <div className="relative">
