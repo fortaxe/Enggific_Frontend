@@ -7,11 +7,11 @@ const About = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="flex flex-col md:flex-row md:gap-[60px] gap-[30px] items-center justify-center md:px-[60px] px-[16px] pt-[14px] sm:pt-0 pb-[30px] sm:pb-[40px] md:pb-[60px]">
+    <div className="flex bg-[#F8F8F8] flex-col md:flex-row md:gap-[60px] gap-[30px] items-center justify-center md:px-[60px] px-[16px] py-[60px] md:mb-[60px] mb-[30px]">
       {/* Left Side - Animated List */}
       <div className="w-full xl:w-[40%]">
         {/* Removed the border for inspection */}
-        <div className="bg-white md:flex lg:items-end lg:justify-end md:items-center md:justify-center rounded-[23.37px] overflow-hidden">
+        <div className="md:flex lg:items-end lg:justify-end md:items-center md:justify-center rounded-[23.37px] overflow-hidden">
           <img src='/About_Image.png' alt="About Image" className="lg:w-[496px] w-full h-[452px] object-contain" />
         </div>
       </div>
