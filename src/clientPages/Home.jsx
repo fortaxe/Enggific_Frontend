@@ -30,7 +30,7 @@ const Home = () => {
     <div>
       <HeroCarousel carouselData={data.banners ? data.banners : []} />
       <UserCounterList />
-      <About />
+      {/* <About /> */}
       <Suspense fallback={<Loader />}>
        
         <EquipmentsCards />
