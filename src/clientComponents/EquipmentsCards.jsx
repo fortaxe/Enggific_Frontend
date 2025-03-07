@@ -5,13 +5,14 @@ import useFetchData from './utils/useFetchData';
 import { useNavigate } from 'react-router-dom';
 import AnimatedComponent from './AnimatedComponent';
 import CategoryCarousel from './CategoryCarousel';
+import Loader from './Loader';
 
 const EquipmentsCards = () => {
   const navigate = useNavigate();
   const apiUrl = `${BASE_URL}/admin/get/categories`;
   const { data, loading, error } = useFetchData(apiUrl);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error: {error}</p>;
 
   return (
