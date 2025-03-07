@@ -129,8 +129,8 @@ const ProductList = () => {
   return (
     <section className='xl:mt-[170px] mt-[100px]'>
       <div className="mx-auto max-w-full px-4 py-[29px] sm:px-6 sm:py-12 lg:px-[60px]">
-        <header>
-          <h2 className="xl:text-[38px] text-[26px] text-textBlack font-bold sm:text-3xl">{filters[0]?.category?.name}</h2>
+        <header className='max-w-[556px]'>
+          <h2 className="xl:text-[34px] text-[26px] text-textBlack font-bold sm:text-3xl">{filters[0]?.category?.name}</h2>
         </header>
 
         <div className="mt-8 block lg:hidden">
@@ -195,7 +195,7 @@ const ProductList = () => {
                                 <option value="Title, ASC">Title</option>
                             </select>
                         </div> */}
-            <div className="flex flex-wrap gap-[29px]">
+            <div className="flex flex-wrap gap-[29px] h-[700px] overflow-y-auto no-scrollbar">
               {(filteredProducts && filteredProducts.length > 0) ? filteredProducts.map((item, index) => (
                 <div
                   key={index}
