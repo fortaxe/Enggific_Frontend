@@ -21,7 +21,7 @@ const About = () => {
         <p className="md:text-[38px] sm:mt-0 mt-[30px] text-[25px] text-[#424242] font-bold mb-[12px]">
           Know about us
         </p>
-        <p className="md:text-base text-[13px] text-textBlack text-left max-w-[767px] md:leading-[22px]">
+        <p className="md:text-base text-[13px] text-textBlack text-left max-w-[674px] md:leading-[22px]">
           ENGGIFIC Engineering & Scientific is one of the pioneers engaged in
           offering <span className="font-bold">a wide range of Engineering & Scientific laboratory equipment</span>. We
           Manufacture, Export, Import, and Supply a wide range of LAB
