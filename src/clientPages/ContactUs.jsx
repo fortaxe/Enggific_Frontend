@@ -31,7 +31,7 @@ const ContactUs = () => {
     return (
         <div className="flex flex-col lg:flex-row justify-center items-center px-[16px] sm:px-[40px] md:px-[60px] xl:px-[150px] pt-[60px]  lg:pt-[126px] pb-[30px] sm:pb-[40px] md:pb-[60px]">
             <div className="bg-white rounded-lg w-full max-w-[545px] mb-8 lg:mb-0">
-                <h2 className="text-[54px] font-bold mb-[15px] sm:mb-[36px] text-left ">Get in Touch</h2>
+                <h2 className="md:text-[54px] text-[26px] font-bold mb-[15px] sm:mb-[36px] text-left ">Get in Touch</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-2 sm:mb-5">
                         <input
