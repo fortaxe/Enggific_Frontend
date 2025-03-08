@@ -87,7 +87,7 @@ const ContactUs = () => {
                         />
                     </div>
 
-                    <button className="bg-gradient-to-r from-[#F8710C] to-[#F22B06] rounded-[5px] h-[38px] sm:h-[45px] px-[10px] sm:px-[18px] text-white text-center sm:text-[15.25] text-[14px] w-full mb-[30px] sm:mb-[40px] md:mb-[60px]">
+                    <button className="bg-gradient-to-r from-[#F8710C] to-[#F22B06] rounded-[5px] h-[38px] sm:h-[45px] px-[10px] sm:px-[18px] text-white text-center sm:text-[15.25] text-[14px] w-full mb-[30px] sm:mb-[40px] md:mb-[60px] hover:from-[#FFFFFF] hover:text-[#F22B06] hover:border border-[#F22B06] font-bold">
                         Submit
                     </button>
                 </form>

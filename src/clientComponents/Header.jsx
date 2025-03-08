@@ -243,7 +243,7 @@ const Header = () => {
               
               {/* Know More button - visible only below sm breakpoint */}
               <Link to="/contact-us" className="sm:hidden block">
-                <button className="bg-gradient-to-r from-[#F8710C] to-[#F22B06] rounded-[5px] h-[38px] px-[10px] text-white text-sm">
+                <button className="bg-gradient-to-r from-[#F8710C] to-[#F22B06] rounded-[5px] h-[38px] px-[10px] text-white text-sm hover:from-[#FFFFFF] hover:text-[#F22B06] hover:border border-[#F22B06] font-bold">
                   Contact Us
                 </button>
               </Link>
